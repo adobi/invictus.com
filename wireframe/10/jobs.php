@@ -33,9 +33,52 @@
           <li>Active user of Twitter</li>
         </ul>
         <p style="margin-top:30px;">
-        <a href="apply.php" class="btn btn-primary btn-large">Apply for this job &rarr;</a>
+        <a href="#" class="btn btn-primary btn-large" id="apply-for-the-job">Apply for this job &rarr;</a>
         </p>
       </div>      
+    <div id="job-application-form" style="display:none;">
+      <hr>
+      <form action="" method="post" class="form-horizontal job-application-form">
+        <fieldset>
+          <legend>Apply for Software Engineer - Front-End</legend>
+          <div class="control-group">
+            <label for="firstname" class="control-label">Firstname</label>
+            <div class="controls">
+              <input type="text" id="firstname" class="input-xlarge">
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="lastname" class="control-label">Lastname</label>
+            <div class="controls">
+              <input type="text" id="lastname" class="input-xlarge">
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="email" class="control-label">Email</label>
+            <div class="controls">
+              <input type="text" id="email" class="input-xlarge">
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="phone" class="control-label">Phone</label>
+            <div class="controls">
+              <input type="text" id="phone" class="input-xlarge">
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="cv" class="control-label">CV</label>
+            <div class="controls">
+              <input type="file" id="cv" class="input-xlarge">
+            </div>
+          </div>  
+          <div class="form-actions">
+            <button class="btn btn-primary  btn-large" type="submit">Send application</button>
+            <button class="btn" type="reset" onclick="$('#job-application-form').hide();">Cancel</button>
+          </div>                                                
+        </fieldset>
+      </form>
+    </div>
+      
     </div>
     <div class="span4 details-pane" style="height:auto; margin-top:55px;">
       <ul class="nav nav-list jobs-list">

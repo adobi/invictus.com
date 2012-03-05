@@ -781,7 +781,7 @@ footer a:hover {
 @media (min-width: 980px) {
   .subnav-fixed {
     position: fixed;
-    top: 70px;
+    top: 67px;
     left: 0;
     right: 0;
     z-index: 930;

@@ -1,9 +1,10 @@
 <?php require_once 'h.php'; ?>
   <div class="row">
     <div class="span8">
+          <h1 style="color:#666">Apply for <em  style="color:#333">Software Engineer - Front-End</em></h1>
+          <hr>
       <form action="" method="post" class="form-horizontal job-application-form">
         <fieldset>
-          <legend>Apply for <em>Software Engineer - Front-End</em></legend>
           <div class="control-group">
             <label for="firstname" class="control-label">Firstname</label>
             <div class="controls">
@@ -41,12 +42,13 @@
         </fieldset>
       </form>
     </div>
-    <div class="span4 details-pane" style="height:auto;">
+    <div class="span4 details-pane" style="height:auto; margin-top:55px;">
       <ul class="nav nav-list jobs-list">
         <li class="nav-header">Current positions</li>
-        <?php foreach (range(0,10) as $key => $value): ?>
+        <hr style="margin:2px auto 8px auto;">
+        <?php foreach (range(0,5) as $key => $value): ?>
           <li>
-            <a href="#">Position <?php echo $key+1 ?></a>
+            <a href="#" style="font-size:1.2em"><i class="icon-user" style="margin-right:5px; margin-top:0px;"></i>Position <?php echo $key+1 ?></a>
           </li>
         <?php endforeach ?>
       </ul>

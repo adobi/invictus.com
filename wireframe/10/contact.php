@@ -43,7 +43,7 @@
             </div>
           </div>
           <div class="form-actions">
-            <button class="btn btn-primary  btn-large" type="submit">Send application</button>
+            <button class="btn btn-primary  btn-large" type="submit">Send message</button>
             <button class="btn" type="reset">Cancel</button>
           </div>                                                
         </fieldset>

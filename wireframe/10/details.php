@@ -136,7 +136,6 @@
       <hr>
       
       <h2 style="margin-bottom:20px;">Greed Corp on Facebook</h2>
-      
       <div class="fb-like" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false"></div>
       <a href="https://twitter.com/share" class="twitter-share-button" data-via="adobi">Tweet</a>
       <g:plusone size="medium"></g:plusone>
