@@ -1,0 +1,41 @@
+Fooldal
+  - slogen nincs *
+  - a helyet kitolteni *
+  - slider alatti hely kisebb, hogy kiferjen egy kepernyobe *
+  - current offer adott datumtol ervenyes
+  - blog helyett egyenlore about us
+  - all games hatter ami a hover, vagy amilyen a more games active, legyen prominensebb *
+
+All games
+  -fekete-feher kepeket ha lehet
+
+Jatek oldala
+  - felso cim nem kell, csak ami a jobb oldali dobozba van *
+  - jobb oldalon cim alatt szeparalo vonal *
+  - kicsi carousel fulek balra, es feljebb
+  - stores ikonok kukaba, helyett custom button a platform nevel (ifon, ipad)
+  - csak itt bal oldalon fixen similar games, klikk, kinyilik (1 verzio) responsive, ha negy a felbontas akkor latszik, egyebkent csak a kinyithato cucc
+  - 2. verzio a comment felett 5 jatek egy boxba *
+
+Contact
+  - support section (majd)
+  - jobboldalra ceges infok *
+  - kozepre 3 szekcio: info, support, marketing, press radio, alatta a form: subj, email, msg *
+  - szinek varialas *
+  
+Jobs
+  - szetszedni a meglevo reszekre 
+  - elore definialt / vagy mar volt reszeket alapbol hozza, a bulletpointokat egyenkent visszuk fel
+  - position neve bal oldalon nagyobb betu, melle ikonok, (allas kategoria ) grafikus, programozo, marketing, teszter, adminrol allithato
+  - ha grafikus, akkor legyen protfolio
+
+Footer
+  - all rights
+  - inspiracio
+  - games, all games, contact, jobs, terms & cond
+  - ceges twitter, facebook
+  - latest games top games helyett
+  
+Admin
+=======
+
