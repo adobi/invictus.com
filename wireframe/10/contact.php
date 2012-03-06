@@ -39,7 +39,7 @@
           <div class="control-group">
             <label for="message" class="control-label">Message</label>
             <div class="controls">
-              <textarea rows="3" id="message" class="input-xxlarge"></textarea>
+              <textarea rows="3" id="message" class="span6"></textarea>
             </div>
           </div>
           <div class="form-actions">
