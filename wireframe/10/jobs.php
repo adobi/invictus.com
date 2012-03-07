@@ -81,10 +81,24 @@
       
     </div>
     <div class="span4 details-pane" style="height:auto; margin-top:55px;">
+      <h3>Current positions</h3>
+      <hr style="margin:2px auto 8px auto;">
+
       <ul class="nav nav-list jobs-list">
-        <li class="nav-header">Current positions</li>
-        <hr style="margin:2px auto 8px auto;">
-        <?php foreach (range(0,5) as $key => $value): ?>
+        <li class="nav-header">Developer</li>
+        <?php foreach (range(0,1) as $key => $value): ?>
+          <li>
+            <a href="#" style="font-size:1.2em"><i class="icon-user" style="margin-right:5px; margin-top:0px;"></i>Position <?php echo $key+1 ?></a>
+          </li>
+        <?php endforeach ?>
+        <li class="nav-header">Designer</li>
+        <?php foreach (range(0,0) as $key => $value): ?>
+          <li>
+            <a href="#" style="font-size:1.2em"><i class="icon-user" style="margin-right:5px; margin-top:0px;"></i>Position <?php echo $key+1 ?></a>
+          </li>
+        <?php endforeach ?>
+        <li class="nav-header">Marketing</li>
+        <?php foreach (range(0,2) as $key => $value): ?>
           <li>
             <a href="#" style="font-size:1.2em"><i class="icon-user" style="margin-right:5px; margin-top:0px;"></i>Position <?php echo $key+1 ?></a>
           </li>

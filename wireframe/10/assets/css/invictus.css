@@ -1,4 +1,4 @@
-﻿/*@import url(font.css);*/
+/*@import url(font.css);*/
 
 
 /* header icons  */
@@ -218,14 +218,17 @@
   //background:rgba(0,0,0,.5)!important;
   //background:#008DB8;
   background:#E95C41;
+  //background:#1483BC;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .all-games-link {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
   background:#1483BC;
   color:#fff!important;
   line-height:36px!important;
   font-size:1.4em;
-  border-radius:0 0 4px 4px;
+  border-radius:0 0 2px 2px;
   text-align:center;
 }
 
@@ -254,10 +257,12 @@
 }
 
 .navbar .dropdown-menu {
-  margin-top:0px;
+  margin-top:-1px;
+  
   -webkit-border-radius: 0 0 4px 4px;
   -moz-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;  
+  
 }
 .collapse.in {
   height:auto !important;

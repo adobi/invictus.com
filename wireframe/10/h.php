@@ -23,7 +23,10 @@
     <!--[if IE]>
       <link href="assets/css/ie.css" rel="stylesheet">
     <![endif]-->
-
+    <!--[if IE]>
+      <script src="https://getfirebug.com/firebug-lite-debug.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
   </head>
 
   <body>

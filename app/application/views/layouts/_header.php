@@ -99,7 +99,8 @@
           	        <li><a href="<?php echo base_url() ?>offer"><i class="icon-big gift-icon"></i>Offers</a></li>
           	        <li><a href="<?php echo base_url() ?>crosspromo"><i class="icon-big roundabout-icon"></i>Promo</a></li>
           	        <li><a href="<?php echo base_url() ?>platform"><i class="icon-big iphone-icon"></i>Platforms</a></li>
-          	        <li><a href="<?php echo base_url() ?>settings"><i class="icon-big group-icon"></i>Jobs</a></li>
+          	        <li><a href="<?php echo base_url() ?>jobs"><i class="icon-big usd-icon"></i>Jobs</a></li>
+          	        <li><a href="<?php echo base_url() ?>job_applications"><i class="icon-big group-icon"></i>Candidates</a></li>
           	        <li><a href="<?php echo base_url() ?>contact"><i class="icon-big contact-icon"></i>Contact</a></li>
           	        <!-- 
           	        <li><a href="<?php echo base_url() ?>contact"><i class="icon-big charts-icon"></i>Analytics</a></li>
@@ -109,7 +110,7 @@
           	    </div>
           	  </div>
         	  <?php endif ?>
-        	  <div class="span8 content-wrapper">
+        	  <div class="span7 content-wrapper">
         	    <div class="well">
                 
                 

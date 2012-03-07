@@ -1,7 +1,7 @@
               </div> <!-- well -->
             </div> <!-- content-wrapper -->
             <?php if ($this->session->userdata('logged_in')): ?>
-        	    <div class="span3 sidebar-navigation-wrapper-right">
+        	    <div class="span4 sidebar-navigation-wrapper-right">
           	    <div class="well">
                 </div> <!-- well -->
               </div>

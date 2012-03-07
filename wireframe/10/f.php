@@ -33,14 +33,10 @@
 
     <!-- Le javascript
     ================================================== -->
-    <!--[if IE]>
-      <script src="https://getfirebug.com/firebug-lite-debug.js"></script>
-      <script src="https://raw.github.com/scottjehl/Respond/master/respond.min.js"></script>
-    <![endif]-->
-    
     <!-- Placed at the end of the document so the pages load faster -->
+
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <!-- <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>     -->
+    
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/elastislide/js/jquery.easing.1.3.js"></script>
     <script src="assets/js/elastislide/js/jquery.elastislide.js"></script>
