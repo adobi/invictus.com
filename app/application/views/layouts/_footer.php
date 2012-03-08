@@ -1,4 +1,4 @@
-              </div> <!-- well -->
+
             </div> <!-- content-wrapper -->
             <?php if ($this->session->userdata('logged_in')): ?>
         	    <div class="span4 sidebar-navigation-wrapper-right">
@@ -34,8 +34,18 @@
                     "<?php echo base_url(); ?>scripts/plugins/scroll/jquery.scrollTo-min.js",
                     "<?php echo base_url() ?>scripts/plugins/google-code-prettify/prettify.js",
                     "<?php echo base_url() ?>scripts/plugins/charcounter/jquery.charcounter.js",
+                    "<?php echo base_url() ?>scripts/plugins/prettify-upload/jquery.prettify-upload.js",
                     "<?php echo base_url() ?>scripts/plugins/lionbars/jquery.lionbars.0.3.min.js",
-                    "<?php echo base_url() ?>scripts/page.js?<?php echo time(); ?>"
+                    "<?php echo base_url() ?>scripts/page.js?<?php echo time(); ?>",
+                    "<?php echo base_url() ?>scripts/nav.js?<?php echo time(); ?>",
+                    function() {
+                    
+                        <?php if ($this->session->flashdata('message')): ?>
+                            $(function() {
+                                App.showNotification("<?php echo $this->session->flashdata("message") ?>")
+                            })
+                        <?php endif ?>
+                    }                     
             );
     	</script>
     	            

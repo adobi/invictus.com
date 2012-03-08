@@ -1,15 +1,32 @@
 ﻿(function($) {
-	
+  App.Datepicker = function() {
+    $('.datepicker').datepicker({
+      dateFormat: 'yy-mm-dd',
+      changeYear: true,
+      changeMonth: true,
+      showMonthAfterYear:true,
+      yearRange: '2010:+5'
+    });    
+  };
+
+  App.showNotification = function(message) 
+  {
+      var self = $('#loading-global');
+      
+      self.html(message).show();
+
+      setTimeout(function() {
+          self.hide();
+          self.html('Working...');
+
+      }, 4000)
+      
+  };  
+  
 	$(function() {
 
-	    
-        $('.datepicker').datepicker({
-            dateFormat: 'yy-mm-dd',
-            changeYear: true,
-            changeMonth: true,
-            showMonthAfterYear:true,
-            yearRange: '2010:+5'
-        });	  	    
+	    App.Datepicker()
+        	  	    
 	    
 	    //$('#fileupload').fileupload();
 	    
@@ -236,7 +253,7 @@
 		prettyPrint() 
           
 		
-		$('.sidebar-navigation-wrapper-right .well').lionbars(); 
+		//$('.sidebar-navigation-wrapper-right .well').lionbars(); 
     });
 	
 }) (jQuery);

@@ -93,13 +93,13 @@
           	  <div class="span1 sidebar-navigation-wrapper-left">
           	    <div class="sidebar-nav">
           	      <ul class="nav nav-list left-side-nav">
-                    <li class="active"><a href="<?php echo base_url() ?>dashboard"><i class="icon-big dashboard-icon"></i>Dashboard</a></li>
+                    <li <?php echo $this->uri->segment(1) === 'dashboard' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>dashboard"><i class="icon-big dashboard-icon"></i>Dashboard</a></li>
           	        <li><a href="<?php echo base_url() ?>game"><i class="icon-big games-icon"></i>Games</a></li>
           	        <li><a href="<?php echo base_url() ?>page"><i class="icon-big page-icon"></i>Pages</a></li>
           	        <li><a href="<?php echo base_url() ?>offer"><i class="icon-big gift-icon"></i>Offers</a></li>
           	        <li><a href="<?php echo base_url() ?>crosspromo"><i class="icon-big roundabout-icon"></i>Promo</a></li>
           	        <li><a href="<?php echo base_url() ?>platform"><i class="icon-big iphone-icon"></i>Platforms</a></li>
-          	        <li><a href="<?php echo base_url() ?>jobs"><i class="icon-big usd-icon"></i>Jobs</a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'job' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>job"><i class="icon-big usd-icon"></i>Jobs</a></li>
           	        <li><a href="<?php echo base_url() ?>job_applications"><i class="icon-big group-icon"></i>Candidates</a></li>
           	        <li><a href="<?php echo base_url() ?>contact"><i class="icon-big contact-icon"></i>Contact</a></li>
           	        <!-- 
@@ -111,6 +111,5 @@
           	  </div>
         	  <?php endif ?>
         	  <div class="span7 content-wrapper">
-        	    <div class="well">
                 
                 

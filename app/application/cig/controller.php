@@ -2,7 +2,7 @@
 
 if (! defined('BASEPATH')) exit('No direct script access');
 
-require_once 'MY_Controller.php';
+//require_once 'MY_Controller.php';
 
 class %%CONTROLLER_CLASS_NAME%% extends MY_Controller 
 {
