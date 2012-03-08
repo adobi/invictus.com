@@ -9,7 +9,7 @@
 
     <legend>
         <?php if ($item): ?>
-            Edit
+            Edit <?php echo $item->name ?>
         <?php else: ?>
             New
         <?php endif ?>
@@ -26,7 +26,7 @@
             <div class="controls">
                 <?php if ($item && $item->icon): ?>
                     <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->icon ?>" alt="">
-                    <a href="echo" class="button"><i class="icon-trash"></i></a>
+                    <a href="<?php echo base_url() ?>jobcategory/delete_image/<?php echo $item->id ?>" class="pull-right" data-ajax-link="1"><i class="icon-trash"></i></a>
                 <?php else: ?>
                     <input type="file" name = "icon" id = "icon" class = "span4"/>
                 <?php endif ?>

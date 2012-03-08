@@ -99,12 +99,16 @@ class Jobcategory extends MY_Controller
             $this->session->set_flashdata('message', 'Deleted');
         }
         
-        redirect($_SERVER['HTTP_REFERER']);
+        echo display_success('Saved');
+        
+        die;
+        
+        //redirect($_SERVER['HTTP_REFERER']);
     }  
     
     private function _deleteImage($id, $withRecord = false) 
     {
-        $this->load->model('Platforms', 'model');
+        $this->load->model('Jobcategorys', 'model');
         
         $item = $this->model->find($id);
         
