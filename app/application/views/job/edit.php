@@ -15,7 +15,7 @@
         <?php endif ?>
         <p class="pull-right"><a href="#" class="btn" data-close-right="1"><i class="icon-remove"></i>Close</a></p>
     </legend>  
-    <div class="span5" style="margin-left:0px;max-height:600px;overflow-y:scroll; margin-bottom:20px;">
+    <div class="span10" style="margin-left:0px;max-height:600px;overflow-y:scroll; margin-bottom:20px;">
         
         <fieldset class="control-group">
             <label class="control-label" for="type">Type</label>
