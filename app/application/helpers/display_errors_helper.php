@@ -6,7 +6,7 @@
 	    $html = '';
 			if ($message) {
     			    
-    			$html .= '<div class = "alert alert-error">';
+    			$html .= '<div class = "alert alert-error ">';
     				$html .= $message;
     			$html .= '</div>';
 			

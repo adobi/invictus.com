@@ -7,7 +7,8 @@
         <h2>Software Engineer - Front-End</h2>
         <h6 style="margin-bottom:30px;">Full-Time — Debrecen, Hungary</h6>
         
-        <strong>About this Job</strong><br> Twitter is looking for engineers to focus on front-end development. You should have a passion for shipping elegant, responsive web interfaces that will be used by millions of people.<br> <br> There are currently openings for Front-End Engineers on multiple teams.<br>&nbsp; <br> <strong>Responsibilities</strong><br>
+        <strong>About this Job</strong><br> Twitter is looking for engineers to focus on front-end development. You should have a passion for shipping elegant, responsive web interfaces that will be used by millions of people.<br> <br> There are currently openings for Front-End Engineers on multiple teams.
+        <br>&nbsp; <br> <strong>Responsibilities</strong><br>
         <ul>
           <li>Write front-end code in Ruby, HTML/CSS, and Javascript<br> </li>
           <li>Implement new features and optimize existing ones from controller-level to UI<br> </li>

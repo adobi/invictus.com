@@ -1,4 +1,4 @@
-﻿(function($) {
+(function($) {
   App.Datepicker = function() {
     $('.datepicker').datepicker({
       dateFormat: 'yy-mm-dd',
@@ -23,25 +23,61 @@
       
   };  
   
+  App.select = function(el) 
+  {
+    App.unselect()
+    el.parents('.item').addClass('selected')
+  };
+  
+  App.unselect = function() 
+  {
+    $('.items').find('.selected').removeClass('selected') 
+    
+  };
+  
 	$(function() {
-
+    
 	    App.Datepicker()
-        	  	    
+      $('body').delegate('[data-unselect]', 'click', App.unselect)   
+
+
+        $('body').delegate('.add-custom-action', 'click', function() {
+            var self = $(this),
+                select = self.prevAll('select'),
+                name = select.attr('name'),
+                p = self.next(),
+                input = p.find('input');
+                
+            p.show()
+            self.hide()
+            select.hide()
+            select.removeAttr('name')
+            input.attr('name', name)
+
+            return false;
+        })
+        
+        $('body').delegate('.cance-custom-action', 'click', function() {
+            var self = $(this),
+                input = self.parent().find('input'),
+                name = input.attr('name'),
+                p = self.parent(),
+                select = p.prevAll('select')
+            
+            p.hide()
+            
+            input.removeAttr('name')
+            
+            select.attr('name', name).show()
+            
+            select.next().show()
+            
+            return false
+        })        	  	    
 	    
 	    //$('#fileupload').fileupload();
 	    
-	    $('body').delegate('.edit-video', 'click', function() {
-	        
-	        var self = $(this), form = $('#edit-video-form'), item = self.parents('.item:first');
-	        //console.log(form, item);
-	        form.find('[name=title]').val(item.find('.title').html());
-	        form.find('[name=video]').val(item.find('.video').attr('data-video-id'));
-	        form.append($('<input />', {type: 'hidden', name: 'id', value: self.attr('data-id')}));
-	        
-	        $.scrollTo($('.container'));
-	        
-	        return false;
-	    });
+
 
         $('#loading-global')
            .ajaxStart(function() {
@@ -59,29 +95,6 @@
             });
 	    
         /*
-	    $('#rate-star').each(function(i, v) {
-	        var self = $(v);
-	        
-	        self.raty({
-	            path: App.URL + 'scripts/plugins/raty/img/',
-	            start: self.attr('data-rate'),
-	            scoreName: 'rate', 
-            });
-	    });
-	    
-	    
-	    $('.separator, .separator label').css('cursor', 'pointer');
-	    $('.section-content').hide();
-	    $('.section-content:first').show();
-	    $('body').delegate('.separator', 'click', function() {
-	        //$('.section-content').hide();
-	        $(this).next('.section-content:first').toggle();
-	    });
-	    
-			
-        $('.separator').find('strong').wrap('<a href="javascript:;"></a>');
-        $('.separator').find('strong').append('<span  style = " margin-left:2px;font-family:verdana;">»</span>');	    
-        
         $( "#image-sortable" ).sortable({
             //placeholder: "ui-state-highlight",
             stop: function(event, ui) {
@@ -97,43 +110,27 @@
                 $.post(App.URL+"image/update_order", data, function() {});
             }
         });
-		$( "#image-sortable" ).disableSelection();          
+    		$( "#image-sortable" ).disableSelection();          
+    
+            $( "#store-sortable" ).sortable({
+                //placeholder: "ui-state-highlight",
+                stop: function(event, ui) {
+                    //console.log(event, ui);
+                    //console.log($('#sortable').sortable('toArray'));
+                    var name = $('.sortable-wrapper').find('[type=hidden]').attr('name'),
+                        value = $('.sortable-wrapper').find('[type=hidden]').attr('value');
+                    
+                    var data = {};
+                    data['order'] = $('#store-sortable').sortable('toArray');
+                    data[name] = value;
+                    //console
+                    $.post(App.URL+"store/update_order", data, function() {});
+                }
+            });
+    		$( "#store-sortable" ).disableSelection();    
 
-        $( "#store-sortable" ).sortable({
-            //placeholder: "ui-state-highlight",
-            stop: function(event, ui) {
-                //console.log(event, ui);
-                //console.log($('#sortable').sortable('toArray'));
-                var name = $('.sortable-wrapper').find('[type=hidden]').attr('name'),
-                    value = $('.sortable-wrapper').find('[type=hidden]').attr('value');
-                
-                var data = {};
-                data['order'] = $('#store-sortable').sortable('toArray');
-                data[name] = value;
-                //console
-                $.post(App.URL+"store/update_order", data, function() {});
-            }
-        });
-		$( "#store-sortable" ).disableSelection();    
 
-
-        $( "#video-sortable" ).sortable({
-            //placeholder: "ui-state-highlight",
-            stop: function(event, ui) {
-                //console.log(event, ui);
-                //console.log($('#sortable').sortable('toArray'));
-                var name = $('.sortable-wrapper').find('[type=hidden]').attr('name'),
-                    value = $('.sortable-wrapper').find('[type=hidden]').attr('value');
-                
-                var data = {};
-                data['order'] = $('#video-sortable').sortable('toArray');
-                data[name] = value;
-                //console
-                $.post(App.URL+"video/update_order", data, function() {});
-            }
-        });
-		$( "#video-sortable" ).disableSelection();  
-		*/
+        */
         $('body').delegate('a[rel*=dialog]', 'click', function() {
             
             $('.dialog').remove();
@@ -153,19 +150,6 @@
                     elem.html($('<img />', {src:self.attr('href')}));
                     elem.dialog('option', 'position', [Math.floor(((window.innerWidth  - elem.width()) / 2)), window.pageYOffset]);
                     $('.ui-dialog').css('top',  window.pageYOffset + 70);
-                    //alert(window.innerHeight);
-
-                    /*
-                    $.get(self.attr('href'), function(response) {
-                        elem.html(response);
-                        //alert(window.innerHeight);
-                        elem.dialog('option', 'position', [Math.floor(((window.innerWidth  - elem.width()) / 2)), window.pageYOffset]);
-                        $('.ui-dialog').css('top',  window.pageYOffset + 70);
-                        
-                        
-                        //elem.find('form p:last').append('<button class = "close-dialog">Mégsem</button>');
-                    });
-                    */
                 }
             });
             
@@ -181,12 +165,6 @@
         
         //$('.pills').pills();
         //$('.tabs').pills();
-        
-        if ($('#redactor').length) {
-            $('#redactor').redactor({ lang: 'en', toolbar: 'mini' });
-        }
-            
-        $(".fancybox").fancybox();
         
         $(".chosen").chosen({
             no_results_text: "No results matched", 
@@ -218,29 +196,10 @@
         
 
         $('i.w').parents('li').hover(
-			function() { $(this).find('i.w').css('opacity', 1); }, 
-			function() { $(this).find('i.w').css('opacity', 0.25); }
-		)
+    			function() { $(this).find('i.w').css('opacity', 1); }, 
+    			function() { $(this).find('i.w').css('opacity', 0.25); }
+    		)
         
-		$('.news-filter-options').bind('click', function() {
-		    
-		    var self = $(this), i = self.find('i'), klass = i.attr('class');
-		    
-		    self.parents('legend').nextAll('fieldset').toggle();
-		    
-		    if (/down/.test(klass)) {
-
-		        i.removeClass('arrow-down').addClass('arrow-up');
-		    }
-		    else {
-		        
-    		    if (/up/.test(klass)) {
-    		        i.removeClass('arrow-up').addClass('arrow-down');
-    		    }
-		    }
-
-		    return false;
-		});
 		
         $("a[rel=popover]")
             .popover()
@@ -250,10 +209,10 @@
         
         $('a[rel=twipsy]').twipsy();
                 	
-		prettyPrint() 
-          
-		
-		//$('.sidebar-navigation-wrapper-right .well').lionbars(); 
+    		prettyPrint() 
+              
+    		
+    		//$('.sidebar-navigation-wrapper-right .well').lionbars(); 
     });
 	
 }) (jQuery);

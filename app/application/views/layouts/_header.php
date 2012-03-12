@@ -33,7 +33,7 @@
 
       <?php if (ENVIRONMENT==="development"): ?>
         <link rel="stylesheet/less" type="text/css" href="<?= base_url() ?>css/common/all.less">
-        <script type="text/javascript" src="<?php echo base_url() ?>scripts/plugins/lessjs/less-1.2.2.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url() ?>scripts/plugins/lessjs/less-1.3.0.min.js"></script>
         <script type="text/javascript">
           less.env = "development";
           //less.watch();        
@@ -81,7 +81,6 @@
                             <li><a href="<?php echo base_url() ?>auth/logout" style="font-weight:bold"><i class="icon-big power-icon"></i>Logout</a></li>
                         </ul>
                     </div>
-    
                   </div><!--/.nav-collapse -->
                 </div>
               </div>

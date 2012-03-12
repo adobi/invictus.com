@@ -7,14 +7,23 @@
 
 <?php echo form_open_multipart('', array('id'=>'edit-form', 'class'=>'_form-horizontal')) ?>    
 
+    <?php echo panel_close() ?>
+    
     <legend>
         <?php if ($item): ?>
             Edit <?php echo $item->name ?>
         <?php else: ?>
             New
         <?php endif ?>
-        <p class="pull-right"><a href="#" class="btn" data-close-right="1"><i class="icon-remove"></i>Close</a></p>
-    </legend>    
+        <p class="pull-right">
+          <button class="btn btn-primary"><i class="icon-ok icon-white"></i>Save</button>
+          <?php if ($item): ?>
+            <a href="#" class="btn"><i class="icon-trash"></i>Delete</a>
+          <?php endif ?>
+        </p>
+    </legend>   
+    <div class="span10 right-side-scroll">
+ 
         <fieldset class="control-group">
             <label class="control-label" for="name">Name</label>
             <div class="controls">
@@ -32,6 +41,7 @@
                 <?php endif ?>
             </div>
         </fieldset>      
+    </div>
     <fieldset class="form-actions right">
         <button class="btn btn-primary"><i class="icon-ok icon-white"></i>Save</button>
     </fieldset>    

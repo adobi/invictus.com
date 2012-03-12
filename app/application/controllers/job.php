@@ -44,11 +44,10 @@ class Job extends MY_Controller
         $this->form_validation->set_rules("type", "Type", "trim|required");
     		$this->form_validation->set_rules("category_id", "Category_id", "trim|required");
     		$this->form_validation->set_rules("description", "Description", "trim|required");
-    		$this->form_validation->set_rules("responsabilities", "Responsabilities", "trim|required");
-    		$this->form_validation->set_rules("qualification", "Qualification", "trim|required");
-    		$this->form_validation->set_rules("skills", "Skills", "trim|required");
-    		$this->form_validation->set_rules("we_offer", "We_offer", "trim|required");
-    		$this->form_validation->set_rules("order", "Order", "trim|required");
+    		$this->form_validation->set_rules("responsabilities[]", "Responsabilities", "trim|required");
+    		$this->form_validation->set_rules("qualifications[]", "Qualification", "trim|required");
+    		$this->form_validation->set_rules("skills[]", "Skills", "trim|required");
+    		$this->form_validation->set_rules("offers[]", "We offer", "trim|required");
     		//$this->form_validation->set_rules("created", "Created", "trim|required");
     		$this->form_validation->set_rules("available", "Available", "trim|required");
     		/*
@@ -66,13 +65,33 @@ class Job extends MY_Controller
         
         if ($this->form_validation->run()) {
         
+            $_POST['description'] = nl2br($_POST['description']);
+            $_POST['created'] = date('Y-m-d H:i:s', time());
+            
             if ($id) {
                 $this->model->update($_POST, $id);
             } else {
-                $this->model->insert($_POST);
+                $inserted = $this->model->insert($_POST);
             }
-            redirect($_SERVER['HTTP_REFERER']);
+            
+            $response = display_success('Saved');
+            
+            //redirect($_SERVER['HTTP_REFERER']);
+        } else {
+
+            $response = display_errors(validation_errors());
         }
+
+        if ($this->input->is_ajax_request() && $response) {
+          
+            echo $response;
+            die;
+        } 
+        
+        if (!$this->input->is_ajax_request()) {
+          redirect('job');
+        }
+        
         $this->template->build('job/edit', $data);
     }
     
@@ -87,5 +106,30 @@ class Job extends MY_Controller
         }
         
         redirect($_SERVER['HTTP_REFERER']);
+    }
+    
+    public function show()
+    {
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Jobs', 'model');
+      
+      $data['item'] = $this->model->find($id);
+      
+      $this->template->build('job/show', $data);
+    }
+    
+    public function analytics()
+    {
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Jobs', 'model');
+      
+      $this->template->set_partial('job_analytics', '_partials/analytics', array('prefix'=>'job_')); 
+      $this->template->set_partial('apply_analytics', '_partials/analytics', array('prefix'=>'apply_')); 
+      
+      $data['item'] = $this->model->find($id);
+      
+      $this->template->build('job/analytics', $data);
     }
 }
