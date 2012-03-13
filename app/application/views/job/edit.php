@@ -11,7 +11,7 @@
         <?php if ($item): ?>
             Edit <?php echo $item->name ?>
         <?php else: ?>
-            New
+            New job
         <?php endif ?>
         <p class="pull-right">
           <button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i>Save</button>          

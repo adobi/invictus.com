@@ -16,7 +16,7 @@
               
               <p class="pull-right" style="margin-top:5px;">
                 <a href="<?php echo base_url() ?>platform/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit platform"><i class="icon-pencil"></i></a>
-                <a href="<?php echo base_url() ?>platform/delete/<?php echo $item->id ?>" class="delete-job" data-location="l" rel="tooltip" title="Delete platform"><i class="icon-trash"></i></a>
+                <a href="<?php echo base_url() ?>platform/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete platform"><i class="icon-trash"></i></a>
               </p>
             </h4>        
         </div>

@@ -95,16 +95,16 @@
                     <li <?php echo $this->uri->segment(1) === 'dashboard' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>dashboard"><i class="icon-big dashboard-icon"></i>Dashboard</a></li>
           	        <li><a href="<?php echo base_url() ?>game"><i class="icon-big games-icon"></i>Games</a></li>
           	        <li><a href="<?php echo base_url() ?>page"><i class="icon-big page-icon"></i>Pages</a></li>
-          	        <li><a href="<?php echo base_url() ?>offer"><i class="icon-big gift-icon"></i>Offers</a></li>
-          	        <li><a href="<?php echo base_url() ?>crosspromo"><i class="icon-big roundabout-icon"></i>Promo</a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'offer' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>offer"><i class="icon-big gift-icon"></i>Offers</a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'crosspromo' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>crosspromo"><i class="icon-big roundabout-icon"></i>Promo</a></li>
           	        <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>platform"><i class="icon-big iphone-icon"></i>Platforms</a></li>
           	        <li <?php echo $this->uri->segment(1) === 'job' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>job"><i class="icon-big usd-icon"></i>Jobs</a></li>
-          	        <li><a href="<?php echo base_url() ?>jobapplication"><i class="icon-big group-icon"></i>Candidates</a></li>
-          	        <li><a href="<?php echo base_url() ?>contact"><i class="icon-big contact-icon"></i>Contact</a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'jobapplication' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>jobapplication"><i class="icon-big group-icon"></i>Candidates</a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'contact' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>contact"><i class="icon-big contact-icon"></i>Contact</a></li>
           	        <!-- 
           	        <li><a href="<?php echo base_url() ?>contact"><i class="icon-big charts-icon"></i>Analytics</a></li>
           	         -->
-          	        <li><a href="<?php echo base_url() ?>settings"><i class="icon-big settings-icon"></i>Settings</a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'settings' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>settings"><i class="icon-big settings-icon"></i>Settings</a></li>
           	      </ul>
           	    </div>
           	  </div>

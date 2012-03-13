@@ -50,13 +50,7 @@
     // deletes a job/job-category
     deleteItem: function() 
     {
-      var that = this
-      $.get(that.el.attr('href'), function() {
-        
-        if (that.el.data('location') === 'r') App.Nav.CloseRightPanel()
-        
-        App.Nav.reloadContetPanel()
-      })
+
     },
     // deletes a job requirement/skill/qualification/offer item
     deleteJobItem: function() 
@@ -102,14 +96,6 @@
     {
       
       (new Jobs(this)).removeItem()
-      
-      e.preventDefault()
-    })
-    
-    $('body').delegate('.delete-job', 'click', function(e) 
-    {
-      
-      (new Jobs(this)).deleteItem()
       
       e.preventDefault()
     })

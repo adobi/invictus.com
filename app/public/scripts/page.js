@@ -197,7 +197,29 @@
     })    
   };
   
-	$(function() {
+  // removes an item from the content panel
+  App.DeleteItem = function() 
+  {
+    
+    $('body').delegate('.delete-item', 'click', function(e) 
+    {
+      
+      var that = $(this)
+      $.get(that.attr('href'), function() {
+        
+        if (that.data('location') === 'r') App.Nav.CloseRightPanel()
+        
+        App.Nav.reloadContetPanel()
+      })
+            
+      e.preventDefault()
+    })    
+  };
+  
+	$(function() 
+	{
+	  
+	  App.DeleteItem()
 	  
 	  App.DeleteImage()
 	  
