@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-03-13 16:18:38
+Date: 2012-03-13 16:52:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -128,18 +128,23 @@ CREATE TABLE `c_game_video` (
 -- ----------------------------
 DROP TABLE IF EXISTS `c_platform`;
 CREATE TABLE `c_platform` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) DEFAULT NULL,
   `url` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
   `news_image_width` int(11) DEFAULT NULL,
   `news_image_height` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_platform
 -- ----------------------------
+INSERT INTO `c_platform` VALUES ('1', 'iMac', null, '1331653081_mac_store.png', null, null);
+INSERT INTO `c_platform` VALUES ('2', 'iPod, iPhone', null, '1331653106_app_store.png', null, null);
+INSERT INTO `c_platform` VALUES ('3', 'Android Phone', null, '1331653123_android_market.png', null, null);
+INSERT INTO `c_platform` VALUES ('4', 'Andorid Tablet', null, '1331653136_android_market.png', null, null);
+INSERT INTO `c_platform` VALUES ('5', 'iPad', null, '1331653150_app_store.png', null, null);
 
 -- ----------------------------
 -- Table structure for `ic_analytics`
