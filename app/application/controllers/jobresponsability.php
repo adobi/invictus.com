@@ -31,10 +31,8 @@ class Jobresponsability extends MY_Controller
         }
         $data['item'] = $item;
         
-        $this->form_validation->set_rules("job_id", "Job_id", "trim|required");
-		$this->form_validation->set_rules("description", "Description", "trim|required");
-		
-        
+		    $this->form_validation->set_rules("description", "Description", "trim|required");
+        $response = false;
         if ($this->form_validation->run()) {
         
             if ($id) {
@@ -42,8 +40,22 @@ class Jobresponsability extends MY_Controller
             } else {
                 $this->model->insert($_POST);
             }
-            redirect($_SERVER['HTTP_REFERER']);
+            //redirect($_SERVER['HTTP_REFERER']);
+            $response = display_success('Saved');
+        } else {
+          $response = display_errors(validation_errors());
         }
+
+        if ($this->input->is_ajax_request() && $response) {
+          
+            echo $response;
+            die;
+        } 
+        
+        if (!$this->input->is_ajax_request()) {
+          redirect('job');
+        }        
+        
         $this->template->build('jobresponsability/edit', $data);
     }
     

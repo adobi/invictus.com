@@ -39,8 +39,6 @@ class Job extends MY_Controller
         }
         $data['item'] = $item;
         
-        
-        
         $this->form_validation->set_rules("type", "Type", "trim|required");
     		$this->form_validation->set_rules("category_id", "Category_id", "trim|required");
     		$this->form_validation->set_rules("description", "Description", "trim|required");
@@ -48,24 +46,12 @@ class Job extends MY_Controller
     		$this->form_validation->set_rules("qualifications[]", "Qualification", "trim|required");
     		$this->form_validation->set_rules("skills[]", "Skills", "trim|required");
     		$this->form_validation->set_rules("offers[]", "We offer", "trim|required");
-    		//$this->form_validation->set_rules("created", "Created", "trim|required");
     		$this->form_validation->set_rules("available", "Available", "trim|required");
-    		/*
-    		$this->form_validation->set_rules("job_ga_category", "Job_ga_category", "trim|required");
-    		$this->form_validation->set_rules("job_ga_action", "Job_ga_action", "trim|required");
-    		$this->form_validation->set_rules("job_ga_label", "Job_ga_label", "trim|required");
-    		$this->form_validation->set_rules("job_ga_value", "Job_ga_value", "trim|required");
-    		$this->form_validation->set_rules("job_ga_noninteraction", "Job_ga_noninteraction", "trim|required");
-    		$this->form_validation->set_rules("apply_ga_category", "Apply_ga_category", "trim|required");
-    		$this->form_validation->set_rules("apply_ga_action", "Apply_ga_action", "trim|required");
-    		$this->form_validation->set_rules("apply_ga_label", "Apply_ga_label", "trim|required");
-    		$this->form_validation->set_rules("apply_ga_value", "Apply_ga_value", "trim|required");
-    		$this->form_validation->set_rules("apply_ga_noninteraction", "Apply_ga_noninteraction", "trim|required");
-		    */
-        
+
+        $response = 'Saved';
         if ($this->form_validation->run()) {
         
-            $_POST['description'] = nl2br($_POST['description']);
+            $_POST['description'] = $_POST['description'];
             $_POST['created'] = date('Y-m-d H:i:s', time());
             
             if ($id) {
@@ -78,12 +64,13 @@ class Job extends MY_Controller
             
             //redirect($_SERVER['HTTP_REFERER']);
         } else {
-
-            $response = display_errors(validation_errors());
+            if ($_POST)
+              $response = display_errors(validation_errors());
         }
 
-        if ($this->input->is_ajax_request() && $response) {
+        if ($_POST && $this->input->is_ajax_request() && $response) {
           
+            //$this->session->set_flashdata('message', $response); 
             echo $response;
             die;
         } 
@@ -105,7 +92,9 @@ class Job extends MY_Controller
             $this->model->delete($id);
         }
         
-        redirect($_SERVER['HTTP_REFERER']);
+        if (!$this->input->is_ajax_request()) {
+          redirect('job');
+        }
     }
     
     public function show()
@@ -130,6 +119,27 @@ class Job extends MY_Controller
       
       $data['item'] = $this->model->find($id);
       
+  		$this->form_validation->set_rules("job_ga_category", "Job category", "trim|required");
+  		$this->form_validation->set_rules("job_ga_action", "Job action", "trim|required");
+  		$this->form_validation->set_rules("job_ga_label", "Job label", "trim|required");
+  		$this->form_validation->set_rules("job_ga_value", "Job value", "trim|required");
+  		$this->form_validation->set_rules("apply_ga_category", "Apply category", "trim|required");
+  		$this->form_validation->set_rules("apply_ga_action", "Apply action", "trim|required");
+  		$this->form_validation->set_rules("apply_ga_label", "Apply label", "trim|required");
+  		$this->form_validation->set_rules("apply_ga_value", "Apply value", "trim|required");
+      
+  		if ($this->form_validation->run()) {
+  		  
+  		  $this->model->update($_POST, $id);
+  		  
+  		  echo 'Saved'; die;
+  		} else {
+  		  if ($_POST) {
+  		    
+  		    echo validation_errors(); die;
+  		  }
+  		}
+  		
       $this->template->build('job/analytics', $data);
     }
 }

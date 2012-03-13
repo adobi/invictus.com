@@ -35,64 +35,165 @@
     
   };
   
-	$(function() {
+  App.disableFormButton = function() 
+  {
+    $('body').delegate('form', 'submit', function() {
+      $(this).find('button').attr('disabled', true)
+      
+      //return true;
+    })
+  }
+  
+  App.enhanceAnalytics = function() 
+  {
+    $('body').delegate('.add-custom-action', 'click', function() {
+        var self = $(this),
+            select = self.prevAll('select'),
+            name = select.attr('name'),
+            p = self.next(),
+            input = p.find('input');
+            
+        p.show()
+        self.hide()
+        select.hide()
+        select.removeAttr('name')
+        input.attr('name', name)
+
+        return false;
+    })
     
-	    App.Datepicker()
-      $('body').delegate('[data-unselect]', 'click', App.unselect)   
-
-
-        $('body').delegate('.add-custom-action', 'click', function() {
-            var self = $(this),
-                select = self.prevAll('select'),
-                name = select.attr('name'),
-                p = self.next(),
-                input = p.find('input');
-                
-            p.show()
-            self.hide()
-            select.hide()
-            select.removeAttr('name')
-            input.attr('name', name)
-
-            return false;
-        })
+    $('body').delegate('.cance-custom-action', 'click', function() {
+        var self = $(this),
+            input = self.parent().find('input'),
+            name = input.attr('name'),
+            p = self.parent(),
+            select = p.prevAll('select')
         
-        $('body').delegate('.cance-custom-action', 'click', function() {
-            var self = $(this),
-                input = self.parent().find('input'),
-                name = input.attr('name'),
-                p = self.parent(),
-                select = p.prevAll('select')
+        p.hide()
+        
+        input.removeAttr('name')
+        
+        select.attr('name', name).show()
+        
+        select.next().show()
+        
+        return false
+    })        	  	    
+  };
+  
+  App.Loader = function() 
+  {
+    $('#loading-global')
+       .ajaxStart(function() {
             
-            p.hide()
+    		$(this).show();
+       })
+       .ajaxStop(function() {
+    		var self = $(this);
+            //self.html('Done!');
+            self.html(App.Message)
             
-            input.removeAttr('name')
-            
-            select.attr('name', name).show()
-            
-            select.next().show()
-            
-            return false
-        })        	  	    
-	    
+            var interval = (App.Message === undefined || App.Message === 'Working...' ? 100 : 6000 )
+            //console.log(interval)
+            setTimeout(function() {
+                self.html('Working...');
+                App.Message = "Working...";
+                self.hide();
+            }, interval)
+        });
+    
+  };
+  
+  App.Dialog = function() 
+  {
+      $('body').delegate('a[rel*=dialog]', 'click', function() {
+          
+          $('.dialog').remove();
+          
+          var self = $(this);
+          
+          
+          var elem = $('<div />', {'class': 'dialog', id: 'dialog_'+(new Date()).getTime(), title: self.attr('title')}).html('<p style = "width: 300px;text-align:center"><img src = "'+App.URL+'images/pie.gif" /></p>');
+  
+          elem.dialog({
+              modal: false,
+              width: 'auto',
+              minWidth: 500,
+              position:[Math.floor((window.innerWidth / 2)-150),  70],
+              open: function(event, ui) {
+
+                  elem.html($('<img />', {src:self.attr('href')}));
+                  elem.dialog('option', 'position', [Math.floor(((window.innerWidth  - elem.width()) / 2)), window.pageYOffset]);
+                  $('.ui-dialog').css('top',  window.pageYOffset + 70);
+              }
+          });
+          
+          return false;
+      });	
+      
+      $('body').delegate('.close-dialog', 'click', function() {
+          
+          $('.ui-dialog-titlebar-close').trigger('click');
+          
+          return false;
+      });     
+  };
+  
+  App.enhanceChosen = function() 
+  {
+    $(".chosen").chosen({
+        no_results_text: "No results matched", 
+    }); 
+    
+    $('.chosen-select-all').bind('click', function(e) {
+        e.preventDefault();
+        
+        var select = $(this).parents('div:first').find('.chosen');
+        
+        select.find('option').attr('selected', true);
+        
+        select.trigger("liszt:updated");
+    });       
+    $('.chosen-cancel-all').bind('click', function(e) {
+        e.preventDefault();
+        
+        var select = $(this).parents('div:first').find('.chosen');
+        
+        select.find('option').removeAttr('selected');
+        
+        select.trigger("liszt:updated");
+    });      
+  };
+  
+  App.Tooltip = function() 
+  {
+    $('a[rel=tooltip]').tooltip();
+  };
+  
+  App.PrettifyUpload = function() 
+  {
+    $('input[type=file]').prettifyUpload(); 
+  };
+  
+	$(function() {
+    App.Tooltip()
+    App.Datepicker()
+    
+    $('body').delegate('[data-unselect]', 'click', App.unselect)   
+    
+    App.disableFormButton()
+
+    App.enhanceAnalytics()
+	  
+    App.Loader()  
+    
+    App.Dialog()
+    
+    App.enhanceChosen()
 	    //$('#fileupload').fileupload();
 	    
 
 
-        $('#loading-global')
-           .ajaxStart(function() {
-                
-        		$(this).show();
-           })
-           .ajaxStop(function() {
-        		var self = $(this);
-                self.html('Done!');
-                
-                setTimeout(function() {
-                    self.html('Working...');
-                    self.hide();
-                }, 1500)
-            });
 	    
         /*
         $( "#image-sortable" ).sortable({
@@ -131,63 +232,10 @@
 
 
         */
-        $('body').delegate('a[rel*=dialog]', 'click', function() {
-            
-            $('.dialog').remove();
-            
-            var self = $(this);
-            
-            
-            var elem = $('<div />', {'class': 'dialog', id: 'dialog_'+(new Date()).getTime(), title: self.attr('title')}).html('<p style = "width: 300px;text-align:center"><img src = "'+App.URL+'images/pie.gif" /></p>');
-    
-            elem.dialog({
-                modal: false,
-                width: 'auto',
-                minWidth: 500,
-                position:[Math.floor((window.innerWidth / 2)-150),  70],
-                open: function(event, ui) {
-
-                    elem.html($('<img />', {src:self.attr('href')}));
-                    elem.dialog('option', 'position', [Math.floor(((window.innerWidth  - elem.width()) / 2)), window.pageYOffset]);
-                    $('.ui-dialog').css('top',  window.pageYOffset + 70);
-                }
-            });
-            
-            return false;
-        });	
-        
-        $('body').delegate('.close-dialog', 'click', function() {
-            
-            $('.ui-dialog-titlebar-close').trigger('click');
-            
-            return false;
-        }); 
         
         //$('.pills').pills();
         //$('.tabs').pills();
         
-        $(".chosen").chosen({
-            no_results_text: "No results matched", 
-        }); 
-        
-        $('.chosen-select-all').bind('click', function(e) {
-            e.preventDefault();
-            
-            var select = $(this).parents('div:first').find('.chosen');
-            
-            select.find('option').attr('selected', true);
-            
-            select.trigger("liszt:updated");
-        });       
-        $('.chosen-cancel-all').bind('click', function(e) {
-            e.preventDefault();
-            
-            var select = $(this).parents('div:first').find('.chosen');
-            
-            select.find('option').removeAttr('selected');
-            
-            select.trigger("liszt:updated");
-        });  
         
         //$('[id*=rumor_]').modal();
         
@@ -207,7 +255,7 @@
                 e.preventDefault()
             });
         
-        $('a[rel=twipsy]').twipsy();
+        
                 	
     		prettyPrint() 
               

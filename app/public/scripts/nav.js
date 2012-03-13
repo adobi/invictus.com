@@ -6,57 +6,115 @@
   var Nav = function(el, container)
   {
     this.el = $(el)
-    this.href = this.el.attr('href')
+    this.href = Nav.CurrentHref = this.el.attr('href')
     this.container = container || $('.sidebar-navigation-wrapper-right .well')
+    this.type = this.el.data('type')
+  }
+  
+  Nav.reloadContetPanel = function() 
+  {
+    //$('.left-side-nav .active').trigger('click')  
+    $('.content-wrapper').load($('.left-side-nav .active a').attr('href'));
+  }
+  
+  Nav.CloseRightPanel = function() 
+  {
+    (new Nav()).closeRightPanel()
+  }
+  
+  Nav.reloadRightPanel = function() 
+  {
+    $('.sidebar-navigation-wrapper-right .well').load(Nav.CurrentHref, Nav.initRightPanel);
+  }
+  
+  Nav.initRightPanel = function() 
+  {
+    App.Datepicker()
+    App.PrettifyUpload()
+    App.Tooltip()   
+  }
+  
+  Nav.initContentPanel = function() 
+  {
+    
   }
   
   Nav.prototype = {
-    loadIntoPanel: function() 
+    loadIntoRightPanel: function() 
     {
       //App.Jobs.unselect();
       
+      /*
       this.container.load(this.href, function() {
         App.Datepicker()
         $('input[type=file]').prettifyUpload();
       })
+      */
+      $('a[rel=tooltip]').tooltip('hide');      
+      var that = this
+      $.ajax({
+        url: that.href, 
+        type: that.type || 'GET',
+        success: function(response) {
+          that.container.html(response)
+          Nav.initRightPanel()
+        }
+      })
     },
     
-    closeRightSide: function() 
+    closeRightPanel: function() 
     {
       this.container.empty();
     },
     
     submitForm: function() 
     {
-      var form = this.el
+      var form = this.el,
+          button = form.find('button')
+
+      button.attr('disabled', true)
+      
       $.post(form.attr('action'), form.serialize(), function(resp) {
         
         //form.find('legend').after(resp);
-        form.find('legend').next().find('.alert-error').remove();
-        form.find('legend').next().prepend(resp);
+        //form.find('legend').next().find('.alert-error').remove();
+        //form.find('legend').next().prepend(resp);
+        //App.showNotification(resp)
+
+        Nav.reloadRightPanel();
+        
+        App.Message = resp;
+        
+        button.attr('disabled', false)
       })
-    }
+    },
+    
+
   }
   
   $(function() 
   {
+    $('body').on('reload.content', Nav.reloadContetPanel)
+    
     $('body').delegate('.left-side-nav a', 'click', function(e) {
       
-      (new Nav(this, $('.content-wrapper'))).loadIntoPanel();
+      //window.loaction.href = $(this).attr('href')
       
-      e.preventDefault()
+      //(new Nav(this, $('.content-wrapper'))).loadIntoPanel();
+      
+      //e.preventDefault()
     })
         
     $('body').delegate('[data-ajax-link]', 'click', function(e) {
       
-      (new Nav(this)).loadIntoPanel();
+      (new Nav(this)).loadIntoRightPanel();
       
       e.preventDefault()
     })
     
     $('body').delegate('[data-close-right]', 'click', function(e) {
       
-      (new Nav(this)).closeRightSide();
+      (new Nav(this)).closeRightPanel();
       
       e.preventDefault()
     })    
@@ -64,11 +122,12 @@
     $('body').delegate('[data-ajax-form]', 'submit', function(e) {
       (new Nav(this)).submitForm()
       
-      $('.left-side-nav .active').trigger('click')
+      //$('.left-side-nav .active').trigger('click')
       
       e.preventDefault()
     })
     
+    App.Nav = Nav
   })
   
 } (jQuery);

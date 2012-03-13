@@ -6,9 +6,9 @@
 	    $html = '';
 			if ($message) {
     			    
-    			$html .= '<div class = "alert alert-error ">';
-    				$html .= $message;
-    			$html .= '</div>';
+    			//$html .= '<div class = \'alert alert-error \'>';
+    				$html .= str_replace("\n", "", $message);
+    			//$html .= '</div>';
 			
 			}
 			return $html;

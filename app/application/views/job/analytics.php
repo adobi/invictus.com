@@ -5,8 +5,8 @@
           <!-- 
           <a href="<?php echo base_url() ?>job/edit/<?php echo $item->id ?>" class="btn btn-primary" data-ajax-link="1"><i class="icon-pencil icon-white"></i>Edit</a>
            -->
-          <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" class="btn btn-primary" data-ajax-link="1"><i class="icon-eye-open icon-white"></i>Show</a>
-          <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn"><i class="icon-trash"></i>Delete</a>
+          <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" class="btn btn-primary" data-ajax-link="1" rel="tooltip" title="View job"><i class="icon-eye-open icon-white"></i></a>
+          <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-job" data-location="r" rel="tooltip" title="Delete job"><i class="icon-trash"></i></a>
           <?php if ($item): ?>
             <!-- 
             <a href="<?php echo base_url() ?>job/analytics/<?php echo $item->id ?>" class="btn btn-primary" data-ajax-link="1"><i class="icon-signal icon-white"></i>Analytics</a>

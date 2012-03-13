@@ -65,6 +65,7 @@ class Jobcategory extends MY_Controller
         } 
         
         if (!$this->input->is_ajax_request()) {
+          $this->session->set_flashdata('message', $response); 
           redirect('job');
         }
         

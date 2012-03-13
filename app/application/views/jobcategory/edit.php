@@ -13,12 +13,12 @@
         <?php if ($item): ?>
             Edit <?php echo $item->name ?>
         <?php else: ?>
-            New
+            New job category
         <?php endif ?>
         <p class="pull-right">
           <button class="btn btn-primary"><i class="icon-ok icon-white"></i>Save</button>
           <?php if ($item): ?>
-            <a href="#" class="btn"><i class="icon-trash"></i>Delete</a>
+            <a href="<?php echo base_url() ?>jobcategory/delete/<?php echo $item->id ?>" class="btn delete-job" data-location="r" rel="tooltip" title="Delete category"><i class="icon-trash"></i></a>
           <?php endif ?>
         </p>
     </legend>   
@@ -35,7 +35,7 @@
             <div class="controls">
                 <?php if ($item && $item->icon): ?>
                     <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->icon ?>" alt="">
-                    <a href="<?php echo base_url() ?>jobcategory/delete_image/<?php echo $item->id ?>" class="pull-right" data-ajax-link="1"><i class="icon-trash"></i></a>
+                    <a href="<?php echo base_url() ?>jobcategory/delete_image/<?php echo $item->id ?>" class="pull-right" style="margin-right:20px;" data-ajax-link="1" rel="tooltip" title="Delete icon"><i class="icon-trash"></i></a>
                 <?php else: ?>
                     <input type="file" name = "icon" id = "icon" class = "span4"/>
                 <?php endif ?>

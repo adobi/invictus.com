@@ -41,19 +41,35 @@ class Jobs extends MY_Model
     public function update($data, $id) 
     {
       $d = array();
+      if (isset($data['responsabilities']) && isset($data['qualifications']) && isset($data['skills']) && isset($data['offers'])) {
           
-      $d['responsabilities'] = $data['responsabilities'];
-      unset($data['responsabilities']);
-      $d['qualifications'] = $data['qualifications'];
-      unset($data['qualifications']);
-      $d['skills'] = $data['skills'];
-      unset($data['skills']);
-      $d['offers'] = $data['offers'];
-      unset($data['offers']);      
-       
+        $d['responsabilities'] = $data['responsabilities'];
+        unset($data['responsabilities']);
+        $d['qualifications'] = $data['qualifications'];
+        unset($data['qualifications']);
+        $d['skills'] = $data['skills'];
+        unset($data['skills']);
+        $d['offers'] = $data['offers'];
+        unset($data['offers']);      
+         
+      }
       $rows = parent::update($data, $id);
-      
-      
+
+      if ($d) {
+        
+        $this->load->model('Jobresponsabilitys', 'responsabilities');
+        $this->load->model('Jobqualifications', 'qualifications');
+        $this->load->model('Jobskills', 'skills');
+        $this->load->model('Joboffers', 'offers');  
+        
+        foreach ($d as $key=>$val) {
+          $this->$key->delete(array('job_id'=>$id));
+          foreach ($val as $k=>$v) {
+            $this->$key->insert(array('description'=>$v, 'job_id'=>$id));
+          }
+        }      
+        
+      }
       return $rows;
     }
     

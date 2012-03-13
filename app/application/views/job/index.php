@@ -3,7 +3,7 @@
     Job categories
     <p class="pull-right">
       <a href="#" onclick="$('.category-items').toggle();">toggle</a> &nbsp;
-      <a class="btn btn-primary" href="<?= base_url(); ?>jobcategory/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New category</a>
+      <a class="btn btn-primary" href="<?= base_url(); ?>jobcategory/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New</a>
     </p>
   </h1>
   
@@ -17,8 +17,8 @@
             <?php echo $item->name ?>
             
             <p class="pull-right" style="margin-top:5px;">
-              <a href="<?php echo base_url() ?>jobcategory/edit/<?php echo $item->id ?>" class="edit-job" data-ajax-link="1"><i class="icon-pencil"></i></a>
-              <a href="<?php echo base_url() ?>jobcategory/delete/<?php echo $item->id ?>"><i class="icon-trash"></i></a>
+              <a href="<?php echo base_url() ?>jobcategory/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit category"><i class="icon-pencil"></i></a>
+              <a href="<?php echo base_url() ?>jobcategory/delete/<?php echo $item->id ?>" class="delete-job" data-location="l" rel="tooltip" title="Delete category"><i class="icon-trash"></i></a>
             </p>
           </h4>
         </div>
@@ -34,7 +34,7 @@
     Jobs
     <p class="pull-right">
       <a href="#" onclick="$('.job-items').toggle();">toggle</a> &nbsp;
-      <a class="btn btn-primary" href="<?= base_url(); ?>job/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New job</a>
+      <a class="btn btn-primary" href="<?= base_url(); ?>job/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New</a>
     </p>
   </h1>
   
@@ -46,10 +46,10 @@
           <h4>
             <?php echo $item->name ?>
             <p class="pull-right" style="margin-top:5px;">
-              <a href="#"><i class="icon-user"></i></a>
-              <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" data-ajax-link="1"><i class="icon-eye-open"></i></a>
-              <a href="<?php echo base_url() ?>job/edit/<?php echo $item->id ?>" class="edit-job" data-ajax-link="1"><i class="icon-pencil"></i></a>
-              <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>"><i class="icon-trash"></i></a>
+              <a href="#" rel="tooltip" title="Candidates for the job"><i class="icon-user"></i></a>
+              <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="View job"><i class="icon-eye-open"></i></a>
+              <a href="<?php echo base_url() ?>job/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit job"><i class="icon-pencil"></i></a>
+              <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="delete-job" data-location="l" rel="tooltip" title="Delete job"><i class="icon-trash"></i></a>
             </p>
           </h4>
           <h6>

@@ -26,13 +26,15 @@ class Joboffer extends MY_Controller
         $this->load->model('Joboffers', 'model');
         
         $item = false;
-        if ($id) {
+        if ($id && is_numeric($id)) {
             $item = $this->model->find((int)$id);
+            $jobId = $this->uri->segment(5);
+        } else {
+          $jobId = $this->uri->segment(4);
         }
         $data['item'] = $item;
         
-        $this->form_validation->set_rules("job_id", "Job_id", "trim|required");
-		$this->form_validation->set_rules("description", "Description", "trim|required");
+        $this->form_validation->set_rules("description", "Description", "trim|required");
 		
         
         if ($this->form_validation->run()) {
@@ -40,6 +42,7 @@ class Joboffer extends MY_Controller
             if ($id) {
                 $this->model->update($_POST, $id);
             } else {
+                $_POST['job_id'] = $jobId;
                 $this->model->insert($_POST);
             }
             redirect($_SERVER['HTTP_REFERER']);

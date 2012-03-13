@@ -1,8 +1,8 @@
 /* =============================================================
- * bootstrap-typeahead.js v2.0.0
- * http://twitter.github.com/bootstrap/javascript.html#collapsible
+ * bootstrap-typeahead.js v2.0.2
+ * http://twitter.github.com/bootstrap/javascript.html#typeahead
  * =============================================================
- * Copyright 2011 Twitter, Inc.
+ * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,11 @@
   var Typeahead = function ( element, options ) {
     this.$element = $(element)
     this.options = $.extend({}, $.fn.typeahead.defaults, options)
+    this.matcher = this.options.matcher || this.matcher
+    this.sorter = this.options.sorter || this.sorter
+    this.highlighter = this.options.highlighter || this.highlighter
     this.$menu = $(this.options.menu).appendTo('body')
-    this.data = this.options.data
+    this.source = this.options.source
     this.shown = false
     this.listen()
   }
@@ -34,13 +37,10 @@
 
     constructor: Typeahead
 
-  , matcher: function (item, query) {
-      return ~item.indexOf(query)
-    }
-
   , select: function () {
       var val = this.$menu.find('.active').attr('data-value')
       this.$element.val(val)
+      this.$element.change();
       return this.hide()
     }
 
@@ -66,17 +66,21 @@
     }
 
   , lookup: function (event) {
-      var query = this.$element.val()
-        , that = this
+      var that = this
         , items
+        , q
 
-      if (!query) {
+      this.query = this.$element.val()
+
+      if (!this.query) {
         return this.shown ? this.hide() : this
       }
 
-      items = this.data.filter(function (item) {
-        if (that.matcher(item, query)) return item
+      items = $.grep(this.source, function (item) {
+        if (that.matcher(item)) return item
       })
+
+      items = this.sorter(items)
 
       if (!items.length) {
         return this.shown ? this.hide() : this
@@ -85,12 +89,37 @@
       return this.render(items.slice(0, this.options.items)).show()
     }
 
+  , matcher: function (item) {
+      return ~item.toLowerCase().indexOf(this.query.toLowerCase())
+    }
+
+  , sorter: function (items) {
+      var beginswith = []
+        , caseSensitive = []
+        , caseInsensitive = []
+        , item
+
+      while (item = items.shift()) {
+        if (!item.toLowerCase().indexOf(this.query.toLowerCase())) beginswith.push(item)
+        else if (~item.indexOf(this.query)) caseSensitive.push(item)
+        else caseInsensitive.push(item)
+      }
+
+      return beginswith.concat(caseSensitive, caseInsensitive)
+    }
+
+  , highlighter: function (item) {
+      return item.replace(new RegExp('(' + this.query + ')', 'ig'), function ($1, match) {
+        return '<strong>' + match + '</strong>'
+      })
+    }
+
   , render: function (items) {
       var that = this
 
       items = $(items).map(function (i, item) {
         i = $(that.options.item).attr('data-value', item)
-        i.find('a').text(item)
+        i.find('a').html(that.highlighter(item))
         return i[0]
       })
 
@@ -121,10 +150,22 @@
       prev.addClass('active')
     }
 
-  , keyup: function (e) {
-      e.stopPropagation()
-      e.preventDefault()
+  , listen: function () {
+      this.$element
+        .on('blur',     $.proxy(this.blur, this))
+        .on('keypress', $.proxy(this.keypress, this))
+        .on('keyup',    $.proxy(this.keyup, this))
 
+      if ($.browser.webkit || $.browser.msie) {
+        this.$element.on('keydown', $.proxy(this.keypress, this))
+      }
+
+      this.$menu
+        .on('click', $.proxy(this.click, this))
+        .on('mouseenter', 'li', $.proxy(this.mouseenter, this))
+    }
+
+  , keyup: function (e) {
       switch(e.keyCode) {
         case 40: // down arrow
         case 38: // up arrow
@@ -132,10 +173,12 @@
 
         case 9: // tab
         case 13: // enter
+          if (!this.shown) return
           this.select()
           break
 
         case 27: // escape
+          if (!this.shown) return
           this.hide()
           break
 
@@ -143,10 +186,12 @@
           this.lookup()
       }
 
+      e.stopPropagation()
+      e.preventDefault()
   }
 
   , keypress: function (e) {
-      e.stopPropagation()
+      if (!this.shown) return
 
       switch(e.keyCode) {
         case 9: // tab
@@ -165,12 +210,12 @@
           this.next()
           break
       }
+
+      e.stopPropagation()
     }
 
   , blur: function (e) {
       var that = this
-      e.stopPropagation()
-      e.preventDefault()
       setTimeout(function () { that.hide() }, 150)
     }
 
@@ -185,20 +230,6 @@
       $(e.currentTarget).addClass('active')
     }
 
-  , listen: function () {
-      this.$element
-        .on('blur',     $.proxy(this.blur, this))
-        .on('keypress', $.proxy(this.keypress, this))
-        .on('keyup',    $.proxy(this.keyup, this))
-
-      if ($.browser.webkit || $.browser.msie) {
-        this.$element.on('keydown', $.proxy(this.keypress, this))
-      }
-
-      this.$menu
-        .on('click', $.proxy(this.click, this))
-        .on('mouseenter', 'li', $.proxy(this.mouseenter, this))
-    }
   }
 
 
@@ -216,7 +247,8 @@
   }
 
   $.fn.typeahead.defaults = {
-    items: 8
+    source: []
+  , items: 8
   , menu: '<ul class="typeahead dropdown-menu"></ul>'
   , item: '<li><a href="#"></a></li>'
   }
@@ -236,4 +268,4 @@
     })
   })
 
-}( window.jQuery )
+}( window.jQuery );

@@ -1,6 +1,6 @@
 /* ===========================================================
- * bootstrap-tooltip.js v2.0.0
- * http://twitter.github.com/bootstrap/javascript.html#tooltip
+ * bootstrap-tooltip.js v2.0.2
+ * http://twitter.github.com/bootstrap/javascript.html#tooltips
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ===========================================================
  * Copyright 2012 Twitter, Inc.
@@ -206,7 +206,7 @@
       title = $e.attr('data-original-title')
         || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
 
-      title = title.toString().replace(/(^\s*|\s*$)/, "")
+      title = (title || '').toString().replace(/(^\s*|\s*$)/, "")
 
       return title
     }
@@ -267,4 +267,4 @@
   , template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
   }
 
-}( window.jQuery )
+}( window.jQuery );
