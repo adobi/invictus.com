@@ -70,7 +70,7 @@
                     <?php foreach ($item->responsabilities as $key => $value): ?>
                       <li>
                         <input type="text" name="responsabilities[]" class="span4" value="<?php echo $value->description ?>"> 
-                        <a href="#" class="add-ui-item" data-type="responsabilities"><i class="icon-plus-sign"></i></a>
+                        <a href="#" class="add-ui-item" data-type="responsabilities" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!--  <a href="<?php echo base_url() ?>jobresponsability/edit/<?php echo $value->id ?>" data-ajax-link="1" data-type="post"><i class="icon-pencil"></i></a> -->
                         <a href="<?php echo base_url() ?>jobresponsability/delete/<?php echo $value->id ?>" class="delete-job-item" data-type="responsabilities" rel="tooltip" title="Delete"><i class="icon-trash"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
@@ -79,7 +79,7 @@
                   <?php else: ?>
                       <li>
                         <input type="text" name="responsabilities[]" class="span4"> 
-                        <a href="#" class="add-ui-item" data-type="responsabilities"><i class="icon-plus-sign"></i></a>
+                        <a href="#" class="add-ui-item" data-type="responsabilities" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
                       </li>
                   <?php endif ?>
@@ -94,7 +94,7 @@
                     <?php foreach ($item->qualifications as $key => $value): ?>
                       <li>
                         <input type="text" name="qualifications[]" class="span4" value="<?php echo $value->description ?>"> 
-                        <a href="#" class="add-ui-item" data-type="qualifications"><i class="icon-plus-sign"></i></a>
+                        <a href="#" class="add-ui-item" data-type="qualifications" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!-- <a href="#"><i class="icon-pencil"></i></a> -->
                         <a href="<?php echo base_url() ?>jobqualification/delete/<?php echo $value->id ?>" class="delete-job-item" data-type="qualifications" rel="tooltip" title="Delete"><i class="icon-trash"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
@@ -103,7 +103,7 @@
                   <?php else: ?>
                       <li>
                         <input type="text" name="qualifications[]" class="span4"> 
-                        <a href="#" class="add-ui-item" data-type="qualifications"><i class="icon-plus-sign"></i></a>
+                        <a href="#" class="add-ui-item" data-type="qualifications" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
                       </li>
                   <?php endif ?>
@@ -118,7 +118,7 @@
                     <?php foreach ($item->skills as $key => $value): ?>
                       <li>
                         <input type="text" name="skills[]" class="span4" value="<?php echo $value->description ?>"> 
-                        <a href="#" class="add-ui-item" data-type="skills"><i class="icon-plus-sign"></i></a>
+                        <a href="#" class="add-ui-item" data-type="skills" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!-- <a href="#"><i class="icon-pencil"></i></a> -->
                         <a href="<?php echo base_url() ?>jobskill/delete/<?php echo $value->id ?>" class="delete-job-item" data-type="skills" rel="tooltip" title="Delete"><i class="icon-trash"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
@@ -127,7 +127,7 @@
                   <?php else: ?>
                       <li>
                         <input type="text" name="skills[]" class="span4"> 
-                        <a href="#" class="add-ui-item" data-type="skills"><i class="icon-plus-sign"></i></a>
+                        <a href="#" class="add-ui-item" data-type="skills" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
                       </li>
                   <?php endif ?>
@@ -143,7 +143,7 @@
                     <?php foreach ($item->offers as $key => $value): ?>
                       <li>
                         <input type="text" name="offers[]" class="span4" value="<?php echo $value->description ?>"> 
-                        <a href="#" class="add-ui-item" data-type="offers"><i class="icon-plus-sign"></i></a>
+                        <a href="#" class="add-ui-item" data-type="offers" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!-- <a href="<?php echo base_url() ?>joboffer/edit/<?php echo $value->id ?>/job/<?php echo $item->id ?>"><i class="icon-pencil"></i></a> -->
                         <a href="<?php echo base_url() ?>joboffer/delete/<?php echo $value->id ?>" class="delete-job-item" data-type="offers" rel="tooltip" title="Delete"><i class="icon-trash"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
@@ -152,7 +152,7 @@
                   <?php else: ?>
                       <li>
                         <input type="text" name="offers[]" class="span4"> 
-                        <a href="#" class="add-ui-item" data-type="offers"><i class="icon-plus-sign"></i></a>
+                        <a href="#" class="add-ui-item" data-type="offers" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
                       </li>
                   <?php endif ?>

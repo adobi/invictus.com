@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-03-08 16:06:13
+Date: 2012-03-13 14:57:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -280,13 +280,11 @@ CREATE TABLE `ic_email_offer` (
 DROP TABLE IF EXISTS `ic_job`;
 CREATE TABLE `ic_job` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   `description` text,
-  `responsabilities` text,
-  `qualification` text,
-  `skills` text,
-  `we_offer` text,
   `order` int(11) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `available` datetime DEFAULT NULL,
@@ -302,12 +300,13 @@ CREATE TABLE `ic_job` (
   `apply_ga_noninteraction` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_job_job_category` (`category_id`),
-  CONSTRAINT `fk_job_job_category` FOREIGN KEY (`category_id`) REFERENCES `ic_job_category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_job_job_category` FOREIGN KEY (`category_id`) REFERENCES `ic_job_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job
 -- ----------------------------
+INSERT INTO `ic_job` VALUES ('5', 'Software Engineer - Front-End', 'Debrecen, Hungary', '1', '5', 'Twitter is looking for engineers to focus on front-end development. You should have a passion for shipping elegant, responsive web interfaces that will be used by millions of people.\r\n\r\nThere are currently openings for Front-End Engineers on multiple teams.', null, '2012-03-13 13:12:38', '2012-03-28 00:00:00', 'Job', 'Click', 'Job link', '1', null, 'Apply', 'Click', 'Apply button', '1', null);
 
 -- ----------------------------
 -- Table structure for `ic_job_application`
@@ -323,7 +322,7 @@ CREATE TABLE `ic_job_application` (
   `portfolio` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_job_application_job` (`job_id`),
-  CONSTRAINT `fk_job_application_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_job_application_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -339,14 +338,88 @@ CREATE TABLE `ic_job_category` (
   `name` varchar(150) DEFAULT NULL,
   `icon` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_category
 -- ----------------------------
-INSERT INTO `ic_job_category` VALUES ('3', 'Tester', '1331214705_glyphicons_002_dog.png');
-INSERT INTO `ic_job_category` VALUES ('4', 'Gameplay Programmer', '1331217374_glyphicons_023_cogwheels.png');
-INSERT INTO `ic_job_category` VALUES ('5', 'Marketing assistent', '1331217397_glyphicons_004_girl.png');
+INSERT INTO `ic_job_category` VALUES ('5', 'Gameplay Developer', '1331634436_glyphicons_009_magic.png');
+
+-- ----------------------------
+-- Table structure for `ic_job_offer`
+-- ----------------------------
+DROP TABLE IF EXISTS `ic_job_offer`;
+CREATE TABLE `ic_job_offer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `job_id` int(11) DEFAULT NULL,
+  `description` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_job_responsability_job` (`job_id`),
+  CONSTRAINT `fk_job_we_offer_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ic_job_offer
+-- ----------------------------
+INSERT INTO `ic_job_offer` VALUES ('107', '5', 'Complete medical/dental benefits');
+INSERT INTO `ic_job_offer` VALUES ('108', '5', 'Flexible and generous vacation policy');
+
+-- ----------------------------
+-- Table structure for `ic_job_qualification`
+-- ----------------------------
+DROP TABLE IF EXISTS `ic_job_qualification`;
+CREATE TABLE `ic_job_qualification` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `job_id` int(11) DEFAULT NULL,
+  `description` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_job_responsability_job` (`job_id`),
+  CONSTRAINT `fk_job_qualification_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ic_job_qualification
+-- ----------------------------
+INSERT INTO `ic_job_qualification` VALUES ('107', '5', 'Demonstrable experience building world-class, consumer web application interfaces');
+INSERT INTO `ic_job_qualification` VALUES ('108', '5', 'Expert Javascript/HTML/CSS/Ajax coding skills');
+
+-- ----------------------------
+-- Table structure for `ic_job_responsability`
+-- ----------------------------
+DROP TABLE IF EXISTS `ic_job_responsability`;
+CREATE TABLE `ic_job_responsability` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `job_id` int(11) DEFAULT NULL,
+  `description` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_job_responsability_job` (`job_id`),
+  CONSTRAINT `fk_job_responsability_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ic_job_responsability
+-- ----------------------------
+INSERT INTO `ic_job_responsability` VALUES ('141', '5', 'Write front-end code in Ruby, HTML/CSS, and Javascript');
+INSERT INTO `ic_job_responsability` VALUES ('142', '5', 'Implement new features and optimize existing ones from controller-level to UI');
+
+-- ----------------------------
+-- Table structure for `ic_job_skill`
+-- ----------------------------
+DROP TABLE IF EXISTS `ic_job_skill`;
+CREATE TABLE `ic_job_skill` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `job_id` int(11) DEFAULT NULL,
+  `description` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_job_responsability_job` (`job_id`),
+  CONSTRAINT `fk_job_skill_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ic_job_skill
+-- ----------------------------
+INSERT INTO `ic_job_skill` VALUES ('123', '5', 'Visual-design skills');
+INSERT INTO `ic_job_skill` VALUES ('124', '5', 'B.S. or higher in Computer science or equivalent');
 
 -- ----------------------------
 -- Table structure for `ic_meta`
