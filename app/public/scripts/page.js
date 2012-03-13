@@ -1,4 +1,5 @@
-(function($) {
+!function($) {
+  
   App.Datepicker = function() {
     $('.datepicker').datepicker({
       dateFormat: 'yy-mm-dd',
@@ -8,7 +9,15 @@
       yearRange: '2010:+5'
     });    
   };
-
+  
+  // imput append button click
+  App.TriggerDatepicker = function() 
+  {
+    $('body').on('click', '.trigger-datepicker', function() {
+       $(this).prev().datepicker('show')
+    })
+  };
+  
   App.showNotification = function(message) 
   {
       var self = $('#loading-global');
@@ -39,8 +48,6 @@
   {
     $('body').delegate('form', 'submit', function() {
       $(this).find('button').attr('disabled', true)
-      
-      //return true;
     })
   }
   
@@ -175,9 +182,29 @@
     $('input[type=file]').prettifyUpload(); 
   };
   
+  // removes inline image from platforms/job categories
+  App.DeleteImage = function() 
+  {
+    $('body').delegate('.delete-image', 'click', function(e) 
+    {
+      $.get($(this).attr('href'), function() {
+        App.Nav.reloadContetPanel();
+
+        App.Nav.reloadRightPanel();
+      })
+            
+      e.preventDefault()
+    })    
+  };
+  
 	$(function() {
+	  
+	  App.DeleteImage()
+	  
     App.Tooltip()
     App.Datepicker()
+    
+    App.TriggerDatepicker();
     
     $('body').delegate('[data-unselect]', 'click', App.unselect)   
     
@@ -190,13 +217,27 @@
     App.Dialog()
     
     App.enhanceChosen()
-	    //$('#fileupload').fileupload();
-	    
+    //$('#fileupload').fileupload();
+    
+    /*
+    $( "#image-sortable" ).sortable({
+        //placeholder: "ui-state-highlight",
+        stop: function(event, ui) {
+            //console.log(event, ui);
+            //console.log($('#sortable').sortable('toArray'));
+            var name = $('.sortable-wrapper').find('[type=hidden]').attr('name'),
+                value = $('.sortable-wrapper').find('[type=hidden]').attr('value');
+            
+            var data = {};
+            data['order'] = $('#image-sortable').sortable('toArray');
+            data[name] = value;
+            
+            $.post(App.URL+"image/update_order", data, function() {});
+        }
+    });
+		$( "#image-sortable" ).disableSelection();          
 
-
-	    
-        /*
-        $( "#image-sortable" ).sortable({
+        $( "#store-sortable" ).sortable({
             //placeholder: "ui-state-highlight",
             stop: function(event, ui) {
                 //console.log(event, ui);
@@ -205,62 +246,28 @@
                     value = $('.sortable-wrapper').find('[type=hidden]').attr('value');
                 
                 var data = {};
-                data['order'] = $('#image-sortable').sortable('toArray');
+                data['order'] = $('#store-sortable').sortable('toArray');
                 data[name] = value;
-                
-                $.post(App.URL+"image/update_order", data, function() {});
+                //console
+                $.post(App.URL+"store/update_order", data, function() {});
             }
         });
-    		$( "#image-sortable" ).disableSelection();          
+		$( "#store-sortable" ).disableSelection();    
+    */
+    $('i.w').parents('li').hover(
+			function() { $(this).find('i.w').css('opacity', 1); }, 
+			function() { $(this).find('i.w').css('opacity', 0.25); }
+		)
+
+    $("a[rel=popover]")
+      .popover()
+      .click(function(e) {
+          e.preventDefault()
+      });
     
-            $( "#store-sortable" ).sortable({
-                //placeholder: "ui-state-highlight",
-                stop: function(event, ui) {
-                    //console.log(event, ui);
-                    //console.log($('#sortable').sortable('toArray'));
-                    var name = $('.sortable-wrapper').find('[type=hidden]').attr('name'),
-                        value = $('.sortable-wrapper').find('[type=hidden]').attr('value');
-                    
-                    var data = {};
-                    data['order'] = $('#store-sortable').sortable('toArray');
-                    data[name] = value;
-                    //console
-                    $.post(App.URL+"store/update_order", data, function() {});
-                }
-            });
-    		$( "#store-sortable" ).disableSelection();    
-
-
-        */
-        
-        //$('.pills').pills();
-        //$('.tabs').pills();
-        
-        
-        //$('[id*=rumor_]').modal();
-        
-        //$('.new-rumor').parents('li:first').hover(function() { $('.new-rumor').css('opacity', 1) }, function() { $('.new-rumor').css('opacity', 0.25) })
-        //$('.settings').parents('li:first').hover(function() { $('.settings').css('opacity', 1) }, function() { $('.settings').css('opacity', 0.25) })
-        
-
-        $('i.w').parents('li').hover(
-    			function() { $(this).find('i.w').css('opacity', 1); }, 
-    			function() { $(this).find('i.w').css('opacity', 0.25); }
-    		)
-        
+		prettyPrint() 
 		
-        $("a[rel=popover]")
-            .popover()
-            .click(function(e) {
-                e.preventDefault()
-            });
-        
-        
-                	
-    		prettyPrint() 
-              
-    		
-    		//$('.sidebar-navigation-wrapper-right .well').lionbars(); 
-    });
+		//$('.sidebar-navigation-wrapper-right .well').lionbars(); 
+  });
 	
-}) (jQuery);
+} (jQuery);

@@ -15,6 +15,7 @@
           <?php foreach ($items as $it): ?>
             <div class="item">
               <h4>
+                <a href="#" class="btn" rel="tooltip" title="Called back"><i class="icon-ok"></i></a>
                 <?php echo $it->name ?>
                 <p class="pull-right">
                   <span style="color:#999; font-size:12px;">Download</span>

@@ -45,6 +45,6 @@
     <fieldset class="control-group">
         <label class="control-label inline-block" for="<?php echo $prefix ? $prefix : '' ?>ga_noninteraction">Non interaction</label>
         <div class="controls inline-block">
-            <input type="checkbox" name = "<?php echo $prefix ? $prefix : '' ?>ga_noninteraction" id = "<?php echo $prefix ? $prefix : '' ?>ga_noninteraction" class = "span4" value = "<?php $prop = $prefix.'ga_noninteraction';  echo $_POST && isset($_POST[$prop]) ? 'checked="checked"' : ($item && $item->$prop ? 'checked="checked"' : '') ?>"/>
+            <input type="checkbox" name = "<?php echo $prefix ? $prefix : '' ?>ga_noninteraction" id = "<?php echo $prefix ? $prefix : '' ?>ga_noninteraction" value = "<?php $prop = $prefix.'ga_noninteraction';  echo $_POST && isset($_POST[$prop]) ? 'checked="checked"' : ($item && $item->$prop ? 'checked="checked"' : '') ?>"/>
         </div>
     </fieldset>

@@ -120,7 +120,6 @@
       
       e.preventDefault()
     })
-    
   })
   
   App.Jobs = Jobs;

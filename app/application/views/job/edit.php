@@ -53,7 +53,10 @@
         <fieldset class="control-group">
             <label class="control-label" for="available">Available</label>
             <div class="controls">
-                <input type="text" name = "available" id = "available" class = "span2 datepicker" value = "<?php echo $_POST && isset($_POST['available']) ? $_POST['available'] : ($item ? to_date($item->available) : '') ?>"/>
+                <div class="input-append">
+                  <input type="text" name = "available" id = "available" class = "span2 datepicker" value = "<?php echo $_POST && isset($_POST['available']) ? $_POST['available'] : ($item ? to_date($item->available) : '') ?>"/>
+                  <a class="btn add-on trigger-datepicker"><i class="icon-calendar"></i></a>
+                </div>              
             </div>
         </fieldset> 
         <fieldset class="control-group">

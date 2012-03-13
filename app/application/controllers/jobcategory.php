@@ -100,7 +100,7 @@ class Jobcategory extends MY_Controller
             $this->session->set_flashdata('message', 'Deleted');
         }
         
-        echo display_success('Saved');
+        echo display_success('Deleted');
         
         die;
         

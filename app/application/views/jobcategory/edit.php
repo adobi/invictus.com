@@ -35,7 +35,7 @@
             <div class="controls">
                 <?php if ($item && $item->icon): ?>
                     <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->icon ?>" alt="">
-                    <a href="<?php echo base_url() ?>jobcategory/delete_image/<?php echo $item->id ?>" class="pull-right" style="margin-right:20px;" data-ajax-link="1" rel="tooltip" title="Delete icon"><i class="icon-trash"></i></a>
+                    <a href="<?php echo base_url() ?>jobcategory/delete_image/<?php echo $item->id ?>" class="delete-image pull-right" style="margin-right:20px;" rel="tooltip" title="Delete icon"><i class="icon-trash"></i></a>
                 <?php else: ?>
                     <input type="file" name = "icon" id = "icon" class = "span4"/>
                 <?php endif ?>

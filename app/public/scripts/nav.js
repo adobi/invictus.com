@@ -29,8 +29,10 @@
   
   Nav.initRightPanel = function() 
   {
+    //App.TriggerDatepicker()
     App.Datepicker()
     App.PrettifyUpload()
+    $('[rel=tooltip]').tooltip('hide');      
     App.Tooltip()   
   }
   
@@ -42,15 +44,6 @@
   Nav.prototype = {
     loadIntoRightPanel: function() 
     {
-      //App.Jobs.unselect();
-      
-      /*
-      this.container.load(this.href, function() {
-        App.Datepicker()
-        $('input[type=file]').prettifyUpload();
-      })
-      */
-      $('[rel=tooltip]').tooltip('hide');      
       var that = this
       $.ajax({
         url: that.href, 
@@ -76,15 +69,9 @@
       
       $.post(form.attr('action'), form.serialize(), function(resp) {
         
-        //form.find('legend').after(resp);
-        //form.find('legend').next().find('.alert-error').remove();
-        //form.find('legend').next().prepend(resp);
-        //App.showNotification(resp)
-
         Nav.reloadContetPanel();
 
         Nav.reloadRightPanel();
-
         
         App.Message = resp;
         
