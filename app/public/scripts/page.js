@@ -167,7 +167,7 @@
   
   App.Tooltip = function() 
   {
-    $('a[rel=tooltip]').tooltip();
+    $('[rel=tooltip]').tooltip();
   };
   
   App.PrettifyUpload = function() 

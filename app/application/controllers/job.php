@@ -12,7 +12,7 @@ class Job extends MY_Controller
         
         $this->load->model('Jobs', 'model');
         
-        $data['job_items'] = $this->model->fetchAll();
+        $data['job_items'] = $this->model->fetchAllWithApplicationCount();
         
         $this->load->model('Jobcategorys', 'categories');
         
@@ -141,5 +141,21 @@ class Job extends MY_Controller
   		}
   		
       $this->template->build('job/analytics', $data);
+    }
+    
+    public function applications()
+    {
+      $data = array();
+      
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Jobapplications', 'model');
+      $this->load->model('Jobs', 'jobs');
+      
+      $data['item'] = $this->jobs->find($id);
+      
+      $data['items'] = $this->model->fetchByJob($id);
+      
+      $this->template->build('job/applications', $data);
     }
 }

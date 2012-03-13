@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-03-13 14:57:29
+Date: 2012-03-13 16:18:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -301,19 +301,20 @@ CREATE TABLE `ic_job` (
   PRIMARY KEY (`id`),
   KEY `fk_job_job_category` (`category_id`),
   CONSTRAINT `fk_job_job_category` FOREIGN KEY (`category_id`) REFERENCES `ic_job_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job
 -- ----------------------------
-INSERT INTO `ic_job` VALUES ('5', 'Software Engineer - Front-End', 'Debrecen, Hungary', '1', '5', 'Twitter is looking for engineers to focus on front-end development. You should have a passion for shipping elegant, responsive web interfaces that will be used by millions of people.\r\n\r\nThere are currently openings for Front-End Engineers on multiple teams.', null, '2012-03-13 13:12:38', '2012-03-28 00:00:00', 'Job', 'Click', 'Job link', '1', null, 'Apply', 'Click', 'Apply button', '1', null);
+INSERT INTO `ic_job` VALUES ('12', 'Software Engineer', 'Debrecen, Hungary', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-13 15:07:03', '2012-03-28 00:00:00', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ic_job` VALUES ('14', 'Software Engineer - Front-End', 'Debrecen, Hungary', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-13 15:10:31', '2012-03-29 00:00:00', null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `ic_job_application`
 -- ----------------------------
 DROP TABLE IF EXISTS `ic_job_application`;
 CREATE TABLE `ic_job_application` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `job_id` int(11) DEFAULT NULL,
   `name` varchar(150) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
@@ -323,11 +324,30 @@ CREATE TABLE `ic_job_application` (
   PRIMARY KEY (`id`),
   KEY `fk_job_application_job` (`job_id`),
   CONSTRAINT `fk_job_application_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_application
 -- ----------------------------
+INSERT INTO `ic_job_application` VALUES ('1', '12', 'Alma Máter', 'hello@google.com', 'a', '+36707667788', 'a');
+INSERT INTO `ic_job_application` VALUES ('3', '12', 'Asda asdas', 'hello@google.com', 'a', '+36707667788', 'a');
+INSERT INTO `ic_job_application` VALUES ('4', '12', 'ASdasda asdasd', 'hello@google.com', 'aa', '+36707667788', 'a');
+INSERT INTO `ic_job_application` VALUES ('5', '12', 'aASDASda', 'hello@google.com', 'a', '+36707667788', 'a');
+INSERT INTO `ic_job_application` VALUES ('6', '12', 'ASdas', 'hello@google.com', 'a', '+36707667788', 'aa');
+INSERT INTO `ic_job_application` VALUES ('7', '12', 'ASdasdasd asda sd', 'hello@google.com', 'a', '+36707667788', 'a');
+INSERT INTO `ic_job_application` VALUES ('8', '12', 'aASDasd', 'hello@google.com', 'a', '+36707667788', 'a');
+INSERT INTO `ic_job_application` VALUES ('9', '12', 'asdasdasda', 'fs', 'a', '+36707667788', 'a');
+INSERT INTO `ic_job_application` VALUES ('10', '12', 'errqewrwe', 'd', 'q', '+36707667788', 'q');
+INSERT INTO `ic_job_application` VALUES ('11', '12', 'qwerw', 's', 'q', '+36707667788', 'q');
+INSERT INTO `ic_job_application` VALUES ('12', '12', 'ere', 'df', 'q', '+36707667788', 'q');
+INSERT INTO `ic_job_application` VALUES ('13', '12', 'wrw', 'fs', 'q', '+36707667788', 'q');
+INSERT INTO `ic_job_application` VALUES ('14', '12', 'er', 'sd', 'q', '+36707667788', 'q');
+INSERT INTO `ic_job_application` VALUES ('15', '12', 'wer', 'df', 'q', '+36707667788', 'q');
+INSERT INTO `ic_job_application` VALUES ('16', '12', 'we', 'fs', 'q', '+36707667788', 'q');
+INSERT INTO `ic_job_application` VALUES ('17', '12', 'r', 'sd', 'q', '+36707667788', 'q');
+INSERT INTO `ic_job_application` VALUES ('18', '12', 'we', 'sdf', 'q', '+36707667788', 'q');
+INSERT INTO `ic_job_application` VALUES ('19', '12', 'rw', 'sdf', 'q', '+36707667788', 'q');
+INSERT INTO `ic_job_application` VALUES ('20', '12', 'er', 'asdf', 'q', '+36707667788', 'q');
 
 -- ----------------------------
 -- Table structure for `ic_job_category`
@@ -338,12 +358,12 @@ CREATE TABLE `ic_job_category` (
   `name` varchar(150) DEFAULT NULL,
   `icon` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_category
 -- ----------------------------
-INSERT INTO `ic_job_category` VALUES ('5', 'Gameplay Developer', '1331634436_glyphicons_009_magic.png');
+INSERT INTO `ic_job_category` VALUES ('17', 'Gameplay Developer', '1331651148_glyphicons_009_magic.png');
 
 -- ----------------------------
 -- Table structure for `ic_job_offer`
@@ -356,13 +376,14 @@ CREATE TABLE `ic_job_offer` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_we_offer_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_offer
 -- ----------------------------
-INSERT INTO `ic_job_offer` VALUES ('107', '5', 'Complete medical/dental benefits');
-INSERT INTO `ic_job_offer` VALUES ('108', '5', 'Flexible and generous vacation policy');
+INSERT INTO `ic_job_offer` VALUES ('109', '12', 'Complete medical/dental benefits');
+INSERT INTO `ic_job_offer` VALUES ('110', '12', 'Flexible and generous vacation policy');
+INSERT INTO `ic_job_offer` VALUES ('111', '14', 'Flexible and generous vacation policy');
 
 -- ----------------------------
 -- Table structure for `ic_job_qualification`
@@ -375,13 +396,14 @@ CREATE TABLE `ic_job_qualification` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_qualification_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_qualification
 -- ----------------------------
-INSERT INTO `ic_job_qualification` VALUES ('107', '5', 'Demonstrable experience building world-class, consumer web application interfaces');
-INSERT INTO `ic_job_qualification` VALUES ('108', '5', 'Expert Javascript/HTML/CSS/Ajax coding skills');
+INSERT INTO `ic_job_qualification` VALUES ('109', '12', 'Expert Javascript/HTML/CSS/Ajax coding skills');
+INSERT INTO `ic_job_qualification` VALUES ('110', '12', 'Demonstrable experience building world-class, consumer web application interfaces');
+INSERT INTO `ic_job_qualification` VALUES ('111', '14', 'Demonstrable experience building world-class, consumer web application interfaces');
 
 -- ----------------------------
 -- Table structure for `ic_job_responsability`
@@ -394,13 +416,14 @@ CREATE TABLE `ic_job_responsability` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_responsability_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_responsability
 -- ----------------------------
-INSERT INTO `ic_job_responsability` VALUES ('141', '5', 'Write front-end code in Ruby, HTML/CSS, and Javascript');
-INSERT INTO `ic_job_responsability` VALUES ('142', '5', 'Implement new features and optimize existing ones from controller-level to UI');
+INSERT INTO `ic_job_responsability` VALUES ('143', '12', 'Write front-end code in Ruby, HTML/CSS, and Javascript');
+INSERT INTO `ic_job_responsability` VALUES ('144', '12', 'Implement new features and optimize existing ones from controller-level to UI');
+INSERT INTO `ic_job_responsability` VALUES ('145', '14', 'Write front-end code in Ruby, HTML/CSS, and Javascript');
 
 -- ----------------------------
 -- Table structure for `ic_job_skill`
@@ -413,13 +436,14 @@ CREATE TABLE `ic_job_skill` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_skill_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_skill
 -- ----------------------------
-INSERT INTO `ic_job_skill` VALUES ('123', '5', 'Visual-design skills');
-INSERT INTO `ic_job_skill` VALUES ('124', '5', 'B.S. or higher in Computer science or equivalent');
+INSERT INTO `ic_job_skill` VALUES ('125', '12', 'Visual-design skills');
+INSERT INTO `ic_job_skill` VALUES ('126', '12', 'B.S. or higher in Computer science or equivalent');
+INSERT INTO `ic_job_skill` VALUES ('127', '14', 'Visual-design skills');
 
 -- ----------------------------
 -- Table structure for `ic_meta`

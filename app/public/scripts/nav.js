@@ -50,7 +50,7 @@
         $('input[type=file]').prettifyUpload();
       })
       */
-      $('a[rel=tooltip]').tooltip('hide');      
+      $('[rel=tooltip]').tooltip('hide');      
       var that = this
       $.ajax({
         url: that.href, 
@@ -81,7 +81,10 @@
         //form.find('legend').next().prepend(resp);
         //App.showNotification(resp)
 
+        Nav.reloadContetPanel();
+
         Nav.reloadRightPanel();
+
         
         App.Message = resp;
         

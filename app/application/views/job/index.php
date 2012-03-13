@@ -44,9 +44,15 @@
       <?php foreach ($job_items as $item): ?>
         <div class="item">
           <h4>
+            <img src="<?php echo $item->category_icon ? base_url() . 'uploads/original/' . $item->category_icon : 'http://placehold.it/24x24' ?>" alt="" rel="tooltip" title="<?php echo $item->category_name ?>"> 
             <?php echo $item->name ?>
+            
+            <a href="<?php echo base_url() ?>job/applications/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Candidates for the job">
+              <!--<i class="icon-user"></i>  -->
+              <span class="badge badge-info"><?php echo $item->applications ? $item->applications : 0 ?></span>
+            </a>
+            
             <p class="pull-right" style="margin-top:5px;">
-              <a href="#" rel="tooltip" title="Candidates for the job"><i class="icon-user"></i></a>
               <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="View job"><i class="icon-eye-open"></i></a>
               <a href="<?php echo base_url() ?>job/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit job"><i class="icon-pencil"></i></a>
               <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="delete-job" data-location="l" rel="tooltip" title="Delete job"><i class="icon-trash"></i></a>

@@ -99,7 +99,7 @@
           	        <li><a href="<?php echo base_url() ?>crosspromo"><i class="icon-big roundabout-icon"></i>Promo</a></li>
           	        <li><a href="<?php echo base_url() ?>platform"><i class="icon-big iphone-icon"></i>Platforms</a></li>
           	        <li <?php echo $this->uri->segment(1) === 'job' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>job"><i class="icon-big usd-icon"></i>Jobs</a></li>
-          	        <li><a href="<?php echo base_url() ?>job_applications"><i class="icon-big group-icon"></i>Candidates</a></li>
+          	        <li><a href="<?php echo base_url() ?>jobapplication"><i class="icon-big group-icon"></i>Candidates</a></li>
           	        <li><a href="<?php echo base_url() ?>contact"><i class="icon-big contact-icon"></i>Contact</a></li>
           	        <!-- 
           	        <li><a href="<?php echo base_url() ?>contact"><i class="icon-big charts-icon"></i>Analytics</a></li>

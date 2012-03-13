@@ -106,4 +106,9 @@ class Jobs extends MY_Model
       
       return $item;
     }
+    
+    public function fetchAllWithApplicationCount()
+    {
+      return $this->execute("select j.*, c.icon as category_icon, c.name as category_name, (select count(id) from ic_job_application where job_id = j.id) as applications from $this->_name as j join ic_job_category c on j.category_id = c.id");
+    }
 }
