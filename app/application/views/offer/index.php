@@ -5,20 +5,24 @@
       <a class="btn btn-primary" href="<?= base_url(); ?>offer/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New</a>
     </p>
   </h1>    
-  <?php if ($items): ?>
+  <?php if ($items_current): ?>
     <div class="items offer-items">
       <hr>
-      <?php foreach ($items as $item): ?>
+      <?php foreach ($items_current as $item): ?>
         <div class="item">
             <h4>
               <?php echo to_date($item->from_date) ?> - <?php echo to_date($item->to_date) ?>
+              <a href="<?php echo base_url() ?>offer/emails/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Candidates for the job">
+                <!--<i class="icon-user"></i>  -->
+                <span class="badge badge-info"><?php echo $item->email_count ? $item->email_count : 0 ?></span>
+              </a>              
               <p class="pull-right" style="margin-top:5px;">
                 <a href="<?php echo base_url() ?>offer/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit platform"><i class="icon-pencil"></i></a>
-                <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete platform"><i class="icon-trash"></i></a>
+                <!-- <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete platform"><i class="icon-trash"></i></a> -->
               </p>
             </h4> 
             <p>
-              <?php echo $item->description ?>
+              <?php echo nl2br($item->description) ?>
             </p>       
         </div>
       <?php endforeach ?>
@@ -30,18 +34,25 @@
   <h1>
     Previous offers
   </h1>    
-  <?php if ($items): ?>
+  <?php if ($items_old): ?>
     <div class="items offer-items">
       <hr>
-      <?php foreach ($items as $item): ?>
+      <?php foreach ($items_old as $item): ?>
         <div class="item">
             <h4>
               <?php echo to_date($item->from_date) ?> - <?php echo to_date($item->to_date) ?>
+              <a href="<?php echo base_url() ?>offer/emails/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Candidates for the job">
+                <!--<i class="icon-user"></i>  -->
+                <span class="badge badge-info"><?php echo $item->email_count ? $item->email_count : 0 ?></span>
+              </a>    
               <p class="pull-right" style="margin-top:5px;">
-                <a href="<?php echo base_url() ?>offer/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit platform"><i class="icon-pencil"></i></a>
+                <!-- <a href="<?php echo base_url() ?>offer/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit platform"><i class="icon-pencil"></i></a> -->
                 <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete platform"><i class="icon-trash"></i></a>
               </p>
             </h4>        
+            <p>
+              <?php echo nl2br($item->description) ?>
+            </p>       
         </div>
       <?php endforeach ?>
     </div>

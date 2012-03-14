@@ -38,7 +38,7 @@
   
   Nav.initContentPanel = function() 
   {
-    
+    $('[rel=tooltip]').tooltip('hide');      
   }
   
   Nav.prototype = {

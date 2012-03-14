@@ -19,7 +19,7 @@
         <p class="pull-right">
           <button class="btn btn-primary"><i class="icon-ok icon-white"></i>Save</button>
           <?php if ($item): ?>
-            <a class="btn btn-primary" href="#" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal icon-white"></i></a>
+            <a class="btn btn-primary" href="<?php echo base_url() ?>offer/analytics/<?php echo $item->id ?>" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal icon-white"></i></a>
             <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="btn delete-job" data-location="r" rel="tooltip" title="Delete offer"><i class="icon-trash"></i></a>
           <?php endif ?>
         </p>

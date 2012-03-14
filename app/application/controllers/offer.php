@@ -12,7 +12,9 @@ class Offer extends MY_Controller
         
         $this->load->model('Offers', 'model');
         
-        $data['items'] = $this->model->fetchAll();
+        $data['items_current'] = $this->model->fetchCurrent();
+        
+        $data['items_old'] = $this->model->fetchOld();
         
         $this->template->build('offer/index', $data);
     }
@@ -41,6 +43,10 @@ class Offer extends MY_Controller
             if ($id) {
                 $this->model->update($_POST, $id);
             } else {
+                $current = $this->model->fetchCurrent();
+                
+                $this->model->close($current[0]->id);
+                
                 $this->model->insert($_POST);
             }
             $response = display_success('Saved');
@@ -74,4 +80,47 @@ class Offer extends MY_Controller
         
         redirect($_SERVER['HTTP_REFERER']);
     }
+    
+    public function emails()
+    {
+      $data = array();
+      
+      $id = $this->uri->segment(3);
+      $this->load->model('Emailoffers', 'model');
+      
+      $data['items'] = $this->model->fetchForOffer($id);
+      
+      $this->template->build('offer/emails', $data);
+    }
+
+    public function analytics()
+    {
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Offers', 'model');
+      
+      $this->template->set_partial('subscribe_analytics', '_partials/analytics', array('prefix'=>'')); 
+      
+      $data['item'] = $this->model->find($id);
+      
+  		$this->form_validation->set_rules("ga_category", "Category", "trim|required");
+  		$this->form_validation->set_rules("ga_action", "Action", "trim|required");
+  		$this->form_validation->set_rules("ga_label", "Label", "trim|required");
+  		$this->form_validation->set_rules("ga_value", "Value", "trim|required");
+  		
+  		if ($this->form_validation->run()) {
+  		  
+  		  $this->model->update($_POST, $id);
+  		  
+  		  echo 'Saved'; die;
+  		} else {
+  		  if ($_POST) {
+  		    
+  		    echo validation_errors(); die;
+  		  }
+  		}
+  		
+      $this->template->build('offer/analytics', $data);
+    }    
+    
 }
