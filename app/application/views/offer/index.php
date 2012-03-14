@@ -1,10 +1,10 @@
 <div class="well">
-  <h1>
+  <h3>
     Current offer
     <p class="pull-right">
       <a class="btn btn-primary" href="<?= base_url(); ?>offer/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New</a>
     </p>
-  </h1>    
+  </h3>    
   <?php if ($items_current): ?>
     <div class="items offer-items">
       <hr>

@@ -1,10 +1,10 @@
 <div class="well">
-  <h1>
+  <h3>
     Contact informations
     <p class="pull-right">
       <a class="btn btn-primary" href="<?= base_url(); ?>contact/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New</a>
     </p>
-  </h1>    
+  </h3>    
   <?php if ($items_contacts): ?>
     <div class="items offer-items">
       <hr>
@@ -30,17 +30,13 @@
 </div>
 
 <div class="well">
-  <h1>
+  <h3>
     Email addresses
     <p class="pull-right">
       <a class="btn btn-primary" href="<?= base_url(); ?>contacttype/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New</a>
     </p>    
-  </h1>    
+  </h3>    
   <?php if ($items_emails): ?>
-    <div class="hidden csrf-form">
-      <?php echo form_open() ?>
-      <?php echo form_close() ?>
-    </div>
     <div class="items contact-type-items">
       <hr>
       <?php foreach ($items_emails as $item): ?>
@@ -57,6 +53,10 @@
             </h4> 
         </div>
       <?php endforeach ?>
+    </div>
+    <div class="hidden csrf-form">
+      <?php echo form_open() ?>
+      <?php echo form_close() ?>
     </div>
   <?php endif ?>
 </div>

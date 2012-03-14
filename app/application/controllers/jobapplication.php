@@ -32,11 +32,11 @@ class Jobapplication extends MY_Controller
         $data['item'] = $item;
         
         $this->form_validation->set_rules("job_id", "Job_id", "trim|required");
-		$this->form_validation->set_rules("name", "Name", "trim|required");
-		$this->form_validation->set_rules("email", "Email", "trim|required");
-		$this->form_validation->set_rules("cv", "Cv", "trim|required");
-		$this->form_validation->set_rules("phone", "Phone", "trim|required");
-		$this->form_validation->set_rules("portfolio", "Portfolio", "trim|required");
+    		$this->form_validation->set_rules("name", "Name", "trim|required");
+    		$this->form_validation->set_rules("email", "Email", "trim|required|valid_email");
+    		$this->form_validation->set_rules("cv", "Cv", "trim|required");
+    		$this->form_validation->set_rules("phone", "Phone", "trim|required");
+    		$this->form_validation->set_rules("portfolio", "Portfolio", "trim|required");
 		
         
         if ($this->form_validation->run()) {
@@ -63,4 +63,27 @@ class Jobapplication extends MY_Controller
         
         redirect($_SERVER['HTTP_REFERER']);
     }
+    
+    public function called()
+    {
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Jobapplications', 'model');
+      
+      $this->model->update(array('called'=>1), $id);
+      
+      die;
+    }
+    
+    public function not_called()
+    {
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Jobapplications', 'model');
+      
+      $this->model->update(array('called'=>null), $id);
+      
+      die;
+    }
+
 }

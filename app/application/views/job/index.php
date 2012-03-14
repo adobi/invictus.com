@@ -1,11 +1,11 @@
 <div class="well">
-  <h1>
+  <h3>
     Job categories
     <p class="pull-right">
       <a href="#" onclick="$('.category-items').toggle();">toggle</a> &nbsp;
       <a class="btn btn-primary" href="<?= base_url(); ?>jobcategory/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New</a>
     </p>
-  </h1>
+  </h3>
   
   <?php if ($job_category_items): ?>
     <div class="items category-items">
@@ -30,13 +30,13 @@
 
 <div class="well">
   
-  <h1>
+  <h3>
     Jobs
     <p class="pull-right">
       <a href="#" onclick="$('.job-items').toggle();">toggle</a> &nbsp;
       <a class="btn btn-primary" href="<?= base_url(); ?>job/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New</a>
     </p>
-  </h1>
+  </h3>
   
   <?php if ($job_items): ?>
     <div class="items job-items">

@@ -13,9 +13,9 @@
       <?php if ($items): ?>
         <div class="items category-items">
           <?php foreach ($items as $it): ?>
-            <div class="item">
+            <div class="item <?php echo $it->called ? 'alert-success' : '' ?>">
               <h4>
-                <a href="#" class="btn" rel="tooltip" title="Called back"><i class="icon-ok"></i></a>
+                <a href="<?php echo base_url() ?>jobapplication/<?php echo $it->called ? 'not_called' : 'called' ?>/<?php echo $it->id ?>" class="btn switch-item" rel="tooltip" title="<?php echo $it->called ? 'Remove called flag' : 'Add called flag' ?>"><i class="icon-headphones"></i></a>
                 <?php echo $it->name ?>
                 <p class="pull-right">
                   <span style="color:#999; font-size:12px;">Download</span>

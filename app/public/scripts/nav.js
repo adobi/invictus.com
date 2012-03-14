@@ -24,6 +24,7 @@
   
   Nav.reloadRightPanel = function() 
   {
+    $('[rel=tooltip]').tooltip('hide');   
     $('.sidebar-navigation-wrapper-right .well').load(Nav.CurrentHref, Nav.initRightPanel);
   }
   

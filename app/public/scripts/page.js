@@ -216,8 +216,25 @@
     })    
   };
   
+  App.SwitchItem = function() 
+  {
+    $('body').delegate('.switch-item', 'click', function(e) 
+    {
+      
+      var that = $(this)
+      $.get(that.attr('href'), function() {
+        
+        App.Nav.reloadRightPanel()
+      })
+            
+      e.preventDefault()
+    })    
+  }
+  
 	$(function() 
 	{
+	  
+	  App.SwitchItem();
 	  
 	  App.DeleteItem()
 	  

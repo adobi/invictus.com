@@ -7,7 +7,7 @@ class Jobapplications extends MY_Model
     protected $_name = "ic_job_application";
     protected $_primary = "id";
     
-    public function fetchByJob($id)
+    public function fetchForJob($id)
     {
       if (!$id) return false;
       

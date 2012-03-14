@@ -154,7 +154,7 @@ class Job extends MY_Controller
       
       $data['item'] = $this->jobs->find($id);
       
-      $data['items'] = $this->model->fetchByJob($id);
+      $data['items'] = $this->model->fetchForJob($id);
       
       $this->template->build('job/applications', $data);
     }
