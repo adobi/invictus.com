@@ -44,6 +44,7 @@
   Nav.prototype = {
     loadIntoRightPanel: function() 
     {
+      $('[rel=tooltip]').tooltip('hide');      
       var that = this
       $.ajax({
         url: that.href, 

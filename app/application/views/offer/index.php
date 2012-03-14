@@ -12,13 +12,13 @@
         <div class="item">
             <h4>
               <?php echo to_date($item->from_date) ?> - <?php echo to_date($item->to_date) ?>
-              <a href="<?php echo base_url() ?>offer/emails/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Candidates for the job">
+              <a href="<?php echo base_url() ?>offer/emails/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Subscribers">
                 <!--<i class="icon-user"></i>  -->
                 <span class="badge badge-info"><?php echo $item->email_count ? $item->email_count : 0 ?></span>
               </a>              
               <p class="pull-right" style="margin-top:5px;">
-                <a href="<?php echo base_url() ?>offer/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit platform"><i class="icon-pencil"></i></a>
-                <!-- <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete platform"><i class="icon-trash"></i></a> -->
+                <a href="<?php echo base_url() ?>offer/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit offer"><i class="icon-pencil"></i></a>
+                <!-- <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete offer"><i class="icon-trash"></i></a> -->
               </p>
             </h4> 
             <p>
@@ -29,12 +29,11 @@
     </div>
   <?php endif ?>
 </div>
-
-<div class="well">
-  <h1>
-    Previous offers
-  </h1>    
-  <?php if ($items_old): ?>
+<?php if ($items_old): ?>
+  <div class="well">
+    <h1>
+      Previous offers
+    </h1>    
     <div class="items offer-items">
       <hr>
       <?php foreach ($items_old as $item): ?>
@@ -46,8 +45,8 @@
                 <span class="badge badge-info"><?php echo $item->email_count ? $item->email_count : 0 ?></span>
               </a>    
               <p class="pull-right" style="margin-top:5px;">
-                <!-- <a href="<?php echo base_url() ?>offer/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit platform"><i class="icon-pencil"></i></a> -->
-                <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete platform"><i class="icon-trash"></i></a>
+                <!-- <a href="<?php echo base_url() ?>offer/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit offer"><i class="icon-pencil"></i></a> -->
+                <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete offer"><i class="icon-trash"></i></a>
               </p>
             </h4>        
             <p>
@@ -56,5 +55,5 @@
         </div>
       <?php endforeach ?>
     </div>
-  <?php endif ?>
-</div>
+  </div>
+<?php endif ?>

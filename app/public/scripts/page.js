@@ -259,22 +259,22 @@
     });
 		$( "#image-sortable" ).disableSelection();          
 
-        $( "#store-sortable" ).sortable({
-            //placeholder: "ui-state-highlight",
-            stop: function(event, ui) {
-                //console.log(event, ui);
-                //console.log($('#sortable').sortable('toArray'));
-                var name = $('.sortable-wrapper').find('[type=hidden]').attr('name'),
-                    value = $('.sortable-wrapper').find('[type=hidden]').attr('value');
-                
-                var data = {};
-                data['order'] = $('#store-sortable').sortable('toArray');
-                data[name] = value;
-                //console
-                $.post(App.URL+"store/update_order", data, function() {});
-            }
-        });
-		$( "#store-sortable" ).disableSelection();    
+    $( "#store-sortable" ).sortable({
+        //placeholder: "ui-state-highlight",
+        stop: function(event, ui) {
+            //console.log(event, ui);
+            //console.log($('#sortable').sortable('toArray'));
+            var name = $('.sortable-wrapper').find('[type=hidden]').attr('name'),
+                value = $('.sortable-wrapper').find('[type=hidden]').attr('value');
+            
+            var data = {};
+            data['order'] = $('#store-sortable').sortable('toArray');
+            data[name] = value;
+            //console
+            $.post(App.URL+"store/update_order", data, function() {});
+        }
+    });
+	  $( "#store-sortable" ).disableSelection();    
     */
     $('i.w').parents('li').hover(
 			function() { $(this).find('i.w').css('opacity', 1); }, 

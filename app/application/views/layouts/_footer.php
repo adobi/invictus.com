@@ -38,6 +38,7 @@
                     "<?php echo base_url() ?>scripts/plugins/lionbars/jquery.lionbars.0.3.min.js",
                     "<?php echo base_url() ?>scripts/nav.js?<?php echo time(); ?>",
                     "<?php echo base_url() ?>scripts/jobs.js?<?php echo time(); ?>",
+                    "<?php echo base_url() ?>scripts/contacts.js?<?php echo time(); ?>",
                     "<?php echo base_url() ?>scripts/page.js?<?php echo time(); ?>",
                     function() {
                     
