@@ -92,19 +92,19 @@
           	  <div class="span1 sidebar-navigation-wrapper-left">
           	    <div class="sidebar-nav">
           	      <ul class="nav nav-list left-side-nav">
-                    <!--<li <?php echo $this->uri->segment(1) === 'dashboard' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>dashboard"><i class="icon-big dashboard-icon"></i>Dashboard</a></li>-->
-          	        <li><a href="<?php echo base_url() ?>game"><i class="icon-big games-icon"></i>Games</a></li>
-          	        <li><a href="<?php echo base_url() ?>page"><i class="icon-big page-icon"></i>Pages</a></li>
-          	        <li <?php echo $this->uri->segment(1) === 'offer' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>offer"><i class="icon-big gift-icon"></i>Offers</a></li>
-          	        <li <?php echo $this->uri->segment(1) === 'crosspromo' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>crosspromo"><i class="icon-big roundabout-icon"></i>Promo</a></li>
-          	        <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>platform"><i class="icon-big iphone-icon"></i>Platforms</a></li>
-          	        <li <?php echo $this->uri->segment(1) === 'job' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>job"><i class="icon-big usd-icon"></i>Jobs</a></li>
+                    <li <?php echo $this->uri->segment(1) === 'dashboard' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>dashboard" rel="tooltip" title="Dashboard" data-placement="right"><i class="icon-big dashboard-icon"></i></a></li>
+          	        <li><a href="<?php echo base_url() ?>game" rel="tooltip" title="Games" data-placement="right"><i class="icon-big games-icon"></i></a></li>
+          	        <li><a href="<?php echo base_url() ?>page" rel="tooltip" title="Pages" data-placement="right"><i class="icon-big page-icon"></i></a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'offer' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>offer" rel="tooltip" title="Offers" data-placement="right"><i class="icon-big gift-icon"></i></a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'crosspromo' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>crosspromo" rel="tooltip" title="Crosspromo" data-placement="right"><i class="icon-big roundabout-icon"></i></a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>platform" rel="tooltip" title="Platforms" data-placement="right"><i class="icon-big iphone-icon"></i></a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'job' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>job" rel="tooltip" title="Jobs" data-placement="right"><i class="icon-big usd-icon"></i></a></li>
           	        <!-- <li <?php echo $this->uri->segment(1) === 'jobapplication' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>jobapplication"><i class="icon-big group-icon"></i>Candidates</a></li> -->
-          	        <li <?php echo $this->uri->segment(1) === 'contact' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>contact"><i class="icon-big contact-icon"></i>Contact</a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'contact' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>contact" rel="tooltip" title="Contact" data-placement="right"><i class="icon-big contact-icon"></i></a></li>
           	        <!-- 
           	        <li><a href="<?php echo base_url() ?>contact"><i class="icon-big charts-icon"></i>Analytics</a></li>
           	         -->
-          	        <li <?php echo $this->uri->segment(1) === 'settings' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>settings"><i class="icon-big settings-icon"></i>Settings</a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'settings' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>settings" rel="tooltip" title="Settings" data-placement="right"><i class="icon-big settings-icon"></i></a></li>
           	      </ul>
           	    </div>
           	  </div>
