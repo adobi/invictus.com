@@ -78,33 +78,83 @@
                         </form>                        
                         <ul class="nav">
                             <li class="divider-vertical"></li>
-                            <li><a href="<?php echo base_url() ?>auth/logout" style="font-weight:bold"><i class="icon-big power-icon"></i>Logout</a></li>
+                            <li>
+                              <a href="<?php echo base_url() ?>auth/logout" style="font-weight:bold;margin-top:5px;" rel="tooltip" title="Logout" data-placement="bottom">
+                                <i class="icon-big power-icon"></i>
+                                
+                              </a>
+                            </li>
                         </ul>
                     </div>
                   </div><!--/.nav-collapse -->
                 </div>
               </div>
             </div>               
-        <?php endif ?>    
+        <?php endif ?> 
         <div class="container-fluid" id="container" style="padding-left:0px;">
         	<div class="content row-fluid" style="margin-top:60px;">
         	  <?php if ($this->session->userdata('logged_in')): ?>
           	  <div class="span1 sidebar-navigation-wrapper-left">
           	    <div class="sidebar-nav">
           	      <ul class="nav nav-list left-side-nav">
-                    <li <?php echo $this->uri->segment(1) === 'dashboard' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>dashboard" rel="tooltip" title="Dashboard" data-placement="right"><i class="icon-big dashboard-icon"></i></a></li>
-          	        <li><a href="<?php echo base_url() ?>game" rel="tooltip" title="Games" data-placement="right"><i class="icon-big games-icon"></i></a></li>
-          	        <li><a href="<?php echo base_url() ?>page" rel="tooltip" title="Pages" data-placement="right"><i class="icon-big page-icon"></i></a></li>
-          	        <li <?php echo $this->uri->segment(1) === 'offer' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>offer" rel="tooltip" title="Offers" data-placement="right"><i class="icon-big gift-icon"></i></a></li>
-          	        <li <?php echo $this->uri->segment(1) === 'crosspromo' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>crosspromo" rel="tooltip" title="Crosspromo" data-placement="right"><i class="icon-big roundabout-icon"></i></a></li>
-          	        <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>platform" rel="tooltip" title="Platforms" data-placement="right"><i class="icon-big iphone-icon"></i></a></li>
-          	        <li <?php echo $this->uri->segment(1) === 'job' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>job" rel="tooltip" title="Jobs" data-placement="right"><i class="icon-big usd-icon"></i></a></li>
+                    <li <?php echo $this->uri->segment(1) === 'dashboard' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>dashboard" rel="tooltip" title="Dashboard" data-placement="right">
+                        <i class="icon-big dashboard-icon"></i>
+                        
+                      </a>
+                    </li>
+          	        <li>
+                      <a href="<?php echo base_url() ?>game" rel="tooltip" title="Games" data-placement="right">
+                        <i class="icon-big games-icon"></i>
+                        
+                      </a>
+                    </li>
+          	        <li>
+                      <a href="<?php echo base_url() ?>page" rel="tooltip" title="Pages" data-placement="right">
+                        <i class="icon-big page-icon"></i>
+                        
+                      </a>
+                    </li>
+          	        <li <?php echo $this->uri->segment(1) === 'offer' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>offer" rel="tooltip" title="Offers" data-placement="right">
+                        <i class="icon-big gift-icon"></i>
+                        
+                      </a>
+                    </li>
+          	        <li <?php echo $this->uri->segment(1) === 'crosspromo' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>crosspromo" rel="tooltip" title="Crosspromo" data-placement="right">
+                        <i class="icon-big roundabout-icon"></i>
+                        
+                      </a>
+                    </li>
+          	        <li <?php echo $this->uri->segment(1) === 'platform' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>platform" rel="tooltip" title="Platforms" data-placement="right">
+                        <i class="icon-big iphone-icon"></i>
+                        
+                      </a>
+                    </li>
+          	        <li <?php echo $this->uri->segment(1) === 'job' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>job" rel="tooltip" title="Jobs" data-placement="right">
+                        <i class="icon-big usd-icon"></i>
+                        
+                      </a>
+                    </li>
           	        <!-- <li <?php echo $this->uri->segment(1) === 'jobapplication' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>jobapplication"><i class="icon-big group-icon"></i>Candidates</a></li> -->
-          	        <li <?php echo $this->uri->segment(1) === 'contact' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>contact" rel="tooltip" title="Contact" data-placement="right"><i class="icon-big contact-icon"></i></a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'contact' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>contact" rel="tooltip" title="Contact" data-placement="right">
+                        <i class="icon-big contact-icon"></i>
+                        
+                      </a>
+                    </li>
           	        <!-- 
           	        <li><a href="<?php echo base_url() ?>contact"><i class="icon-big charts-icon"></i>Analytics</a></li>
           	         -->
-          	        <li <?php echo $this->uri->segment(1) === 'settings' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>settings" rel="tooltip" title="Settings" data-placement="right"><i class="icon-big settings-icon"></i></a></li>
+          	        <li <?php echo $this->uri->segment(1) === 'settings' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>settings" rel="tooltip" title="Settings" data-placement="right">
+                        <i class="icon-big settings-icon"></i>
+                        
+                      </a>
+                    </li>
           	      </ul>
           	    </div>
           	  </div>
