@@ -70,7 +70,11 @@ class Contacttype extends MY_Controller
             
             $this->model->delete($id);
         }
-        
+       if ($this->input->is_ajax_request()) {
+          
+            echo $response;
+            die;
+        }        
         redirect($_SERVER['HTTP_REFERER']);
     }
     

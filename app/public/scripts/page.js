@@ -172,9 +172,9 @@
     });      
   };
   
-  App.Tooltip = function() 
+  App.Tooltip = function(option) 
   {
-    $('[rel=tooltip]').tooltip();
+    $('[rel=tooltip]').tooltip(option||null);
   };
   
   App.PrettifyUpload = function() 

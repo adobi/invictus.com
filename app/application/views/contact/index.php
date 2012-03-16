@@ -15,7 +15,7 @@
               <span style="font-size:0.8em; color:#999;"><?php echo $item->location ?></span>
               <p class="pull-right" style="margin-top:5px;">
                 <a href="<?php echo base_url() ?>contact/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit contact"><i class="icon-pencil"></i></a>
-                <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete platform"><i class="icon-trash"></i></a>
+                <a href="<?php echo base_url() ?>contact/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete contact"><i class="icon-trash"></i></a>
               </p>
             </h4> 
             <h6>
@@ -47,8 +47,8 @@
               <span style="font-size:0.8em; color:#999;"><?php echo $item->email ?></span>
     
               <p class="pull-right" style="margin-top:5px;">
-                <a href="<?php echo base_url() ?>contacttype/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit contact type"><i class="icon-pencil"></i></a>
-                <a href="<?php echo base_url() ?>contacttype/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete contat type"><i class="icon-trash"></i></a>
+                <a href="<?php echo base_url() ?>contacttype/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit email address"><i class="icon-pencil"></i></a>
+                <a href="<?php echo base_url() ?>contacttype/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete email address"><i class="icon-trash"></i></a>
               </p>
             </h4> 
         </div>

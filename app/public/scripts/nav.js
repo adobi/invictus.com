@@ -6,15 +6,22 @@
   var Nav = function(el, container)
   {
     this.el = $(el)
-    this.href = Nav.CurrentHref = this.el.attr('href')
+    this.href = this.el.attr('href')
+    
     this.container = container || $('.sidebar-navigation-wrapper-right .well')
     this.type = this.el.data('type')
+    
+    //console.log(App.CurrentHref)
   }
   
   Nav.reloadContetPanel = function() 
   {
+    App.Tooltip('hide')
+    //console.log('reload content')
     //$('.left-side-nav .active').trigger('click')  
-    $('.content-wrapper').load($('.left-side-nav .active a').attr('href'));
+    $('.content-wrapper').load($('.left-side-nav .active a').attr('href'), function() {
+      Nav.initContentPanel()
+    });
   }
   
   Nav.CloseRightPanel = function() 
@@ -24,8 +31,11 @@
   
   Nav.reloadRightPanel = function() 
   {
-    $('[rel=tooltip]').tooltip('hide');   
-    $('.sidebar-navigation-wrapper-right .well').load(Nav.CurrentHref, Nav.initRightPanel);
+    $('[rel=tooltip]').tooltip('hide')
+    
+    //console.log(App.CurrentHref)
+      
+    $('.sidebar-navigation-wrapper-right .well').load(App.CurrentHref, Nav.initRightPanel)
   }
   
   Nav.initRightPanel = function() 
@@ -33,14 +43,16 @@
     //App.TriggerDatepicker()
     App.Datepicker()
     App.PrettifyUpload()
-    $('[rel=tooltip]').tooltip('hide');      
+    App.Tooltip('hide')      
     App.Tooltip() 
     App.AutoHeight()  
   }
   
   Nav.initContentPanel = function() 
   {
-    $('[rel=tooltip]').tooltip('hide');      
+    App.Tooltip('hide')
+    
+    if ($(".contact-type-items" ).length) App.Contacts.sortable()     
   }
   
   Nav.prototype = {
@@ -48,6 +60,7 @@
     {
       $('[rel=tooltip]').tooltip('hide');      
       var that = this
+      
       $.ajax({
         url: that.href, 
         type: that.type || 'GET',
@@ -101,6 +114,8 @@
     $('body').delegate('[data-ajax-link]', 'click', function(e) {
       
       (new Nav(this)).loadIntoRightPanel();
+      
+      App.CurrentHref = $(this).attr('href')
       
       e.preventDefault()
     })

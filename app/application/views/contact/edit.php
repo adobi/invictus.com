@@ -20,7 +20,8 @@
             <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete contact"><i class="icon-trash"></i></a>
           <?php endif ?>
         </p>        
-    </legend>    
+    </legend> 
+    <div class="right-side-scroll">   
         <fieldset class="control-group">
             <label class="control-label" for="name">Name</label>
             <div class="controls">
@@ -57,6 +58,7 @@
                 <input type="text" name = "email" id = "email" class = "span4" value = "<?php echo $_POST && isset($_POST['email']) ? $_POST['email'] : ($item ? $item->email : '') ?>"/>
             </div>
         </fieldset>      
+    </div>
     <fieldset class="form-actions right">
         <button class="btn btn-primary"><i class="icon-ok icon-white"></i>Save</button>
     </fieldset>    
