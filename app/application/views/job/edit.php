@@ -22,7 +22,7 @@
           <?php endif ?>
         </p>
     </legend>  
-    <div class="right-side-scroll" style="">
+    <div class="right-side-scroll">
         <fieldset class="control-group">
             <label class="control-label" for="name">Name</label>
             <div class="controls">

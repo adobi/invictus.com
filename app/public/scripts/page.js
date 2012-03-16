@@ -231,8 +231,16 @@
     })    
   }
   
+  App.AutoHeight = function () 
+  {
+    //$('.right-side-scroll').css('height', $('body').height()-300)
+    $('.right-side-scroll').css('height', $('.sidebar-navigation-wrapper-right .well').height() - 160)
+  }
+  
 	$(function() 
 	{
+    
+    App.AutoHeight()
 	  
 	  App.SwitchItem();
 	  

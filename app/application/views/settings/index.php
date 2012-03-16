@@ -1,6 +1,6 @@
 <div class="well">
   <h3>
-    Contact informations
+    Global settings
     <?php if (!$items): ?>
       <p class="pull-right">
         <a class="btn btn-primary" href="<?= base_url(); ?>settings/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New</a>

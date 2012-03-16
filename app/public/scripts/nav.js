@@ -34,7 +34,8 @@
     App.Datepicker()
     App.PrettifyUpload()
     $('[rel=tooltip]').tooltip('hide');      
-    App.Tooltip()   
+    App.Tooltip() 
+    App.AutoHeight()  
   }
   
   Nav.initContentPanel = function() 

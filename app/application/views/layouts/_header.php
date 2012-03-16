@@ -56,7 +56,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </a>
-                  <a href="#" class="span1 brand" style="margin-top:10px; margin-right:3px;">
+                  <a href="<?php echo base_url() ?>" class="span1 brand" style="margin-top:10px; margin-right:3px;">
                     <i class="icon-big home-icon"></i>
                     <?php //echo SITE_TITLE ?>
                   </a>
@@ -92,7 +92,7 @@
           	  <div class="span1 sidebar-navigation-wrapper-left">
           	    <div class="sidebar-nav">
           	      <ul class="nav nav-list left-side-nav">
-                    <li <?php echo $this->uri->segment(1) === 'dashboard' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>dashboard"><i class="icon-big dashboard-icon"></i>Dashboard</a></li>
+                    <!--<li <?php echo $this->uri->segment(1) === 'dashboard' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>dashboard"><i class="icon-big dashboard-icon"></i>Dashboard</a></li>-->
           	        <li><a href="<?php echo base_url() ?>game"><i class="icon-big games-icon"></i>Games</a></li>
           	        <li><a href="<?php echo base_url() ?>page"><i class="icon-big page-icon"></i>Pages</a></li>
           	        <li <?php echo $this->uri->segment(1) === 'offer' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>offer"><i class="icon-big gift-icon"></i>Offers</a></li>
