@@ -46,7 +46,7 @@
     App.Tooltip('hide')      
     App.Tooltip() 
     App.AutoHeight()  
-    $('.sidebar-navigation-wrapper-right .well').find('input[type=text]:first').focus()
+    $('.sidebar-navigation-wrapper-right .controls:first').children(':first').focus()
   }
   
   Nav.initContentPanel = function() 

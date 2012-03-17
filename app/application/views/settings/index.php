@@ -3,7 +3,7 @@
     Global settings
     <?php if (!$items): ?>
       <p class="pull-right">
-        <a class="btn btn-primary" href="<?= base_url(); ?>settings/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New</a>
+        <a class="btn btn-primary" href="<?= base_url(); ?>settings/edit" data-ajax-link="1" data-unselect="1" rel="tooltip" title="Create new settings"><i class="icon-plus-sign icon-white"></i></a>
       </p>
     <?php endif ?>
   </h3>    

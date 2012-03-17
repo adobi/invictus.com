@@ -45,7 +45,8 @@ class Offer extends MY_Controller
             } else {
                 $current = $this->model->fetchCurrent();
                 
-                $this->model->close($current[0]->id);
+                if ($current)
+                  $this->model->close($current[0]->id);
                 
                 $this->model->insert($_POST);
             }

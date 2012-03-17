@@ -16,9 +16,9 @@
             New platform
         <?php endif ?>
         <p class="pull-right">
-          <button class="btn btn-primary"><i class="icon-ok icon-white"></i>Save</button>
+          <button class="btn btn-primary" rel="tooltip" title="Save platform"><i class="icon-ok icon-white"></i></button>
           <?php if ($item): ?>
-            <a href="<?php echo base_url() ?>platform/delete/<?php echo $item->id ?>" class="btn delete-job" data-location="r" rel="tooltip" title="Delete category"><i class="icon-trash"></i></a>
+            <a href="<?php echo base_url() ?>platform/delete/<?php echo $item->id ?>" class="btn delete-job" data-location="r" rel="tooltip" title="Delete platform"><i class="icon-trash"></i></a>
           <?php endif ?>
         </p>
     </legend>   
@@ -43,6 +43,6 @@
         </fieldset>      
     </div>
     <fieldset class="form-actions right">
-        <button class="btn btn-primary"><i class="icon-ok icon-white"></i>Save</button>
+        <button class="btn btn-primary" rel="tooltip" title="Save platform"><i class="icon-ok icon-white"></i></button>
     </fieldset>    
 <?php echo form_close() ?>

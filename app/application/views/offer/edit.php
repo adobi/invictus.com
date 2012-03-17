@@ -17,9 +17,9 @@
             New offer
         <?php endif ?>
         <p class="pull-right">
-          <button class="btn btn-primary"><i class="icon-ok icon-white"></i>Save</button>
+          <button class="btn btn-primary" rel="tooltip" title="Save offer"><i class="icon-ok icon-white"></i></button>
           <?php if ($item): ?>
-            <a class="btn btn-primary" href="<?php echo base_url() ?>offer/analytics/<?php echo $item->id ?>" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal icon-white"></i></a>
+            <a class="btn" href="<?php echo base_url() ?>offer/analytics/<?php echo $item->id ?>" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>
             <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete offer"><i class="icon-trash"></i></a>
           <?php endif ?>
         </p>
@@ -49,6 +49,6 @@
       </div>
     </fieldset>        
     <fieldset class="form-actions right">
-        <button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i>Save</button>
+        <button class="btn btn-primary" type="submit" rel="tooltip" title="Save offer"><i class="icon-ok icon-white"></i></button>
     </fieldset>     
 <?php echo form_close() ?>

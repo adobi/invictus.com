@@ -14,7 +14,7 @@
             New job
         <?php endif ?>
         <p class="pull-right">
-          <button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i></button>          
+          <button class="btn btn-primary" type="submit" rel="tooltip" title="Save job"><i class="icon-ok icon-white"></i></button>          
           <?php if ($item): ?>
             <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="View job"><i class="icon-eye-open"></i></a>
             <a href="<?php echo base_url() ?>job/analytics/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>
@@ -165,6 +165,6 @@
         </fieldset>  
     </div>  
     <fieldset class="form-actions right" style="clear: both;display:block">
-        <button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i></button>
+        <button class="btn btn-primary" type="submit" rel="tooltip" title="Save job"><i class="icon-ok icon-white"></i></button>
     </fieldset>    
 <?php echo form_close() ?>

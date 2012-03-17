@@ -15,7 +15,7 @@
             New settings
         <?php endif ?>
         <p class="pull-right">
-          <button class="btn btn-primary"><i class="icon-ok icon-white"></i>Save</button>
+          <button class="btn btn-primary" rel="tooltip" title="Save settings"><i class="icon-ok icon-white"></i></button>
         </p>        
     </legend>    
     <!-- 
@@ -51,6 +51,6 @@
         </div>
     </fieldset>      
     <fieldset class="form-actions right">
-        <button class="btn btn-primary"><i class="icon-ok icon-white"></i>Save</button>
+        <button class="btn btn-primary" rel="tooltip" title="Save settings"><i class="icon-ok icon-white"></i></button>
     </fieldset>    
 <?php echo form_close() ?>

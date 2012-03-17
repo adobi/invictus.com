@@ -2,7 +2,7 @@
   <h3>
     Current offer
     <p class="pull-right">
-      <a class="btn btn-primary" href="<?= base_url(); ?>offer/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i>New</a>
+      <a class="btn btn-primary" href="<?= base_url(); ?>offer/edit" data-ajax-link="1" data-unselect="1" rel="tooltip" title="Create new offer"><i class="icon-plus-sign icon-white"></i></a>
     </p>
   </h3>    
   <?php if ($items_current): ?>
@@ -18,7 +18,7 @@
               </a>              
               <p class="pull-right" style="margin-top:5px;">
                 <a href="<?php echo base_url() ?>offer/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit offer"><i class="icon-pencil"></i></a>
-                <!-- <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete offer"><i class="icon-trash"></i></a> -->
+                <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete offer"><i class="icon-trash"></i></a>
               </p>
             </h4> 
             <p>
