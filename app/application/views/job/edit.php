@@ -14,10 +14,10 @@
             New job
         <?php endif ?>
         <p class="pull-right">
-          <button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i>Save</button>          
+          <button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i></button>          
           <?php if ($item): ?>
-            <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" class="btn btn-primary" data-ajax-link="1" rel="tooltip" title="View job"><i class="icon-eye-open icon-white"></i></a>
-            <a href="<?php echo base_url() ?>job/analytics/<?php echo $item->id ?>" class="btn btn-primary" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal icon-white"></i></a>
+            <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="View job"><i class="icon-eye-open"></i></a>
+            <a href="<?php echo base_url() ?>job/analytics/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>
             <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-job" data-location="r" rel="tooltip" title="Delete job"><i class="icon-trash"></i></a>
           <?php endif ?>
         </p>
@@ -165,6 +165,6 @@
         </fieldset>  
     </div>  
     <fieldset class="form-actions right" style="clear: both;display:block">
-        <button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i>Save</button>
+        <button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i></button>
     </fieldset>    
 <?php echo form_close() ?>
