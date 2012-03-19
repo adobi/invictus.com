@@ -217,10 +217,11 @@
       if (!App.Modal) {
         App.Modal = true;
         
+        $('#delete-yes').attr('href', $(this).attr('href'));
+        $('#the-item').html(that.data('modal-header'))
+        
         modal.modal();
         
-        $('#delete-yes').attr('href', $(this).attr('href'));
-      
       } else {
         $.get(that.attr('href'), function() {
           
@@ -231,8 +232,7 @@
           modal.modal('hide')
         })
       }
-      /*
-      */      
+      
       e.preventDefault()
     })    
   };

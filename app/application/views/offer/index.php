@@ -18,7 +18,7 @@
               </a>              
               <p class="pull-right" style="margin-top:5px;">
                 <a  href="<?php echo base_url() ?>offer/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit offer"><i class="icon-pencil"></i></a>
-                <a  href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="l" rel="tooltip" title="Delete offer"><i class="icon-trash"></i></a>
+                <a  href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete offer" data-modal-header="Current offer"><i class="icon-trash"></i></a>
               </p>
             </h4> 
             <p>
@@ -46,7 +46,7 @@
               </a>    
               <p class="pull-right" style="margin-top:5px;">
                 <!-- <a href="<?php echo base_url() ?>offer/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit offer"><i class="icon-pencil"></i></a> -->
-                <a  href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="l" rel="tooltip" title="Delete offer"><i class="icon-trash"></i></a>
+                <a  href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete offer" data-modal-header="Previous offer"><i class="icon-trash"></i></a>
               </p>
             </h4>        
             <p>

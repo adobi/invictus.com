@@ -18,7 +18,7 @@
             
             <p class="pull-right" style="margin-top:5px;">
               <a href="<?php echo base_url() ?>jobcategory/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit category"><i class="icon-pencil"></i></a>
-              <a href="<?php echo base_url() ?>jobcategory/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="l" rel="tooltip" title="Delete category"><i class="icon-trash"></i></a>
+              <a href="<?php echo base_url() ?>jobcategory/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete category" data-modal-header="Job category <?php echo $item->name ?>"><i class="icon-trash"></i></a>
             </p>
           </h4>
         </div>
@@ -55,7 +55,7 @@
             <p class="pull-right" style="margin-top:5px;">
               <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="View job"><i class="icon-eye-open"></i></a>
               <a href="<?php echo base_url() ?>job/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit job"><i class="icon-pencil"></i></a>
-              <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="l" rel="tooltip" title="Delete job"><i class="icon-trash"></i></a>
+              <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete job" data-modal-header="Job <?php echo $item->name ?>"><i class="icon-trash"></i></a>
             </p>
           </h4>
           <h6>

@@ -10,7 +10,8 @@
         </div> <!-- /container -->
 		
 		<div id="loading-global">Working...</div>		
-
+    
+		<!-- Le javascript templates -->
 	  <div class="hidden">
       <div class="modal hide fade" id="delete-confirmation">
         <div class="modal-header alert-error">
@@ -18,7 +19,7 @@
           <h3>Confirmation</h3>
           </div>
           <div class="modal-body">
-          <p>Are you sure you want to delete this item?</p>
+          <p>Are you sure you want to delete the following item: "<strong id="the-item"></strong>" ?</p>
         </div>
         <div class="modal-footer">
           <a href="#" class="btn" data-dismiss="modal">No, I changed my mind</a>
@@ -26,7 +27,8 @@
         </div>
       </div>	    
 	  </div>
-
+    <!-- /javascript templates -->
+    
   	<script src = "<?php echo base_url() ?>scripts/plugins/headjs/head.min.js"></script> 
   	<script type="text/javascript">
   	    head.js("http://code.jquery.com/jquery-1.7.1.min.js", 
