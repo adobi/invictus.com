@@ -64,6 +64,7 @@ class Contact extends MY_Controller
           $this->session->set_flashdata('message', $response); 
           redirect('contact');
         }
+        
         $this->template->build('contact/edit', $data);
     }
     

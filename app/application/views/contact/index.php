@@ -14,8 +14,8 @@
               <?php echo $item->name ?>
               <span style="font-size:0.8em; color:#999;"><?php echo $item->location ?></span>
               <p class="pull-right" style="margin-top:5px;">
-                <a href="<?php echo base_url() ?>contact/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit contact"><i class="icon-pencil"></i></a>
-                <a href="<?php echo base_url() ?>contact/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete contact"><i class="icon-trash"></i></a>
+                <a class="btn" href="<?php echo base_url() ?>contact/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit contact"><i class="icon-pencil"></i></a>
+                <a class="btn" href="<?php echo base_url() ?>contact/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete contact"><i class="icon-trash"></i></a>
               </p>
             </h4> 
             <h6>
@@ -47,10 +47,11 @@
               <span style="font-size:0.8em; color:#999;"><?php echo $item->email ?></span>
     
               <p class="pull-right" style="margin-top:5px;">
-                <a href="<?php echo base_url() ?>contacttype/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit email"><i class="icon-pencil"></i></a>
-                <a href="<?php echo base_url() ?>contacttype/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete email"><i class="icon-trash"></i></a>
+                <a class="btn" href="<?php echo base_url() ?>contacttype/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit email"><i class="icon-pencil"></i></a>
+                <a class="btn" href="<?php echo base_url() ?>contacttype/delete/<?php echo $item->id ?>" class="delete-item" data-location="l" rel="tooltip" title="Delete email"><i class="icon-trash"></i></a>
               </p>
             </h4> 
+            <p>&nbsp;</p>
         </div>
       <?php endforeach ?>
     </div>

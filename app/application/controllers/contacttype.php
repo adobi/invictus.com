@@ -88,10 +88,10 @@ class Contacttype extends MY_Controller
       
       $data['item'] = $this->model->find($id);
       
-  		$this->form_validation->set_rules("ga_category", "Job category", "trim|required");
-  		$this->form_validation->set_rules("ga_action", "Job action", "trim|required");
-  		$this->form_validation->set_rules("ga_label", "Job label", "trim|required");
-  		$this->form_validation->set_rules("ga_value", "Job value", "trim|required");
+  		$this->form_validation->set_rules("ga_category", "Contact type category", "trim|required");
+  		$this->form_validation->set_rules("ga_action", "Contact type action", "trim|required");
+  		$this->form_validation->set_rules("ga_label", "Contact type label", "trim|required");
+  		$this->form_validation->set_rules("ga_value", "Contact type value", "trim|required");
       
   		if ($this->form_validation->run()) {
   		  

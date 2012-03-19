@@ -15,7 +15,7 @@
             <h4>
               &nbsp;
               <p class="pull-right" style="margin-top:5px;">
-                <a href="<?php echo base_url() ?>settings/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit settings"><i class="icon-pencil"></i></a>
+                <a class="btn" href="<?php echo base_url() ?>settings/edit/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Edit settings"><i class="icon-pencil"></i></a>
               </p>
             </h4> 
             <h6>

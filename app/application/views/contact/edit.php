@@ -17,7 +17,7 @@
         <p class="pull-right">
           <button class="btn btn-primary" rel="tooltip" title="Save contact"><i class="icon-ok icon-white"></i></button>
           <?php if ($item): ?>
-            <a href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete contact"><i class="icon-trash"></i></a>
+            <a href="<?php echo base_url() ?>contact/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete contact"><i class="icon-trash"></i></a>
           <?php endif ?>
         </p>        
     </legend> 
