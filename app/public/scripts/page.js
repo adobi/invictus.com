@@ -1,5 +1,7 @@
 !function($) {
   
+  App.Modal = false;
+  
   App.Datepicker = function() {
     $('.datepicker').datepicker({
       dateFormat: 'yy-mm-dd',
@@ -197,21 +199,40 @@
     })    
   };
   
+  App.ModalElement = $('#delete-confirmation')
+  
+  App.ModalElement.on('hidden', function () {
+    App.Modal = false
+  })
+  
   // removes an item from the content panel
   App.DeleteItem = function() 
   {
     
     $('body').delegate('.delete-item', 'click', function(e) 
     {
+      var that = $(this),
+          modal = App.ModalElement
       
-      var that = $(this)
-      $.get(that.attr('href'), function() {
+      if (!App.Modal) {
+        App.Modal = true;
         
-        if (that.data('location') === 'r') App.Nav.CloseRightPanel()
+        modal.modal();
         
-        App.Nav.reloadContetPanel()
-      })
-            
+        $('#delete-yes').attr('href', $(this).attr('href'));
+      
+      } else {
+        $.get(that.attr('href'), function() {
+          
+          if (that.data('location') === 'r') App.Nav.CloseRightPanel()
+          
+          App.Nav.reloadContetPanel()
+          
+          modal.modal('hide')
+        })
+      }
+      /*
+      */      
       e.preventDefault()
     })    
   };
@@ -266,41 +287,6 @@
     App.enhanceChosen()
     //$('#fileupload').fileupload();
     
-    /*
-    $( "#image-sortable" ).sortable({
-        //placeholder: "ui-state-highlight",
-        stop: function(event, ui) {
-            //console.log(event, ui);
-            //console.log($('#sortable').sortable('toArray'));
-            var name = $('.sortable-wrapper').find('[type=hidden]').attr('name'),
-                value = $('.sortable-wrapper').find('[type=hidden]').attr('value');
-            
-            var data = {};
-            data['order'] = $('#image-sortable').sortable('toArray');
-            data[name] = value;
-            
-            $.post(App.URL+"image/update_order", data, function() {});
-        }
-    });
-		$( "#image-sortable" ).disableSelection();          
-
-    $( "#store-sortable" ).sortable({
-        //placeholder: "ui-state-highlight",
-        stop: function(event, ui) {
-            //console.log(event, ui);
-            //console.log($('#sortable').sortable('toArray'));
-            var name = $('.sortable-wrapper').find('[type=hidden]').attr('name'),
-                value = $('.sortable-wrapper').find('[type=hidden]').attr('value');
-            
-            var data = {};
-            data['order'] = $('#store-sortable').sortable('toArray');
-            data[name] = value;
-            //console
-            $.post(App.URL+"store/update_order", data, function() {});
-        }
-    });
-	  $( "#store-sortable" ).disableSelection();    
-    */
     $('i.w').parents('li').hover(
 			function() { $(this).find('i.w').css('opacity', 1); }, 
 			function() { $(this).find('i.w').css('opacity', 0.25); }

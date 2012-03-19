@@ -38,15 +38,15 @@ class Cig extends CI_Controller
             
             $this->_originalTable = ($_POST['prefix'] ? $_POST['prefix'] . '_' : '') . $_POST['table_name'];
             
-            if (isset($_POST['model'])) {
+            if (isset($_POST['model']) && $_POST['model']) {
                 $model = $this->_generateModel($this->uri->segment(3));
             }
             
-            if (isset($_POST['view'])) {
+            if (isset($_POST['view']) && $_POST['view']) {
                 $view = $this->_generateView($this->uri->segment(3));
             }
             
-            if (isset($_POST['controller'])) {
+            if (isset($_POST['controller']) && $_POST['controller']) {
                 $controller = $this->_generateController($this->uri->segment(3));
             }
             

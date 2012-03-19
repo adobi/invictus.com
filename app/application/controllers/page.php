@@ -36,7 +36,11 @@ class Page extends MY_Controller
     		$this->form_validation->set_rules("description", "Description", "trim");
     
         if ($this->form_validation->run()) {
-        
+          
+            $this->load->library('Sanitizer', 'sanitizer');
+            
+            $_POST['url'] = $this->sanitizer->sanitize_title_with_dashes($_POST['name']);
+          
             if ($id) {
                 $this->model->update($_POST, $id);
             } else {

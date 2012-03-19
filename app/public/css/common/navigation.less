@@ -62,10 +62,10 @@
 .sidebar-navigation-wrapper-right {
   right:0;
   top:80px;
-  margin-right:1.5641%!important;
-  height:89%;
+  margin-right:@rightNavigationMarginRight!important;
+  height:@rightNavigationHeight;
   //height:500px;
-  width:33.6239%!important;
+  width:@rightNavigationWidth!important;
   overflow:hidden;
 }
 
@@ -90,15 +90,20 @@
   width:100%;
 */    
   margin-left: 0px;
-  //max-height: 390px;
   overflow-y: auto;
   margin-bottom: 20px;
   width: 100%;
-  //height: auto;
-  //min-height: 190px;
-  //height: 100%;  
+ 
 }
 
 .sidebar-navigation-wrapper-right legend {
   margin-bottom:17px;
+}
+
+
+@media (max-height: 800px) {
+  
+  .sidebar-navigation-wrapper-left span {
+    display:none;
+  }
 }

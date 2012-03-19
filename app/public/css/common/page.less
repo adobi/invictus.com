@@ -15,7 +15,7 @@ html, body {
 
 .content-wrapper {
   position:absolute;
-  left:4.78291%;
+  left:@contentWrapperLeft;
   top:80px;
   margin-left:10px;
 }
@@ -27,8 +27,7 @@ html, body {
     .border-radius(4px);
     .box-shadow(inset 0 0 1px 1px @leftNavLinkHover);    
     border-bottom:1px solid #ededed;
-    //#gradient > .vertical(#f5f5f5, #e9e9e9);
-    #gradient > .vertical(#f5f5f5, #efefef);
+    #gradient > .vertical(@itemBeginColor, @itemEndColor);
 }
 
 .item h4 {
@@ -178,11 +177,4 @@ form .add-on {
 
 .help-inline.span4 {
   margin-left:0;
-}
-
-@media (max-height: 800px) {
-  
-  .sidebar-navigation-wrapper-left span {
-    display:none;
-  }
 }
