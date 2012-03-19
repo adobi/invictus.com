@@ -183,3 +183,16 @@ form .add-on {
   min-width:560px;
   width:auto;
 }
+
+.tooltip {
+  .opacity(0);
+  &.in     { .opacity(90); }
+  &.top .tooltip-arrow    { #popoverArrow > .top(5px, @leftNavLinkActiveStart); }
+  &.left .tooltip-arrow   { #popoverArrow > .left(5px, @leftNavLinkActiveStart); }
+  &.bottom .tooltip-arrow { #popoverArrow > .bottom(5px, @leftNavLinkActiveStart); }
+  &.right .tooltip-arrow  { #popoverArrow > .right(5px, @leftNavLinkActiveStart); }
+}
+
+.tooltip-inner {
+  background-color:@leftNavLinkActiveStart;
+}
