@@ -39,7 +39,17 @@
                 <a class="btn add-on trigger-datepicker"><i class="icon-calendar"></i></a>
               </div>
             </div>
-        </fieldset>        
+        </fieldset>  
+        <fieldset class="control-group">
+            <label class="control-label" for="platforms[]">Available on</label>
+            <div class="controls">
+              <?php echo form_multiselect('platforms[]', $platforms, $_POST ? @$_POST['platforms'] : ($game_platforms ? $game_platforms : ''), 'class="chosen span4" data-placeholder="Choose a platform..."') ?>
+              <p class="item-nav" style="text-align:left;">
+                <a href="#" class="chosen-select-all">Select all</a>
+                <a href="#" class="chosen-cancel-all">Cancel all</a>
+              </p>               
+            </div>
+        </fieldset>               
         <fieldset class="control-group">
             <label class="control-label" for="logo">Logo</label>
             <div class="controls">

@@ -36,20 +36,21 @@
     },
   }
     
-    function loadFromHash()
-    {
-      $('body').append(
-        $('<a />', 
-          {
-            id: 'load-into-right', 
-            'class': 'hidden', 
-            href: App.URL + 'game/' + window.location.hash.slice(1),
-            'data-ajax-link': 1
-          }
-        )
+  function loadFromHash()
+  {
+    $('body').append(
+      $('<a />', 
+        {
+          id: 'load-into-right', 
+          'class': 'hidden', 
+          href: App.URL + 'game/' + window.location.hash.slice(1),
+          'data-ajax-link': 1
+        }
       )
-      $('#load-into-right').trigger('click')
-    }  
+    )
+    $('#load-into-right').trigger('click')
+  }  
+  
   $(function() {
     $('body').on('click', '.action', function(e) {
       

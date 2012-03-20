@@ -24,20 +24,23 @@ class Game extends MY_Controller
         $id = $this->uri->segment(3);
         
         $this->load->model('Games', 'model');
+        $this->load->model('Platforms', 'platform');
+        $this->load->model('Gameplatforms', 'game_platforms');
         
+        $data['platforms'] = $this->platform->toAssocArray('id', 'name', $this->platform->fetchAll());
         $item = false;
         if ($id) {
             $item = $this->model->find((int)$id);
         }
         $data['item'] = $item;
+
+        $data['game_platforms'] = $item ? $this->game_platforms->fetchIdsForGame($item->id) : false;
+        
         
     		$this->form_validation->set_rules("name", "Name", "trim|required");
     		$this->form_validation->set_rules("released", "Released", "trim|required");
-    		//$this->form_validation->set_rules("logo", "Logo", "trim|required");
-    		//$this->form_validation->set_rules("hero_image", "Hero_image", "trim|required");
-    		//$this->form_validation->set_rules("teaser_image", "Teaser_image", "trim|required");
-    		$this->form_validation->set_rules("short_description", "Short_description", "trim|required");
-    		$this->form_validation->set_rules("long_description", "Long_description", "trim|required");
+    		//$this->form_validation->set_rules("short_description", "Short_description", "trim|required");
+    		//$this->form_validation->set_rules("long_description", "Long_description", "trim|required");
     		$this->form_validation->set_rules("facebook_app_id", "Facebook_app_id", "trim|required");
     		$this->form_validation->set_rules("twitter_page", "Twitter_page", "trim|required");
     		$this->form_validation->set_rules("facebook_page", "Facebook_page", "trim|required");
@@ -76,7 +79,11 @@ class Game extends MY_Controller
             
             $_POST['url'] = $this->sanitizer->sanitize_title_with_dashes($_POST['name']);        
             
-            $hash = '';
+            $platforms = $_POST['platforms'];
+            
+            unset($_POST['platforms']);
+            
+            $hash = ''; $insertId = false;
             if ($id) {
                 $this->model->update($_POST, $id);
             } else {
@@ -97,8 +104,15 @@ class Game extends MY_Controller
               
                 $insertId = $this->model->insert($_POST);
                 
-                //$hash = '#images/' . $id;
+                $hash = '#images/' . $insertId;
             }
+            
+            if ($id) {
+              $this->game_platforms->deleteByGame($id);
+            }
+            
+            $this->game_platforms->insertPlatformsForGame($id, $platforms);
+            
             $response = display_success('Saved');
         } else {
 

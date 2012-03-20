@@ -45,7 +45,8 @@
     App.PrettifyUpload()
     App.Tooltip('hide')      
     App.Tooltip() 
-    App.AutoHeight()  
+    App.AutoHeight()
+    App.enhanceChosen()  
     $('.sidebar-navigation-wrapper-right .controls:first').children(':first').focus()
   }
   
