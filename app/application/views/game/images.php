@@ -26,6 +26,6 @@
     
     </div>
     <fieldset class="form-actions right">
-        <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button> <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/videos/<?php echo $item->id ?>">Add some videos</a>
+        <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button> <a class="btn" href="<?php echo base_url() ?>game#videos/<?php echo $item->id ?>">Add some videos</a>
     </fieldset>      
 <?php echo form_close() ?>    

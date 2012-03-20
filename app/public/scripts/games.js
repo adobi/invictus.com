@@ -35,17 +35,9 @@
       })
     },
   }
-  
-  $(function() {
-    $('body').on('click', '.action', function(e) {
-      
-      (new Games(this)).set($(this).data('action'))
-      
-      e.preventDefault()
-    })
     
-    if (window.location.hash.length) {
-      
+    function loadFromHash()
+    {
       $('body').append(
         $('<a />', 
           {
@@ -57,9 +49,24 @@
         )
       )
       $('#load-into-right').trigger('click')
+    }  
+  $(function() {
+    $('body').on('click', '.action', function(e) {
+      
+      (new Games(this)).set($(this).data('action'))
+      
+      e.preventDefault()
+    })
+
+    if (window.location.hash.length) {
+      loadFromHash()
     }
     
     App.Games = Games
   })
+  $(window).hashchange( function(){
+    loadFromHash()
+  })    
+  
   
 } (jQuery);
