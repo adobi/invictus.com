@@ -11,7 +11,7 @@
     
     <legend>
         <?php if ($item): ?>
-            Edit <?php echo $item->name ?>
+          Edit "<?php echo $item->name ?>"
         <?php else: ?>
             New job category
         <?php endif ?>

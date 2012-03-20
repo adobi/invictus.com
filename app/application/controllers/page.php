@@ -46,7 +46,16 @@ class Page extends MY_Controller
             } else {
                 $this->load->model('Meta', 'meta');
                 
-                $meta_id = $this->meta->insert(array('title'=>$_POST['title'], 'og_title'=>$_POST['title'], 'og_site_name'=>'Invictus Games', 'og_type'=>'game'));
+                //$meta_id = $this->meta->insert(array('title'=>$_POST['title'], 'og_title'=>$_POST['title'], 'og_site_name'=>'Invictus Games', 'og_type'=>'game'));
+                $meta_id = $this->meta->insert(array(
+                  'title'=>$_POST['title'], 
+                  'description'=>$_POST['title'],
+                  'keywords'=> 'invictus games, '.$_POST['title'],
+                  'og_title'=>$_POST['title'], 
+                  'og_url'=>'http://invictus.com/pages/'.$_POST['url'],
+                  'og_site_name'=>'Invictus Games', 
+                  'og_type'=>'games'
+                ));                
                 
                 $_POST['meta_id'] = $meta_id;
               

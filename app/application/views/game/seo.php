@@ -10,9 +10,7 @@
        
   <legend>
     <?php if ($item): ?>
-    Edit seo settings
-    <?php else: ?>
-    New seo settings
+      "<?php echo $game->name ?>" social
     <?php endif ?>
     <p class="pull-right">
       <button class="btn btn-primary" rel="tooltip" title="Save settings"><i class="icon-ok icon-white"></i></button>

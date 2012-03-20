@@ -10,7 +10,7 @@
     <?php echo panel_close() ?>
     <legend>
         <?php if ($item): ?>
-            Edit contact
+            Edit "<?php echo $item->name ?>"
         <?php else: ?>
             New contact
         <?php endif ?>

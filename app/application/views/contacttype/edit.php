@@ -10,7 +10,7 @@
     <?php echo panel_close() ?>
     <legend>
         <?php if ($item): ?>
-            Edit <?php echo $item->name ?>
+          Edit "<?php echo $item->name ?>"
         <?php else: ?>
             New email address
         <?php endif ?>

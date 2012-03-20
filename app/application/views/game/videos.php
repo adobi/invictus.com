@@ -11,7 +11,7 @@
     
     <legend>
         <?php if ($item): ?>
-            "<?php echo $item->name ?>" images
+          "<?php echo $item->name ?>" videos
         <?php endif ?>
         <p class="pull-right">
           <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button>
