@@ -18,7 +18,7 @@
           <?php if ($item): ?>
             <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="View job"><i class="icon-eye-open"></i></a>
             <a href="<?php echo base_url() ?>job/analytics/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>
-            <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-job" data-location="r" rel="tooltip" title="Delete job"><i class="icon-trash"></i></a>
+            <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="r" rel="tooltip" title="Delete job" data-modal-header="Job <?php echo $item->name ?>"><i class="icon-trash"></i></a>
           <?php endif ?>
         </p>
     </legend>  

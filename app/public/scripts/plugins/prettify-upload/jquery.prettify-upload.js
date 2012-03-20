@@ -34,19 +34,20 @@
         
         var wrapper = $('<div />', {'class': 'input-file-wrapper'}).css({
             cursor:'pointer',
-            width:'120px',
+            width:'110px',
             height:this.options.wrapperHeight,
             display:'inline-block',
             overflow:'hidden',
             position:'relative',
-            marginBottom:'10px',
+            //marginBottom:'10px',
         });        
         
-        var button = $('<button />');
+        var button = $('<button />', {rel:'tooltip', 'data-original-title': $(this.element).data('text')});
         
         button
             .addClass(this.options.buttonClass)
             .html($('<i />').addClass(this.options.iconClass))
+            //.append(this.options.text + ($(this.element).data('text') ? ' ' + '<strong>' + $(this.element).data('text') + "</strong>"  : ''));
             .append(this.options.text);
         
         $(this.element).wrap(wrapper);    

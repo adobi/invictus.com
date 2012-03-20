@@ -8,7 +8,7 @@
       <p class="pull-right">
         <a href = "<?php echo base_url() ?>job/edit/<?php echo $item->id ?>" data-ajax-link="1" class="btn" rel="tooltip" title="Edit job"><i class="icon-pencil"></i></a>          
           <a href="<?php echo base_url() ?>job/analytics/<?php echo $item->id ?>" class="btn" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>
-          <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-job" data-location="r" rel="tooltip" title="Delete job"><i class="icon-trash"></i></a>
+          <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="r" rel="tooltip" title="Delete job" data-modal-header="Job <?php echo $item->name ?>"><i class="icon-trash"></i></a>
       </p>
   </legend>  
   <div class=" right-side-scroll">

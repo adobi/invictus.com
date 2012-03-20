@@ -47,6 +47,7 @@
               <span style="font-size:0.8em; color:#999;"><?php echo $item->email ?></span>
     
               <p class="pull-right" style="margin-top:5px;">
+                <a class="btn" href="<?php echo base_url() ?>contacttype/analytics/<?php echo $item->id ?>" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>        
                 <a href="<?php echo base_url() ?>contacttype/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit email"><i class="icon-pencil"></i></a>
                 <a href="<?php echo base_url() ?>contacttype/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete email" data-modal-header="Email <?php echo $item->name?>"><i class="icon-trash"></i></a>
               </p>

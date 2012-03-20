@@ -66,7 +66,7 @@ class Page extends MY_Controller
         
         if (!$this->input->is_ajax_request()) {
           $this->session->set_flashdata('message', $response); 
-          redirect('contact');
+          redirect('page');
         }
         
         $this->template->build('page/edit', $data);
@@ -145,7 +145,9 @@ class Page extends MY_Controller
         
         if ($id) {
             $this->load->model('Pages', 'model');
-            
+            $this->load->model('Meta', 'meta');
+            $item = $this->model->find($id);
+            $this->meta->delete($item->meta_id);
             $this->model->delete($id);
         }
         

@@ -35,7 +35,7 @@
             <div class="controls">
                 <?php if ($item && $item->image): ?>
                     <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->image ?>" alt="">
-                    <a href="<?php echo base_url() ?>platform/delete_image/<?php echo $item->id ?>" class="delete-image pull-right" style="margin-right:20px;" rel="tooltip" title="Delete image"><i class="icon-trash"></i></a>
+                    <a href="<?php echo base_url() ?>platform/delete_image/<?php echo $item->id ?>" class="delete-item pull-right" style="margin-right:20px;" rel="tooltip" title="Delete image" data-modal-header="<?php echo $item->name ?> image"><i class="icon-trash"></i></a>
                 <?php else: ?>
                     <input type="file" name = "image" id = "icon" class = "span4"/>
                 <?php endif ?>

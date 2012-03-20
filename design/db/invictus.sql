@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-03-13 16:52:29
+Date: 2012-03-20 15:22:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,15 +42,16 @@ CREATE TABLE `c_game` (
   `ga_action` varchar(150) DEFAULT NULL,
   `ga_label` varchar(250) DEFAULT NULL,
   `ga_value` int(11) DEFAULT NULL,
-  `ga_non_intraction` int(11) DEFAULT NULL,
+  `ga_noninteraction` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_game_meta` (`meta_id`),
-  CONSTRAINT `fk_game_meta` FOREIGN KEY (`meta_id`) REFERENCES `ic_meta` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_game_meta` FOREIGN KEY (`meta_id`) REFERENCES `ic_meta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game
 -- ----------------------------
+INSERT INTO `c_game` VALUES ('3', '9', 'Lazy Farmer', 'lazy-farmer', '2012-03-31 00:00:00', '1332252598_Icon170.png', '1332253297_hero.png', '1332253297_teaser.png', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.', null, null, null, null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `c_game_image`
@@ -142,9 +143,9 @@ CREATE TABLE `c_platform` (
 -- ----------------------------
 INSERT INTO `c_platform` VALUES ('1', 'iMac', null, '1331653081_mac_store.png', null, null);
 INSERT INTO `c_platform` VALUES ('2', 'iPod, iPhone', null, '1331653106_app_store.png', null, null);
-INSERT INTO `c_platform` VALUES ('3', 'Android Phone', null, '1331653123_android_market.png', null, null);
+INSERT INTO `c_platform` VALUES ('3', 'Android Phone', null, '1332227844_android_market.png', null, null);
 INSERT INTO `c_platform` VALUES ('4', 'Andorid Tablet', null, '1331653136_android_market.png', null, null);
-INSERT INTO `c_platform` VALUES ('5', 'iPad', null, '1331653150_app_store.png', null, null);
+INSERT INTO `c_platform` VALUES ('5', 'iPad', null, '1332228002_app_store.png', null, null);
 
 -- ----------------------------
 -- Table structure for `ic_analytics`
@@ -211,11 +212,13 @@ CREATE TABLE `ic_contact` (
   `fax` varchar(150) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_contact
 -- ----------------------------
+INSERT INTO `ic_contact` VALUES ('1', 'Invicts Games Ltd', 'Debrecen, Hungary', 'Kartacs street 9, 4028', '+36708808800', '+3652122112', 'hello@invictus.com');
+INSERT INTO `ic_contact` VALUES ('2', 'Invicts Games Ltd', 'San Francisco, USA', '795 Folsom St., Suite 600', '+36708808800', '+3652122112', 'hello@invictus.com');
 
 -- ----------------------------
 -- Table structure for `ic_contact_type`
@@ -226,17 +229,19 @@ CREATE TABLE `ic_contact_type` (
   `name` varchar(150) DEFAULT NULL,
   `order` int(11) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
-  `ga_cetegory` varchar(250) DEFAULT NULL,
+  `ga_category` varchar(250) DEFAULT NULL,
   `ga_label` varchar(250) DEFAULT NULL,
   `ga_action` varchar(150) DEFAULT NULL,
   `ga_value` int(11) DEFAULT NULL,
   `ga_noninteraction` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_contact_type
 -- ----------------------------
+INSERT INTO `ic_contact_type` VALUES ('1', 'Marketing', '2', 'marketing@invictus.com', 'Contact email', 'Marketing', 'Click', '1', null);
+INSERT INTO `ic_contact_type` VALUES ('2', 'Support', '3', 'support@invictus.com', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `ic_crosspromo`
@@ -270,14 +275,20 @@ CREATE TABLE `ic_email_offer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `offer_id` int(11) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_email_offer_offer` (`offer_id`),
-  CONSTRAINT `fk_email_offer_offer` FOREIGN KEY (`offer_id`) REFERENCES `ic_offer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_email_offer_offer` FOREIGN KEY (`offer_id`) REFERENCES `ic_offer` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_email_offer
 -- ----------------------------
+INSERT INTO `ic_email_offer` VALUES ('1', '3', 'hello.attila@gmail.com', '2012-03-01 10:18:12');
+INSERT INTO `ic_email_offer` VALUES ('2', '3', 'hello.attila@gmail.com', '2012-03-07 10:18:17');
+INSERT INTO `ic_email_offer` VALUES ('3', '3', 'hello.attila@gmail.com', '2012-03-02 10:18:21');
+INSERT INTO `ic_email_offer` VALUES ('4', '3', 'hello.attila@gmail.com', '2012-03-13 10:18:25');
+INSERT INTO `ic_email_offer` VALUES ('5', '3', 'hello.attila@gmail.com', '2012-03-09 10:18:29');
 
 -- ----------------------------
 -- Table structure for `ic_job`
@@ -306,13 +317,12 @@ CREATE TABLE `ic_job` (
   PRIMARY KEY (`id`),
   KEY `fk_job_job_category` (`category_id`),
   CONSTRAINT `fk_job_job_category` FOREIGN KEY (`category_id`) REFERENCES `ic_job_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job
 -- ----------------------------
-INSERT INTO `ic_job` VALUES ('12', 'Software Engineer', 'Debrecen, Hungary', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-13 15:07:03', '2012-03-28 00:00:00', null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `ic_job` VALUES ('14', 'Software Engineer - Front-End', 'Debrecen, Hungary', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-13 15:10:31', '2012-03-29 00:00:00', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ic_job` VALUES ('16', 'Software Engineer - Front-End', 'Debrecen, Hungary', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-20 07:24:09', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `ic_job_application`
@@ -326,6 +336,7 @@ CREATE TABLE `ic_job_application` (
   `cv` varchar(150) DEFAULT NULL,
   `phone` varchar(150) DEFAULT NULL,
   `portfolio` varchar(250) DEFAULT NULL,
+  `called` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_job_application_job` (`job_id`),
   CONSTRAINT `fk_job_application_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
@@ -334,25 +345,25 @@ CREATE TABLE `ic_job_application` (
 -- ----------------------------
 -- Records of ic_job_application
 -- ----------------------------
-INSERT INTO `ic_job_application` VALUES ('1', '12', 'Alma Máter', 'hello@google.com', 'a', '+36707667788', 'a');
-INSERT INTO `ic_job_application` VALUES ('3', '12', 'Asda asdas', 'hello@google.com', 'a', '+36707667788', 'a');
-INSERT INTO `ic_job_application` VALUES ('4', '12', 'ASdasda asdasd', 'hello@google.com', 'aa', '+36707667788', 'a');
-INSERT INTO `ic_job_application` VALUES ('5', '12', 'aASDASda', 'hello@google.com', 'a', '+36707667788', 'a');
-INSERT INTO `ic_job_application` VALUES ('6', '12', 'ASdas', 'hello@google.com', 'a', '+36707667788', 'aa');
-INSERT INTO `ic_job_application` VALUES ('7', '12', 'ASdasdasd asda sd', 'hello@google.com', 'a', '+36707667788', 'a');
-INSERT INTO `ic_job_application` VALUES ('8', '12', 'aASDasd', 'hello@google.com', 'a', '+36707667788', 'a');
-INSERT INTO `ic_job_application` VALUES ('9', '12', 'asdasdasda', 'fs', 'a', '+36707667788', 'a');
-INSERT INTO `ic_job_application` VALUES ('10', '12', 'errqewrwe', 'd', 'q', '+36707667788', 'q');
-INSERT INTO `ic_job_application` VALUES ('11', '12', 'qwerw', 's', 'q', '+36707667788', 'q');
-INSERT INTO `ic_job_application` VALUES ('12', '12', 'ere', 'df', 'q', '+36707667788', 'q');
-INSERT INTO `ic_job_application` VALUES ('13', '12', 'wrw', 'fs', 'q', '+36707667788', 'q');
-INSERT INTO `ic_job_application` VALUES ('14', '12', 'er', 'sd', 'q', '+36707667788', 'q');
-INSERT INTO `ic_job_application` VALUES ('15', '12', 'wer', 'df', 'q', '+36707667788', 'q');
-INSERT INTO `ic_job_application` VALUES ('16', '12', 'we', 'fs', 'q', '+36707667788', 'q');
-INSERT INTO `ic_job_application` VALUES ('17', '12', 'r', 'sd', 'q', '+36707667788', 'q');
-INSERT INTO `ic_job_application` VALUES ('18', '12', 'we', 'sdf', 'q', '+36707667788', 'q');
-INSERT INTO `ic_job_application` VALUES ('19', '12', 'rw', 'sdf', 'q', '+36707667788', 'q');
-INSERT INTO `ic_job_application` VALUES ('20', '12', 'er', 'asdf', 'q', '+36707667788', 'q');
+INSERT INTO `ic_job_application` VALUES ('1', null, 'Alma Máter', 'hello@google.com', 'a', '+36707667788', 'a', null);
+INSERT INTO `ic_job_application` VALUES ('3', null, 'Asda asdas', 'hello@google.com', 'a', '+36707667788', 'a', '1');
+INSERT INTO `ic_job_application` VALUES ('4', null, 'ASdasda asdasd', 'hello@google.com', 'aa', '+36707667788', 'a', null);
+INSERT INTO `ic_job_application` VALUES ('5', null, 'aASDASda', 'hello@google.com', 'a', '+36707667788', 'a', '1');
+INSERT INTO `ic_job_application` VALUES ('6', null, 'ASdas', 'hello@google.com', 'a', '+36707667788', 'aa', '1');
+INSERT INTO `ic_job_application` VALUES ('7', null, 'ASdasdasd asda sd', 'hello@google.com', 'a', '+36707667788', 'a', null);
+INSERT INTO `ic_job_application` VALUES ('8', null, 'aASDasd', 'hello@google.com', 'a', '+36707667788', 'a', null);
+INSERT INTO `ic_job_application` VALUES ('9', null, 'asdasdasda', 'fs', 'a', '+36707667788', 'a', null);
+INSERT INTO `ic_job_application` VALUES ('10', null, 'errqewrwe', 'd', 'q', '+36707667788', 'q', null);
+INSERT INTO `ic_job_application` VALUES ('11', null, 'qwerw', 's', 'q', '+36707667788', 'q', null);
+INSERT INTO `ic_job_application` VALUES ('12', null, 'ere', 'df', 'q', '+36707667788', 'q', null);
+INSERT INTO `ic_job_application` VALUES ('13', null, 'wrw', 'fs', 'q', '+36707667788', 'q', null);
+INSERT INTO `ic_job_application` VALUES ('14', null, 'er', 'sd', 'q', '+36707667788', 'q', null);
+INSERT INTO `ic_job_application` VALUES ('15', null, 'wer', 'df', 'q', '+36707667788', 'q', null);
+INSERT INTO `ic_job_application` VALUES ('16', null, 'we', 'fs', 'q', '+36707667788', 'q', null);
+INSERT INTO `ic_job_application` VALUES ('17', null, 'r', 'sd', 'q', '+36707667788', 'q', null);
+INSERT INTO `ic_job_application` VALUES ('18', null, 'we', 'sdf', 'q', '+36707667788', 'q', null);
+INSERT INTO `ic_job_application` VALUES ('19', null, 'rw', 'sdf', 'q', '+36707667788', 'q', null);
+INSERT INTO `ic_job_application` VALUES ('20', null, 'er', 'asdf', 'q', '+36707667788', 'q', null);
 
 -- ----------------------------
 -- Table structure for `ic_job_category`
@@ -381,14 +392,13 @@ CREATE TABLE `ic_job_offer` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_we_offer_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_offer
 -- ----------------------------
-INSERT INTO `ic_job_offer` VALUES ('109', '12', 'Complete medical/dental benefits');
-INSERT INTO `ic_job_offer` VALUES ('110', '12', 'Flexible and generous vacation policy');
-INSERT INTO `ic_job_offer` VALUES ('111', '14', 'Flexible and generous vacation policy');
+INSERT INTO `ic_job_offer` VALUES ('114', '16', 'Flexible and generous vacation policy');
+INSERT INTO `ic_job_offer` VALUES ('115', '16', 'Complete medical/dental benefits');
 
 -- ----------------------------
 -- Table structure for `ic_job_qualification`
@@ -401,14 +411,13 @@ CREATE TABLE `ic_job_qualification` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_qualification_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_qualification
 -- ----------------------------
-INSERT INTO `ic_job_qualification` VALUES ('109', '12', 'Expert Javascript/HTML/CSS/Ajax coding skills');
-INSERT INTO `ic_job_qualification` VALUES ('110', '12', 'Demonstrable experience building world-class, consumer web application interfaces');
-INSERT INTO `ic_job_qualification` VALUES ('111', '14', 'Demonstrable experience building world-class, consumer web application interfaces');
+INSERT INTO `ic_job_qualification` VALUES ('114', '16', 'Demonstrable experience building world-class, consumer web application interfaces');
+INSERT INTO `ic_job_qualification` VALUES ('115', '16', 'Expert Javascript/HTML/CSS/Ajax coding skills');
 
 -- ----------------------------
 -- Table structure for `ic_job_responsability`
@@ -421,14 +430,13 @@ CREATE TABLE `ic_job_responsability` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_responsability_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=150 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_responsability
 -- ----------------------------
-INSERT INTO `ic_job_responsability` VALUES ('143', '12', 'Write front-end code in Ruby, HTML/CSS, and Javascript');
-INSERT INTO `ic_job_responsability` VALUES ('144', '12', 'Implement new features and optimize existing ones from controller-level to UI');
-INSERT INTO `ic_job_responsability` VALUES ('145', '14', 'Write front-end code in Ruby, HTML/CSS, and Javascript');
+INSERT INTO `ic_job_responsability` VALUES ('148', '16', 'Write front-end code in Ruby, HTML/CSS, and Javascript');
+INSERT INTO `ic_job_responsability` VALUES ('149', '16', 'Implement new features and optimize existing ones from controller-level to UI');
 
 -- ----------------------------
 -- Table structure for `ic_job_skill`
@@ -441,21 +449,20 @@ CREATE TABLE `ic_job_skill` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_skill_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=132 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_skill
 -- ----------------------------
-INSERT INTO `ic_job_skill` VALUES ('125', '12', 'Visual-design skills');
-INSERT INTO `ic_job_skill` VALUES ('126', '12', 'B.S. or higher in Computer science or equivalent');
-INSERT INTO `ic_job_skill` VALUES ('127', '14', 'Visual-design skills');
+INSERT INTO `ic_job_skill` VALUES ('130', '16', 'Visual-design skills');
+INSERT INTO `ic_job_skill` VALUES ('131', '16', 'B.S. or higher in Computer science or equivalent');
 
 -- ----------------------------
 -- Table structure for `ic_meta`
 -- ----------------------------
 DROP TABLE IF EXISTS `ic_meta`;
 CREATE TABLE `ic_meta` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(250) DEFAULT NULL,
   `description` varchar(250) DEFAULT NULL,
   `keywords` varchar(250) DEFAULT NULL,
@@ -466,11 +473,12 @@ CREATE TABLE `ic_meta` (
   `og_description` varchar(250) DEFAULT NULL,
   `og_site_name` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_meta
 -- ----------------------------
+INSERT INTO `ic_meta` VALUES ('9', 'Lazy Farmer', 'Lazy Farmer the official game', 'invictus games, Lazy Farmer', 'Lazy Farmer', 'http://invictus.com/games/lazy-farmer', 'game', 'http://invictus.com/uploads/original/1332252598_Icon170.png', null, 'Invictus Games');
 
 -- ----------------------------
 -- Table structure for `ic_offer`
@@ -487,20 +495,23 @@ CREATE TABLE `ic_offer` (
   `ga_value` int(11) DEFAULT NULL,
   `ga_noninteraction` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_offer
 -- ----------------------------
+INSERT INTO `ic_offer` VALUES ('3', 'Twitter has changed the way people communicate. Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base. \r\n\r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies. \r\n\r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', '2012-03-13 00:00:00', '2012-03-19 13:03:46', null, null, null, null, null);
+INSERT INTO `ic_offer` VALUES ('4', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.', '2012-03-19 00:00:00', '2012-03-31 00:00:00', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `ic_page`
 -- ----------------------------
 DROP TABLE IF EXISTS `ic_page`;
 CREATE TABLE `ic_page` (
-  `id` int(11) NOT NULL,
-  `title` varchar(250) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
   `url` varchar(250) DEFAULT NULL,
+  `title` varchar(250) DEFAULT NULL,
   `description` text,
   `meta_id` int(11) DEFAULT NULL,
   `ga_category` varchar(250) DEFAULT NULL,
@@ -510,8 +521,8 @@ CREATE TABLE `ic_page` (
   `ga_noninteraction` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_page_meta` (`meta_id`),
-  CONSTRAINT `fk_page_meta` FOREIGN KEY (`meta_id`) REFERENCES `ic_meta` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_page_meta` FOREIGN KEY (`meta_id`) REFERENCES `ic_meta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_page
@@ -529,11 +540,12 @@ CREATE TABLE `ic_settings` (
   `twitter_id` varchar(150) DEFAULT NULL,
   `google_analytics` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_settings
 -- ----------------------------
+INSERT INTO `ic_settings` VALUES ('1', null, '1222335526617', 'invictus.com', 'invictus_com', 'UTA111-11-111');
 
 -- ----------------------------
 -- Table structure for `ic_user`

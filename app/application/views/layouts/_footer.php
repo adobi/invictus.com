@@ -56,6 +56,7 @@
                   "<?php echo base_url() ?>scripts/nav.js?<?php echo time(); ?>",
                   "<?php echo base_url() ?>scripts/jobs.js?<?php echo time(); ?>",
                   "<?php echo base_url() ?>scripts/contacts.js?<?php echo time(); ?>",
+                  "<?php echo base_url() ?>scripts/games.js?<?php echo time(); ?>",
                   "<?php echo base_url() ?>scripts/page.js?<?php echo time(); ?>",
                   function() {
                   
@@ -70,7 +71,7 @@
     	            
 		<script type="text/javascript">
 		    var App = App || {};
-			App.URL = "<?php echo base_url() ?>";
+			  App.URL = "<?php echo base_url() ?>";
 
 		</script>     
     </body>

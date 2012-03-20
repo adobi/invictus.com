@@ -123,7 +123,9 @@ class Cig extends CI_Controller
         $controller = $this->_tabe_without_prefix;
         
         $viewDir = APPPATH . 'views/' . $table;
-        @mkdir($viewDir);
+        if ($writeToFile) {
+          @mkdir($viewDir);
+        }
         //$this->_buildViewForTable($table);
         
         $index = str_replace(array('%%CONTROLLER%%'), array($controller), file_get_contents($this->_bundleDir . 'index.php'));

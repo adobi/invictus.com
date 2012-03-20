@@ -3,7 +3,7 @@
         <p class="pull-right">
           <button class="btn btn-primary" rel="tooltip" title="Save analytics"><i class="icon-ok icon-white"></i></button>          
           <a href="<?php echo base_url() ?>contacttype/edit/<?php echo $item->id ?>" class="btn" data-ajax-link="1" rel="tooltip" title="Edit email"><i class="icon-pencil"></i></a>
-          <a href="<?php echo base_url() ?>contacttype/delete/<?php echo $item->id ?>" class="btn delete-job" data-location="r" rel="tooltip" title="Delete email"><i class="icon-trash"></i></a>
+          <a href="<?php echo base_url() ?>contacttype/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete email" data-modal-header="Email <?php echo $item->name ?>"><i class="icon-trash"></i></a>
         </p>
 
     <div class="right-side-scroll" style="">
