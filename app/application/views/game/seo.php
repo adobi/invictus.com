@@ -10,7 +10,7 @@
        
   <legend>
     <?php if ($item): ?>
-      "<?php echo $game->name ?>" social
+      "<?php echo $game->name ?>"
     <?php endif ?>
     <p class="pull-right">
       <button class="btn btn-primary" rel="tooltip" title="Save settings"><i class="icon-ok icon-white"></i></button>
