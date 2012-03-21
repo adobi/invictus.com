@@ -6,17 +6,13 @@
  
 <?php echo form_open('', array('id'=>'edit-form', 'data-ajax-form'=>1)) ?>
 
-  <?php echo panel_close() ?>
+  <?php echo panel_close('analytics/'.($game ? $game->id : '')) ?>
        
   <legend>
-    <?php if ($item): ?>
-      "<?php echo $game->name ?>"
-    <?php endif ?>
+    <strong>6.</strong>
     <p class="pull-right">
-      <button class="btn btn-primary" rel="tooltip" title="Save settings"><i class="icon-ok icon-white"></i></button>
-      <?php if ($game): ?>
-        <a href="<?php echo base_url() ?>game/edit/<?php echo $game->id ?>" class="btn" data-ajax-link="1" rel="tooltip" title="Edit game"><i class="icon-pencil"></i></a>
-        <a href="<?php echo base_url() ?>game/analytics/<?php echo $game->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>
+      <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button>
+      <?php if ($item): ?>
         <a href="<?php echo base_url() ?>game/delete/<?php echo $game->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $game->name ?>"><i class="icon-trash"></i></a>
       <?php endif ?>
     </p>     
@@ -95,5 +91,6 @@
   </div>
   <fieldset class="form-actions right">
     <button class="btn btn-primary" rel="tooltip" title="Save settings"><i class="icon-ok icon-white"></i></button>
+    <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/publish_to_news/<?php echo $game->id ?>"><strong>7.</strong> In Game news &rarr;</a>
   </fieldset>
 <?php echo form_close() ?>

@@ -4,9 +4,9 @@
 
     var pluginName = 'prettifyUpload',
         defaults = {
-            buttonClass:'btn btn-info',
-            iconClass:'icon-file',
-            text:'select a file',
+            buttonClass:'btn btn-success',
+            iconClass:'icon-plus-sign icon-white',
+            text:' select a file',
             wrapperHeight: '45px',
             
         };
@@ -61,8 +61,8 @@
               self.parents('.input-file-wrapper')
                   .after($('<p />')
                       .html(self[0].files[i].name)
-                      .append($('<a />', {href:'javascript:void(0)', 'class': 'btn btn-mini btn-danger input-file-remove'})
-                          .html('remove')
+                      .append($('<a />', {href:'javascript:void(0)', 'class': 'btn input-file-remove'})
+                          .html('<i class="icon-trash"></i>')
                           .css('margin-left', '10px')
                           .bind('click', function() {
                               $(this).parent().remove();
@@ -85,7 +85,7 @@
     }
     
     $(function() {
-        $('[data-pretty-file], input[type=file]').prettifyUpload();
+        //$('[data-pretty-file], input[type=file]').prettifyUpload();
     })
 
 })( jQuery, window, document );

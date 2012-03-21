@@ -24,17 +24,17 @@ class Game extends MY_Controller
         $id = $this->uri->segment(3);
         
         $this->load->model('Games', 'model');
-        $this->load->model('Platforms', 'platform');
-        $this->load->model('Gameplatforms', 'game_platforms');
+        //$this->load->model('Platforms', 'platform');
+        //$this->load->model('Gameplatforms', 'game_platforms');
         
-        $data['platforms'] = $this->platform->toAssocArray('id', 'name', $this->platform->fetchAll());
+        //$data['platforms'] = $this->platform->toAssocArray('id', 'name', $this->platform->fetchAll());
         $item = false;
         if ($id) {
             $item = $this->model->find((int)$id);
         }
         $data['item'] = $item;
 
-        $data['game_platforms'] = $item ? $this->game_platforms->fetchIdsForGame($item->id) : false;
+        //$data['game_platforms'] = $item ? $this->game_platforms->fetchIdsForGame($item->id) : false;
         
         
     		$this->form_validation->set_rules("name", "Name", "trim|required");
@@ -107,12 +107,6 @@ class Game extends MY_Controller
                 $hash = '#images/' . $insertId;
             }
             
-            if ($id) {
-              $this->game_platforms->deleteByGame($id);
-            }
-            
-            $this->game_platforms->insertPlatformsForGame($id, $platforms);
-            
             $response = display_success('Saved');
         } else {
 
@@ -131,6 +125,34 @@ class Game extends MY_Controller
         }
 
         $this->template->build('game/edit', $data);
+    }
+    
+    public function platforms() 
+    {
+        $data = array();
+        
+        $id = $this->uri->segment(3);
+        
+        $this->load->model('Games', 'model');
+        $this->load->model('Platforms', 'platform');
+        $this->load->model('Gameplatforms', 'game_platforms');
+        
+        $data['platforms'] = $this->platform->toAssocArray('id', 'name', $this->platform->fetchAll());
+
+        $item = $this->model->find((int)$id);
+      
+        $data['item'] = $item;
+
+        $data['game_platforms'] = $item ? $this->game_platforms->fetchIdsForGame($item->id) : false;
+        
+        if ($_POST) {
+
+          $this->game_platforms->deleteByGame($id);
+          
+          $this->game_platforms->insertPlatformsForGame($id, $platforms);      
+        }
+
+        $this->template->build('game/platforms', $data);
     }
     
     public function images() 
@@ -262,6 +284,93 @@ class Game extends MY_Controller
         //redirect($_SERVER['HTTP_REFERER']);
     }  
     
+    public function publish_to_news()
+    {
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Games', 'model');
+            
+      $data['item'] = $this->model->find($id);
+      
+      $this->template->build('game/publish_to_news', $data);
+    }
+
+    public function publish_to_press()
+    {
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Games', 'model');
+            
+      $data['item'] = $this->model->find($id);
+            
+      $this->template->build('game/publish_to_press', $data);
+    }
+    
+    public function publish_to_microsite()
+    {
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Games', 'model');
+            
+      $data['item'] = $this->model->find($id);
+            
+      $this->template->build('game/publish_to_microsite', $data);
+    }    
+        
+    /**
+     * activate/inactivate
+     *
+     * @return void
+     * @author Dobi Attila
+     */
+    public function action()
+    {
+      $action = $this->uri->segment(3);
+      $id = $this->uri->segment(4);
+      
+      $this->load->model('Games', 'model');
+      
+      echo $this->model->$action($id);
+      
+      die;
+    }    
+    
+    public function upload_image() 
+    {
+      
+      //dump($_FILES); die;
+      
+	  	if ($this->upload->do_upload('userfile')) {
+	  	    
+	  	    $this->load->config('upload');
+	  	    
+	  	    $data = $this->upload->data();
+
+          //$this->load->model('Images', 'model');
+          /*
+          $inserted = $this->model->insert(array(
+              'site_id'=>$this->uri->segment(3),
+              'image'=>$data['file_name']
+          ));
+          */
+  	      $inserted = 1;
+          $info->name = $data['file_name'];
+          $info->size = $data['file_size'];
+          $info->type = $data['file_type'];
+          $info->url = base_url() . 'uploads/original/' .$data['file_name'];
+          $info->thumbnail_url = base_url() . 'uploads/original/' .$data['file_name'];
+          $info->delete_url = base_url().'microsite/delete/'.$inserted;
+          $info->delete_type = 'DELETE';	 
+          
+          if ($this->input->is_ajax_request()) {
+              echo json_encode(array($info));
+          } 
+	  	}
+	  	
+      die;
+    }
+    
+    
     private function _deleteImage($id, $withRecord = false, $field = false) 
     {
         $this->load->model('Games', 'model');
@@ -293,16 +402,5 @@ class Game extends MY_Controller
         
         return true;
     } 
-    
-    public function action()
-    {
-      $action = $this->uri->segment(3);
-      $id = $this->uri->segment(4);
-      
-      $this->load->model('Games', 'model');
-      
-      echo $this->model->$action($id);
-      
-      die;
-    }
+
 }

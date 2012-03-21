@@ -38,6 +38,7 @@
     
   function loadFromHash()
   {
+    console.log(window.location.hash.slice(1))
     $('body').append(
       $('<a />', 
         {

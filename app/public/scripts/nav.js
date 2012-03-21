@@ -42,7 +42,10 @@
   {
     //App.TriggerDatepicker()
     App.Datepicker()
-    App.PrettifyUpload()
+    //App.PrettifyUpload()
+    if ($('#fileupload').length) $('#fileupload').fileupload()
+    else App.PrettifyUpload()
+    
     App.Tooltip('hide')      
     App.Tooltip() 
     App.AutoHeight()

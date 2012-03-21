@@ -19,7 +19,7 @@
           <h3>Confirmation</h3>
           </div>
           <div class="modal-body">
-          <p>Are you sure you want to delete the following item: "<strong id="the-item"></strong>" ?</p>
+          <p>Are you sure you want to delete the following "<strong id="the-item"></strong>" ?</p>
         </div>
         <div class="modal-footer">
           <a href="#" class="btn" data-dismiss="modal">No, I changed my mind</a>
@@ -45,10 +45,19 @@
                 "<?php echo base_url() ?>scripts/plugins/redactor/js/redactor/redactor.js",
                 "<?php echo base_url() ?>scripts/plugins/fancybox/jquery.fancybox.pack.js",
                 "<?php echo base_url() ?>scripts/plugins/chosen/chosen.jquery.min.js",
+                
                 "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js",
-                "<?php echo base_url(); ?>scripts/plugins/file-upload/jquery.iframe-transport.js",
-                "<?php echo base_url(); ?>scripts/plugins/file-upload/jquery.fileupload.js",
-                "<?php echo base_url(); ?>scripts/plugins/file-upload/jquery.fileupload-ui.js",
+                //"<?php echo base_url(); ?>scripts/plugins/fileupload/vendor/jquery.ui.widget.js",
+                "http://blueimp.github.com/JavaScript-Templates/tmpl.min.js",
+                "http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js",
+                "http://blueimp.github.com/JavaScript-Canvas-to-Blob/canvas-to-blob.min.js",
+                "<?php echo base_url(); ?>scripts/plugins/fileupload/jquery.iframe-transport.js",
+                "<?php echo base_url(); ?>scripts/plugins/fileupload/jquery.fileupload.js",
+                "<?php echo base_url(); ?>scripts/plugins/fileupload/jquery.fileupload-ip.js",
+                "<?php echo base_url(); ?>scripts/plugins/fileupload/jquery.fileupload-ui.js",
+                "<?php echo base_url(); ?>scripts/plugins/fileupload/locale.js",
+                "<?php echo base_url(); ?>scripts/plugins/fileupload/main.js",
+                
                 "<?php echo base_url(); ?>scripts/plugins/scroll/jquery.scrollTo-min.js",
                 "<?php echo base_url() ?>scripts/plugins/google-code-prettify/prettify.js",
                 "<?php echo base_url() ?>scripts/plugins/charcounter/jquery.charcounter.js",

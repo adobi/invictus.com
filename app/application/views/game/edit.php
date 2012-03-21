@@ -1,4 +1,3 @@
-
 <?php if (validation_errors()): ?>
     <div class="alert alert-error">
         <?php echo validation_errors() ?>
@@ -10,6 +9,7 @@
     <?php echo panel_close() ?>
     
     <legend>
+        <strong>1. </strong>
         <?php if ($item): ?>
             Edit "<?php echo $item->name ?>"
         <?php else: ?>
@@ -18,9 +18,11 @@
         <p class="pull-right">
           <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button>
           <?php if ($item): ?>
-            <a href="<?php echo base_url() ?>page/seo/<?php echo $item->id ?>" class="btn" data-ajax-link="1" rel="tooltip" title="SEO settings"><i class="icon-search"></i></a>
-            <a href="<?php echo base_url() ?>page/analytics/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>
-            <a href="<?php echo base_url() ?>page/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete page" data-modal-header="Page <?php echo $item->name ?>"><i class="icon-trash"></i></a>
+            <!-- 
+            <a href="<?php echo base_url() ?>game/seo/<?php echo $item->id ?>" class="btn" data-ajax-link="1" rel="tooltip" title="SEO settings"><i class="icon-search"></i></a>
+            <a href="<?php echo base_url() ?>game/analytics/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>
+             -->
+            <a href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>
           <?php endif ?>
         </p>        
     </legend> 
@@ -40,16 +42,18 @@
               </div>
             </div>
         </fieldset>  
+        <!-- 
         <fieldset class="control-group">
             <label class="control-label" for="platforms[]">Available on</label>
             <div class="controls">
-              <?php echo form_multiselect('platforms[]', $platforms, $_POST ? @$_POST['platforms'] : ($game_platforms ? $game_platforms : ''), 'class="chosen span4" data-placeholder="Choose a platform..."') ?>
+              <?php //echo form_multiselect('platforms[]', $platforms, $_POST ? @$_POST['platforms'] : ($game_platforms ? $game_platforms : ''), 'class="chosen span4" data-placeholder="Choose a platform..."') ?>
               <p class="item-nav" style="text-align:left;">
                 <a href="#" class="chosen-select-all">Select all</a>
                 <a href="#" class="chosen-cancel-all">Cancel all</a>
               </p>               
             </div>
         </fieldset>               
+         -->
         <fieldset class="control-group">
             <label class="control-label" for="logo">Logo</label>
             <div class="controls">
@@ -124,5 +128,6 @@
     </div>
     <fieldset class="form-actions right">
         <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button>
+        <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/platforms/<?php echo $item->id ?>"><strong>2.</strong> Set up stores</a>
     </fieldset>    
 <?php echo form_close() ?>

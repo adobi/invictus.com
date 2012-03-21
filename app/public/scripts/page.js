@@ -285,6 +285,7 @@
     App.Dialog()
     
     App.enhanceChosen()
+    
     //$('#fileupload').fileupload();
     
     $('i.w').parents('li').hover(
