@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-03-20 15:22:19
+Date: 2012-03-21 16:02:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -51,7 +51,7 @@ CREATE TABLE `c_game` (
 -- ----------------------------
 -- Records of c_game
 -- ----------------------------
-INSERT INTO `c_game` VALUES ('3', '9', 'Lazy Farmer', 'lazy-farmer', '2012-03-31 00:00:00', '1332252598_Icon170.png', '1332253297_hero.png', '1332253297_teaser.png', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.', null, null, null, null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('3', '9', 'Lazy Farmer', 'lazy-farmer', '2012-03-31 00:00:00', '1332252598_Icon170.png', '1332253297_hero.png', '1332253297_teaser.png', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.', '1', null, null, null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `c_game_image`
@@ -85,6 +85,7 @@ CREATE TABLE `c_game_platform` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `game_id` int(11) DEFAULT NULL,
   `platform_id` int(11) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
   `ga_category` varchar(250) DEFAULT NULL,
   `ga_action` varchar(250) DEFAULT NULL,
   `ga_label` varchar(250) DEFAULT NULL,
@@ -95,11 +96,12 @@ CREATE TABLE `c_game_platform` (
   KEY `fk_game_platform_platform` (`platform_id`),
   CONSTRAINT `fk_game_platform_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_game_platform_platform` FOREIGN KEY (`platform_id`) REFERENCES `c_platform` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_platform
 -- ----------------------------
+INSERT INTO `c_game_platform` VALUES ('1', '3', '2', null, 'Store', 'Click', 'Lazy Farmer - ', '1', null);
 
 -- ----------------------------
 -- Table structure for `c_game_video`
@@ -235,7 +237,7 @@ CREATE TABLE `ic_contact_type` (
   `ga_value` int(11) DEFAULT NULL,
   `ga_noninteraction` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_contact_type
@@ -473,12 +475,13 @@ CREATE TABLE `ic_meta` (
   `og_description` varchar(250) DEFAULT NULL,
   `og_site_name` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_meta
 -- ----------------------------
 INSERT INTO `ic_meta` VALUES ('9', 'Lazy Farmer', 'Lazy Farmer the official game', 'invictus games, Lazy Farmer', 'Lazy Farmer', 'http://invictus.com/games/lazy-farmer', 'game', 'http://invictus.com/uploads/original/1332252598_Icon170.png', null, 'Invictus Games');
+INSERT INTO `ic_meta` VALUES ('11', 'Home', 'Home', 'invictus games, Home', 'Home', 'http://invictus.com/pages/home', 'games', null, null, 'Invictus Games');
 
 -- ----------------------------
 -- Table structure for `ic_offer`
@@ -522,11 +525,12 @@ CREATE TABLE `ic_page` (
   PRIMARY KEY (`id`),
   KEY `fk_page_meta` (`meta_id`),
   CONSTRAINT `fk_page_meta` FOREIGN KEY (`meta_id`) REFERENCES `ic_meta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_page
 -- ----------------------------
+INSERT INTO `ic_page` VALUES ('8', 'Home', 'home', 'Home', '', '11', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `ic_settings`
