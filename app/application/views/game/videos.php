@@ -16,7 +16,7 @@
         <?php endif ?>
         <p class="pull-right">
           <!-- <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button> -->
-          <a class="btn btn-primary" href="<?php echo base_url() ?>gamevideo/edit/for_game/<?php echo $item->id ?>" rel="tooltip" title="Add new platform" data-ajax-link><i class="icon-plus-sign icon-white"></i></a>
+          <a class="btn btn-primary" href="<?php echo base_url() ?>gamevideo/edit/for_game/<?php echo $item->id ?>" rel="tooltip" title="Add new video" data-ajax-link><i class="icon-plus-sign icon-white"></i></a>
           <?php if ($item): ?>
             <a href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>
           <?php endif ?>
@@ -33,7 +33,7 @@
                   
                 <div class="pull-right">
                   <a class="btn" href="<?php echo base_url() ?>gamevideo/analytics/<?php echo $p->id ?>" rel="tooltip" title="Analytics settings" data-ajax-link><i class="icon-signal"></i></a>
-                  <a class="btn" href="<?php echo base_url() ?>gamevideo/edit/<?php echo $p->id ?>" rel="tooltip" title="Edit" data-ajax-link><i class="icon-pencil"></i></a>
+                  <a class="btn" href="<?php echo base_url() ?>gamevideo/edit/<?php echo $p->id ?>" rel="tooltip" title="Edit video" data-ajax-link><i class="icon-pencil"></i></a>
                   <a class="btn delete-item" href="<?php echo base_url() ?>gamevideo/delete/<?php echo $p->id ?>" data-reload="right"  rel="tooltip" title="Delete video" data-modal-header="<?php echo $p->description ?> video"><i class="icon-trash"></i></a>
                 </div>
               </h6>

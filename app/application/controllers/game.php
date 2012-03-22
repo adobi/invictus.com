@@ -164,11 +164,11 @@ class Game extends MY_Controller
       $this->load->model('Games', 'model');
       
       $data['item'] = $this->model->find($id);
+
+      $this->load->model('Gameimages', 'images');
       
-      if ($_POST) {
-        redirect('game'.'#videos/'.$data['item']->id);
-      }
-      
+      $data['images'] = $this->images->fetchForGame($id);
+
       $this->template->build('game/images', $data);
     }
     
@@ -345,43 +345,7 @@ class Game extends MY_Controller
       
       die;
     }    
-    
-    public function upload_image() 
-    {
-      
-      //dump($_FILES); die;
-      
-	  	if ($this->upload->do_upload('userfile')) {
-	  	    
-	  	    $this->load->config('upload');
-	  	    
-	  	    $data = $this->upload->data();
 
-          //$this->load->model('Images', 'model');
-          /*
-          $inserted = $this->model->insert(array(
-              'site_id'=>$this->uri->segment(3),
-              'image'=>$data['file_name']
-          ));
-          */
-  	      $inserted = 1;
-          $info->name = $data['file_name'];
-          $info->size = $data['file_size'];
-          $info->type = $data['file_type'];
-          $info->url = base_url() . 'uploads/original/' .$data['file_name'];
-          $info->thumbnail_url = base_url() . 'uploads/original/' .$data['file_name'];
-          $info->delete_url = base_url().'microsite/delete/'.$inserted;
-          $info->delete_type = 'DELETE';	 
-          
-          if ($this->input->is_ajax_request()) {
-              echo json_encode(array($info));
-          } 
-	  	}
-	  	
-      die;
-    }
-    
-    
     private function _deleteImage($id, $withRecord = false, $field = false) 
     {
         $this->load->model('Games', 'model');
