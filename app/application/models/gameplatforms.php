@@ -11,7 +11,7 @@ class Gameplatforms extends MY_Model
     {
       if (!$gameId) return false;
       
-      return $this->fetchRows(array('where'=>array('game_id'=>$gameId)));
+      return $this->fetchRows(array('join'=>array(array('table'=>'c_platform', 'condition'=>'c_platform.id = c_game_platform.platform_id', 'columns'=>array('name', 'image'))), 'where'=>array('game_id'=>$gameId)));
     }
     
     public function fetchIdsForGame($gameId)

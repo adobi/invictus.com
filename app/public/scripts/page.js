@@ -220,14 +220,28 @@
         $('#delete-yes').attr('href', $(this).attr('href'));
         $('#the-item').html(that.data('modal-header'))
         
+        if (that.data('reload') === 'right') {
+          $('#delete-yes').data('reload', 'right')
+        }
+        
+        //console.log($('#delete-yes').data('reload'))
+        
         modal.modal();
         
       } else {
         $.get(that.attr('href'), function() {
           
-          if (that.data('location') === 'r') App.Nav.CloseRightPanel()
-          
-          App.Nav.reloadContetPanel()
+          if (that.data('reload') === 'right') {
+            
+            App.Nav.reloadRightPanel()
+            
+          } else {
+  
+            if (that.data('location') === 'r') App.Nav.CloseRightPanel()
+            
+            App.Nav.reloadContetPanel()
+            
+          }
           
           modal.modal('hide')
         })

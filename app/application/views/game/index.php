@@ -30,7 +30,7 @@
               <hr style="margin:4px 0 6px;">
               <div class="caption center" style="padding-left:0; padding-right:0">
                 <a href="<?php echo base_url() ?>game/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit game"><i class="icon-pencil"></i></a>
-                <a href="<?php echo base_url() ?>game/platforms/<?php echo $item->id ?>" class="btn" data-ajax-link="1" rel="tooltip" title="Available on"><i class="icon-platform"></i></a>
+                <a href="<?php echo base_url() ?>game/platforms/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Available on"><i class="icon-platform"></i></a>
                 <a href="<?php echo base_url() ?>game/images/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Images"><i class="icon-picture"></i></a>
                 <a href="<?php echo base_url() ?>game/videos/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Videos"><i class="icon-facetime-video"></i></a>
                 <a href="<?php echo base_url() ?>game/analytics/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>

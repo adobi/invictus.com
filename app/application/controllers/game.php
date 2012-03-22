@@ -143,14 +143,16 @@ class Game extends MY_Controller
       
         $data['item'] = $item;
 
-        $data['game_platforms'] = $item ? $this->game_platforms->fetchIdsForGame($item->id) : false;
-        
+        $data['game_platforms'] = $item ? $this->game_platforms->fetchForGame($item->id) : false;
+        //dump($data['game_platforms']); die;
+        /*
         if ($_POST) {
 
           $this->game_platforms->deleteByGame($id);
           
           $this->game_platforms->insertPlatformsForGame($id, $platforms);      
         }
+        */
 
         $this->template->build('game/platforms', $data);
     }

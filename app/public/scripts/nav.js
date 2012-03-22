@@ -51,6 +51,11 @@
     App.AutoHeight()
     App.enhanceChosen()  
     $('.sidebar-navigation-wrapper-right .controls:first').children(':first').focus()
+    
+    if ($('.game-platforms').length) {
+      
+      //App.Games.loadPlatforms()
+    }
   }
   
   Nav.initContentPanel = function() 
@@ -90,10 +95,17 @@
       
       $.post(form.attr('action'), form.serialize(), function(resp) {
         
-        Nav.reloadContetPanel();
-
-        Nav.reloadRightPanel();
+        if (form.data('trigger') === 'back') {
+          
+          $('.prev-right-panel').trigger('click');
+          
+        } else {
         
+          Nav.reloadContetPanel();
+  
+          Nav.reloadRightPanel();
+          
+        }
         App.Message = resp;
         
         button.attr('disabled', false)

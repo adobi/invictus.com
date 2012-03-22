@@ -36,7 +36,7 @@
     },
   }
     
-  function loadFromHash()
+  Games.loadFromHash = function ()
   {
     console.log(window.location.hash.slice(1))
     $('body').append(
@@ -52,6 +52,30 @@
     $('#load-into-right').trigger('click')
   }  
   
+  Games.shortenWithBitly = function(el) 
+  {
+    var url = $('#bitly-input-url').val(),
+        api_login = "adobi",
+        api_key = "R_d46703b23cbd9840555311a8b08175f8";
+
+    if ($.trim(url)) {
+      $.getJSON(
+          "http://api.bitly.com/v3/shorten?longUrl="+encodeURIComponent(url)+"&login="+api_login+"&apiKey="+api_key+"&callback=?", 
+          function(resp) {
+              $('#url').val(resp.data.url)
+          }
+      )        
+    }    
+  }
+  
+  Games.loadPlatforms = function() 
+  {
+    var container = $('.game-platforms'),
+        game = container.data('id')
+        
+    container.load(App.URL + 'game/platforms_for/' + game);
+  };
+  
   $(function() {
     $('body').on('click', '.action', function(e) {
       
@@ -59,15 +83,22 @@
       
       e.preventDefault()
     })
+    
+    $('body').on('click', '#shorten-with-bitly', function(e) {
+      
+      Games.shortenWithBitly($(this));
+      
+      e.preventDefault()
+    })
 
     if (window.location.hash.length) {
-      loadFromHash()
+      Games.loadFromHash()
     }
     
     App.Games = Games
   })
   $(window).hashchange( function(){
-    loadFromHash()
+    Game.loadFromHash()
   })    
   
   
