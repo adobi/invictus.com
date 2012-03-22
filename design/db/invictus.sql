@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-03-21 16:02:18
+Date: 2012-03-22 14:22:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -51,7 +51,7 @@ CREATE TABLE `c_game` (
 -- ----------------------------
 -- Records of c_game
 -- ----------------------------
-INSERT INTO `c_game` VALUES ('3', '9', 'Lazy Farmer', 'lazy-farmer', '2012-03-31 00:00:00', '1332252598_Icon170.png', '1332253297_hero.png', '1332253297_teaser.png', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.', '1', null, null, null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('3', '9', 'Lazy Farmer', 'lazy-farmer', '2012-03-31 00:00:00', '1332252598_Icon170.png', '1332253297_hero.png', '1332253297_teaser.png', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.', null, null, null, null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `c_game_image`
@@ -85,23 +85,19 @@ CREATE TABLE `c_game_platform` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `game_id` int(11) DEFAULT NULL,
   `platform_id` int(11) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
-  `ga_category` varchar(250) DEFAULT NULL,
-  `ga_action` varchar(250) DEFAULT NULL,
-  `ga_label` varchar(250) DEFAULT NULL,
-  `ga_value` int(11) DEFAULT NULL,
-  `ga_noninteraction` int(11) DEFAULT NULL,
+  `url` varchar(250) DEFAULT NULL,
+  `long_url` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_game_platform_game` (`game_id`),
   KEY `fk_game_platform_platform` (`platform_id`),
   CONSTRAINT `fk_game_platform_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_game_platform_platform` FOREIGN KEY (`platform_id`) REFERENCES `c_platform` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_platform
 -- ----------------------------
-INSERT INTO `c_game_platform` VALUES ('1', '3', '2', null, 'Store', 'Click', 'Lazy Farmer - ', '1', null);
+INSERT INTO `c_game_platform` VALUES ('7', '3', '5', 'http://bit.ly/GFP5iK', 'http://twitter.github.com/bootstrap/base-css.html#icons');
 
 -- ----------------------------
 -- Table structure for `c_game_video`
@@ -120,11 +116,12 @@ CREATE TABLE `c_game_video` (
   PRIMARY KEY (`id`),
   KEY `fk_game_vide_game` (`game_id`),
   CONSTRAINT `fk_game_vide_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_video
 -- ----------------------------
+INSERT INTO `c_game_video` VALUES ('9', 'New Lazy Farmer trailer 3', 'VA770wpLX-Q', '3', 'Video', 'watch', 'Lazy Farmer - New Lazy Farmer trailer 3', '1', null);
 
 -- ----------------------------
 -- Table structure for `c_platform`
@@ -291,6 +288,30 @@ INSERT INTO `ic_email_offer` VALUES ('2', '3', 'hello.attila@gmail.com', '2012-0
 INSERT INTO `ic_email_offer` VALUES ('3', '3', 'hello.attila@gmail.com', '2012-03-02 10:18:21');
 INSERT INTO `ic_email_offer` VALUES ('4', '3', 'hello.attila@gmail.com', '2012-03-13 10:18:25');
 INSERT INTO `ic_email_offer` VALUES ('5', '3', 'hello.attila@gmail.com', '2012-03-09 10:18:29');
+
+-- ----------------------------
+-- Table structure for `ic_game_platorm_analyitcs`
+-- ----------------------------
+DROP TABLE IF EXISTS `ic_game_platorm_analyitcs`;
+CREATE TABLE `ic_game_platorm_analyitcs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ga_category` varchar(255) DEFAULT NULL,
+  `ga_label` varchar(255) DEFAULT NULL,
+  `ga_value` int(11) DEFAULT NULL,
+  `ga_action` varchar(255) DEFAULT NULL,
+  `ga_noninteraction` int(11) DEFAULT NULL,
+  `game_platform_id` int(11) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_game_platform_analytics_game_platform` (`game_platform_id`),
+  CONSTRAINT `fk_game_platform_analytics_game_platform` FOREIGN KEY (`game_platform_id`) REFERENCES `c_game_platform` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ic_game_platorm_analyitcs
+-- ----------------------------
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('11', 'Outbound link', 'Lazy Farmer - iPad - all games page', '1', 'Click', null, '7', 'all games page');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('12', 'Outbound link', 'Lazy Farmer - iPad - product page', '1', 'Click', null, '7', 'product page');
 
 -- ----------------------------
 -- Table structure for `ic_job`
