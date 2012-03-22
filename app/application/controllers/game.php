@@ -180,9 +180,18 @@ class Game extends MY_Controller
       
       $data['item'] = $this->model->find($id);
       
+      $this->load->model('Gamevideos', 'videos');
+      
+      $data['videos'] = $this->videos->fetchForGame($id);
+      
       $this->template->build('game/videos', $data);
     }
-
+    
+    public function preview_video() 
+    {
+      echo embed_youtube($this->uri->segment(3));
+      die;
+    }
 
     public function analytics()
     {

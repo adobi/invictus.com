@@ -1,9 +1,7 @@
   
   <?php echo panel_close('platforms/'.($game ? $game->id : '')) ?>
-  
 
-<a class="btn btn-primary" href="<?php echo base_url() ?>gameplatform/edit/for_game/<?php echo $game->id ?>" rel="tooltip" title="Add new platform" data-ajax-link><i class="icon-plus-sign icon-white"></i></a>
-<?php echo form_open('', array('id'=>'edit-form', 'data-ajax-form'=>1, 'class'=>'_form-horizontal', 'data-trigger'=>'back')) ?>
+  <?php echo form_open('', array('id'=>'edit-form', 'data-ajax-form'=>1, 'class'=>'_form-horizontal', 'data-trigger'=>'back')) ?>
       <legend>
         Set up Platform for <?php echo $game->name ?>
         <p class="pull-right">

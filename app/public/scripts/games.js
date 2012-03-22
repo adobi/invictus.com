@@ -68,6 +68,17 @@
     }    
   }
   
+  Games.previewVideo = function(el) 
+  {
+    var code = el.val()
+    
+    if ($.trim(code)) {
+      $.get(App.URL + 'game/preview_video/' + code, function(resp) {
+        $('#video-preview').html(resp)
+      })
+    }
+  }
+  
   Games.loadPlatforms = function() 
   {
     var container = $('.game-platforms'),
@@ -87,6 +98,13 @@
     $('body').on('click', '#shorten-with-bitly', function(e) {
       
       Games.shortenWithBitly($(this));
+      
+      e.preventDefault()
+    })
+
+    $('body').on('click', '#preview-video', function(e) {
+      
+      Games.previewVideo($('#code'));
       
       e.preventDefault()
     })

@@ -3,6 +3,11 @@
     <?php echo form_open(base_url().'gameplatform/analytics/edit/'.$item->id, array('id'=>'edit-form', 'class'=>'_form-horizontal', 'data-ajax-form'=>1, 'data-trigger'=>'back')) ?>    
       <legend>
         Analytics settings <?php echo $item->location ?>
+        <!-- 
+        <p class="pull-right">
+          <a href="#" class="btn delete-item" rel="tooltip" title="Delete-analytics"><i class="icon-trash"></i></a>
+        </p>
+         -->
       </legend> 
       <fieldset class="control-group">
           <label class="control-label" for="<?php echo $prefix ? $prefix : '' ?>ga_category">Category</label>
