@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-03-22 14:22:25
+Date: 2012-03-22 15:11:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -71,11 +71,14 @@ CREATE TABLE `c_game_image` (
   PRIMARY KEY (`id`),
   KEY `fk_game_vide_game` (`game_id`),
   CONSTRAINT `fk_game_vide_game0` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_image
 -- ----------------------------
+INSERT INTO `c_game_image` VALUES ('1', null, '1332252598_Icon170.png', null, '3', null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('2', null, '1332252598_Icon170.png', null, '3', null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('3', null, '1332252598_Icon170.png', null, '3', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `c_game_platform`
