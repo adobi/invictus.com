@@ -128,6 +128,8 @@
     </div>
     <fieldset class="form-actions right">
         <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button>
-        <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/platforms/<?php echo $item->id ?>"><strong>2.</strong> Set up stores</a>
+        <?php if ($item) :?>
+          <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/platforms/<?php echo $item->id ?>"><strong>2.</strong> Set up stores</a>
+        <?php endif; ?>
     </fieldset>    
 <?php echo form_close() ?>

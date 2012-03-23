@@ -79,9 +79,9 @@ class Game extends MY_Controller
             
             $_POST['url'] = $this->sanitizer->sanitize_title_with_dashes($_POST['name']);        
             
-            $platforms = $_POST['platforms'];
+            //$platforms = $_POST['platforms'];
             
-            unset($_POST['platforms']);
+            //unset($_POST['platforms']);
             
             $hash = ''; $insertId = false;
             if ($id) {
@@ -104,7 +104,7 @@ class Game extends MY_Controller
               
                 $insertId = $this->model->insert($_POST);
                 
-                $hash = '#images/' . $insertId;
+                $hash = '#platforms/' . $insertId;
             }
             
             $response = display_success('Saved');
@@ -269,11 +269,11 @@ class Game extends MY_Controller
             
             $this->_deleteImage($id, true);
 
-            $this->model->delete($id);
-            
             $this->session->set_flashdata('message', 'Deleted');
         }
-        
+        if ($this->input->is_ajax_request()) {
+          die;
+        }        
         redirect($_SERVER['HTTP_REFERER']);
     }
     
@@ -351,6 +351,14 @@ class Game extends MY_Controller
         $this->load->model('Games', 'model');
         
         $item = $this->model->find($id);
+
+        
+        if ($withRecord) {
+          $this->load->model('Meta', 'meta');
+          $item = $this->model->find($id);
+          $this->meta->delete($item->meta_id);          
+          $this->model->delete($id);
+        };
         
         $this->load->config('upload');
         
@@ -367,13 +375,6 @@ class Game extends MY_Controller
           @unlink($this->config->item('upload_path') . $item->hero_image);
           @unlink($this->config->item('upload_path') . $item->teaser_image);
         }
-        
-        if ($withRecord) {
-          $this->load->model('Meta', 'meta');
-          $item = $this->model->find($id);
-          $this->meta->delete($item->meta_id);          
-          $this->model->delete($id);
-        };
         
         return true;
     } 

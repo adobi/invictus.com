@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50516
+Source Server         : _localhost
+Source Server Version : 50133
 Source Host           : localhost:3306
 Source Database       : invictus
 
 Target Server Type    : MYSQL
-Target Server Version : 50516
+Target Server Version : 50133
 File Encoding         : 65001
 
-Date: 2012-03-22 15:11:53
+Date: 2012-03-23 19:50:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -51,7 +51,6 @@ CREATE TABLE `c_game` (
 -- ----------------------------
 -- Records of c_game
 -- ----------------------------
-INSERT INTO `c_game` VALUES ('3', '9', 'Lazy Farmer', 'lazy-farmer', '2012-03-31 00:00:00', '1332252598_Icon170.png', '1332253297_hero.png', '1332253297_teaser.png', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.', null, null, null, null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `c_game_image`
@@ -70,15 +69,12 @@ CREATE TABLE `c_game_image` (
   `ga_noninteraction` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_game_vide_game` (`game_id`),
-  CONSTRAINT `fk_game_vide_game0` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_game_vide_game0` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_image
 -- ----------------------------
-INSERT INTO `c_game_image` VALUES ('1', null, '1332252598_Icon170.png', null, '3', null, null, null, null, null);
-INSERT INTO `c_game_image` VALUES ('2', null, '1332252598_Icon170.png', null, '3', null, null, null, null, null);
-INSERT INTO `c_game_image` VALUES ('3', null, '1332252598_Icon170.png', null, '3', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `c_game_platform`
@@ -93,14 +89,13 @@ CREATE TABLE `c_game_platform` (
   PRIMARY KEY (`id`),
   KEY `fk_game_platform_game` (`game_id`),
   KEY `fk_game_platform_platform` (`platform_id`),
-  CONSTRAINT `fk_game_platform_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_game_platform_platform` FOREIGN KEY (`platform_id`) REFERENCES `c_platform` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_game_platform_platform` FOREIGN KEY (`platform_id`) REFERENCES `c_platform` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_game_platform_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_platform
 -- ----------------------------
-INSERT INTO `c_game_platform` VALUES ('7', '3', '5', 'http://bit.ly/GFP5iK', 'http://twitter.github.com/bootstrap/base-css.html#icons');
 
 -- ----------------------------
 -- Table structure for `c_game_video`
@@ -118,13 +113,12 @@ CREATE TABLE `c_game_video` (
   `ga_noninteraction` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_game_vide_game` (`game_id`),
-  CONSTRAINT `fk_game_vide_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_game_vide_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_video
 -- ----------------------------
-INSERT INTO `c_game_video` VALUES ('9', 'New Lazy Farmer trailer 3', 'VA770wpLX-Q', '3', 'Video', 'watch', 'Lazy Farmer - New Lazy Farmer trailer 3', '1', null);
 
 -- ----------------------------
 -- Table structure for `c_platform`
@@ -308,13 +302,11 @@ CREATE TABLE `ic_game_platorm_analyitcs` (
   PRIMARY KEY (`id`),
   KEY `fk_game_platform_analytics_game_platform` (`game_platform_id`),
   CONSTRAINT `fk_game_platform_analytics_game_platform` FOREIGN KEY (`game_platform_id`) REFERENCES `c_game_platform` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_game_platorm_analyitcs
 -- ----------------------------
-INSERT INTO `ic_game_platorm_analyitcs` VALUES ('11', 'Outbound link', 'Lazy Farmer - iPad - all games page', '1', 'Click', null, '7', 'all games page');
-INSERT INTO `ic_game_platorm_analyitcs` VALUES ('12', 'Outbound link', 'Lazy Farmer - iPad - product page', '1', 'Click', null, '7', 'product page');
 
 -- ----------------------------
 -- Table structure for `ic_job`
@@ -504,7 +496,6 @@ CREATE TABLE `ic_meta` (
 -- ----------------------------
 -- Records of ic_meta
 -- ----------------------------
-INSERT INTO `ic_meta` VALUES ('9', 'Lazy Farmer', 'Lazy Farmer the official game', 'invictus games, Lazy Farmer', 'Lazy Farmer', 'http://invictus.com/games/lazy-farmer', 'game', 'http://invictus.com/uploads/original/1332252598_Icon170.png', null, 'Invictus Games');
 INSERT INTO `ic_meta` VALUES ('11', 'Home', 'Home', 'invictus games, Home', 'Home', 'http://invictus.com/pages/home', 'games', null, null, 'Invictus Games');
 
 -- ----------------------------

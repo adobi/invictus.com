@@ -52,8 +52,11 @@ class Gameimage extends MY_Controller
             //$this->model->delete($id);
             $this->_deleteImage($id, true);
         }
-        die;
-        //redirect($_SERVER['HTTP_REFERER']);
+        if ($this->input->is_ajax_request()) {
+          die;
+        }        
+        redirect($_SERVER['HTTP_REFERER']);
+
     }
     
     public function upload_for_game()
