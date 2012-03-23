@@ -20,7 +20,8 @@
       <fieldset class="control-group">
           <label class="control-label" for="url">Original url</label>
           <div class="controls">
-              <input type="text" name="long_url" id = "bitly-input-url" class = "span4" value = "<?php echo $item ? $item->long_url : '' ?>"/> <a id="shorten-with-bitly" href="javascript:void(0)" rel="tooltip" title="Shorten with bit.ly"><i class="icon-retweet"></i></a>
+              <input type="text" name="long_url" id = "bitly-input-url" class = "span4" value = "<?php echo $item ? $item->long_url : '' ?>"/> 
+              <a class="btn" id="shorten-with-bitly" href="javascript:void(0)" rel="tooltip" title="Shorten with bit.ly"><i class="icon-retweet"></i></a>
           </div>
       </fieldset>       
       <fieldset class="control-group">

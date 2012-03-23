@@ -32,7 +32,7 @@
           <label class="control-label" for="code">Code</label>
           <div class="controls">
               <input type="text" name = "code" id = "code" class = "span4" value = "<?php echo $_POST && isset($_POST['code']) ? $_POST['code'] : ($item ? $item->code : '') ?>"/>
-              <a href="javascript:void(0)" id = "preview-video" rel="tooltip" title="Preview video"><i class="icon-retweet"></i></a>
+              <a class="btn" href="javascript:void(0)" id = "preview-video" rel="tooltip" title="Preview video"><i class="icon-retweet"></i></a>
               <p><code>http://www.youtube.com/watch?v=<strong style="color:#000;">VA770wpLX-Q</strong></code></p>
               <div class="item" style="height: 350px;">
                 <legend>Preview</legend>

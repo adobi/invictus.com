@@ -11,12 +11,12 @@
   Jobs.templates = {
     itemAdd: '<li> \
             <input type="text" name="" class="span4"> \
-            <a href="#" class="add-ui-item" data-type=""><i class="icon-plus-sign" style="margin-right:0"></i></a> \
-            <a href="#" class="remove-ui-item"  rel="tooltip" title="Delete"><i class="icon-trash"></i></a> \
+            <a href="#" class="btn add-ui-item" data-type=""><i class="icon-plus-sign" style="margin-right:0"></i></a> \
+            <a href="#" class="btn remove-ui-item"  rel="tooltip" title="Delete"><i class="icon-trash"></i></a> \
           </li>',
     itemAddBase: '<li> \
             <input type="text" name="" class="span4"> \
-            <a href="#" class="add-ui-item" data-type=""><i class="icon-plus-sign" style="margin-right:0"></i></a> \
+            <a href="#" class="btn add-ui-item" data-type=""><i class="icon-plus-sign" style="margin-right:0"></i></a> \
           </li>',          
     itemEdit: '<li> \
             <input type="text" name="" class="span4"> \
