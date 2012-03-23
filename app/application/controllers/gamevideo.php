@@ -86,4 +86,38 @@ class Gamevideo extends MY_Controller
         }
         redirect($_SERVER['HTTP_REFERER']);
     }
+    
+    public function analytics()
+    {
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Gamevideos', 'model');
+      
+      $this->template->set_partial('video_analytics', '_partials/analytics', array('prefix'=>'')); 
+      
+      $data['item'] = $this->model->find($id);
+      
+      $this->load->model('Games', 'games');
+      $data['game'] = $this->games->find($data['item']->game_id);
+      
+      
+      $this->form_validation->set_rules("ga_category", "Page category", "trim|required");
+      $this->form_validation->set_rules("ga_action", "Page action", "trim|required");
+      $this->form_validation->set_rules("ga_label", "Page label", "trim|required");
+      $this->form_validation->set_rules("ga_value", "Page value", "trim|required");
+
+      if ($this->form_validation->run()) {
+        
+        $this->model->update($_POST, $id);
+        
+        echo 'Saved'; die;
+      } else {
+        if ($_POST) {
+          
+          echo validation_errors(); die;
+        }
+      }
+                
+      $this->template->build('gamevideo/analytics', $data);
+    }     
 }
