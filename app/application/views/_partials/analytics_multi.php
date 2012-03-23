@@ -32,7 +32,7 @@
                           )  
               ?>
   
-              <a href="#" class="add-custom-action" style="<?php echo !$item->$prop || in_array($item->$prop, $actions) ? '' : 'display:none' ?>"><i class="icon-plus-sign"></i></a>
+              <a href="#" class="btn add-custom-action" style="<?php echo !$item->$prop || in_array($item->$prop, $actions) ? '' : 'display:none' ?>"><i class="icon-plus-sign"></i></a>
               
               <p style="<?php echo $item->$prop && !in_array($item->$prop, $actions) ? '' : 'display:none' ?>">
                   <input type="" value="<?php echo !in_array($item->$prop, $actions) ? $item->$prop : '' ?>" <?php echo !$item->$prop || in_array($item->$prop, $actions) ? '' : 'name="'.$prefix.'ga_action'.'"' ?>>
