@@ -31,7 +31,7 @@
                 <div class="pull-right">
                   <a class="btn" href="<?php echo base_url() ?>gameimage/analytics/<?php echo $p->id ?>" rel="tooltip" title="Analytics settings" data-ajax-link><i class="icon-signal"></i></a>
                   <!-- <a class="btn" href="<?php echo base_url() ?>gamevideo/edit/<?php echo $p->id ?>" rel="tooltip" title="Edit video" data-ajax-link><i class="icon-pencil"></i></a> -->
-                  <a class="btn delete-item" href="<?php echo base_url() ?>gameimage/delete/<?php echo $p->id ?>" data-reload="right"  rel="tooltip" title="Delete image" data-modal-header="<?php echo $p->path ?> image"><i class="icon-trash"></i></a>
+                  <a class="btn delete-item" href="<?php echo base_url() ?>gameimage/delete/<?php echo $p->id ?>" data-trigger="reload" data-location="r"  rel="tooltip" title="Delete image" data-modal-header="<?php echo $p->path ?> image"><i class="icon-trash"></i></a>
                 </div>
               </h6>
               <img style="max-width:300px; max-height:80px" src="<?php echo base_url() ?>uploads/original/<?php echo $p->path ?>" alt="">

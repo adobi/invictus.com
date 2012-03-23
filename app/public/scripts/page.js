@@ -220,9 +220,12 @@
         $('#delete-yes').attr('href', $(this).attr('href'));
         $('#the-item').html(that.data('modal-header'))
         
-        if (that.data('reload') === 'right') {
-          $('#delete-yes').data('reload', 'right')
-        }
+        //if (that.data('reload') === 'right') {
+        //  $('#delete-yes').data('reload', 'right')
+        //}
+        
+        $('#delete-yes').data('trigger', that.data('trigger'))
+        $('#delete-yes').data('location', that.data('location'))
         
         //console.log($('#delete-yes').data('reload'))
         
@@ -231,9 +234,9 @@
       } else {
         $.get(that.attr('href'), function() {
           
-          if (that.data('reload') === 'right') {
+          if (that.data('trigger') === 'reload') {
             
-            App.Nav.reloadRightPanel()
+            if (that.data('location') === 'r') App.Nav.reloadRightPanel()
             
           } else {
   

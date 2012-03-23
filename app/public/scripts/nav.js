@@ -75,8 +75,14 @@
         url: that.href, 
         type: that.type || 'GET',
         success: function(response) {
-          that.container.html(response)
-          Nav.initRightPanel()
+          if(that.el.data('trigger') === 'reload') {
+            if (that.el.data('location') === 'r') {
+              Nav.reloadRightPanel();
+            }
+          } else {
+            that.container.html(response)
+            Nav.initRightPanel()
+          }
         }
       })
     },
