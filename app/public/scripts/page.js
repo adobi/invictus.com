@@ -317,6 +317,8 @@
       });
     
 		prettyPrint() 
+    
+    $(".accordion").collapse('show')
 		
 		//$('.sidebar-navigation-wrapper-right .well').lionbars(); 
   });

@@ -42,6 +42,7 @@
                 "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-tooltip.js",
                 "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-popover.js",
                 "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-transition.js",
+                "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-collapse.js",
                 "<?php echo base_url() ?>scripts/plugins/redactor/js/redactor/redactor.js",
                 "<?php echo base_url() ?>scripts/plugins/fancybox/jquery.fancybox.pack.js",
                 "<?php echo base_url() ?>scripts/plugins/chosen/chosen.jquery.min.js",

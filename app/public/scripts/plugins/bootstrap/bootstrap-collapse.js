@@ -46,7 +46,7 @@
         , scroll = $.camelCase(['scroll', dimension].join('-'))
         , actives = this.$parent && this.$parent.find('.in')
         , hasData
-
+      
       if (actives && actives.length) {
         hasData = actives.data('collapse')
         actives.collapse('hide')

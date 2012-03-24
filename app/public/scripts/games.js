@@ -116,7 +116,7 @@
     App.Games = Games
   })
   $(window).hashchange( function(){
-    Game.loadFromHash()
+    Games.loadFromHash()
   })    
   
   
