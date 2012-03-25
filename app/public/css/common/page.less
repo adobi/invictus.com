@@ -26,7 +26,7 @@ html, body {
     margin-bottom:10px;
     margin-left:0px!important;
     .border-radius(4px);
-    .box-shadow(inset 0 0 1px 1px @leftNavLinkHover);    
+    .box-shadow(inset 0 0 1px 1px @itemBoxShadowColor);    
     border-bottom:1px solid #ededed;
     #gradient > .vertical(@itemBeginColor, @itemEndColor);
 }
@@ -212,7 +212,51 @@ form .add-on {
   margin-bottom:9px;
 }
 
+.accordion-group {
+  margin-bottom: 10px;
+} 
 
-.accordion-group .item {
-  margin:5px!important;  
+.accordion-group .thumbnails, .thumbnails.all-games {
+  margin-left: -10px;
+}
+
+.accordion-group .thumbnails > li, .thumbnails.all-games > li {
+  margin: 0 0 9px 10px;
+}
+
+.accordion-group .thumbnails > li.span2, .thumbnails.all-games > li.span2 {
+  width: 120px;
+}
+
+.accordion-group .thumbnail .caption {
+  padding: 0 3px;
+}
+
+.accordion-group .thumbnails .item {
+  margin-bottom:0px;
+}
+
+.accordion-heading {
+  #gradient > .vertical(@itemBeginColor, @itemEndColor);
+  
+}
+
+.thumbnails .item {
+  cursor:move;
+}
+
+.label {
+  position:relative;
+  top:-2px;
+}
+
+.item-placeholder {
+  width:60px;
+  height:100px;
+}
+
+.tipp-text {
+  text-transform:lowercase;
+  color:#C09853;
+  font-size:12px;
 }

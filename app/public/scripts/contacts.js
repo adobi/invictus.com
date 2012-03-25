@@ -33,7 +33,9 @@
   $(function() 
   {
     Contacts.sortable()
-    App.Contacts = Contacts
+    
   })
+  
+  App.Contacts = Contacts
   
 } (jQuery);

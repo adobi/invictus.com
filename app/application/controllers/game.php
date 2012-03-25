@@ -17,6 +17,17 @@ class Game extends MY_Controller
         $this->template->build('game/index', $data);
     }
     
+    public function all()
+    {
+        $data = array();
+        
+        $this->load->model('Games', 'model');
+        
+        $data['items'] = $this->model->fetchActive();
+        
+        $this->template->build('game/all', $data);
+    }
+    
     public function edit() 
     {
         $data = array();

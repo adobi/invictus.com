@@ -7,6 +7,11 @@ class Games extends MY_Model
     protected $_name = "c_game";
     protected $_primary = "id";
     
+    public function fetchActive()
+    {
+      return $this->fetchRows(array('where'=>array('is_active'=>1)));
+    }
+    
     public function activate($id) 
     {
       if (!$id) return false;

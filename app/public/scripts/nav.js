@@ -5,12 +5,15 @@
   
   var Nav = function(el, container)
   {
-    this.el = $(el)
-    this.href = this.el.attr('href')
+    if (el) {
+    
+      this.el = $(el)
+      this.href = this.el.attr('href')
+      
+      this.type = this.el.data('type')
+    }
     
     this.container = container || $('.sidebar-navigation-wrapper-right .well')
-    this.type = this.el.data('type')
-    
     //console.log(App.CurrentHref)
   }
   
@@ -75,7 +78,7 @@
         url: that.href, 
         type: that.type || 'GET',
         success: function(response) {
-          if(that.el.data('trigger') === 'reload') {
+          if(that.el && that.el.data('trigger') === 'reload') {
             if (that.el.data('location') === 'r') {
               Nav.reloadRightPanel();
             }
@@ -87,6 +90,13 @@
       })
     },
     
+    setHref: function(href) 
+    {
+      this.href = href
+      
+      return this
+    },
+        
     closeRightPanel: function() 
     {
       this.container.empty();
