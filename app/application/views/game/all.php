@@ -39,7 +39,7 @@
                 <div class="caption center hide">
                   <hr style="margin:4px 0 6px;">
                   <a href="#" class="btn"><i class="icon-signal"></i></a>  
-                  <a href="#" class="btn"><i class="icon-trash"></i></a>
+                  <a href="#" class="btn" onclick="$(this).parents('li:first').remove()"><i class="icon-trash"></i></a>
                 </div>                 
               </div>
             </li>
@@ -49,3 +49,8 @@
       </div> <!-- /right-side-scrol -->
     </div> <!-- /items -->
   <?php //endif ?>
+
+<script>
+    
+  App.Layout.DragAndDropGames()   
+</script>

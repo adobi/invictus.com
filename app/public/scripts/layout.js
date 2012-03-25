@@ -7,6 +7,28 @@
     this.el = el
   }
   
+  Layout.DragAndDropGames  = function() 
+  {
+    $( ".all-games li" ).draggable({
+      appendTo: "body",
+      helper: "clone"
+    })
+    
+    $('.accordion-group .thumbnails').droppable({
+      activeClass: "dnd-li-active",
+      //hoverClass: "ui-state-hover",
+      accept: ":not(.ui-sortable-helper)",
+      drop: function( event, ui ) {
+        //$( this ).find( ".placeholder" ).remove();
+        //$( "<li></li>" ).text( ui.draggable.text() ).appendTo( this );
+        
+        var clone = ui.draggable.clone()
+        clone.find('.caption').show()
+        $(this).append(clone);
+      }
+    })     
+  }
+  
   Layout.prototype = 
   {
     sortable: function() 
@@ -33,6 +55,7 @@
   $(function() 
   {
     (new Layout($('.accordion-group .thumbnails'))).sortable()
+   
   })
   
   App.Layout = Layout
