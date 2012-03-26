@@ -98,6 +98,7 @@
     
     data[name] = value;
     $.post(App.URL+'game/layout/'+game, data, function() {
+      App.Tooltip('hide')
       if (callback) callback()
     })
     
