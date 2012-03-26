@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50133
 File Encoding         : 65001
 
-Date: 2012-03-26 18:18:04
+Date: 2012-03-26 18:44:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,11 +54,11 @@ CREATE TABLE `c_game` (
 -- ----------------------------
 -- Records of c_game
 -- ----------------------------
-INSERT INTO `c_game` VALUES ('4', '12', 'Lazy Farmer', 'lazy-farmer', '2012-03-01 00:00:00', '1332531531_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', null, null, null, '1', '1', null, null, '12272771881', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazyfarmer.game', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('5', '12', 'Lazy Farmer2', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '1', '0', null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('6', '12', 'Lazy Farmer3', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '1', '2', null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('7', '12', 'Lazy Farmer4', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('8', '12', 'Lazy Farmer5', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('4', '12', 'Lazy Farmer', 'lazy-farmer', '2012-03-01 00:00:00', '1332531531_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', null, null, null, '0', '0', null, null, '12272771881', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazyfarmer.game', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('5', '12', 'Lazy Farmer2', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', '3', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('6', '12', 'Lazy Farmer3', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', '1', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('7', '12', 'Lazy Farmer4', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', null, '0', '0', null, null, null, null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('8', '12', 'Lazy Farmer5', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', '4', '0', '4', null, null, null, null, null, null, null, null);
 INSERT INTO `c_game` VALUES ('9', '12', 'Lazy Farmer6', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null);
 INSERT INTO `c_game` VALUES ('10', '12', 'Lazy Farmer7', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null);
 INSERT INTO `c_game` VALUES ('11', '12', 'Lazy Farmer8', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null);

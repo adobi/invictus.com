@@ -379,6 +379,7 @@ class Game extends MY_Controller
             $this->load->model('Games', 'model');
             
             foreach ($_POST['order'] as $order => $id) {
+              if ($id)
                 $this->model->update(array($this->uri->segment(3)=>$order), $id);
             }
         }

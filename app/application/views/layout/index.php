@@ -27,9 +27,25 @@
         <div class="accordion-body collapse in" id="more-games">
           <div class=" accordion-inner">
             <ul class="thumbnails" data-section="is_in_more_games">
-              <?php foreach (range(1,5) as $key => $item): ?>
-                <li class="span2" id="0">
-                </li>
+              <?php foreach ($in_more_games as $item): ?>
+                <?php if ($item) :?>
+                  <li class="span2" id="<?php echo $item->id ?>">
+                    <div class="item thumbnail" data-id="<?php echo $item->id ?>">
+                      <h6 class="center">
+                        <?php echo $item->name ?>
+                      </h6> 
+                      <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
+                      <div class="caption center">
+                        <hr style="margin:4px 0 6px;">
+                        <a href="#" class="btn"><i class="icon-signal"></i></a>  
+                        <a href="javascript:void(0)" class="btn layout-remove" rel="tooltip" title="Remove"><i class="icon-trash"></i></a>
+                      </div>                 
+                    </div>                  
+                  </li>
+                <?php else : ?>
+                  <li class="span2" id="0">
+                  </li>
+                <?php endif; ?>
               <?php endforeach; ?>
               
             </ul>
@@ -48,9 +64,25 @@
         <div class="accordion-body collapse in" id="footer" >
           <div class=" accordion-inner">
             <ul class="thumbnails" data-section="is_in_footer">
-              <?php foreach (range(1,5) as $key => $item): ?>
-                <li class="span2">
-                </li>
+              <?php foreach ($in_footer as $item): ?>
+                <?php if ($item) :?>
+                  <li class="span2" id="<?php echo $item->id ?>">
+                    <div class="item thumbnail" data-id="<?php echo $item->id ?>">
+                      <h6 class="center">
+                        <?php echo $item->name ?>
+                      </h6> 
+                      <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
+                      <div class="caption center">
+                        <hr style="margin:4px 0 6px;">
+                        <a href="#" class="btn"><i class="icon-signal"></i></a>  
+                        <a href="javascript:void(0)" class="btn layout-remove" rel="tooltip" title="Remove"><i class="icon-trash"></i></a>
+                      </div>                 
+                    </div>                  
+                  </li>
+                <?php else : ?>
+                  <li class="span2" id="0">
+                  </li>
+                <?php endif; ?>
               <?php endforeach; ?>
             </ul>
           </div>
@@ -68,9 +100,25 @@
         <div class="accordion-body collapse in" id="banners">
           <div class=" accordion-inner">
             <ul class="thumbnails" data-section="is_on_mainpage">
-              <?php foreach (range(1,4) as $key => $item): ?>
-                <li class="span2">
-                </li>
+              <?php foreach ($on_mainpage as $item): ?>
+                <?php if ($item) :?>
+                  <li class="span2" id="<?php echo $item->id ?>">
+                    <div class="item thumbnail" data-id="<?php echo $item->id ?>">
+                      <h6 class="center">
+                        <?php echo $item->name ?>
+                      </h6> 
+                      <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
+                      <div class="caption center">
+                        <hr style="margin:4px 0 6px;">
+                        <a href="#" class="btn"><i class="icon-signal"></i></a>  
+                        <a href="javascript:void(0)" class="btn layout-remove" rel="tooltip" title="Remove"><i class="icon-trash"></i></a>
+                      </div>                 
+                    </div>                  
+                  </li>
+                <?php else : ?>
+                  <li class="span2" id="0">
+                  </li>
+                <?php endif; ?>
               <?php endforeach; ?>
             </ul>
           </div>
