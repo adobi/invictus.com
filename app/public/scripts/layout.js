@@ -7,24 +7,43 @@
     this.el = el
   }
   
+  Layout.WarningModal = $('#overwrite-warning')
+  
   Layout.DragAndDropGames  = function() 
   {
     $( ".all-games li" ).draggable({
-      appendTo: "body",
-      helper: "clone"
+      appendTo: ".dnd-helper",
+      helper: "clone",
+      start: function (event, ui) {
+        console.log(ui)
+        ui.helper.find('.caption').show()
+      }
     })
     
-    $('.accordion-group .thumbnails').droppable({
-      activeClass: "dnd-li-active",
-      //hoverClass: "ui-state-hover",
+    $('.accordion-group .thumbnails li').droppable({
+      //activeClass: "",
+      hoverClass: "dnd-li-active",
       accept: ":not(.ui-sortable-helper)",
       drop: function( event, ui ) {
-        //$( this ).find( ".placeholder" ).remove();
-        //$( "<li></li>" ).text( ui.draggable.text() ).appendTo( this );
+
+        var clone = ui.draggable.clone(),
+            dropTo = $(this)
         
-        var clone = ui.draggable.clone()
         clone.find('.caption').show()
-        $(this).append(clone);
+        
+        if (!$.trim(dropTo.html()).length) {
+          dropTo.html(clone.html())
+        } else {
+        
+          Layout.WarningModal.find('#old-item').html(dropTo.find('h6').html())
+          Layout.WarningModal.find('#new-item').html(clone.find('h6').html())
+        
+          Layout.WarningModal.modal()
+          
+          Layout.DropToElement = dropTo
+          Layout.DraggedElement = clone
+        }
+          
       }
     })     
   }
@@ -35,7 +54,7 @@
     {
       var that = this
       that.el.sortable({
-          placeholder: "alert item-placeholder",
+          placeholder: "dnd-li-active",
           stop: function(event, ui) {
               var data = {},
                   name = $('.csrf-form').find('[type=hidden]').attr('name'),
@@ -55,7 +74,20 @@
   $(function() 
   {
     (new Layout($('.accordion-group .thumbnails'))).sortable()
-   
+    
+    $('body').on('click', '#overwrite-yes', function(e) {
+      
+      Layout.DropToElement.html(Layout.DraggedElement.html())
+      
+      $('#overwrite-warning').modal('hide')
+      
+      e.preventDefault()
+    });
+    
+    Layout.WarningModal.on('hide', function () {
+      Layout.DropToElement = null
+      Layout.DraggedElement = null
+    })
   })
   
   App.Layout = Layout

@@ -1,8 +1,3 @@
-@import "vars.less";
-@import "icons.less";
-@import "navigation.less";
-@import "subnav.less";
-@import url("../../scripts/plugins/google-code-prettify/prettify.css");
 
 html, body {
   height:100%;
@@ -10,8 +5,8 @@ html, body {
 
 #container, .content{
   height:auto !important; /* real browsers */
-	height:100%; /* IE6: treaded as min-height*/
-	min-height:100%; /* real browsers */
+  height:100%; /* IE6: treaded as min-height*/
+  min-height:100%; /* real browsers */
 }
 
 .content-wrapper {
@@ -85,8 +80,8 @@ i {
 }
 
 .nav .cug {
-	margin-top:3px;
-	margin-right:5px;
+  margin-top:3px;
+  margin-right:5px;
 }
 
 table td  {
@@ -186,7 +181,7 @@ form .add-on {
   margin-left:0;
 }
 
-#delete-confirmation {
+#delete-confirmation, #overwrite-warning {
   min-width:560px;
   width:auto;
 }
@@ -221,7 +216,7 @@ form .add-on {
 }
 
 .accordion-group .thumbnails li {
-  min-height:120px;
+  min-height:165px;
   background:#eee;
 }
 
@@ -229,11 +224,11 @@ form .add-on {
   margin: 0 0 9px 10px;
 }
 
-.accordion-group .thumbnails > li.span2, .thumbnails.all-games > li.span2 {
+.accordion-group .thumbnails > li.span2, .thumbnails.all-games > li.span2, .dnd-helper > li.span2 {
   width: 120px;
 }
 
-.accordion-group .thumbnail .caption {
+.accordion-group .thumbnail .caption, .dnd-helper .caption {
   padding: 0 3px;
 }
 
@@ -243,7 +238,11 @@ form .add-on {
 
 .accordion-heading {
   #gradient > .vertical(@itemBeginColor, @itemEndColor);
-  
+  .icon-resize-vertical {
+    left: -7px;
+    position: relative;
+    top: -2px;
+  }
 }
 
 .thumbnails .item {
@@ -255,11 +254,6 @@ form .add-on {
   top:-2px;
 }
 
-.item-placeholder {
-  width:60px;
-  height:120px;
-}
-
 .tipp-text {
   text-transform:lowercase;
   color:#C09853;
@@ -267,5 +261,7 @@ form .add-on {
 }
 
 .dnd-li-active {
-  list-style-type:none;
+  background:@globalLoading!important;
+  width:120px;
+  height:100px;
 }

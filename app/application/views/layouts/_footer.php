@@ -23,12 +23,29 @@
         </div>
         <div class="modal-footer">
           <a href="#" class="btn" data-dismiss="modal">No, I changed my mind</a>
-          <a href="#" class="delete-item btn btn-danger"id="delete-yes">Ok, let's do this!</a>
+          <a href="#" class="delete-item btn btn-danger" id="delete-yes">Ok, let's do this!</a>
         </div>
-      </div>	    
+      </div>
+      
+      <div class="modal hide fade" id="overwrite-warning">
+        <div class="modal-header alert-warning">
+          <a class="close" data-dismiss="modal">×</a>
+          <h3>Warning</h3>
+          </div>
+          <div class="modal-body">
+          <p>Are you sure you want to replace <strong id="old-item"></strong> with <strong id="new-item"></strong>?</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn" data-dismiss="modal">No, I changed my mind</a>
+          <a href="#" class="btn btn-warning" id="overwrite-yes">Ok, let's do this!</a>
+        </div>
+      </div>      
+      	    
 	  </div>
     <!-- /javascript templates -->
-
+    
+    <!-- drag'n'drop helper -->
+    <ul class="unstyled dnd-helper"></ul>
     	            
     <script type="text/javascript">
         var App = App || {};

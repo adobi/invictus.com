@@ -35,11 +35,11 @@
                 <h6 class="center">
                   Game #<?php echo $value ?>
                 </h6> 
-                <img src="http://placehold.it/96x96" alt="">
+                <img src="<?php echo base_url() ?>img/96x96.gif" alt="">
                 <div class="caption center hide">
                   <hr style="margin:4px 0 6px;">
                   <a href="#" class="btn"><i class="icon-signal"></i></a>  
-                  <a href="#" class="btn" onclick="$(this).parents('li:first').remove()"><i class="icon-trash"></i></a>
+                  <a href="javascript:void(0)" class="btn" onclick="$(this).parents('li:first').empty()"><i class="icon-trash"></i></a>
                 </div>                 
               </div>
             </li>

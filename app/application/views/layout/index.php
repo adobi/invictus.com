@@ -11,7 +11,7 @@
         <div class="accordion-heading">
           <h6>
             <a href="#more-games" data-toggle="collapse" class="accordion-toggle">
-              More games
+              <i class="icon-resize-vertical"></i>More games
               <span class="pull-right">
                 <span class="label label-info">Tipp</span> <span class="tipp-text">Move items to change the order</span>
               </span>
@@ -33,7 +33,7 @@
       <div class=" accordion-group">
         <div class="accordion-heading">
           <h6><a href="#footer" data-toggle="collapse" class="accordion-toggle">
-            Footer Top games
+            <i class="icon-resize-vertical"></i>Footer Top games
               <span class="pull-right">
                 <span class="label label-info">Tipp</span> <span class="tipp-text">Move items to change the order</span>
               </span>            
@@ -44,15 +44,6 @@
             <ul class="thumbnails">
               <?php foreach (range(1,5) as $key => $item): ?>
                 <li class="span2">
-                  <div class="item thumbnail">
-                    <h6 class="center">game #<?php echo $item ?></h6>
-                    <img src="http://placehold.it/96x96" alt="" />
-                    <div class="caption center hide">
-                      <hr style="margin:4px 0 6px;">
-                      <a href="#" class="btn"><i class="icon-signal"></i></a>  
-                      <a href="#" class="btn"><i class="icon-trash"></i></a>
-                    </div>  
-                  </div>
                 </li>
               <?php endforeach; ?>
             </ul>
@@ -62,7 +53,7 @@
       <div class=" accordion-group">
         <div class="accordion-heading">
           <h6><a href="#banners" data-toggle="collapse" class="accordion-toggle">
-            Banners
+            <i class="icon-resize-vertical"></i>Banners
               <span class="pull-right">
                 <span class="label label-info">Tipp</span> <span class="tipp-text">Move items to change the order</span>
               </span>            
@@ -73,15 +64,6 @@
             <ul class="thumbnails">
               <?php foreach (range(1,4) as $key => $item): ?>
                 <li class="span2">
-                  <div class="item thumbnail">
-                    <h6 class="center">game #<?php echo $item ?></h6>
-                    <img src="http://placehold.it/96x96" alt="" />
-                    <div class="caption center hide">
-                      <hr style="margin:4px 0 6px;">
-                      <a href="#" class="btn"><i class="icon-signal"></i></a>  
-                      <a href="#" class="btn"><i class="icon-trash"></i></a>
-                    </div>  
-                  </div>
                 </li>
               <?php endforeach; ?>
             </ul>
