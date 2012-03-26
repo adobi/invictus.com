@@ -28,8 +28,3 @@
   opacity: 0.65;
 }
 
-.alert-warning {
-  background-color: @warningBackground;
-  border-color:@warningBorder;
-  color: @warningText;
-}

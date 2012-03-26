@@ -1,9 +1,11 @@
 <div class="well">
     <h3>
       Layout
+      <!-- 
       <p class="pull-right" style="margin:5px 0 0 0">
         <span class="label label-info">Tipp</span> <span class="tipp-text"><span class="tipp-text">Drag items from the right <span style="font-size:1.6em;">&rarr;</span></span></span>
       </p>
+       -->
     </h3>
     <hr>
     <div id="layout" class="accordion">

@@ -38,18 +38,22 @@
     
   Games.loadFromHash = function ()
   {
-    console.log(window.location.hash.slice(1))
-    $('body').append(
-      $('<a />', 
-        {
-          id: 'load-into-right', 
-          'class': 'hidden', 
-          href: App.URL + 'game/' + window.location.hash.slice(1),
-          'data-ajax-link': 1
-        }
+    //console.log(window.location.hash.slice(1))
+    
+    if (window.location.hash.slice(1).length) {
+      
+      $('body').append(
+        $('<a />', 
+          {
+            id: 'load-into-right', 
+            'class': 'hide', 
+            href: App.URL + 'game/' + window.location.hash.slice(1),
+            'data-ajax-link': 1
+          }
+        )
       )
-    )
-    $('#load-into-right').trigger('click')
+      $('#load-into-right').trigger('click')
+    }
   }  
   
   Games.shortenWithBitly = function(el) 
@@ -58,7 +62,7 @@
         api_login = "adobi",
         api_key = "R_d46703b23cbd9840555311a8b08175f8";
 
-    if ($.trim(url)) {
+    if ($.trim(url).length) {
       $.getJSON(
           "http://api.bitly.com/v3/shorten?longUrl="+encodeURIComponent(url)+"&login="+api_login+"&apiKey="+api_key+"&callback=?", 
           function(resp) {

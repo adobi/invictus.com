@@ -32,7 +32,8 @@
         clone.find('.caption').show()
         
         if (!$.trim(dropTo.html()).length) {
-          dropTo.html(clone.html())
+          //dropTo.html(clone.html())
+          Layout.Copy(clone, dropTo)
         } else {
         
           Layout.WarningModal.find('#old-item').html(dropTo.find('h6').html())
@@ -48,6 +49,13 @@
     })     
   }
   
+  Layout.Copy = function (src, dest) 
+  {
+    // TODO save to the database
+    
+    dest.html(src.html())
+  }
+    
   Layout.prototype = 
   {
     sortable: function() 
@@ -68,7 +76,6 @@
       });
       this.el.disableSelection();       
     }  
-    
   }
   
   $(function() 
@@ -77,7 +84,7 @@
     
     $('body').on('click', '#overwrite-yes', function(e) {
       
-      Layout.DropToElement.html(Layout.DraggedElement.html())
+      Layout.Copy(Layout.DraggedElement, Layout.DropToElement)
       
       $('#overwrite-warning').modal('hide')
       

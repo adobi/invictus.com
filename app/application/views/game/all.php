@@ -1,7 +1,8 @@
   <?php //if ($items): ?>
     <?php echo panel_close() ?>
+    <legend style="margin-top:-30px;">Drag items and move them to the layout</legend>
     <div class="items page-items">
-      <div class="subnav" style="margin:-20px 0 20px 0">
+      <div class="subnav" style="margin:10px 0 10px 0">
         <ul class="nav nav-pills">
           <li><a href="#">All</a></li>
           <li><a href="#">MAC</a></li>
