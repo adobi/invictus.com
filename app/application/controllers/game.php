@@ -16,7 +16,9 @@ class Game extends MY_Controller
         
         $this->template->build('game/index', $data);
     }
-    
+    /**
+     * layout/right-side
+     */
     public function all()
     {
         $data = array();
@@ -355,8 +357,35 @@ class Game extends MY_Controller
       echo $this->model->$action($id);
       
       die;
-    }    
-
+    }   
+    
+    public function layout()
+    {
+      $id = $this->uri->segment(3);
+      
+      if ($_POST) {
+        $this->load->model('Games', 'model');
+        
+        $this->model->update($_POST, $id);
+      }
+      
+      die;
+    }
+    
+    public function update_layout_order()
+    {
+        if ($_POST && isset($_POST['order'])) {
+            
+            $this->load->model('Games', 'model');
+            
+            foreach ($_POST['order'] as $order => $id) {
+                $this->model->update(array($this->uri->segment(3)=>$order), $id);
+            }
+        }
+        
+        die;
+    }  
+        
     private function _deleteImage($id, $withRecord = false, $field = false) 
     {
         $this->load->model('Games', 'model');

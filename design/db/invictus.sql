@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50133
 File Encoding         : 65001
 
-Date: 2012-03-23 19:50:19
+Date: 2012-03-26 18:18:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,9 +32,12 @@ CREATE TABLE `c_game` (
   `long_description` text,
   `is_active` int(11) DEFAULT NULL,
   `is_on_mainpage` int(11) DEFAULT NULL,
+  `order_on_mainpage` int(11) DEFAULT NULL,
   `is_teaser` int(11) DEFAULT NULL,
   `is_in_more_games` int(11) DEFAULT NULL,
+  `order_in_more_games` int(11) DEFAULT NULL,
   `is_in_footer` int(11) DEFAULT NULL,
+  `order_in_footer` int(11) DEFAULT NULL,
   `facebook_app_id` varchar(150) DEFAULT NULL,
   `twitter_page` varchar(150) DEFAULT NULL,
   `facebook_page` varchar(250) DEFAULT NULL,
@@ -46,11 +49,19 @@ CREATE TABLE `c_game` (
   PRIMARY KEY (`id`),
   KEY `fk_game_meta` (`meta_id`),
   CONSTRAINT `fk_game_meta` FOREIGN KEY (`meta_id`) REFERENCES `ic_meta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game
 -- ----------------------------
+INSERT INTO `c_game` VALUES ('4', '12', 'Lazy Farmer', 'lazy-farmer', '2012-03-01 00:00:00', '1332531531_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', null, null, null, '1', '1', null, null, '12272771881', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazyfarmer.game', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('5', '12', 'Lazy Farmer2', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '1', '0', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('6', '12', 'Lazy Farmer3', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '1', '2', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('7', '12', 'Lazy Farmer4', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('8', '12', 'Lazy Farmer5', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('9', '12', 'Lazy Farmer6', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('10', '12', 'Lazy Farmer7', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('11', '12', 'Lazy Farmer8', null, null, '1332531531_Icon170.png', null, null, null, null, '1', null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `c_game_image`
@@ -70,7 +81,7 @@ CREATE TABLE `c_game_image` (
   PRIMARY KEY (`id`),
   KEY `fk_game_vide_game` (`game_id`),
   CONSTRAINT `fk_game_vide_game0` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_image
@@ -89,9 +100,9 @@ CREATE TABLE `c_game_platform` (
   PRIMARY KEY (`id`),
   KEY `fk_game_platform_game` (`game_id`),
   KEY `fk_game_platform_platform` (`platform_id`),
-  CONSTRAINT `fk_game_platform_platform` FOREIGN KEY (`platform_id`) REFERENCES `c_platform` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_game_platform_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_game_platform_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_game_platform_platform` FOREIGN KEY (`platform_id`) REFERENCES `c_platform` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_platform
@@ -114,7 +125,7 @@ CREATE TABLE `c_game_video` (
   PRIMARY KEY (`id`),
   KEY `fk_game_vide_game` (`game_id`),
   CONSTRAINT `fk_game_vide_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_video
@@ -237,7 +248,7 @@ CREATE TABLE `ic_contact_type` (
 -- Records of ic_contact_type
 -- ----------------------------
 INSERT INTO `ic_contact_type` VALUES ('1', 'Marketing', '2', 'marketing@invictus.com', 'Contact email', 'Marketing', 'Click', '1', null);
-INSERT INTO `ic_contact_type` VALUES ('2', 'Support', '3', 'support@invictus.com', null, null, null, null, null);
+INSERT INTO `ic_contact_type` VALUES ('2', 'Support', '1', 'support@invictus.com', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `ic_crosspromo`
@@ -491,12 +502,13 @@ CREATE TABLE `ic_meta` (
   `og_description` varchar(250) DEFAULT NULL,
   `og_site_name` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_meta
 -- ----------------------------
 INSERT INTO `ic_meta` VALUES ('11', 'Home', 'Home', 'invictus games, Home', 'Home', 'http://invictus.com/pages/home', 'games', null, null, 'Invictus Games');
+INSERT INTO `ic_meta` VALUES ('12', 'Lazy Farmer', 'Lazy Farmer the official game', 'invictus games, Lazy Farmer', 'Lazy Farmer', 'http://invictus.com/games/lazy-farmer', 'game', 'http://invictus.com/uploads/original/1332531531_Icon170.png', null, 'Invictus Games');
 
 -- ----------------------------
 -- Table structure for `ic_offer`

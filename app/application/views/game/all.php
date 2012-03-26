@@ -13,10 +13,7 @@
         </ul>
       </div>
       <div class="right-side-scroll"> 
-        <div class="hidden csrf-form">
-          <?php echo form_open() ?>
-          <?php echo form_close() ?>
-        </div>            
+           
         <ul class="thumbnails all-games">
           <!-- 
           <?php foreach ($items as $item): ?>
@@ -30,17 +27,17 @@
             </li>
           <?php endforeach ?>
            -->
-          <?php foreach (range(1,32) as $key=>$value): ?>
+          <?php foreach ($items as $item): ?>
             <li class="span2">
-              <div class="item thumbnail">
+              <div class="item thumbnail" data-id="<?php echo $item->id ?>">
                 <h6 class="center">
-                  Game #<?php echo $value ?>
+                  <?php echo $item->name ?>
                 </h6> 
-                <img src="<?php echo base_url() ?>img/96x96.gif" alt="">
+                <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
                 <div class="caption center hide">
                   <hr style="margin:4px 0 6px;">
                   <a href="#" class="btn"><i class="icon-signal"></i></a>  
-                  <a href="javascript:void(0)" class="btn" onclick="$(this).parents('li:first').empty()"><i class="icon-trash"></i></a>
+                  <a href="javascript:void(0)" class="btn layout-remove" rel="tooltip" title="Remove"><i class="icon-trash"></i></a>
                 </div>                 
               </div>
             </li>

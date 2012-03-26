@@ -9,6 +9,10 @@
     </h3>
     <hr>
     <div id="layout" class="accordion">
+      <div class="hidden csrf-form">
+        <?php echo form_open() ?>
+        <?php echo form_close() ?>
+      </div>     
       <div class=" accordion-group">
         <div class="accordion-heading">
           <h6>
@@ -22,9 +26,9 @@
         </div>
         <div class="accordion-body collapse in" id="more-games">
           <div class=" accordion-inner">
-            <ul class="thumbnails">
+            <ul class="thumbnails" data-section="is_in_more_games">
               <?php foreach (range(1,5) as $key => $item): ?>
-                <li class="span2">
+                <li class="span2" id="0">
                 </li>
               <?php endforeach; ?>
               
@@ -43,7 +47,7 @@
         </div>
         <div class="accordion-body collapse in" id="footer" >
           <div class=" accordion-inner">
-            <ul class="thumbnails">
+            <ul class="thumbnails" data-section="is_in_footer">
               <?php foreach (range(1,5) as $key => $item): ?>
                 <li class="span2">
                 </li>
@@ -63,7 +67,7 @@
         </div>
         <div class="accordion-body collapse in" id="banners">
           <div class=" accordion-inner">
-            <ul class="thumbnails">
+            <ul class="thumbnails" data-section="is_on_mainpage">
               <?php foreach (range(1,4) as $key => $item): ?>
                 <li class="span2">
                 </li>
