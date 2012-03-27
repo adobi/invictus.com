@@ -30,6 +30,11 @@ class Publicpages extends Page_Controller
   
   public function jobs()
   {
+    $this->load->model('Jobs', 'model');
+    
+    $data['jobs'] = $this->model->fetchAllJobsByCategory();    
+    $data['latest_job'] = $this->model->fetchLatestJob();
+    
     $this->template->build('invictus/jobs', $this->data);
   } 
   
