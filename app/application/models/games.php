@@ -42,6 +42,19 @@ class Games extends MY_Model
       return $items;
     }
     
+    public function fetchLastReleased() 
+    {
+      $result = $this->fetchAll(array('order'=>array('by'=>'released', 'dest'=>'desc'), 'limit'=>1, 'offset'=>0), true);
+      
+      if (!$result) return false;
+      
+      $this->load->model('Gameplatforms', 'gameplatforms');
+      
+      $result->platforms = $this->gameplatforms->fetchForGame($result->id);
+      
+      return $result;
+    }
+    
     public function activate($id) 
     {
       if (!$id) return false;
@@ -70,6 +83,22 @@ class Games extends MY_Model
       }
       
       return $d;
+    }
+    
+    public function fetchByUrl($url) 
+    {
+      return $this->fetchRows(array('where'=>array('url'=>$url)), true);
+    }
+    
+    public function getMeta($url) 
+    {
+      $game = $this->fetchByUrl($url);
+      
+      if (!$game) return false;
+      
+      $this->load->model('Meta', 'meta');
+      
+      return $this->meta->find($game->meta_id);      
     }
     
     private function _getByOrder($items, $column, $order) 

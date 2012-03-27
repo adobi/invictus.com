@@ -23,8 +23,14 @@
         }
       }   
   }
-
+  App.Tooltip = function(option) 
+  {
+    $('[rel=tooltip]').tooltip(option||null);
+  };
+  
   $(function() {
+    
+    App.Tooltip();
     
     $.subnav();
     

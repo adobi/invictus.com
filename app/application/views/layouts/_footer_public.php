@@ -4,13 +4,18 @@
         <div class="container">
           <div class="row">
             <div class="span4 footer-column">
-              <h4>Top Games</h4>
-              <ul class="unstyled">
-                <li><a href="#">Race of Champions</a></li>
-                <li><a href="#">Froggy Jump</a></li>
-                <li><a href="#">Greed Corp</a></li>
-                <li><a href="#">Mist Bouncer</a></li>
-              </ul>
+              <?php if ($footer_games): ?>
+                <h4>Top Games</h4>
+                <ul class="unstyled">
+                  <?php foreach ($footer_games as $item): ?>
+                    <?php if ($item): ?>
+                      <li>
+                        <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>"><?php echo $item->name ?></a>
+                      </li>
+                    <?php endif ?>
+                  <?php endforeach ?>
+                </ul>
+              <?php endif ?>
             </div>
             <div class="span4 footer-column">
               <h4>Terms and Conditions</h4>
@@ -52,6 +57,7 @@
                   
                   "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.easing.1.3.js",
                   "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.elastislide.js",
+                  "<?php echo base_url() ?>scripts/admin/games.js",
                   "<?php echo base_url() ?>scripts/invictus/invictus.js",
                   
                   function() {

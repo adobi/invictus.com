@@ -38,13 +38,14 @@
 |
 */
 
-$route['default_controller'] = "pages";
+$route['default_controller'] = "publicpages";
 $route['404_override'] = '';
 
 //$route['page/(:any)'] = 'pages/$1';
 //$route['games/(:any)'] = 'pages/game/$1';
-$route['games/(:any)'] = 'pages/game/$1';
-$route['(:any)'] = 'pages/$1';
+$route['games'] = 'publicpages/game/all';
+$route['games/(:any)'] = 'publicpages/game/$1';
+$route['pages/(:any)'] = 'publicpages/$1';
 
 
 /* End of file routes.php */

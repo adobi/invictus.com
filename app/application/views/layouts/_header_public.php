@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Invictus Games <?php echo $meta ? $meta->title : '' ?></title>
+    
     <meta charset="utf-8">
-    <title>Invictus Games</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="<?php echo $meta ? $meta->description : 'Invictus Games' ?>">
+    <meta name="keywords" content="<?php echo $meta ? $meta->keywords : 'Invictus Games' ?>">
+    <meta name="author" content="Attila Dobi, Invictus Games Ltd.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    
+    <meta property="og:title" content="<?php echo $meta ? $meta->og_title : 'Invictus Games' ?>" />
+    <meta property="og:type" content="<?php echo $meta ? $meta->og_type : 'game' ?>" />
+    <meta property="og:url" content="<?php echo $meta ? $meta->og_url : base_url() ?>" />
+    <meta property="og:image" content="<?php echo $meta ? $meta->og_image : '' ?>" />    
+    <meta property="og:desctiption" content="<?php echo $meta ? $meta->og_description : '' ?>" />    
+    <meta property="og:site_name" content="<?php echo $meta ? $meta->og_site_name : 'Invictus Games' ?>" />    
     
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -71,54 +80,24 @@
             <ul class="nav">
               
               <li <?php echo !$this->uri->segment(1) ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>"><i class="home-icon"></i>Home</a></li>
-              <li <?php echo $this->uri->segment(1) === 'contact' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>contact"><i class="contact-icon"></i>Contact</a></li>
-              <li <?php echo $this->uri->segment(1) === 'jobs' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>jobs"><i class="jobs-icon"></i>Jobs</a></li>
+              <li <?php echo $this->uri->segment(2) === 'contact' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>pages/contact"><i class="contact-icon"></i>Contact</a></li>
+              <li <?php echo $this->uri->segment(2) === 'jobs' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>pages/jobs"><i class="jobs-icon"></i>Jobs</a></li>
             </ul>
             
             <ul class="nav span4 pull-right more-games">
               <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="games-icon"></i>More games <b class="caret"></b></a>
                 <ul class="span4 dropdown-menu all-games-dropdown-menu">
-                  <!-- 
-                  <?php foreach (range(0,4) as $key => $value): ?>
-                    <li>
-                      <a href="details.php">
-                        <img src="http://placehold.it/64x64" alt="">
-                        <span>Game <?php echo $key+1 ?></span>
-                      </a>
-                    </li>
+                  <?php foreach ($more_games as $item): ?>
+                    <?php if ($item): ?>
+                      <li>
+                        <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>">
+                          <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" alt="" style="width:64px;">
+                          <span><?php echo $item->name ?></span>
+                        </a>
+                      </li>
+                    <?php endif ?>
                   <?php endforeach ?>
-                   -->
-                    <li>
-                      <a href="details.php">
-                        <img src="<?php echo base_url() ?>assets/games/froggyjump/Icon64.png" alt="">
-                        <span>Froggy Jump</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="details.php">
-                        <img src="<?php echo base_url() ?>assets/games/santaride/Icon64.png" alt="">
-                        <span>Santa Ride!</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="details.php">
-                        <img src="<?php echo base_url() ?>assets/games/lazyfarmer/Icon64.png" alt="">
-                        <span>Lazy Farmer</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="details.php">
-                        <img src="<?php echo base_url() ?>assets/games/greedcorp/Icon64.png" alt="">
-                        <span>Greed Corp</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="details.php">
-                        <img src="<?php echo base_url() ?>assets/games/mistbouncer/Icon64.png" alt="">
-                        <span>Mist Bouncer</span>
-                      </a>
-                    </li>
                   <!-- <li class="divider"></li> -->
                   <li><a href="<?php echo base_url() ?>games/all" class="all-games-link"><strong>All games &raquo;</strong></a></li>
                 </ul>
