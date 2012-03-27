@@ -13,13 +13,18 @@ class Publicpages extends Page_Controller
   
   public function index()
   {
-    //$this->load->model
-    
     $this->template->build('invictus/index', $this->data);
   }
   
   public function contact()
   {
+    
+    $this->load->model('Contacts', 'model');
+    $this->load->model('Contacttypes', 'types');
+    
+    $this->data['contacts'] = $this->model->fetchAll();
+    $this->data['emails'] = $this->types->fetchAll(array('order'=>array('by'=>'order', 'dest'=>'asc')));    
+    
     $this->template->build('invictus/contact', $this->data);
   }
   

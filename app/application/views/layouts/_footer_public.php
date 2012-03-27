@@ -42,7 +42,7 @@
     	<script src = "<?php echo base_url() ?>scripts/plugins/headjs/head.min.js"></script> 
     	<script type="text/javascript">
     	    head.js("http://code.jquery.com/jquery-1.7.1.min.js", 
-    	            "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js",
+    	            //"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js",
     	            "https://raw.github.com/cowboy/jquery-hashchange/v1.3/jquery.ba-hashchange.min.js",
                   "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-dropdown.js",
                   "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-tab.js",
@@ -54,6 +54,7 @@
                   "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-transition.js",
                   "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-collapse.js",
                   "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-carousel.js",
+                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-button.js",
                   
                   "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.easing.1.3.js",
                   "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.elastislide.js",

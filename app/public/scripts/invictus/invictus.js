@@ -34,6 +34,8 @@
     
     $.subnav();
     
+    $('.emails').button()
+    
 		$(".game img").fadeIn(500);
     $('#simple-carousel').carousel();
     
