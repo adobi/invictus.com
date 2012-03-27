@@ -88,12 +88,12 @@
                 "<?php echo base_url() ?>scripts/plugins/prettify-upload/jquery.prettify-upload.js",
                 "<?php echo base_url() ?>scripts/plugins/lionbars/jquery.lionbars.0.3.min.js",
 
-                "<?php echo base_url() ?>scripts/nav.js?<?php echo time(); ?>",
-                "<?php echo base_url() ?>scripts/jobs.js?<?php echo time(); ?>",
-                "<?php echo base_url() ?>scripts/contacts.js?<?php echo time(); ?>",
-                "<?php echo base_url() ?>scripts/games.js?<?php echo time(); ?>",
-                "<?php echo base_url() ?>scripts/layout.js?<?php echo time(); ?>",
-                "<?php echo base_url() ?>scripts/page.js?<?php echo time(); ?>",
+                "<?php echo base_url() ?>scripts/admin/nav.js?<?php echo time(); ?>",
+                "<?php echo base_url() ?>scripts/admin/jobs.js?<?php echo time(); ?>",
+                "<?php echo base_url() ?>scripts/admin/contacts.js?<?php echo time(); ?>",
+                "<?php echo base_url() ?>scripts/admin/games.js?<?php echo time(); ?>",
+                "<?php echo base_url() ?>scripts/admin/layout.js?<?php echo time(); ?>",
+                "<?php echo base_url() ?>scripts/admin/page.js?<?php echo time(); ?>",
                 function() {
                 
                     <?php if ($this->session->flashdata('message')): ?>
