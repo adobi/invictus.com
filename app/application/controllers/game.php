@@ -12,7 +12,10 @@ class Game extends MY_Controller
         
         $this->load->model('Games', 'model');
         
-        $data['items'] = $this->model->fetchAll();
+        $data['items'] = $this->model->fetchAllWithPlatforms();
+        
+        $this->load->model('Platforms', 'platform');
+        $data['platforms'] = $this->platform->fetchAll();
         
         $this->template->build('game/index', $data);
     }
@@ -25,7 +28,10 @@ class Game extends MY_Controller
         
         $this->load->model('Games', 'model');
         
-        $data['items'] = $this->model->fetchActive();
+        $data['items'] = $this->model->fetchAllActiveWithPlatforms();
+        
+        $this->load->model('Platforms', 'platform');
+        $data['platforms'] = $this->platform->fetchAll();        
         
         $this->template->build('game/all', $data);
     }

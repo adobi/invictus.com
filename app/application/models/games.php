@@ -7,9 +7,39 @@ class Games extends MY_Model
     protected $_name = "c_game";
     protected $_primary = "id";
     
+    public function fetchAllWithPlatforms()
+    {
+      $items = $this->fetchAll();
+      
+      if (!$items) return false;
+      
+      $this->load->model('Gameplatforms', 'gameplatform');
+      
+      foreach ($items as $item) {
+        $item->platforms = $this->gameplatform->fetchIdsForGame($item->id);
+      }
+      //dump($items); die;
+      return $items;
+    }
+    
     public function fetchActive()
     {
       return $this->fetchRows(array('where'=>array('is_active'=>1)));
+    }
+    
+    public function fetchAllActiveWithPlatforms()
+    {
+      $items = $this->fetchActive();
+      
+      if (!$items) return false;
+      
+      $this->load->model('Gameplatforms', 'gameplatform');
+      
+      foreach ($items as $item) {
+        $item->platforms = $this->gameplatform->fetchIdsForGame($item->id);
+      }
+      //dump($items); die;
+      return $items;
     }
     
     public function activate($id) 
@@ -25,18 +55,7 @@ class Games extends MY_Model
       
       return $this->update(array('is_active'=>null), $id);
     }
-    
-    private function _getByOrder($items, $column, $order) 
-    {
-      foreach( $items as $item ) {
-        if ($item->$column == $order) {
-          return $item;
-        }
-      }
-      
-      return false;
-    }
-    
+
     public function fetchForLayout($section)
     {
       $result = $this->fetchRows(
@@ -52,7 +71,15 @@ class Games extends MY_Model
       
       return $d;
     }
-
     
-    
+    private function _getByOrder($items, $column, $order) 
+    {
+      foreach( $items as $item ) {
+        if ($item->$column == $order) {
+          return $item;
+        }
+      }
+      
+      return false;
+    }
 }

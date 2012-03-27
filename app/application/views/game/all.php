@@ -3,18 +3,18 @@
     <legend style="margin-top:-30px;">Drag items and move them to the layout</legend>
     <div class="items page-items">
       <div class="subnav" style="margin:10px 0 10px 0">
-        <ul class="nav nav-pills">
-          <li><a href="#">All</a></li>
-          <li><a href="#">MAC</a></li>
-          <li><a href="#">iOS</a></li>
-          <li><a href="#">Android</a></li>
-          <li><a href="#">PC</a></li>
-          <li><a href="#">Web</a></li>
+        <ul class="nav nav-pills games-filter">
+          <li class="active"><a href="#" data-platform="all">All</a></li>
+          <?php if ($platforms): ?>
+            <?php foreach ($platforms as $item): ?>
+              <li><a href="#" data-platform='<?php echo $item->id ?>'><?php echo $item->name ?></a></li>
+            <?php endforeach ?>
+          <?php endif ?>
         </ul>
       </div>
       <div class="right-side-scroll"> 
            
-        <ul class="thumbnails all-games">
+        <ul class="thumbnails all-games games-list">
           <!-- 
           <?php foreach ($items as $item): ?>
             <li class="span2">
@@ -28,7 +28,7 @@
           <?php endforeach ?>
            -->
           <?php foreach ($items as $item): ?>
-            <li class="span2">
+            <li class="span2" data-platforms='<?php echo json_encode($item->platforms) ?>'>
               <div class="item thumbnail" data-id="<?php echo $item->id ?>">
                 <h6 class="center">
                   <?php echo $item->name ?>
@@ -49,6 +49,5 @@
   <?php //endif ?>
 
 <script>
-    
   App.Layout.DragAndDropGames()   
 </script>
