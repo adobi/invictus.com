@@ -121,6 +121,12 @@
                         <span>Layout</span>
                       </a>
                     </li>
+          	        <li <?php echo $this->uri->segment(1) === 'crosspromo' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>crosspromo" rel="tooltip" title="Crosspromo" data-placement="right">
+                        <i class="icon-big roundabout-icon"></i>
+                        <span>Crosspromo</span>
+                      </a>
+                    </li>                    
           	        <li <?php echo $this->uri->segment(1) === 'offer' ? 'class="active"' : '' ?>>
                       <a href="<?php echo base_url() ?>offer" rel="tooltip" title="Offers" data-placement="right">
                         <i class="icon-big gift-icon"></i>

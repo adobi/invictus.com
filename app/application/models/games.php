@@ -85,7 +85,7 @@ class Games extends MY_Model
       return $d;
     }
     
-    public function fetchByUrl($url) 
+    public function fetchByUrl($url, $allInfo = false) 
     {
       $result = $this->fetchRows(array('where'=>array('url'=>$url)), true);
       
@@ -94,6 +94,15 @@ class Games extends MY_Model
       $this->load->model('Gameplatforms', 'gameplatforms');
       
       $result->platforms = $this->gameplatforms->fetchForGame($result->id);
+      
+      if ($allInfo) {
+        
+        $this->load->model('Gameimages', 'images');
+        $result->images = $this->images->fetchForGame($result->id);        
+
+        $this->load->model('Gamevideos', 'videos');
+        $result->videos = $this->videos->fetchForGame($result->id);        
+      }
       
       return $result;      
     }

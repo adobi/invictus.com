@@ -19,7 +19,7 @@
             <li class="span2 <?php echo $i === 0 ? 'selected-game' : '' ?> " data-platforms='<?php echo json_encode($item->platforms) ?>'>
               <div class="thumbnail game">
                 <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>/short" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block">
-                  <img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:170px">
+                  <img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:160px">
                 </a>
               </div>
             </li>

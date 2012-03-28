@@ -111,16 +111,18 @@ class Publicpages extends Page_Controller
       if ($current) {
         
         if ($this->emails->emailExists($_POST['email'])) {
-          echo "This is email is already subscribed";
+          //echo "This is email is already subscribed";
+          echo json_encode(array('success'=>false, 'message'=>'This is email is already subscribed'));
         } else {
           
           $_POST['offer_id'] = $current->id;
           $this->emails->insert($_POST);
-          echo "Thank You for the subscription";
+          //echo "Thank You for the subscription";
+          echo json_encode(array('success'=>true, 'message'=>'Thank You for the subscription'));
         }
       }
     } else {
-      echo validation_errors();
+      echo json_encode(array('success'=>false, 'message'=>validation_errors()));
     }
     
     die;
@@ -144,15 +146,17 @@ class Publicpages extends Page_Controller
       $view = 'games';
     } else {
       
-      $this->data['game'] = $this->games->fetchByUrl($url);
-      
       if ($this->uri->segment(3) && $this->uri->segment(3) === 'short') {
-
+        $allInfo = false;
         $view = 'game_short';
       } else {
-        
+        $allInfo = true;
         $view = 'game';
       }
+
+      $this->data['game'] = $this->games->fetchByUrl($url, $allInfo);
+      
+      //dump($this->data['game']); die;
     }
     
     $this->template->build('invictus/'.$view, $this->data);
