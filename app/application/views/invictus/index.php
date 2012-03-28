@@ -96,15 +96,17 @@
             <div class="row newsletter" style="margin-top:20px;">
               <div class="span4" style="margin:auto 10px;">
                 <h2 style="margin-bottom:10px;">Newsletter</h2>
-                <form class="form-search">
-                  <input type="text" class="input-large search-query" style="font-size:1.4em; height:36px" placeholder="example@domain.com">
+                <?php echo form_open(base_url()."pages/subscribe", array('id'=>'subscribe-form', 'class'=>'form-search')) ?>
+                  <input name="email" type="text" class="input-large search-query" style="font-size:1.4em; height:36px" placeholder="example@domain.com">
                   <button class="btn btn-orange btn-large" type="submit"><i class="icon-pencil icon-white"></i> Subscribe</button>
-                </form>
+                <?php echo form_close() ?>
               </div>
               <div class="span4 offer">
                 <h2>Current offer</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius lorem in magna ornare dapibus. Nam vel lectus mauris. Sed ante felis, elementum quis dictum ut, vulputate sit amet mi
+                  <?php if ($current_offer): ?>
+                    <?php echo $current_offer->description ?>
+                  <?php endif ?>
                 </p>
               </div>
           </div>

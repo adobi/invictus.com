@@ -13,4 +13,11 @@ class Emailoffers extends MY_Model
       
       return $this->fetchRows(array('where'=>array('offer_id'=>$id)));
     }
+    
+    public function emailExists($email) 
+    {
+      if (!$email) return false;
+      
+      return $this->findBy('email', $email);
+    }
 }

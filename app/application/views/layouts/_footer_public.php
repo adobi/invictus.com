@@ -34,7 +34,10 @@
             <h6>All rights reserved &copy; Invictus Games Ltd</h6>
           </div>
         </div>
-      </footer>    	            
+      </footer>    	  
+      
+      <div id="loading-global">Working...</div>		
+                
       <script type="text/javascript">
           var App = App || {};
           App.URL = "<?php echo base_url() ?>";

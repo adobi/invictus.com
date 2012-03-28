@@ -28,9 +28,63 @@
     $('[rel=tooltip]').tooltip(option||null);
   };
   
+  App.Loader = function() 
+  {
+    $('#loading-global')
+       .ajaxStart(function() {
+            
+    		$(this).show();
+       })
+       .ajaxStop(function() {
+    		var self = $(this);
+            //self.html('Done!');
+            self.html(App.Message)
+            
+            var interval = (App.Message === undefined || App.Message === 'Working...' ? 100 : 6000 )
+            //console.log(interval)
+            setTimeout(function() {
+                self.html('Working...');
+                App.Message = "Working...";
+                self.hide();
+            }, interval)
+        });
+    
+  };  
+  
+  App.disableFormButton = function() 
+  {
+    $('body').delegate('form', 'submit', function() {
+      $(this).find('button').attr('disabled', true)
+    })
+  }
+  
+  App.Subscribe = function()
+  {
+    $('#subscribe-form').on('submit', function(e) {
+      var form = $(this),
+          button = form.find('button')
+      button.attr('disabled', true)
+      $.post(form.attr('action'), form.serialize(), function(resp) {
+
+        App.Message = resp;
+
+        button.attr('disabled', false)
+        form.find('input[name=email]').val('')
+      }) 
+      
+      e.preventDefault()     
+    })
+  }  
+  
   $(function() {
     
-    App.Tooltip();
+    App.Tooltip()
+    
+    App.Loader()
+    
+    App.disableFormButton()
+    
+    App.Subscribe()
     
     $.subnav();
     

@@ -13,6 +13,11 @@ class Publicpages extends Page_Controller
   
   public function index()
   {
+    
+    $this->load->model('Offers', 'offers');
+    
+    $this->data['current_offer'] = current($this->offers->fetchCurrent());
+    
     $this->template->build('invictus/index', $this->data);
   }
   
@@ -37,6 +42,33 @@ class Publicpages extends Page_Controller
     
     $this->template->build('invictus/jobs', $this->data);
   } 
+  
+  public function subscribe()
+  {
+    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+    if ($this->form_validation->run()) {
+      $this->load->model('Emailoffers', 'emails');
+      $this->load->model('Offers', 'offers');
+      
+      $current = current($this->offers->fetchCurrent());
+      
+      if ($current) {
+        
+        if ($this->emails->emailExists($_POST['email'])) {
+          echo "This is email is already subscribed";
+        } else {
+          
+          $_POST['offer_id'] = $current->id;
+          $this->emails->insert($_POST);
+          echo "Thank you";
+        }
+      }
+    } else {
+      echo validation_errors();
+    }
+    
+    die;
+  }
   
   public function game() 
   {
