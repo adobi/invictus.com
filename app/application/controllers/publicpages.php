@@ -13,10 +13,17 @@ class Publicpages extends Page_Controller
   
   public function index()
   {
-    
+    /**
+     * current offer
+     */
     $this->load->model('Offers', 'offers');
-    
     $this->data['current_offer'] = current($this->offers->fetchCurrent());
+
+    /**
+     * slider
+     */
+    $this->load->model('Games', 'games');
+    $this->data['carousel'] = $this->games->fetchForLayout('on_mainpage');
     
     $this->template->build('invictus/index', $this->data);
   }

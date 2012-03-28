@@ -104,8 +104,21 @@
     })
     
   };
+
+  App.Carousel = function() 
+  {
+    $('#simple-carousel').on('slid', function() {
+      var current = $(this).find('.active')
+      
+      $('.teaser').show()
+
+      $('.teaser[data-item='+current.data('item')+']').hide()
+    })
+  };
   
   $(function() {
+    
+    App.Carousel()
     
     App.SelectContact()
     

@@ -5,43 +5,19 @@
             <div id="simple-carousel" class="carousel slide">
                 <!-- Carousel items -->
                 <div class="carousel-inner">
-                    <div class="item " style="height:510px">
-                        <img src="assets/games/froggyjump/hero.png" alt="">
-                        <div class="carousel-caption">
-                          <h4>Thumbnail label</h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="details.php" class="btn">View detailes <i class="icon-arrow-right"></i></a></p>
-                        </div>        
-                    </div> 
-                    <div class="item active">
-                        <img src="assets/games/lazyfarmer/hero.png" alt="">
-                        <div class="carousel-caption">
-                          <h4>Thumbnail label</h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="details.php" class="btn">View detailes <i class="icon-arrow-right"></i></a></p>
-                        </div>        
-                    </div> 
-                    <div class="item">
-                        <img src="assets/games/greedcorp/hero.png" alt="">
-                        <div class="carousel-caption">
-                          <h4>Thumbnail label</h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="details.php" class="btn">View detailes <i class="icon-arrow-right"></i></a></p>
-                        </div>        
-                    </div>                                             
-                    <div class="item">
-                        <img src="assets/games/santaride/hero.png" alt="">
-                        <div class="carousel-caption">
-                          <h4>Thumbnail label</h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="details.php" class="btn">View detailes <i class="icon-arrow-right"></i></a></p>
-                        </div>        
-                    </div> 
-                    <!-- 
-                    <div class="item">
-                        <img src="http://placehold.it/770x510" alt="">
-                        <div class="carousel-caption">
-                          <h4>Thumbnail label</h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="details.php" class="btn">View detailes <i class="icon-arrow-right"></i></a></p>
-                        </div>        
-                    </div>                          
-                     --> 
+                  <?php if ($carousel): ?>
+                    <?php foreach ($carousel as $i=>$item): ?>
+                      <?php if ($item): ?>
+                        <div class="item <?php echo $i===0 ? 'active' : '' ?>" data-item="<?php echo $item->id ?>">
+                            <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->hero_image ?>" alt="">
+                            <div class="carousel-caption">
+                              <h4><?php echo $item->name ?></h4>
+                              <p><?php echo $item->short_description ?> <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class="btn">View detailes <i class="icon-arrow-right"></i></a></p>
+                            </div>        
+                        </div> 
+                      <?php endif ?>
+                    <?php endforeach ?>
+                  <?php endif ?>
                 </div>
                 <!-- Carousel nav -->
                 <a class="carousel-control left" href="#simple-carousel" data-slide="prev">&lsaquo;</a>
@@ -49,6 +25,18 @@
             </div>
           </div>  
           <div class="span4 teasers">
+              <?php if ($carousel): ?>
+                <?php foreach ($carousel as $i=>$item): ?>
+                  <?php if ($item): ?>
+                    <div class="teaser <?php echo $i === 0 ? 'hide' : '' ?>" data-item="<?php echo $item->id ?>">
+                      <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>">
+                        <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>" alt="">
+                      </a>
+                    </div>
+                  <?php endif ?>
+                <?php endforeach ?>
+              <?php endif ?>
+              <!-- 
               <div class="teaser">
                 <a href="details.php">
                   <img src="assets/games/froggyjump/teaser.png" alt="">
@@ -64,6 +52,7 @@
                   <img src="assets/games/flycontrol/teaser.png" alt="">
                 </a>
               </div>
+               -->
               <!-- 
               <div class="teaser">
                 <a href="details.php">
