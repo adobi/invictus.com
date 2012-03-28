@@ -25,41 +25,17 @@
             </div>
           </div>  
           <div class="span4 teasers">
-              <?php if ($carousel): ?>
-                <?php foreach ($carousel as $i=>$item): ?>
-                  <?php if ($item): ?>
-                    <div class="teaser <?php echo $i === 0 ? 'hide' : '' ?>" data-item="<?php echo $item->id ?>">
-                      <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>">
-                        <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>" alt="">
-                      </a>
-                    </div>
-                  <?php endif ?>
-                <?php endforeach ?>
-              <?php endif ?>
-              <!-- 
-              <div class="teaser">
-                <a href="details.php">
-                  <img src="assets/games/froggyjump/teaser.png" alt="">
-                </a>
-              </div>
-              <div class="teaser">
-                <a href="details.php">
-                  <img src="assets/games/blastwave/teaser.png" alt="">
-                </a>
-              </div>
-              <div class="teaser">
-                <a href="details.php">
-                  <img src="assets/games/flycontrol/teaser.png" alt="">
-                </a>
-              </div>
-               -->
-              <!-- 
-              <div class="teaser">
-                <a href="details.php">
-                  <img src="http://placehold.it/370x165" alt="">
-                </a>
-              </div>
-               -->
+            <?php if ($carousel): ?>
+              <?php foreach ($carousel as $i=>$item): ?>
+                <?php if ($item): ?>
+                  <div class="teaser <?php echo $i === 0 ? 'hide' : '' ?>" data-item="<?php echo $item->id ?>">
+                    <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>">
+                      <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>" alt="">
+                    </a>
+                  </div>
+                <?php endif ?>
+              <?php endforeach ?>
+            <?php endif ?>
           </div>        
         </div>
       </div>
@@ -102,14 +78,14 @@
           </div>
           <div class="span4 social-feed">
               <h2 style="margin-bottom:20px;">
-                Invictus on Facebook
+                Invictus on
               </h2>
-              
               <div class="fb-like" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false"></div>
-              <a href="https://twitter.com/share" class="twitter-share-button" data-via="adobi">Tweet</a>
+              <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-via="adobi">Tweet</a> -->
+              <a href="https://twitter.com/<?php echo $settings->twitter_id ?>" class="twitter-follow-button" data-show-count="false">Follow @<?php echo $settings->twitter_id ?></a>
               <g:plusone size="medium"></g:plusone>
               <p>&nbsp;</p>
-              <div class="fb-like-box" data-href="https://www.facebook.com/invictusgames" data-width="360" data-show-faces="true" data-stream="true" data-header="false"></div>
+              <div class="fb-like-box" data-href="https://www.facebook.com/<?php echo $settings->facebook_page ?>" data-width="360" data-show-faces="true" data-stream="true" data-header="false"></div>
               
           </div>
         </div>

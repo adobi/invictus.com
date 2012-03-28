@@ -44,6 +44,12 @@ class Page_Controller extends CI_Controller
         }
         //dump($meta); die;
         $this->data['meta'] = $meta;
+        
+        /**
+         * global settings
+         */
+        $this->load->model('Settingss', 'settings');
+        $this->data['settings'] = current($this->settings->fetchAll());
          
         $this->template->set_layout('invictus');
     }

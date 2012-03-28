@@ -103,16 +103,16 @@
                         <span>Dashboard</span>
                       </a>
                     </li>
-          	        <li <?php echo $this->uri->segment(1) === 'game' ? 'class="active"' : '' ?>>
-                      <a href="<?php echo base_url() ?>game" rel="tooltip" title="Games" data-placement="right">
-                        <i class="icon-big games-icon"></i>
-                        <span>Games</span>
-                      </a>
-                    </li>
           	        <li <?php echo $this->uri->segment(1) === 'page' ? 'class="active"' : '' ?>>
                       <a href="<?php echo base_url() ?>page" rel="tooltip" title="Links" data-placement="right">
                         <i class="icon-big link-icon"></i>
                         <span>Links</span>
+                      </a>
+                    </li>
+          	        <li <?php echo $this->uri->segment(1) === 'game' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>game" rel="tooltip" title="Games" data-placement="right">
+                        <i class="icon-big games-icon"></i>
+                        <span>Games</span>
                       </a>
                     </li>
           	        <li <?php echo $this->uri->segment(1) === 'layout' ? 'class="active"' : '' ?>>

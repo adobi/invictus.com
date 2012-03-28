@@ -23,8 +23,8 @@
             <div class="span4 footer-column text-right">
               <h4>Find us on</h4>
               <ul class="unstyled">
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
+                <li><a href="http://twitter.com/<?php echo $settings->twitter_id ?>" target="_blank">Twitter</a></li>
+                <li><a href="http://facebook.com/<?php echo $settings->facebook_page ?>" target="_blank">Facebook</a></li>
               </ul>
             </div>
           </div>

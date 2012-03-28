@@ -76,7 +76,7 @@
         </ul>
       </div>
       
-      <div class="fb-comments" data-href="http://example.com" data-num-posts="2" data-width="620"></div>
+      <div class="fb-comments" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>" data-num-posts="2" data-width="620"></div>
       
     </div>
     <div class="span4 details-pane game-details">
@@ -93,8 +93,8 @@
       </p>
       <div class="game-available-in">
         <hr>
-        <h4 style="margin-top:10px;">Stores</h4>
-        <ul class="thumbnails">
+        <h3 style="margin-top:10px;">Stores</h3>
+        <ul class="thumbnails ">
           <?php if ($game->platforms): ?>
             <?php foreach ($game->platforms as $item): ?>
               <li class="span2">
@@ -111,11 +111,12 @@
       
       <hr>
       
-      <h2 style="margin-bottom:20px;"><?php echo $game->name ?> on Facebook</h2>
-      <div class="fb-like" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false"></div>
-      <a href="https://twitter.com/share" class="twitter-share-button" data-via="adobi">Tweet</a>
+      <h3 style="margin-bottom:20px;"><?php echo $game->name ?> on Facebook</h3>
+      <div class="fb-like" data-send="false" data-layout="button_count" data-width="60" data-show-faces="false"></div>
+      <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-via="adobi">Tweet</a> -->
+      <a href="https://twitter.com/<?php echo $game->twitter_page ?>" class="twitter-follow-button" data-show-count="false">Follow @<?php echo $game->twitter_page ?></a>
       <g:plusone size="medium"></g:plusone>
       <p>&nbsp;</p> 
-      <div class="fb-like-box" data-href="https://www.facebook.com/greedcorp.mobile" data-width="360" data-show-faces="true" data-stream="true" data-header="false"></div>
+      <div class="fb-like-box" data-href="https://www.facebook.com/<?php echo $game->facebook_page ?>" data-width="360" data-show-faces="true" data-stream="true" data-header="false"></div>
     </div>
   </div>

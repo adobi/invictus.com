@@ -58,9 +58,9 @@ class Game extends MY_Controller
         
     		$this->form_validation->set_rules("name", "Name", "trim|required");
     		$this->form_validation->set_rules("released", "Released", "trim|required");
-    		//$this->form_validation->set_rules("short_description", "Short_description", "trim|required");
-    		//$this->form_validation->set_rules("long_description", "Long_description", "trim|required");
-    		$this->form_validation->set_rules("facebook_app_id", "Facebook_app_id", "trim|required");
+    		$this->form_validation->set_rules("short_description", "Short_description", "trim|required");
+    		$this->form_validation->set_rules("long_description", "Long_description", "trim|required");
+    		//$this->form_validation->set_rules("facebook_app_id", "Facebook_app_id", "trim|required");
     		$this->form_validation->set_rules("twitter_page", "Twitter_page", "trim|required");
     		$this->form_validation->set_rules("facebook_page", "Facebook_page", "trim|required");
 
