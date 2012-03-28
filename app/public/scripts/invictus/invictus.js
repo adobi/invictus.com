@@ -116,7 +116,21 @@
     })
   };
   
+  App.LoadGame = function() 
+  {
+    $('body').on('click', '.all-games a', function(e) {
+      
+      $('#game-shortcut').load($(this).attr('href'), function() {
+        App.Tooltip()
+      })
+      
+      e.preventDefault();
+    })
+  };
+  
   $(function() {
+    
+    App.LoadGame()
     
     App.Carousel()
     

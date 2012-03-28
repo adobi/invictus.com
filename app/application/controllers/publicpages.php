@@ -146,7 +146,13 @@ class Publicpages extends Page_Controller
       
       $this->data['game'] = $this->games->fetchByUrl($url);
       
-      $view = 'game';
+      if ($this->uri->segment(3) && $this->uri->segment(3) === 'short') {
+
+        $view = 'game_short';
+      } else {
+        
+        $view = 'game';
+      }
     }
     
     $this->template->build('invictus/'.$view, $this->data);

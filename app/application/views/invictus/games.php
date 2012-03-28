@@ -18,7 +18,7 @@
           <?php foreach ($games as $item): ?>
             <li class="span2 " data-platforms='<?php echo json_encode($item->platforms) ?>'>
               <div class="thumbnail game">
-                <a href="#" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block">
+                <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>/short" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block">
                   <img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:170px">
                 </a>
               </div>
@@ -28,7 +28,7 @@
       <?php endif ?>
     </div>
     <?php if ($game): ?>
-      <div class="span4 details-pane" style="height:auto;">
+      <div class="span4 details-pane" id="game-shortcut" style="height:auto;">
         <div class="details-pane-logo-big">
            <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->logo ?>" alt="">
         </div>

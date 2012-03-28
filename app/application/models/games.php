@@ -87,7 +87,15 @@ class Games extends MY_Model
     
     public function fetchByUrl($url) 
     {
-      return $this->fetchRows(array('where'=>array('url'=>$url)), true);
+      $result = $this->fetchRows(array('where'=>array('url'=>$url)), true);
+      
+      if (!$result) return false;
+      
+      $this->load->model('Gameplatforms', 'gameplatforms');
+      
+      $result->platforms = $this->gameplatforms->fetchForGame($result->id);
+      
+      return $result;      
     }
     
     public function getMeta($url) 
