@@ -12,7 +12,7 @@
       </p>
   </legend>  
   <div class=" right-side-scroll">
-    <h2><?php echo $item->name ?></h2>
+    <h2><?php echo $item->name ?> <span class="upper-gray"><?php echo to_date($item->available) ?></span></h2>
     <h6 style="margin-bottom:30px;"><?php echo $item->type === '1' ? 'Full time' : 'Part time' ?> — <?php echo $item->location ?></h6>  
     <strong>About this Job</strong><br> 
     <p><?php echo nl2br($item->description) ?></p>

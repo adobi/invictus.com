@@ -37,6 +37,7 @@
       var item = $(Jobs.templates.itemAdd)
       
       item.find('input').attr('name', this.el.data('type') + '[]')
+      item.find('.add-ui-item').attr('data-type', this.el.data('type'))
       
       this.el.parents('ul:first').append(item)
       

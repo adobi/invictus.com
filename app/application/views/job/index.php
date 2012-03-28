@@ -46,7 +46,7 @@
           <h4>
             <img src="<?php echo $item->category_icon ? base_url() . 'uploads/original/' . $item->category_icon : 'http://placehold.it/24x24' ?>" alt="" rel="tooltip" title="<?php echo $item->category_name ?>"> 
             <?php echo $item->name ?>
-            
+            <span class="upper-gray"><?php echo to_date($item->available) ?></span>
             <a href="<?php echo base_url() ?>job/applications/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Candidates for the job">
               <!--<i class="icon-user"></i>  -->
               <span class="badge badge-info"><?php echo $item->applications ? $item->applications : 0 ?></span>

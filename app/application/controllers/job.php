@@ -50,7 +50,9 @@ class Job extends MY_Controller
 
         $response = 'Saved';
         if ($this->form_validation->run()) {
-        
+          
+          //dump($_POST); die;
+          
             $_POST['description'] = $_POST['description'];
             $_POST['created'] = date('Y-m-d H:i:s', time());
             

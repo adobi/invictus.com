@@ -90,9 +90,11 @@ class Jobs extends MY_Model
       return $rows;
     }
     
-    public function find($id)
+    public function find($id, $onlyJob=false)
     {
       $item = parent::find($id);
+      
+      if ($onlyJob) return $item;
       
       $this->load->model('Jobresponsabilitys', 'responsabilities');
       $this->load->model('Jobqualifications', 'qualifications');
@@ -114,11 +116,34 @@ class Jobs extends MY_Model
     
     public function fetchAllJobsByCategory() 
     {
+      $this->load->model('Jobcategorys', 'category');
       
+      $categories = $this->category->fetchAll();
+      
+      if (!$categories) return false;
+      
+      $result = array();
+      foreach ($categories as $category) {
+        $jobs = $this->fetchBy('category_id', $category->id);
+        if ($jobs) {
+          $item = array('category'=>$category);
+          foreach ($jobs as $job) {
+            $job = $this->find($job->id, true);
+            $item['jobs'][] = $job;
+          }
+          $result[] = $item;
+        }
+      }
+      
+      //dump($result); die;
+      
+      return $result;
     }
     
     public function fetchLatestJob()
     {
+      $result = $this->fetchAll(array('order'=>array('by'=>'available', 'dest'=>'desc'), 'limit'=>1, 'offset'=>0), true);
       
+      return $result ? $this->find($result->id) : false; 
     }
 }

@@ -466,6 +466,13 @@ class My_Model extends CI_Model
 	    return $result ? $result[0] : false;
 	}
 	
+	public function fetchBy($columns, $value)
+	{
+	    $result = $this->fetchRows(array('where'=>array($columns=>$value)));
+	    
+	    return $result;
+	}	
+	
 	public function bulk_insert($data) 
 	{
 	  if (!is_array($data)) return false;
