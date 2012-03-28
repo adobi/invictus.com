@@ -120,6 +120,10 @@
   {
     $('body').on('click', '.all-games a', function(e) {
       
+      $('.all-games').find('.selected-game').removeClass('selected-game')
+      
+      $(this).parents('li:first').addClass('selected-game')
+      
       $('#game-shortcut').load($(this).attr('href'), function() {
         App.Tooltip()
       })

@@ -15,8 +15,8 @@
     <div class="span8 all-games-wrapper">
       <?php if ($games): ?>
         <ul class="thumbnails all-games games-list">
-          <?php foreach ($games as $item): ?>
-            <li class="span2 " data-platforms='<?php echo json_encode($item->platforms) ?>'>
+          <?php foreach ($games as $i=>$item): ?>
+            <li class="span2 <?php echo $i === 0 ? 'selected-game' : '' ?> " data-platforms='<?php echo json_encode($item->platforms) ?>'>
               <div class="thumbnail game">
                 <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>/short" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block">
                   <img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:170px">
@@ -44,7 +44,7 @@
             <?php if ($game->platforms): ?>
               <?php foreach ($game->platforms as $item): ?>
                 <li class="span2">
-                  <a class="thumbnail" href="<?php echo $item->url ?>" target = "_blank" rel="tooltip" title="<?php echo $item->name ?>">
+                  <a class="thumbnail" href="<?php echo $item->url ?>" target = "_blank" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block">
                     <img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->image ?>">
                   </a>
                 </li>           

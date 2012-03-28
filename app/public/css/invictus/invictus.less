@@ -577,7 +577,7 @@ body {
 .game {
   border:0;
   box-shadow:none;
-  opacity:0.7;
+  .opacity(70);
 }
 
 .game a {
@@ -586,7 +586,7 @@ body {
 
 .game:hover {
   border-radius:32px;
-  opacity:1;
+  .opacity(100);
 }
 
 .all-games .thumbnail:hover, .selected-game {
@@ -598,8 +598,11 @@ body {
   border-color: #0088cc;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
-  box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);  
-  
+  box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+
+.selected-game .game {
+  .opacity(100);
 }
 
 .jobs-list li {
