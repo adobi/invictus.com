@@ -3,15 +3,15 @@
       <h1 style="margin-bottom:20px;">Contact us</h1>
       <hr>
 
-      <form action="" method="post" class="form-horizontal job-application-form">
+      <?php echo form_open(base_url().'pages/send', array('class'=>'form-horizontal contact-message-form')) ?>
         <fieldset>
           <?php if ($emails): ?>
             <div class="control-group">
-              <label for="subject" class="control-label">Select</label>
+              <label for="subject" class="control-label">To</label>
               <div class="controls">
                 <div class="btn-group emails" data-toggle="buttons-radio">
                   <?php foreach ($emails as $item): ?>
-                    <a class="btn btn-primary"><?php echo $item->name ?></a>
+                    <a class="btn btn-primary" data-email="<?php echo $item->id ?>"><?php echo $item->name ?></a>
                   <?php endforeach ?>
                 </div> 
               </div>
@@ -20,24 +20,25 @@
           <div class="control-group">
             <label for="subject" class="control-label">Subject</label>
             <div class="controls">
-              <input type="text" id="subject" class="input-xlarge">
+              <input type="text" name="subject" id="subject" class="input-xlarge">
             </div>
           </div>
           <div class="control-group">
-            <label for="email" class="control-label">Email</label>
+            <label for="email" class="control-label">Email address</label>
             <div class="controls">
-              <input type="text" id="email" class="input-xlarge">
+              <input type="text" name="email" id="email" class="input-xlarge">
             </div>
           </div>
           <div class="control-group">
             <label for="message" class="control-label">Message</label>
             <div class="controls">
-              <textarea rows="3" id="message" class="span6"></textarea>
+              <textarea rows="4" name="message" id="message" class="span6"></textarea>
             </div>
           </div>
           <div class="form-actions">
+            <input type="hidden" name="email_id" value="">
             <button class="btn btn-primary  btn-large" type="submit">Send message</button>
-            <button class="btn" type="reset">Cancel</button>
+            <a href="<?php echo base_url() ?>" class="btn">Cancel</a>
           </div>                                                
         </fieldset>
       </form>           

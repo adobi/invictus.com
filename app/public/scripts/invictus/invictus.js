@@ -57,26 +57,59 @@
       $(this).find('button').attr('disabled', true)
     })
   }
+
+  App.AjaxForm = function(form) 
+  {
+      var button = form.find('button')
+      
+      button.attr('disabled', true)
+      $.post(form.attr('action'), form.serialize(), function(resp) {
+        resp = $.parseJSON(resp);
+        
+        console.log(resp)
+        
+        App.Message = resp.message;
+
+        button.attr('disabled', false)
+        
+        if (resp.success) {
+          
+          form.find('input[type=text], textarea').val('')
+          form.find('.btn-group a').removeClass('active')
+        }
+      })     
+  };
   
   App.Subscribe = function()
   {
     $('#subscribe-form').on('submit', function(e) {
-      var form = $(this),
-          button = form.find('button')
-      button.attr('disabled', true)
-      $.post(form.attr('action'), form.serialize(), function(resp) {
-
-        App.Message = resp;
-
-        button.attr('disabled', false)
-        form.find('input[name=email]').val('')
-      }) 
-      
+      App.AjaxForm($(this))
       e.preventDefault()     
     })
   }  
+
+  App.SelectContact = function() 
+  {
+    $('body').on('click', '.btn-group.emails a', function() {
+      
+      $('input[name=email_id]').val($(this).data('email'))
+    })
+  };
+  
+  App.SendContactMail = function() 
+  {
+    $('.contact-message-form').on('submit', function(e) {
+      App.AjaxForm($(this))
+      e.preventDefault()     
+    })
+    
+  };
   
   $(function() {
+    
+    App.SelectContact()
+    
+    App.SendContactMail()
     
     App.Tooltip()
     

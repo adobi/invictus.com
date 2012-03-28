@@ -33,6 +33,47 @@ class Publicpages extends Page_Controller
     $this->template->build('invictus/contact', $this->data);
   }
   
+  public function send()
+  {
+    $this->form_validation->set_rules('email_id', 'To', 'trim|required');
+    $this->form_validation->set_rules('subject', 'Subject', 'trim|required');
+    $this->form_validation->set_rules('email', 'Eamil', 'trim|required|valid_email');
+    $this->form_validation->set_rules('message', 'Message', 'trim|required');
+    
+    if ($this->form_validation->run()) {
+      
+      $this->load->model('Contacttypes', 'email');
+      
+      $dest = $this->email->find($_POST['email_id']);
+      
+      if ($dest) {
+        
+        $this->load->library('email');
+        
+        $this->email->from($_POST['email']);
+        $this->email->to($dest->email);
+        $this->email->cc('hello.attila@gmail.com');
+        
+        $this->email->subject($_POST['subject']);
+        $this->email->message($_POST['message']);
+        
+        //$this->email->send();
+        
+        $this->load->model('Contactmessages', 'messages');
+        
+        $this->messages->insert($_POST);
+        
+        echo json_encode(array('success'=>true, 'message'=>'Thank You! The message was sent.'));
+        
+      }
+      
+    } else {
+      echo json_encode(array('success'=>false, 'message'=>validation_errors()));
+    }
+    
+    die;
+  }
+  
   public function jobs()
   {
     $this->load->model('Jobs', 'model');
@@ -68,7 +109,7 @@ class Publicpages extends Page_Controller
           
           $_POST['offer_id'] = $current->id;
           $this->emails->insert($_POST);
-          echo "Thank you";
+          echo "Thank You for the subscription";
         }
       }
     } else {
