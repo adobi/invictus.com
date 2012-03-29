@@ -75,7 +75,7 @@
                         <?php foreach ($game->videos as $i => $item): ?>
                           <li>
                             <a href="#" class="thumbnail" data-type="videos" data-code="<?php echo $item->code ?>">
-                              <?php echo youtube_video_image($item->code, 128, 85) ?>
+                              <?php echo youtube_video_image($item->code, 128, 70) ?>
                             </a>
                           </li>                      
                         <?php endforeach ?>

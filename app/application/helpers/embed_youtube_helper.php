@@ -4,7 +4,7 @@
 	
 		function embed_youtube($video, $autoplay = false, $width = 340, $height = 260) {
             
-			return '<iframe width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$video.($autoplay ? '/?autoplay=1&' : '/?') .'wmode=Opaque" frameborder="0" allowfullscreen></iframe>';
+			return '<iframe width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$video.'/?wmode=opaque'.($autoplay ? 'autoplay=1&' : '') .'" frameborder="0" allowfullscreen></iframe>';
 		}	
 	}
 

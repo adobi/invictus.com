@@ -270,13 +270,10 @@
   var Carousel = function (element, options) {
     this.$element = $(element)
     this.options = $.extend({}, $.fn.carousel.defaults, options)
-    console.log(this.$element)
-    console.log(this.options)
     this.options.slide && this.slide(this.options.slide)
     this.options.pause == 'hover' && this.$element
       .on('mouseenter', $.proxy(this.pause, this))
       .on('mouseleave', $.proxy(this.cycle, this))
-    this.options.stop && $.proxy(this.pause, this)
   }
 
   Carousel.prototype = {
@@ -308,7 +305,6 @@
     }
 
   , pause: function () {
-      
       clearInterval(this.interval)
       this.interval = null
       return this
@@ -377,9 +373,11 @@
         , data = $this.data('carousel')
         , options = typeof option == 'object' && option
       if (!data) $this.data('carousel', (data = new Carousel(this, options)))
+      
+      if (typeof option == 'object' && options.stop) data['pause']()
       if (typeof option == 'number') data.to(option)
       else if (typeof option == 'string' || (option = options.slide)) data[option]()
-      else data.cycle()
+      else !options.stop && data.cycle()
     })
   }
 

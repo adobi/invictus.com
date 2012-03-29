@@ -173,7 +173,7 @@ class Publicpages extends Page_Controller
   
   public function video()
   {
-    echo embed_youtube($this->uri->segment(3), false, 710, 510);
+    echo embed_youtube($this->uri->segment(3), false, 770, 510);
     die;
   }
 }

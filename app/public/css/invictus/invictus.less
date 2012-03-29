@@ -368,7 +368,7 @@ img {
   .carousel .item, .carousel-inner, .carousel {
       margin:0 auto;
   }
-  
+
   .multi-carousel {
     margin-top:20px;
   }
@@ -386,6 +386,14 @@ img {
     margin-left:90px;
   }
   
+  .carousel-control {
+    z-index:10;
+  }
+  
+  .selected-carousel-item {
+    border-color: @linkColor;
+    .box-shadow(0 1px 4px rgba(0,105,214,.25));    
+  }
   
   .carousel-control-small {
     top: 40%;

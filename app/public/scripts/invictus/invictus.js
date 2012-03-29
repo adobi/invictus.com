@@ -166,16 +166,20 @@
       var self = $(this),
           type = self.data('type'),
           carousel = $('#simple-carousel-details-'+type)
-      
+          
+      self.parents('ul:first').find('.selected-carousel-item').removeClass('selected-carousel-item')
+      self.addClass('selected-carousel-item')
+          
       carousel.carousel(self.parents('li:first').index())
       carousel.carousel('pause')
-      
-      if (type==="videos") {
-        $.get(App.URL+'pages/video/'+self.data('code'), function(resp) {
-          carousel.find('.active').html(resp)
-          carousel.carousel('pause')
-        })
-      }
+      setTimeout(function() {
+        if (type==="videos" && self.data('code')) {
+          $.get(App.URL+'pages/video/'+self.data('code'), function(resp) {
+            carousel.find('.active').html(resp)
+            //carousel.carousel('pause')
+          })
+        }
+      }, 500)
       
       e.preventDefault()
     })
@@ -228,8 +232,8 @@
 		$(".game img").fadeIn(500);
     $('#simple-carousel').carousel();
     
-    $('#simple-carousel-details-images, #simple-carousel-details-videos').carousel({stop: true, pause:false});
-    
+    $('#simple-carousel-details-images').carousel({stop: true, pause:'click'})
+    $('#simple-carousel-details-videos').carousel({stop: true, pause:'click'})
     //$('#multi-carousel-images, #multi-carousel-videos').carousel('pause')
     
     $('body').delegate('a[href=#]', 'click', function() {
