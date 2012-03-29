@@ -63,21 +63,23 @@
         </ul>
         
       </div>      
-      
-      <div class="span8 crosspromo" style="margin-bottom:20px;">
-        <h3 style="margin-bottom:-15px; padding:5px 20px;">Other games</h3>
-        <hr>
-        <ul class="thumbnails" style="margin-bottom:10px; margin-left:20px;">
-          <?php if ($game->crosspromo): ?>
-            <?php foreach ($game->crosspromo as $item): ?>
-              <?php if ($item): ?>
-                <li class="span2"><a href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class="thumbnail"><img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>"></a></li>
-              <?php endif ?>
-            <?php endforeach ?>
-          <?php endif ?>
-        </ul>
-      </div>
-      
+      <?php if (!$game->crosspromo_is_empty): ?>
+        
+        <div class="span8 crosspromo" style="margin-bottom:20px;">
+          <h3 style="margin-bottom:-15px; padding:5px 20px;">Other games</h3>
+          <hr>
+          <ul class="thumbnails" style="margin-bottom:10px; margin-left:20px;">
+            <?php if ($game->crosspromo): ?>
+              <?php foreach ($game->crosspromo as $item): ?>
+                <?php if ($item): ?>
+                  <li class="span2"><a href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class="thumbnail"><img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>"></a></li>
+                <?php endif ?>
+              <?php endforeach ?>
+            <?php endif ?>
+          </ul>
+        </div>
+      <?php endif ?>
+
       <div class="fb-comments" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>" data-num-posts="2" data-width="620"></div>
       
     </div>

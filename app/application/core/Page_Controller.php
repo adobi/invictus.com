@@ -11,8 +11,9 @@ class Page_Controller extends CI_Controller
     public function __construct() 
     {
         parent::__construct();
-        
+
         $this->data['title'] = $this->uri->segment(1);
+        
         
         $this->load->model('Games', 'games');
         /** 
@@ -42,7 +43,6 @@ class Page_Controller extends CI_Controller
           
           $meta = $this->pages->getMeta(ucfirst($this->uri->segment(2)));
         }
-        //dump($meta); die;
         $this->data['meta'] = $meta;
         
         /**
@@ -50,7 +50,7 @@ class Page_Controller extends CI_Controller
          */
         $this->load->model('Settingss', 'settings');
         $this->data['settings'] = current($this->settings->fetchAll());
-         
+        
         $this->template->set_layout('invictus');
     }
 }

@@ -484,4 +484,15 @@ class My_Model extends CI_Model
 	  
 	  return true;
 	}
+	
+	public function orderedArrayIsEmpty($array)
+	{
+	  if (!$array) return false;
+	  
+	  foreach ($array as $item) {
+	    if ($item) return false;
+	  }
+	  
+	  return true;
+	}
 }

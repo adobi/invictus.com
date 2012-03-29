@@ -105,6 +105,8 @@ class Games extends MY_Model
         
         $this->load->model('Crosspromos', 'promo');
         $result->crosspromo = $this->promo->fetchByGame($result->id);
+        
+        $result->crosspromo_is_empty = $this->promo->orderedArrayIsEmpty($result->crosspromo);
       }
       
       return $result;      

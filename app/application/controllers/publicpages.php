@@ -28,6 +28,11 @@ class Publicpages extends Page_Controller
     $this->template->build('invictus/index', $this->data);
   }
   
+  public function missing()
+  {
+    $this->template->build('invictus/error', $this->data);
+  }
+  
   public function contact()
   {
     
@@ -155,6 +160,10 @@ class Publicpages extends Page_Controller
       }
       
       $this->data['game'] = $this->games->fetchByUrl($url, $allInfo);
+      
+      if (!$this->data['game']) {
+        $view = 'error';
+      }
       
       //dump($this->data['game']); die;
     }

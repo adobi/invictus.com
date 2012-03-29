@@ -39,7 +39,7 @@
 */
 
 $route['default_controller'] = "publicpages";
-$route['404_override'] = '';
+$route['404_override'] = 'publicpages/missing';
 
 //$route['page/(:any)'] = 'pages/$1';
 //$route['games/(:any)'] = 'pages/game/$1';

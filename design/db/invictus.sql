@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-03-28 15:29:45
+Date: 2012-03-29 12:37:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,14 +54,14 @@ CREATE TABLE `c_game` (
 -- ----------------------------
 -- Records of c_game
 -- ----------------------------
-INSERT INTO `c_game` VALUES ('4', '12', 'Lazy Farmer', 'lazy-farmer', '2012-03-01 00:00:00', '1332930420_Icon170.png', '1332926239_hero.png', '1332925952_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '0', null, '0', '0', null, null, '12272771881', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazyfarmer.game', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('5', '12', 'Lazy Farmer2', 'lazy-farmer2', '1970-01-01 00:00:00', '1332930492_Icon170.png', '1332926168_hero.png', '1332926168_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '1', null, '0', '1', null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('4', '12', 'Lazy Farmer', 'lazy-farmer', '2012-03-01 00:00:00', '1332930420_Icon170.png', '1332926239_hero.png', '1332925952_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '0', null, '0', '3', null, null, '12272771881', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazyfarmer.game', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('5', '12', 'Santa Ride', 'santa-ride', '1970-01-01 00:00:00', '1332930492_Icon170.png', '1332926168_hero.png', '1332926168_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '1', null, '0', '1', null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
 INSERT INTO `c_game` VALUES ('6', '12', 'Froggy Jump', 'froggy-jump', '1970-01-01 00:00:00', '1332930460_Icon170.png', '1332926009_hero.png', '1332925765_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '2', null, '1', '1', null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
 INSERT INTO `c_game` VALUES ('7', '12', 'Greed Corp', 'greed-corp', '1970-01-01 00:00:00', '1332930505_Icon170.png', '1332926031_hero.png', '1332925809_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '3', null, '1', '0', '0', '0', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('8', '12', 'Lazy Farmer5', 'lazy-farmer5', '1970-01-01 00:00:00', '1332930545_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '3', null, '0', '4', '0', '0', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('9', '12', 'Lazy Farmer6', 'lazy-farmer6', '1970-01-01 00:00:00', '1332930570_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '3', null, '0', '3', '1', '0', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('10', '12', 'Lazy Farmer7', 'lazy-farmer7', '1970-01-01 00:00:00', '1332930595_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', null, null, null, '0', '4', null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('11', '12', 'Lazy Farmer8', 'lazy-farmer8', '1970-01-01 00:00:00', '1332930616_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '2', null, '0', null, null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('8', '12', 'Froggy Launcher', 'froggy-launcher', '1970-01-01 00:00:00', '1332930545_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '3', null, '1', '3', '0', '0', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('9', '12', 'Fly Fu', 'fly-fu', '1970-01-01 00:00:00', '1332930570_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '3', null, '0', '3', '1', '0', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('10', '12', 'Mist Bouncer', 'mist-bouncer', '1970-01-01 00:00:00', '1332930595_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', null, null, null, '1', '4', null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('11', '12', 'Race of Champions', 'race-of-champions', '1970-01-01 00:00:00', '1332930616_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '2', null, '1', '2', null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `c_game_image`
@@ -300,6 +300,7 @@ CREATE TABLE `ic_crosspromo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `base_game_id` int(11) DEFAULT NULL,
   `promo_game_id` int(11) DEFAULT NULL,
+  `order` int(11) DEFAULT NULL,
   `ga_category` varchar(250) DEFAULT NULL,
   `ga_action` varchar(250) DEFAULT NULL,
   `ga_label` varchar(250) DEFAULT NULL,
@@ -310,11 +311,22 @@ CREATE TABLE `ic_crosspromo` (
   KEY `fk_crosspromo_game_promo` (`promo_game_id`),
   CONSTRAINT `fk_crosspromo_game_base` FOREIGN KEY (`base_game_id`) REFERENCES `c_game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_crosspromo_game_promo` FOREIGN KEY (`promo_game_id`) REFERENCES `c_game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_crosspromo
 -- ----------------------------
+INSERT INTO `ic_crosspromo` VALUES ('1', '4', '6', '4', null, null, null, null, null);
+INSERT INTO `ic_crosspromo` VALUES ('19', '8', '4', '4', null, null, null, null, null);
+INSERT INTO `ic_crosspromo` VALUES ('20', '8', '5', '3', null, null, null, null, null);
+INSERT INTO `ic_crosspromo` VALUES ('21', '8', '9', '2', null, null, null, null, null);
+INSERT INTO `ic_crosspromo` VALUES ('22', '8', '10', '1', null, null, null, null, null);
+INSERT INTO `ic_crosspromo` VALUES ('23', '8', '11', '0', null, null, null, null, null);
+INSERT INTO `ic_crosspromo` VALUES ('24', '6', '4', '0', null, null, null, null, null);
+INSERT INTO `ic_crosspromo` VALUES ('25', '6', '5', '2', null, null, null, null, null);
+INSERT INTO `ic_crosspromo` VALUES ('26', '6', '9', '1', null, null, null, null, null);
+INSERT INTO `ic_crosspromo` VALUES ('27', '6', '10', '3', null, null, null, null, null);
+INSERT INTO `ic_crosspromo` VALUES ('28', '6', '7', '4', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `ic_email_offer`
@@ -680,7 +692,7 @@ CREATE TABLE `ic_settings` (
 -- ----------------------------
 -- Records of ic_settings
 -- ----------------------------
-INSERT INTO `ic_settings` VALUES ('1', null, '1222335526617', 'invictus.com', 'invictus_com', 'UTA111-11-111');
+INSERT INTO `ic_settings` VALUES ('1', null, '1222335526617', 'invictus.com', 'invictusgames', 'UTA111-11-111');
 
 -- ----------------------------
 -- Table structure for `ic_user`
