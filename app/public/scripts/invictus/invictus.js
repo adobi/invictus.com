@@ -240,12 +240,20 @@
       return false;
     });
     
-    $('#image-carousel').elastislide({
-        imageW  : 110,
-        border: 1,
-        minItems	: 5
-    });      
-
+    if($('#image-carousel').length) {
+      $('#image-carousel').elastislide({
+          imageW  : 110,
+          border: 1,
+          minItems	: 5
+      });      
+    } else {
+      if($('#video-carousel').length)
+        $('#video-carousel').elastislide({
+            imageW  : 110,
+            border: 1,
+            minItems	: 5
+        });      
+    }  
     
     var isBig = 0;
     $('.bigger-font').on('click', function() {

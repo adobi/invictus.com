@@ -1,103 +1,122 @@
   <div class="row">
     <div class="span8 game-logo">
       <div id="simple-carousel-details-images" class="carousel slide carousel-images">
-          <!-- Carousel items -->
-          <div class="carousel-inner">
-              <?php if ($game->images): ?>
-                <?php foreach ($game->images as $i => $item): ?>
-                  <div class="item <?php echo $i===0 ? 'active' : '' ?>">
-                      <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
-                  </div>  
-                <?php endforeach ?>
-                <?php foreach (range(0, 7) as $key => $value): ?>
-                  <div class="item">
-                      <img alt="" src="http://placehold.it/770x510&text=<?php echo $key.'-image' ?>">
-                  </div>
-                <?php endforeach ?>
-              <?php endif ?>
-          </div>
-          <!-- Carousel nav -->
-          <a class="carousel-control left" href="#simple-carousel-details-images" data-slide="prev">&lsaquo;</a>
-          <a class="carousel-control right" href="#simple-carousel-details-images" data-slide="next">&rsaquo;</a>
-      </div>      
-      <div id="simple-carousel-details-videos" class="carousel slide carousel-videos hide">
-          <!-- Carousel items -->
-          <div class="carousel-inner">
-              <?php if ($game->videos): ?>
-                <?php foreach ($game->videos as $i => $item): ?>
-                  <div class="item <?php echo $i===0 ? 'active' : '' ?>">
-                      <?php echo youtube_video_image($item->code, 770, 510) ?>
-                  </div>  
-                <?php endforeach ?>
-                <?php foreach (range(0, 7) as $key => $value): ?>
-                  <div class="item">
-                      <img alt="" src="http://placehold.it/770x510&text=<?php echo $key.'-video' ?>">
-                  </div>
-                <?php endforeach ?>
-              <?php endif ?>
-          </div>                
-          <!-- Carousel nav -->
-          <a class="carousel-control left" href="#simple-carousel-details-videos" data-slide="prev">&lsaquo;</a>
-          <a class="carousel-control right" href="#simple-carousel-details-videos" data-slide="next">&rsaquo;</a>
-      </div>      
+          <?php if (!$game->images_is_empty): ?>
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <?php if ($game->images): ?>
+                  <?php foreach ($game->images as $i => $item): ?>
+                    <div class="item <?php echo $i===0 ? 'active' : '' ?>">
+                        <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
+                    </div>  
+                  <?php endforeach ?>
+                  <?php foreach (range(0, 7) as $key => $value): ?>
+                    <div class="item">
+                        <img alt="" src="http://placehold.it/770x510&text=<?php echo $key.'-image' ?>">
+                    </div>
+                  <?php endforeach ?>
+                <?php endif ?>
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#simple-carousel-details-images" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#simple-carousel-details-images" data-slide="next">&rsaquo;</a>
+          <?php else: ?>
+            <div class="carousel-inner">
+              <div class="item active">
+                  <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->hero_image ?>" alt="">
+              </div>  
+            </div>
+          <?php endif ?>
+      </div>
+      <?php if (!$game->videos_is_empty): ?>
+        <div id="simple-carousel-details-videos" class="carousel slide carousel-videos hide">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <?php if ($game->videos): ?>
+                  <?php foreach ($game->videos as $i => $item): ?>
+                    <div class="item <?php echo $i===0 ? 'active' : '' ?>">
+                        <?php echo youtube_video_image($item->code, 770, 510) ?>
+                    </div>  
+                  <?php endforeach ?>
+                  <?php foreach (range(0, 7) as $key => $value): ?>
+                    <div class="item">
+                        <img alt="" src="http://placehold.it/770x510&text=<?php echo $key.'-video' ?>">
+                    </div>
+                  <?php endforeach ?>
+                <?php endif ?>
+            </div>                
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#simple-carousel-details-videos" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#simple-carousel-details-videos" data-slide="next">&rsaquo;</a>
+        </div>      
+      <?php endif ?>      
 
       <div class="tabbable tabs-below" style="margin:15px 0;">
         <div class="tab-content">
-          <div id="images" class="tab-pane active game-tab-pane span8" style="margin-left:0px;">
-            <div id="image-carousel" class="es-carousel-wrapper span7" style="margin-left:0">
-                <div class="es-carousel">
-                    <ul>
-                      <?php if ($game->images): ?>
-                        <?php foreach ($game->images as $i => $item): ?>
+          <?php if (!$game->images_is_empty): ?>
+            <div id="images" class="tab-pane active game-tab-pane span8" style="margin-left:0px;">
+              <div id="image-carousel" class="es-carousel-wrapper span7" style="margin-left:0">
+                  <div class="es-carousel">
+                      <ul>
+                        <?php if ($game->images): ?>
+                          <?php foreach ($game->images as $i => $item): ?>
+                            <li>
+                              <a href="#" class="thumbnail" data-type="images">
+                                <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="" style="width:128px">
+                              </a>
+                            </li>                      
+                          <?php endforeach ?>
+                        <?php endif ?>                      
+                        <?php foreach (range(0, 7) as $key => $value): ?>
                           <li>
                             <a href="#" class="thumbnail" data-type="images">
-                              <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="" style="width:128px">
+                              <img alt="" src="http://placehold.it/128x85/&text=<?php echo $key.'-image' ?>">
                             </a>
-                          </li>                      
+                          </li>
                         <?php endforeach ?>
-                      <?php endif ?>                      
-                      <?php foreach (range(0, 7) as $key => $value): ?>
-                        <li>
-                          <a href="#" class="thumbnail" data-type="images">
-                            <img alt="" src="http://placehold.it/128x85/&text=<?php echo $key.'-image' ?>">
-                          </a>
-                        </li>
-                      <?php endforeach ?>
-                    </ul>
-                </div>
-            </div>             
-          </div>
-          <div id="videos" class="tab-pane game-tab-pane span8" style="margin-left:0px;">
-            <div id="video-carousel" class="es-carousel-wrapper span7" style="margin-left:0">
-                <div class="es-carousel">
-                    <ul>
-                      <?php if ($game->videos): ?>
-                        <?php foreach ($game->videos as $i => $item): ?>
+                      </ul>
+                  </div>
+              </div>             
+            </div> <!-- /#images -->
+          <?php endif ?>
+          <?php if (!$game->videos_is_empty): ?>
+            <div id="videos" class="tab-pane <?php echo $game->images_is_empty ? 'active' : '' ?> game-tab-pane span8" style="margin-left:0px;">
+              <div id="video-carousel" class="es-carousel-wrapper span7" style="margin-left:0">
+                  <div class="es-carousel">
+                      <ul>
+                        <?php if ($game->videos): ?>
+                          <?php foreach ($game->videos as $i => $item): ?>
+                            <li>
+                              <a href="#" class="thumbnail" data-type="videos" data-code="<?php echo $item->code ?>">
+                                <?php echo youtube_video_image($item->code, 128, 70) ?>
+                              </a>
+                            </li>                      
+                          <?php endforeach ?>
+                        <?php endif ?>                      
+                        <?php foreach (range(0, 7) as $key => $value): ?>
                           <li>
-                            <a href="#" class="thumbnail" data-type="videos" data-code="<?php echo $item->code ?>">
-                              <?php echo youtube_video_image($item->code, 128, 70) ?>
+                            <a href="#" class="thumbnail" data-type="videos">
+                              <img alt="" src="http://placehold.it/128x85/&text=<?php echo $key . '-video' ?>">
                             </a>
-                          </li>                      
+                          </li>
                         <?php endforeach ?>
-                      <?php endif ?>                      
-                      <?php foreach (range(0, 7) as $key => $value): ?>
-                        <li>
-                          <a href="#" class="thumbnail" data-type="videos">
-                            <img alt="" src="http://placehold.it/128x85/&text=<?php echo $key . '-video' ?>">
-                          </a>
-                        </li>
-                      <?php endforeach ?>
-                    </ul>
-                </div>
-            </div>             
-          </div>
+                      </ul>
+                  </div>
+              </div>             
+            </div> <!-- /#videos -->
+          <?php endif ?>
         </div> <!-- /tab-content -->
         <ul class="nav nav-tabs game-tabs">
-          <li class="active"><a data-toggle="tab" href="#images">Images</a></li>
-          <li class=""><a data-toggle="tab" href="#videos">Videos</a></li>
-        </ul>
-        
-      </div>      
+          <?php if (!$game->videos_is_empty ||  !$game->images_is_empty): ?>
+            <li class="active"><a data-toggle="tab" href="#<?php echo $game->images_is_empty ? 'videos' : 'images' ?>">Images</a></li>
+          <?php endif ?>
+          
+          <?php if (!$game->videos_is_empty): ?>
+            <li class=""><a data-toggle="tab" href="#videos">Videos</a></li>
+          <?php endif ?>
+        </ul> <!-- /nav -->
+      </div> <!-- /game-logo -->
+           
       <?php if (!$game->crosspromo_is_empty): ?>
         
         <div class="span8 crosspromo" style="margin-bottom:20px;">

@@ -98,14 +98,15 @@ class Games extends MY_Model
       if ($allInfo) {
         
         $this->load->model('Gameimages', 'images');
-        $result->images = $this->images->fetchForGame($result->id);        
+        $result->images = $this->images->fetchForGame($result->id);
+        $result->images_is_empty = $this->images->orderedArrayIsEmpty($result->images);
 
         $this->load->model('Gamevideos', 'videos');
         $result->videos = $this->videos->fetchForGame($result->id);        
+        $result->videos_is_empty = $this->videos->orderedArrayIsEmpty($result->videos);        
         
         $this->load->model('Crosspromos', 'promo');
         $result->crosspromo = $this->promo->fetchByGame($result->id);
-        
         $result->crosspromo_is_empty = $this->promo->orderedArrayIsEmpty($result->crosspromo);
       }
       
