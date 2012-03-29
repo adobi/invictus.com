@@ -118,6 +118,11 @@ class Games extends MY_Model
       return $this->meta->find($game->meta_id);      
     }
     
+    public function fetchWithCrosspromo()
+    {
+      return $this->execute("select g.*, (select count(id) from ic_crosspromo where base_game_id = g.id ) as count from $this->_name g where g.is_active=1");
+    }
+    
     private function _getByOrder($items, $column, $order) 
     {
       foreach( $items as $item ) {

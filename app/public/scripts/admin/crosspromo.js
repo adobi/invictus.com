@@ -132,7 +132,10 @@
   Crosspromo.LoadForGame = function(id) 
   {
     Crosspromo.BaseGameId = id
-
+    
+    $('.all-games').find('li.hide').removeClass('hide')
+    $('.all-games').find('[data-id='+id+']').parents('li').addClass('hide')
+    
     $('#crosspromo-games .accordion-inner').load(App.URL+'crosspromo/for_game/'+id, function() {
       
       (new Crosspromo($('.accordion-group .thumbnails'))).sortable(Crosspromo.UpdateOrder)

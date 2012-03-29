@@ -11,7 +11,8 @@
       <div class=" accordion-group">
         <div class="accordion-heading">
             <a href="#more-games" data-toggle="collapse" class="accordion-toggle">
-              <?php echo form_dropdown('game_id', $games, '', 'id="crosspromo_base_game" class="chosen" data-placeholder="Select a game"') ?>
+              <h6 style="display:inline-block; position:relative; top:-10px">Select a game</h6>
+              <?php echo form_dropdown('game_id', $games, '', 'id="crosspromo_base_game" class="span5 chosen" data-placeholder="Select a game"') ?>
               <span class="pull-right">
                 <span class="label label-info">Tipp</span> <span class="tipp-text"><strong>Move items to change the order</strong></span>
               </span>

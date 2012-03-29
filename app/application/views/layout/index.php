@@ -29,10 +29,10 @@
             <ul class="thumbnails" data-section="is_in_more_games">
               <?php foreach ($in_more_games as $item): ?>
                 <?php if ($item) :?>
-                  <li class="span2" id="<?php echo $item->id ?>">
+                  <li class="span2" id="<?php echo $item->id ?>" rel="tooltip" title="<?php echo $item->name ?>">
                     <div class="item thumbnail" data-id="<?php echo $item->id ?>">
                       <h6 class="center">
-                        <?php echo $item->name ?>
+                        <?php echo substr($item->name, 0, 12) ?>...
                       </h6> 
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
                       <div class="caption center">
