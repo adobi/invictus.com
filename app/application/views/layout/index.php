@@ -32,7 +32,7 @@
                   <li class="span2" id="<?php echo $item->id ?>" rel="tooltip" title="<?php echo $item->name ?>">
                     <div class="item thumbnail" data-id="<?php echo $item->id ?>">
                       <h6 class="center">
-                        <?php echo substr($item->name, 0, 12) ?>...
+                        <?php echo substr($item->name, 0, 13) ?>...
                       </h6> 
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
                       <div class="caption center">

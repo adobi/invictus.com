@@ -102,6 +102,9 @@ class Games extends MY_Model
 
         $this->load->model('Gamevideos', 'videos');
         $result->videos = $this->videos->fetchForGame($result->id);        
+        
+        $this->load->model('Crosspromos', 'promo');
+        $result->crosspromo = $this->promo->fetchByGame($result->id);
       }
       
       return $result;      

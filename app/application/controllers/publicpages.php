@@ -153,7 +153,7 @@ class Publicpages extends Page_Controller
         $allInfo = true;
         $view = 'game';
       }
-
+      
       $this->data['game'] = $this->games->fetchByUrl($url, $allInfo);
       
       //dump($this->data['game']); die;
