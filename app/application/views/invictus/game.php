@@ -9,6 +9,11 @@
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
                   </div>  
                 <?php endforeach ?>
+                <?php foreach (range(0, 7) as $key => $value): ?>
+                  <div class="item">
+                      <img alt="" src="http://placehold.it/770x510&text=<?php echo $key ?>">
+                  </div>
+                <?php endforeach ?>
               <?php endif ?>
           </div>
           <!-- Carousel nav -->
@@ -33,7 +38,7 @@
                       <?php foreach (range(0, 7) as $key => $value): ?>
                         <li>
                           <a href="#" class="thumbnail">
-                            <img alt="" src="http://placehold.it/128x85/">
+                            <img alt="" src="http://placehold.it/128x85/&text=<?php echo $key ?>">
                           </a>
                         </li>
                       <?php endforeach ?>

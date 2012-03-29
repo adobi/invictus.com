@@ -66,7 +66,7 @@
       $.post(form.attr('action'), form.serialize(), function(resp) {
         resp = $.parseJSON(resp);
         
-        console.log(resp)
+        //console.log(resp)
         
         App.Message = resp.message;
 
@@ -160,11 +160,24 @@
     }
   }  
   
+  App.HandleSmallCarousel = function() 
+  {
+    $('#images a.thumbnail').on('click', function(e) {
+      var self = $(this)
+      
+      $('#simple-carousel-details').carousel(self.parents('li:first').index())
+      
+      e.preventDefault()
+    })
+  };
+  
   $(function() {
+    
+    App.HandleSmallCarousel()
     
     $('body').on('click', '.games-filter a', function(e) {
       
-      Games.Filter($(this));
+      App.Filter($(this));
       
       e.preventDefault()
     })    
