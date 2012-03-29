@@ -80,8 +80,8 @@
               <h2 style="margin-bottom:20px;">
                 Invictus on
               </h2>
+              
               <div class="fb-like" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false"></div>
-              <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-via="adobi">Tweet</a> -->
               <a href="https://twitter.com/<?php echo $settings->twitter_id ?>" class="twitter-follow-button" data-show-count="false">Follow @<?php echo $settings->twitter_id ?></a>
               <g:plusone size="medium"></g:plusone>
               <p>&nbsp;</p>

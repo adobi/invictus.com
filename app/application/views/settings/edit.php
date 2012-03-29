@@ -26,14 +26,14 @@
         </div>
     </fieldset>  
      -->
-     <!-- 
+     
     <fieldset class="control-group">
         <label class="control-label" for="facebook_app_id">Facebook app id</label>
         <div class="controls">
             <input type="text" name = "facebook_app_id" id = "facebook_app_id" class = "span4" value = "<?php echo $_POST && isset($_POST['facebook_app_id']) ? $_POST['facebook_app_id'] : ($item ? $item->facebook_app_id : '') ?>"/>
         </div>
     </fieldset>  
-     -->
+     
     <fieldset class="control-group">
         <label class="control-label" for="facebook_page">Facebook page name</label>
         <div class="controls">

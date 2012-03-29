@@ -41,27 +41,17 @@
       <script type="text/javascript">
           var App = App || {};
           App.URL = "<?php echo base_url() ?>";
+          App.Produsction = true
       </script>      
     	<script src = "<?php echo base_url() ?>scripts/plugins/headjs/head.min.js"></script> 
     	<script type="text/javascript">
     	    head.js("http://code.jquery.com/jquery-1.7.1.min.js", 
     	            //"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js",
-    	            "https://raw.github.com/cowboy/jquery-hashchange/v1.3/jquery.ba-hashchange.min.js",
-                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-dropdown.js",
-                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-tab.js",
-                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-transition.js",
-                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-alert.js",
-                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-modal.js",
-                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-tooltip.js",
-                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-popover.js",
-                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-transition.js",
-                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-collapse.js",
-                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-carousel.js",
-                  "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-button.js",
+    	            "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap.min.js",
                   
-                  "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.easing.1.3.js",
-                  "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.elastislide.js",
-                  "<?php echo base_url() ?>scripts/admin/games.js",
+                  "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.easing.1.3.min.js",
+                  "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.elastislide.min.js",
+                  //"<?php echo base_url() ?>scripts/admin/games.js",
                   "<?php echo base_url() ?>scripts/invictus/invictus.js",
                   
                   function() {

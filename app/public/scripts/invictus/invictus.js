@@ -132,7 +132,42 @@
     })
   };
   
+  App.Filter = function (el) 
+  {
+    var filter = el.data('platform'),
+        items = $('.games-list').find('li')
+    
+    el.parents('ul').find('.active').removeClass('active')
+    el.parents('li:first').addClass('active')    
+    
+    //console.log('filter ', filter)
+        
+    if (filter === 'all') {
+      
+      items.show()
+    } else {
+      
+      $.each(items, function (i, v) {
+        
+        var platforms = $(v).data('platforms')
+
+        //console.log('platforms ', platforms)
+        //console.log('in-array ', $.inArray(filter.toString(), platforms))
+        
+        !platforms || $.inArray(filter.toString(), platforms) === -1 ? $(v).hide() : $(v).show()
+        
+      })
+    }
+  }  
+  
   $(function() {
+    
+    $('body').on('click', '.games-filter a', function(e) {
+      
+      Games.Filter($(this));
+      
+      e.preventDefault()
+    })    
     
     App.LoadGame()
     

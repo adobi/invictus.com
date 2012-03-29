@@ -250,7 +250,7 @@ $config['encryption_key'] = '!8226694765Az4225938426589465386898';
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']		= 'ci_session';
+$config['sess_cookie_name']		= 'invictus_com_session';
 $config['sess_expiration']		= 7200;
 $config['sess_expire_on_close']	= true;
 $config['sess_encrypt_cookie']	= true;
@@ -321,7 +321,7 @@ $config['csrf_expire'] = 7200;
 | by the output class.  Do not 'echo' any values with compression enabled.
 |
 */
-$config['compress_output'] = false;
+$config['compress_output'] = true;
 
 /*
 |--------------------------------------------------------------------------

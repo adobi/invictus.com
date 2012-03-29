@@ -24,27 +24,9 @@
     <!-- Le styles -->
     <?php if (ENVIRONMENT==="development"): ?>
       <link rel="stylesheet/less" type="text/css" href="<?= base_url() ?>css/invictus/all.less">
-      <script type="text/javascript">
-      </script>
       <script type="text/javascript" src="<?php echo base_url() ?>scripts/plugins/lessjs/less-1.3.0.min.js"></script>
       <script type="text/javascript">
         (less = less || {}).env = 'development';
-        /*
-        function destroyLessCache(pathToCss) { // e.g. '/css/' or '/stylesheets/'
-        
-          if (!window.localStorage || !less || less.env !== 'development') {
-            return;
-          }
-          var host = window.location.host;
-          var protocol = window.location.protocol;
-          var keyPrefix = protocol + '//' + host + pathToCss;
-          
-          for (var key in window.localStorage) {
-            if (key.indexOf(keyPrefix) === 0) {
-              delete window.localStorage[key];
-            }
-          }
-        } ('<?= base_url() ?>css/invictus/all.less')*/
         //less.watch();        
       </script>
     <?php else: ?>
@@ -67,14 +49,13 @@
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=298005276910571";
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings ? $settings->facebook_app_id : '' ?>";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
     <script type="text/javascript">
-      
       (function() {
         var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
         po.src = 'https://apis.google.com/js/plusone.js';

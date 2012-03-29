@@ -154,9 +154,10 @@
     
     App.Games = Games
   })
-  $(window).hashchange( function(){
-    Games.loadFromHash()
-  })    
+  if (App.Production) 
+    $(window).hashchange( function(){
+      Games.loadFromHash()
+    })    
   
   
 } (jQuery);

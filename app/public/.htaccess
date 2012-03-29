@@ -11,3 +11,18 @@ RewriteCond $1 !^(index\.php|uploads|css|images|scripts)
 #RewriteRule .* index.php/$0 [PT]
 #RewriteRule ^.*$ index.php [NC,L]
 RewriteRule ^.*$ index.php [NC,L]
+
+Header unset ETag
+FileETag None
+
+<FilesMatch "(?i)^.*\.(ico|flv|jpg|jpeg|png|gif|js|css)$">
+    Header unset Last-Modified
+    Header set Cache-Control "max-age=290304000, public"
+    Header set Expires "Fri, 21 Dec 2012 00:00:00 GMT"
+</FilesMatch>
+
+<IfModule mod_deflate.c>
+	<FilesMatch "\.(js|css)$">
+		SetOutputFilter DEFLATE
+	</FilesMatch>
+</IfModule>
