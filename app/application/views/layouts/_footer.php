@@ -93,6 +93,7 @@
                 "<?php echo base_url() ?>scripts/admin/contacts.js?<?php echo time(); ?>",
                 "<?php echo base_url() ?>scripts/admin/games.js?<?php echo time(); ?>",
                 "<?php echo base_url() ?>scripts/admin/layout.js?<?php echo time(); ?>",
+                "<?php echo base_url() ?>scripts/admin/crosspromo.js?<?php echo time(); ?>",
                 "<?php echo base_url() ?>scripts/admin/page.js?<?php echo time(); ?>",
                 function() {
                 
@@ -102,7 +103,7 @@
                         })
                     <?php endif ?>
                     
-                    <?php if ($this->uri->segment(1) === 'layout') :?>
+                    <?php if ($this->uri->segment(1) === 'layout' || $this->uri->segment(1) === 'crosspromo') :?>
                       $(function () {
                         (new App.Nav()).setHref('<?php echo base_url() ?>game/all').loadIntoRightPanel()
                       })

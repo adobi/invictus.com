@@ -32,7 +32,7 @@ class Settings extends MY_Controller
         $data['item'] = $item;
         
         //$this->form_validation->set_rules("logo", "Logo", "trim|required");
-    		$this->form_validation->set_rules("facebook_app_id", "Facebook_app_id", "trim|required");
+    		//$this->form_validation->set_rules("facebook_app_id", "Facebook_app_id", "trim|required");
     		$this->form_validation->set_rules("facebook_page", "Facebook_page", "trim|required");
     		$this->form_validation->set_rules("twitter_id", "Twitter_id", "trim|required");
     		$this->form_validation->set_rules("google_analytics", "Google_analytics", "trim|required");

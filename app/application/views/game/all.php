@@ -1,6 +1,6 @@
   <?php //if ($items): ?>
     <?php echo panel_close() ?>
-    <legend style="margin-top:-30px;">Drag items and move them to the layout</legend>
+    <legend style="margin-top:-30px;">Drag items and move them</legend>
     <div class="items page-items">
       <div class="subnav" style="margin:10px 0 10px 0">
         <ul class="nav nav-pills games-filter">

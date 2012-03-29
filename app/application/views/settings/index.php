@@ -17,10 +17,12 @@
               <p class="pull-right" style="margin-top:5px;">
                 <a  href="<?php echo base_url() ?>settings/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit settings"><i class="icon-pencil"></i></a>
               </p>
-            </h4> 
+            </h4>
+            <!-- 
             <h6>
               <span>Facebook app id</span> <?php echo $item->facebook_app_id ?>
             </h6>
+             --> 
             <h6>
               <span>Facebook page name</span> <?php echo $item->facebook_page ?>
             </h6>

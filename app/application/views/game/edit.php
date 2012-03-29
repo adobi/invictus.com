@@ -99,12 +99,14 @@
                 <textarea rows="5" name="long_description" id = "long_description" class="span4"><?php echo $_POST && isset($_POST['long_description']) ? $_POST['long_description'] : ($item ? $item->long_description : '') ?></textarea>
             </div>
         </fieldset> 
+        <!-- 
         <fieldset class="control-group">
             <label class="control-label" for="facebook_app_id">Facebook app id</label>
             <div class="controls">
                 <input type="text" name = "facebook_app_id" id = "facebook_app_id" class = "span4" value = "<?php echo $_POST && isset($_POST['facebook_app_id']) ? $_POST['facebook_app_id'] : ($item ? $item->facebook_app_id : '') ?>"/>
             </div>
         </fieldset> 
+         -->
         <fieldset class="control-group">
             <label class="control-label" for="facebook_page">Facebook page</label>
             <div class="controls">

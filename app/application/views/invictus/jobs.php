@@ -41,7 +41,7 @@
           <hr>
           <form action="" method="post" class="form-horizontal job-application-form">
             <fieldset>
-              <legend>Apply for Software Engineer - Front-End</legend>
+              <legend>Apply for <?php echo $job->name ?></legend>
               <div class="control-group">
                 <label for="firstname" class="control-label">Firstname</label>
                 <div class="controls">

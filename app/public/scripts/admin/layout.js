@@ -7,6 +7,8 @@
     this.el = el
   }
   
+  Layout.SaveUrl = "game/layout/"
+  
   Layout.WarningModal = $('#overwrite-warning')
   
   Layout.DragAndDropGames  = function() 
@@ -97,7 +99,7 @@
         value = $('.csrf-form').find('[type=hidden]').attr('value')
     
     data[name] = value;
-    $.post(App.URL+'game/layout/'+game, data, function() {
+    $.post(App.URL+Layout.SaveUrl+game, data, function() {
       App.Tooltip('hide')
       if (callback) callback()
     })
@@ -118,7 +120,7 @@
     
   Layout.prototype = 
   {
-    sortable: function() 
+    sortable: function(callback) 
     {
       var that = this
       that.el.sortable({
@@ -133,7 +135,7 @@
               */
               
               //console.log(that.el.data('section'))
-              Layout.UpdateOrder(that.el.data('section'), that.el.sortable('toArray'))
+              callback(that.el.data('section'), that.el.sortable('toArray'))
               
               //console.log('SORTABLE: ', data['order'])
               //$.post(App.URL+"contacttype/update_order", data, function() {});
@@ -145,7 +147,7 @@
   
   $(function() 
   {
-    (new Layout($('.accordion-group .thumbnails'))).sortable()
+    (new Layout($('.accordion-group .thumbnails'))).sortable(Layout.UpdateOrder)
     
     $("body").on('click', '.layout-remove', function(e) {
       
