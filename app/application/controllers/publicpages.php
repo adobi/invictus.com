@@ -170,4 +170,10 @@ class Publicpages extends Page_Controller
     
     $this->template->build('invictus/'.$view, $this->data);
   }
+  
+  public function video()
+  {
+    echo embed_youtube($this->uri->segment(3), false, 710, 510);
+    die;
+  }
 }

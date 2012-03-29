@@ -1,6 +1,6 @@
   <div class="row">
     <div class="span8 game-logo">
-      <div id="simple-carousel-details" class="carousel slide">
+      <div id="simple-carousel-details-images" class="carousel slide carousel-images">
           <!-- Carousel items -->
           <div class="carousel-inner">
               <?php if ($game->images): ?>
@@ -11,15 +11,36 @@
                 <?php endforeach ?>
                 <?php foreach (range(0, 7) as $key => $value): ?>
                   <div class="item">
-                      <img alt="" src="http://placehold.it/770x510&text=<?php echo $key ?>">
+                      <img alt="" src="http://placehold.it/770x510&text=<?php echo $key.'-image' ?>">
                   </div>
                 <?php endforeach ?>
               <?php endif ?>
           </div>
           <!-- Carousel nav -->
-          <a class="carousel-control left" href="#simple-carousel-details" data-slide="prev">&lsaquo;</a>
-          <a class="carousel-control right" href="#simple-carousel-details" data-slide="next">&rsaquo;</a>
+          <a class="carousel-control left" href="#simple-carousel-details-images" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#simple-carousel-details-images" data-slide="next">&rsaquo;</a>
       </div>      
+      <div id="simple-carousel-details-videos" class="carousel slide carousel-videos hide">
+          <!-- Carousel items -->
+          <div class="carousel-inner">
+              <?php if ($game->videos): ?>
+                <?php foreach ($game->videos as $i => $item): ?>
+                  <div class="item <?php echo $i===0 ? 'active' : '' ?>">
+                      <?php echo youtube_video_image($item->code, 770, 510) ?>
+                  </div>  
+                <?php endforeach ?>
+                <?php foreach (range(0, 7) as $key => $value): ?>
+                  <div class="item">
+                      <img alt="" src="http://placehold.it/770x510&text=<?php echo $key.'-video' ?>">
+                  </div>
+                <?php endforeach ?>
+              <?php endif ?>
+          </div>                
+          <!-- Carousel nav -->
+          <a class="carousel-control left" href="#simple-carousel-details-videos" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#simple-carousel-details-videos" data-slide="next">&rsaquo;</a>
+      </div>      
+
       <div class="tabbable tabs-below" style="margin:15px 0;">
         <div class="tab-content">
           <div id="images" class="tab-pane active game-tab-pane span8" style="margin-left:0px;">
@@ -29,7 +50,7 @@
                       <?php if ($game->images): ?>
                         <?php foreach ($game->images as $i => $item): ?>
                           <li>
-                            <a href="#" class="thumbnail">
+                            <a href="#" class="thumbnail" data-type="images">
                               <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="" style="width:128px">
                             </a>
                           </li>                      
@@ -37,8 +58,8 @@
                       <?php endif ?>                      
                       <?php foreach (range(0, 7) as $key => $value): ?>
                         <li>
-                          <a href="#" class="thumbnail">
-                            <img alt="" src="http://placehold.it/128x85/&text=<?php echo $key ?>">
+                          <a href="#" class="thumbnail" data-type="images">
+                            <img alt="" src="http://placehold.it/128x85/&text=<?php echo $key.'-image' ?>">
                           </a>
                         </li>
                       <?php endforeach ?>
@@ -50,10 +71,19 @@
             <div id="video-carousel" class="es-carousel-wrapper span7" style="margin-left:0">
                 <div class="es-carousel">
                     <ul>
-                      <?php foreach (range(0, 20) as $key => $value): ?>
+                      <?php if ($game->videos): ?>
+                        <?php foreach ($game->videos as $i => $item): ?>
+                          <li>
+                            <a href="#" class="thumbnail" data-type="videos" data-code="<?php echo $item->code ?>">
+                              <?php echo youtube_video_image($item->code, 128, 85) ?>
+                            </a>
+                          </li>                      
+                        <?php endforeach ?>
+                      <?php endif ?>                      
+                      <?php foreach (range(0, 7) as $key => $value): ?>
                         <li>
-                          <a href="#" class="thumbnail">
-                            <img alt="" src="http://placehold.it/128x85/">
+                          <a href="#" class="thumbnail" data-type="videos">
+                            <img alt="" src="http://placehold.it/128x85/&text=<?php echo $key . '-video' ?>">
                           </a>
                         </li>
                       <?php endforeach ?>

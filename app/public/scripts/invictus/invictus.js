@@ -162,16 +162,39 @@
   
   App.HandleSmallCarousel = function() 
   {
-    $('#images a.thumbnail').on('click', function(e) {
-      var self = $(this)
+    $('#images a.thumbnail, #videos a.thumbnail').on('click', function(e) {
+      var self = $(this),
+          type = self.data('type'),
+          carousel = $('#simple-carousel-details-'+type)
       
-      $('#simple-carousel-details').carousel(self.parents('li:first').index())
+      carousel.carousel(self.parents('li:first').index())
+      carousel.carousel('pause')
+      
+      if (type==="videos") {
+        $.get(App.URL+'pages/video/'+self.data('code'), function(resp) {
+          carousel.find('.active').html(resp)
+          carousel.carousel('pause')
+        })
+      }
       
       e.preventDefault()
     })
   };
   
   $(function() {
+    
+    $('a[data-toggle="tab"]').on('shown', function (e) {
+      
+      var active = $(e.target); // activated tab
+      
+      $('.carousel-images, .carousel-videos').toggle()
+      
+      $(active.attr('href')).find('.es-carousel-wrapper').elastislide({
+          imageW  : 110,
+          border: 1,
+          minItems	: 5
+      });      
+    });    
     
     App.HandleSmallCarousel()
     
@@ -205,9 +228,9 @@
 		$(".game img").fadeIn(500);
     $('#simple-carousel').carousel();
     
-    $('#simple-carousel-details').carousel('pause');
+    $('#simple-carousel-details-images, #simple-carousel-details-videos').carousel({stop: true, pause:false});
     
-    $('#multi-carousel-images, #multi-carousel-videos').carousel('pause')
+    //$('#multi-carousel-images, #multi-carousel-videos').carousel('pause')
     
     $('body').delegate('a[href=#]', 'click', function() {
       return false;
@@ -218,24 +241,7 @@
         border: 1,
         minItems	: 5
     });      
-    
-    /*
-    $('#video-carousel').show().elastislide({
-        imageW  : 110,
-        border: 1,
-        minItems	: 5
-    });      
-    */
-    $('a[data-toggle="tab"]').on('shown', function (e) {
-      
-      var active = $(e.target); // activated tab
 
-      $(active.attr('href')).find('.es-carousel-wrapper').elastislide({
-          imageW  : 110,
-          border: 1,
-          minItems	: 5
-      });      
-    });
     
     var isBig = 0;
     $('.bigger-font').on('click', function() {
