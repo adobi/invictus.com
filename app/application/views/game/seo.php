@@ -43,7 +43,7 @@
       Facebook open graph settings 
       <span style="position:relative;top:5px; left:15px;">
         <a href="http://ogp.me/" target="_blank" rel="tooltip" title="See the documentation"><i class="icon-book"></i></a>
-        <a href="https://developers.facebook.com/tools/debug/og/object?q=<?php echo base_url() ?>game/<?php echo $game->url ?>" target="_blank" rel="tooltip" title="Try out!"><i class="icon-retweet"></i></a>
+        <a href="https://developers.facebook.com/tools/debug/og/object?q=<?php echo base_url() ?>games/<?php echo $game->url ?>" target="_blank" rel="tooltip" title="Try out!"><i class="icon-retweet"></i></a>
       </span>
     </legend>
     <fieldset class="control-group">

@@ -20,6 +20,12 @@
             </h4>
             
             <h6>
+              <span>Company logo</span> 
+                <?php if ($item->logo): ?>
+                  <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" alt="">
+                <?php endif ?>
+            </h6>
+            <h6>
               <span>Facebook app id</span> <?php echo $item->facebook_app_id ?>
             </h6>
             <h6>

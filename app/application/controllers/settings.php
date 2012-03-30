@@ -40,6 +40,16 @@ class Settings extends MY_Controller
         
         if ($this->form_validation->run()) {
         
+            if ($this->upload->do_upload('logo')) {
+                
+                if ($id) {
+                    
+                    $this->_deleteImage($id, false, 'logo');
+                }
+                
+                $_POST['logo'] = $this->upload->file_name;
+            }           
+          
             if ($id) {
                 $this->model->update($_POST, $id);
             } else {
@@ -59,12 +69,49 @@ class Settings extends MY_Controller
         
         if (!$this->input->is_ajax_request()) {
           $this->session->set_flashdata('message', $response); 
-          redirect('contact');
+          redirect('settings');
         }
         
         $this->template->build('settings/edit', $data);
     }
-    
+    public function delete_image() 
+    {
+        $id = $this->uri->segment(3);
+        
+        if ($id) {
+            
+            $this->_deleteImage($id, false);
+            
+            $this->session->set_flashdata('message', 'Deleted');
+        }
+        
+        echo display_success('Deleted');
+        
+        die;
+        
+        //redirect($_SERVER['HTTP_REFERER']);
+    } 
+
+    private function _deleteImage($id, $withRecord = false) 
+    {
+        $this->load->model('Settingss', 'model');
+        
+        $item = $this->model->find($id);
+        
+        if ($item && $item->logo) {
+            $this->load->config('upload');
+            
+            @unlink($this->config->item('upload_path') . $item->logo);
+        }
+        
+        if (!$withRecord) {
+            
+            $this->model->update(array('logo'=>null), $id);
+        }
+        
+        return $withRecord ? $this->model->delete($id) : true;
+    }    
+        
     public function delete()
     {
         $id = $this->uri->segment(3);

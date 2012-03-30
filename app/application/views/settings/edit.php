@@ -5,7 +5,7 @@
     </div>
 <?php endif ?>
 
-<?php echo form_open('', array('id'=>'edit-form', 'data-ajax-form'=>1)) ?>    
+<?php echo form_open_multipart('', array('id'=>'edit-form', '_data-ajax-form'=>1)) ?>    
 
     <?php echo panel_close() ?>
     <legend>
@@ -26,7 +26,17 @@
         </div>
     </fieldset>  
      -->
-     
+    <fieldset class="control-group">
+        <label class="control-label" for="logo">Company logo</label>
+        <div class="controls">
+            <?php if ($item && $item->logo): ?>
+                <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" alt="">
+                <a href="<?php echo base_url() ?>settings/delete_image/<?php echo $item->id ?>" class="delete-image pull-right" style="margin-right:20px;" rel="tooltip" title="Delete logo"><i class="icon-trash"></i></a>
+            <?php else: ?>
+              <input rel="tooltip" title="170x170" data-text="170x170" type="file" name = "logo" id = "logo" class = "span4" value = "<?php echo $_POST && isset($_POST['logo']) ? $_POST['logo'] : ($item ? $item->logo : '') ?>"/>
+            <?php endif; ?>
+        </div>
+    </fieldset>     
     <fieldset class="control-group">
         <label class="control-label" for="facebook_app_id">Facebook app id</label>
         <div class="controls">

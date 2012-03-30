@@ -103,21 +103,31 @@ class Game extends MY_Controller
             //unset($_POST['platforms']);
             
             $hash = ''; $insertId = false;
-            if ($id) {
-                $this->model->update($_POST, $id);
-            } else {
-                $this->load->model('Meta', 'meta');
-                
-                $meta_id = $this->meta->insert(array(
+            
+            $this->load->model('Meta', 'meta');
+            
+            $meta = array(
                   'title'=>$_POST['name'], 
-                  'description'=>$_POST['name'] . ' the official game',
-                  'keywords'=> 'invictus games, '.$_POST['name'],
-                  'og_title'=>$_POST['name'], 
-                  'og_url'=>'http://invictus.com/games/'.$_POST['url'],
-                  'og_image'=>'http://invictus.com/uploads/original/'.$_POST['logo'],
-                  'og_site_name'=>'Invictus Games', 
-                  'og_type'=>'game'
-                ));
+                  'og_url'=>base_url().'games/'.$_POST['url'],
+                  'og_image'=>base_url().'uploads/original/'.$_POST['logo'],
+            );
+                
+            if ($id) {
+                
+                $item = $this->model->find($id);
+                
+                $this->model->update($_POST, $id);
+                
+                $this->meta->update($meta, $item->meta_id);
+                
+            } else {
+                $met['description'] = $_POST['name'] . ' the official game';
+                $meta['keywords'] = 'invictus games, '.$_POST['name'];
+                $meta['og_title'] = $_POST['name'];
+                $meta['og_site_name'] = 'Invictus Games';
+                $meta['og_type'] = 'game';
+
+                $meta_id = $this->meta->insert($meta);
                 
                 $_POST['meta_id'] = $meta_id;
               

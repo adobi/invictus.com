@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <title>Invictus Games <?php echo $meta ? $meta->title : '' ?></title>
     
@@ -13,9 +13,9 @@
     <meta property="og:type" content="<?php echo $meta ? $meta->og_type : 'game' ?>" />
     <meta property="og:url" content="<?php echo $meta ? $meta->og_url : base_url() ?>" />
     <meta property="og:image" content="<?php echo $meta ? $meta->og_image : '' ?>" />    
-    <meta property="og:desctiption" content="<?php echo $meta ? $meta->og_description : '' ?>" />    
+    <meta property="og:description" content="<?php echo $meta ? $meta->og_description : '' ?>" />    
     <meta property="og:site_name" content="<?php echo $meta ? $meta->og_site_name : 'Invictus Games' ?>" />    
-    
+    <meta property="fb:app_id" content="<?php echo $settings ? $settings->facebook_app_id : '' ?>" />
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -73,7 +73,13 @@
             <span class="icon-bar"></span>
           </a>
           <a class="btn btn-navbar bigger-font" href="#" style="padding-top:5px;padding-bottom:4px;"><span class="icon-zoom-in icon-white"></span></a>
-          <a class="brand" href="<?php echo base_url() ?>">Invictus Games</a>
+          <a class="brand" href="<?php echo base_url() ?>">
+            <?php if ($settings->logo): ?>
+              <img src="<?php echo base_url() ?>uploads/original/<?php echo $settings->logo ?>" alt="">
+            <?php else: ?>
+              Invictus Games
+            <?php endif ?>
+          </a>
           
           <div class="nav-collapse">
             <ul class="nav">
