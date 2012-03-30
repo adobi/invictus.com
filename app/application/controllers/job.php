@@ -165,4 +165,41 @@ class Job extends MY_Controller
       
       $this->template->build('job/applications', $data);
     }
+    
+    public function show_first()
+    {
+      $id = $this->uri->segment(3);
+      
+      if ($id) {
+        $this->load->model('Jobs', 'model');
+        
+        $item = $this->model->find($id, true);
+        
+        if ($item) {
+          $this->model->update(array('is_first'=>null), false);
+          
+          $this->model->update(array('is_first'=>1), $id);
+        }
+      }
+      
+      redirect($_SERVER['HTTP_REFERER']);
+    }
+    
+    public function remove_first() 
+    {
+      $id = $this->uri->segment(3);
+      
+      if ($id) {
+        $this->load->model('Jobs', 'model');
+        
+        $item = $this->model->find($id, true);
+        
+        if ($item) {
+          
+          $this->model->update(array('is_first'=>null), $id);
+        }
+      }
+      
+      redirect($_SERVER['HTTP_REFERER']);
+    }
 }

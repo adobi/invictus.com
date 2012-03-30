@@ -149,7 +149,13 @@ class Jobs extends MY_Model
     
     public function fetchLatestJob()
     {
-      $result = $this->fetchAll(array('order'=>array('by'=>'available', 'dest'=>'desc'), 'limit'=>1, 'offset'=>0), true);
+      $isFirst = $this->fetchBy('is_first', 1);
+      
+      if ($isFirst) {
+        $result = current($isFirst);
+      } else {
+        $result = $this->fetchAll(array('order'=>array('by'=>'available', 'dest'=>'desc'), 'limit'=>1, 'offset'=>0), true);
+      }
       
       return $result ? $this->find($result->id) : false; 
     }

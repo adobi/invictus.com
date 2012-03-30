@@ -42,7 +42,7 @@
     <div class="items job-items">
       <hr>
       <?php foreach ($job_items as $item): ?>
-        <div class="item">
+        <div class="item <?php echo $item->is_first ? 'alert-success' : '' ?>">
           <h4>
             <img src="<?php echo $item->category_icon ? base_url() . 'uploads/original/' . $item->category_icon : 'http://placehold.it/24x24' ?>" alt="" rel="tooltip" title="<?php echo $item->category_name ?>"> 
             <?php echo $item->name ?>
@@ -53,6 +53,7 @@
             </a>
             
             <p class="pull-right" style="margin-top:5px;">
+              <a href="<?php echo base_url() ?>job/<?php echo $item->is_first ? 'remove_first' : 'show_first' ?>/<?php echo $item->id ?>" class="btn" rel="tooltip" title="<?php echo $item->is_first ? 'Remove from first' : 'Show first' ?>"><i class="icon-home"></i></a>
               <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="View job"><i class="icon-eye-open"></i></a>
               <a href="<?php echo base_url() ?>job/analytics/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>
               <a href="<?php echo base_url() ?>job/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit job"><i class="icon-pencil"></i></a>
