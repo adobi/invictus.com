@@ -73,6 +73,7 @@ class Publicpages extends Page_Controller
         
         $this->load->model('Contactmessages', 'messages');
         
+        $_POST['created'] = date('Y-m-d H:i:s');
         $this->messages->insert($_POST);
         
         echo json_encode(array('success'=>true, 'message'=>'Thank You! The message was sent.'));

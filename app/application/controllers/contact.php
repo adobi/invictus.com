@@ -14,7 +14,8 @@ class Contact extends MY_Controller
          $this->load->model('Contacttypes', 'types');
         
         $data['items_contacts'] = $this->model->fetchAll();
-        $data['items_emails'] = $this->types->fetchAll(array('order'=>array('by'=>'order', 'dest'=>'asc')));
+        //$data['items_emails'] = $this->types->fetchAll(array('order'=>array('by'=>'order', 'dest'=>'asc')));
+        $data['items_emails'] = $this->types->fetchEmailsWithMessageCount();
         
         $this->template->build('contact/index', $data);
     }
@@ -79,5 +80,35 @@ class Contact extends MY_Controller
         }
         
         redirect($_SERVER['HTTP_REFERER']);
+    }
+    
+    public function messages()
+    {
+      $email = $this->uri->segment(3);
+      
+      $this->load->model('Contactmessages', 'model');
+      $this->load->model('Contacttypes', 'types');
+      
+      $data['items'] = $this->model->fetchBy('email_id', $email);
+      $data["item"] = $this->types->find($email);
+      
+      $this->template->build('contact/messages', $data);
+    }
+    
+    public function mark_as_read()
+    {
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Contactmessages', 'model');
+      
+      if ($id) {
+        
+        $res = $this->model->update(array('is_read'=>1), $id);
+        
+        echo $res;
+      }
+      
+      die;
+      
     }
 }

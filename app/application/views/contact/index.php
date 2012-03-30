@@ -45,6 +45,11 @@
               <i class="icon-move"></i>
               <?php echo $item->name ?>
               <span style="font-size:0.8em; color:#999;"><?php echo $item->email ?></span>
+              <a href="<?php echo base_url() ?>contact/messages/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Messages for this address">
+                <!--<i class="icon-user"></i>  -->
+                <span class="badge badge-info"><?php echo $item->messages ? $item->messages : 0 ?></span>
+              </a>
+              
     
               <p class="pull-right" style="margin-top:5px;">
                 <a class="btn" href="<?php echo base_url() ?>contacttype/analytics/<?php echo $item->id ?>" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>        

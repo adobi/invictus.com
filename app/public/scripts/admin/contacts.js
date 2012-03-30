@@ -26,6 +26,27 @@
 		$( ".contact-type-items" ).disableSelection(); 
   }
   
+  Contacts.markAsRead = function() 
+  {
+    $('body').on('click', '.mark-as-read', function(e) {
+      
+      var self = $(this)
+      
+      $.get(self.attr('href'), function(resp) {
+        
+        if (resp !== '0') {
+          self.parents('.item:first').find('.unread').removeClass('unread').addClass('read');
+          
+          var badge = $('.contact-type-items .selected').find('.badge')
+          badge.html(parseInt(badge.html())-1)
+          self.remove()
+        }
+      })
+      
+      e.preventDefault()
+    })
+  };
+  
   Contacts.prototype = {
 
   }
@@ -33,7 +54,7 @@
   $(function() 
   {
     Contacts.sortable()
-    
+    Contacts.markAsRead()
   })
   
   App.Contacts = Contacts
