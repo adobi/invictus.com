@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-03-29 12:37:54
+Date: 2012-03-30 11:01:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -61,7 +61,7 @@ INSERT INTO `c_game` VALUES ('7', '12', 'Greed Corp', 'greed-corp', '1970-01-01 
 INSERT INTO `c_game` VALUES ('8', '12', 'Froggy Launcher', 'froggy-launcher', '1970-01-01 00:00:00', '1332930545_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '3', null, '1', '3', '0', '0', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
 INSERT INTO `c_game` VALUES ('9', '12', 'Fly Fu', 'fly-fu', '1970-01-01 00:00:00', '1332930570_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '3', null, '0', '3', '1', '0', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
 INSERT INTO `c_game` VALUES ('10', '12', 'Mist Bouncer', 'mist-bouncer', '1970-01-01 00:00:00', '1332930595_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', null, null, null, '1', '4', null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('11', '12', 'Race of Champions', 'race-of-champions', '1970-01-01 00:00:00', '1332930616_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '2', null, '1', '2', null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('11', '12', 'Race of Champions', 'race-of-champions', '1970-01-01 00:00:00', '1333096600_Icon170.png', '1332531531_hero.png', '1332531532_teaser.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '2', null, '1', '2', null, null, '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `c_game_image`
@@ -143,11 +143,13 @@ CREATE TABLE `c_game_video` (
   PRIMARY KEY (`id`),
   KEY `fk_game_vide_game` (`game_id`),
   CONSTRAINT `fk_game_vide_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_video
 -- ----------------------------
+INSERT INTO `c_game_video` VALUES ('1', 'Video', 'VA770wpLX-Q', '7', 'Video', 'watch', 'Greed Corp - Video', '1', null);
+INSERT INTO `c_game_video` VALUES ('2', 'Video', 'VA770wpLX-Q', '7', 'Video', 'watch', 'Greed Corp - Video', '1', null);
 
 -- ----------------------------
 -- Table structure for `c_platform`
@@ -408,6 +410,7 @@ DROP TABLE IF EXISTS `ic_job`;
 CREATE TABLE `ic_job` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
@@ -433,9 +436,9 @@ CREATE TABLE `ic_job` (
 -- ----------------------------
 -- Records of ic_job
 -- ----------------------------
-INSERT INTO `ic_job` VALUES ('16', 'Software Engineer - Front-End', 'Debrecen, Hungary', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-20 07:24:09', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `ic_job` VALUES ('17', 'Graphic Master for Game design', 'Debrecen, Hungary', '1', '18', 'witter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-28 07:34:00', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `ic_job` VALUES ('18', 'Software Engineer - Back-End', 'San Francisco, USA', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-28 07:43:29', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ic_job` VALUES ('16', 'Software Engineer - Front-End', 'software-engineer-front-end', 'Debrecen, Hungary', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-30 08:58:00', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ic_job` VALUES ('17', 'Graphic Master for Game design', 'graphic-master-for-game-design', 'Debrecen, Hungary', '1', '18', 'witter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-30 08:58:12', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ic_job` VALUES ('18', 'Software Engineer - Back-End', 'software-engineer-back-end', 'San Francisco, USA', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-30 08:58:16', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `ic_job_application`
@@ -506,18 +509,18 @@ CREATE TABLE `ic_job_offer` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_we_offer_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_offer
 -- ----------------------------
-INSERT INTO `ic_job_offer` VALUES ('114', '16', 'Flexible and generous vacation policy');
-INSERT INTO `ic_job_offer` VALUES ('115', '16', 'Complete medical/dental benefits');
-INSERT INTO `ic_job_offer` VALUES ('116', '17', 'Flexible and generous vacation policy');
-INSERT INTO `ic_job_offer` VALUES ('117', '17', 'Complete medical/dental benefits');
-INSERT INTO `ic_job_offer` VALUES ('118', '18', 'Flexible and generous vacation policy');
-INSERT INTO `ic_job_offer` VALUES ('119', '18', 'Complete medical/dental benefits');
-INSERT INTO `ic_job_offer` VALUES ('120', '18', 'Paid maternity and paternity leave');
+INSERT INTO `ic_job_offer` VALUES ('121', '16', 'Flexible and generous vacation policy');
+INSERT INTO `ic_job_offer` VALUES ('122', '16', 'Complete medical/dental benefits');
+INSERT INTO `ic_job_offer` VALUES ('123', '17', 'Flexible and generous vacation policy');
+INSERT INTO `ic_job_offer` VALUES ('124', '17', 'Complete medical/dental benefits');
+INSERT INTO `ic_job_offer` VALUES ('125', '18', 'Flexible and generous vacation policy');
+INSERT INTO `ic_job_offer` VALUES ('126', '18', 'Complete medical/dental benefits');
+INSERT INTO `ic_job_offer` VALUES ('127', '18', 'Paid maternity and paternity leave');
 
 -- ----------------------------
 -- Table structure for `ic_job_qualification`
@@ -530,19 +533,19 @@ CREATE TABLE `ic_job_qualification` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_qualification_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_qualification
 -- ----------------------------
-INSERT INTO `ic_job_qualification` VALUES ('114', '16', 'Demonstrable experience building world-class, consumer web application interfaces');
-INSERT INTO `ic_job_qualification` VALUES ('115', '16', 'Expert Javascript/HTML/CSS/Ajax coding skills');
-INSERT INTO `ic_job_qualification` VALUES ('116', '17', '2-4+ years of experience managing digital marketing programs for advertisers or their agencies');
-INSERT INTO `ic_job_qualification` VALUES ('117', '17', 'Demonstrated ability to create, develop, and enhance customer relationships');
-INSERT INTO `ic_job_qualification` VALUES ('118', '18', 'Demonstrable experience building world-class, consumer web application interfaces');
-INSERT INTO `ic_job_qualification` VALUES ('119', '18', 'Expert Javascript/HTML/CSS/Ajax coding skills');
-INSERT INTO `ic_job_qualification` VALUES ('120', '18', '2-4+ years of experience managing digital marketing programs for advertisers or their agencies');
-INSERT INTO `ic_job_qualification` VALUES ('121', '18', 'Demonstrated ability to create, develop, and enhance customer relationships');
+INSERT INTO `ic_job_qualification` VALUES ('122', '16', 'Demonstrable experience building world-class, consumer web application interfaces');
+INSERT INTO `ic_job_qualification` VALUES ('123', '16', 'Expert Javascript/HTML/CSS/Ajax coding skills');
+INSERT INTO `ic_job_qualification` VALUES ('124', '17', '2-4+ years of experience managing digital marketing programs for advertisers or their agencies');
+INSERT INTO `ic_job_qualification` VALUES ('125', '17', 'Demonstrated ability to create, develop, and enhance customer relationships');
+INSERT INTO `ic_job_qualification` VALUES ('126', '18', 'Demonstrable experience building world-class, consumer web application interfaces');
+INSERT INTO `ic_job_qualification` VALUES ('127', '18', 'Expert Javascript/HTML/CSS/Ajax coding skills');
+INSERT INTO `ic_job_qualification` VALUES ('128', '18', '2-4+ years of experience managing digital marketing programs for advertisers or their agencies');
+INSERT INTO `ic_job_qualification` VALUES ('129', '18', 'Demonstrated ability to create, develop, and enhance customer relationships');
 
 -- ----------------------------
 -- Table structure for `ic_job_responsability`
@@ -555,19 +558,19 @@ CREATE TABLE `ic_job_responsability` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_responsability_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=156 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_responsability
 -- ----------------------------
-INSERT INTO `ic_job_responsability` VALUES ('148', '16', 'Write front-end code in Ruby, HTML/CSS, and Javascript');
-INSERT INTO `ic_job_responsability` VALUES ('149', '16', 'Implement new features and optimize existing ones from controller-level to UI');
-INSERT INTO `ic_job_responsability` VALUES ('150', '17', 'Collaborating with Fortune 500 advertisers to understand their objectives, recommending best practices, and developing effective campaigns');
-INSERT INTO `ic_job_responsability` VALUES ('151', '17', 'Educate and consult to demonstrate how to use Twitter’s advertising products, best practices, how to develop effective campaigns.');
-INSERT INTO `ic_job_responsability` VALUES ('152', '18', 'Write front-end code in Ruby, HTML/CSS, and Javascript');
-INSERT INTO `ic_job_responsability` VALUES ('153', '18', 'Implement new features and optimize existing ones from controller-level to UI');
-INSERT INTO `ic_job_responsability` VALUES ('154', '18', 'Collaborating with Fortune 500 advertisers to understand their objectives, recommending best practices, and developing effective campaigns');
-INSERT INTO `ic_job_responsability` VALUES ('155', '18', 'Educate and consult to demonstrate how to use Twitter’s advertising products, best practices, how to develop effective campaigns.');
+INSERT INTO `ic_job_responsability` VALUES ('156', '16', 'Write front-end code in Ruby, HTML/CSS, and Javascript');
+INSERT INTO `ic_job_responsability` VALUES ('157', '16', 'Implement new features and optimize existing ones from controller-level to UI');
+INSERT INTO `ic_job_responsability` VALUES ('158', '17', 'Collaborating with Fortune 500 advertisers to understand their objectives, recommending best practices, and developing effective campaigns');
+INSERT INTO `ic_job_responsability` VALUES ('159', '17', 'Educate and consult to demonstrate how to use Twitter’s advertising products, best practices, how to develop effective campaigns.');
+INSERT INTO `ic_job_responsability` VALUES ('160', '18', 'Write front-end code in Ruby, HTML/CSS, and Javascript');
+INSERT INTO `ic_job_responsability` VALUES ('161', '18', 'Implement new features and optimize existing ones from controller-level to UI');
+INSERT INTO `ic_job_responsability` VALUES ('162', '18', 'Collaborating with Fortune 500 advertisers to understand their objectives, recommending best practices, and developing effective campaigns');
+INSERT INTO `ic_job_responsability` VALUES ('163', '18', 'Educate and consult to demonstrate how to use Twitter’s advertising products, best practices, how to develop effective campaigns.');
 
 -- ----------------------------
 -- Table structure for `ic_job_skill`
@@ -580,19 +583,19 @@ CREATE TABLE `ic_job_skill` (
   PRIMARY KEY (`id`),
   KEY `fk_job_responsability_job` (`job_id`),
   CONSTRAINT `fk_job_skill_job` FOREIGN KEY (`job_id`) REFERENCES `ic_job` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_job_skill
 -- ----------------------------
-INSERT INTO `ic_job_skill` VALUES ('130', '16', 'Visual-design skills');
-INSERT INTO `ic_job_skill` VALUES ('131', '16', 'B.S. or higher in Computer science or equivalent');
-INSERT INTO `ic_job_skill` VALUES ('132', '17', 'Excellent communication and presentation skills, attention to detail, and a bias for proactively resolving issues');
-INSERT INTO `ic_job_skill` VALUES ('133', '17', 'Aptitude, creativity, and a preference for working in small, collaborative teams with minimal supervision');
-INSERT INTO `ic_job_skill` VALUES ('134', '18', 'Visual-design skills');
-INSERT INTO `ic_job_skill` VALUES ('135', '18', 'B.S. or higher in Computer science or equivalent');
-INSERT INTO `ic_job_skill` VALUES ('136', '18', 'Aptitude, creativity, and a preference for working in small, collaborative teams with minimal supervision');
-INSERT INTO `ic_job_skill` VALUES ('137', '18', 'Excellent communication and presentation skills, attention to detail, and a bias for proactively resolving issues');
+INSERT INTO `ic_job_skill` VALUES ('138', '16', 'Visual-design skills');
+INSERT INTO `ic_job_skill` VALUES ('139', '16', 'B.S. or higher in Computer science or equivalent');
+INSERT INTO `ic_job_skill` VALUES ('140', '17', 'Excellent communication and presentation skills, attention to detail, and a bias for proactively resolving issues');
+INSERT INTO `ic_job_skill` VALUES ('141', '17', 'Aptitude, creativity, and a preference for working in small, collaborative teams with minimal supervision');
+INSERT INTO `ic_job_skill` VALUES ('142', '18', 'Visual-design skills');
+INSERT INTO `ic_job_skill` VALUES ('143', '18', 'B.S. or higher in Computer science or equivalent');
+INSERT INTO `ic_job_skill` VALUES ('144', '18', 'Aptitude, creativity, and a preference for working in small, collaborative teams with minimal supervision');
+INSERT INTO `ic_job_skill` VALUES ('145', '18', 'Excellent communication and presentation skills, attention to detail, and a bias for proactively resolving issues');
 
 -- ----------------------------
 -- Table structure for `ic_meta`
@@ -616,7 +619,7 @@ CREATE TABLE `ic_meta` (
 -- Records of ic_meta
 -- ----------------------------
 INSERT INTO `ic_meta` VALUES ('11', 'Home', 'Home', 'invictus games, Home', 'Home', 'http://invictus.com/pages/home', 'games', null, null, 'Invictus Games');
-INSERT INTO `ic_meta` VALUES ('12', 'Lazy Farmer', 'Lazy Farmer the official game', 'invictus games, Lazy Farmer', 'Lazy Farmer', 'http://invictus.com/games/lazy-farmer', 'game', 'http://invictus.com/uploads/original/1332531531_Icon170.png', null, 'Invictus Games');
+INSERT INTO `ic_meta` VALUES ('12', 'Race of Champions', 'Race of Champions the official game', 'invictus games, Race of Champions', 'Race of Champions', 'http://localhost/invictus.com/app/public/games/race-of-champions', 'game', 'http://localhost/invictus.com/app/public/uploads/original/1333096600_Icon170.png', 'Race of Champions', 'Invictus Games');
 INSERT INTO `ic_meta` VALUES ('13', 'Contact', 'Contact', 'invictus games, Contact', 'Contact', 'http://invictus.com/pages/contact', 'games', null, null, 'Invictus Games');
 INSERT INTO `ic_meta` VALUES ('14', 'Jobs', 'Jobs', 'invictus games, Jobs', 'Jobs', 'http://invictus.com/pages/jobs', 'games', null, null, 'Invictus Games');
 INSERT INTO `ic_meta` VALUES ('15', 'All Games', 'All Games', 'invictus games, All Games', 'All Games', 'http://invictus.com/pages/games', 'games', '', '', 'Invictus Games');
@@ -692,7 +695,7 @@ CREATE TABLE `ic_settings` (
 -- ----------------------------
 -- Records of ic_settings
 -- ----------------------------
-INSERT INTO `ic_settings` VALUES ('1', null, '1222335526617', 'invictus.com', 'invictusgames', 'UTA111-11-111');
+INSERT INTO `ic_settings` VALUES ('1', '1333097304_twitter_logo_top_bar.png', '298005276910571', 'invictusgames', 'invictusgames', 'UTA111-11-111');
 
 -- ----------------------------
 -- Table structure for `ic_user`

@@ -52,6 +52,11 @@ class Job extends MY_Controller
         if ($this->form_validation->run()) {
           
           //dump($_POST); die;
+
+            $this->load->library('Sanitizer', 'sanitizer');
+            
+            $_POST['url'] = $this->sanitizer->sanitize_title_with_dashes($_POST['name']);        
+            
           
             $_POST['description'] = $_POST['description'];
             $_POST['created'] = date('Y-m-d H:i:s', time());

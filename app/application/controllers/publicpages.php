@@ -98,7 +98,7 @@ class Publicpages extends Page_Controller
       
     } else {
       
-      $this->data['job'] = $this->model->find($this->uri->segment(3));
+      $this->data['job'] = $this->model->findBy('url', $this->uri->segment(3));
     }
   
     $this->template->build('invictus/jobs', $this->data);

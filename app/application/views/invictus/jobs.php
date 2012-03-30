@@ -91,7 +91,7 @@
           <?php foreach ($jobs as $item): ?>
             <li class="nav-header"><?php echo $item['category']->name ?></li>
             <?php foreach ($item['jobs'] as $job): ?>
-              <li><a href="<?php echo base_url() ?>pages/jobs/<?php echo $job->id ?>" style="font-size:1.2em">
+              <li><a href="<?php echo base_url() ?>pages/jobs/<?php echo $job->url ?>" style="font-size:1.2em">
                 <img src="<?php echo base_url() ?>uploads/original/<?php echo $item['category']->icon ?>" style="width:16px;margin-right:5px; margin-top:0px;"></i>
                 <?php echo $job->name ?>
               </a></li>
