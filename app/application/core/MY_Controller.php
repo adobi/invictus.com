@@ -17,6 +17,9 @@ class MY_Controller extends CI_Controller
             redirect(base_url() . 'auth/login');
             
         }
+        
+        $this->load->model('Games', 'games');
+        $this->template->set('games_for_select', $this->games->toAssocArray('id', 'name', $this->games->fetchAll()));
     }
     
     protected function paginate($url, $uriSegment, $total, $perPage = ITEMS_PER_PAGE) 

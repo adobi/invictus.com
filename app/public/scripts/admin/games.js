@@ -39,19 +39,21 @@
   Games.loadFromHash = function ()
   {
     //console.log(window.location.hash.slice(1))
-    
-    if (window.location.hash.slice(1).length) {
-      
+    var hash =  window.location.hash.slice(1)
+
+    if (hash.length) {
+      $('#load-into-right').remove()
       $('body').append(
         $('<a />', 
           {
             id: 'load-into-right', 
             'class': 'hide', 
-            href: App.URL + 'game/' + window.location.hash.slice(1),
+            href: App.URL + 'game/' +hash,
             'data-ajax-link': 1
           }
         )
       )
+      console.log(App.URL + 'game/' +hash)
       $('#load-into-right').trigger('click')
     }
   }  
@@ -152,9 +154,11 @@
       Games.loadFromHash()
     }
     
+    
+    
     App.Games = Games
   })
-  if (App.Production) 
+  //if (App.Production) 
     $(window).hashchange( function(){
       Games.loadFromHash()
     })    

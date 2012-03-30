@@ -275,12 +275,52 @@
     $('.right-side-scroll').css('height', $('.sidebar-navigation-wrapper-right .well').height() - 160)
   }
   
+  App.FilterGlobalGames = function() 
+  {
+    
+    $('body').on('change', '#filter-games-select', function(e) {
+      
+      var self = $(this),
+          val = self.val()
+      
+      if ($('#list-of-all-games').length){
+        // game oldalon vagyunk
+        var cont = $('#list-of-all-games')
+        cont.find('li').hide()
+        
+        cont.find('[data-id='+val+']').parents('li:first').show()
+        
+        window.location.hash = 'edit/'+val
+        
+      } else {
+        // barhol mashol vagyunk
+        window.location = App.URL + "game/#edit/"+val
+      }
+      
+      e.preventDefault()
+    })
+  };
+  
 	$(function() 
 	{
-    
+    var hash =  window.location.hash.slice(1),
+        id = hash.split('/')[1]
+
+    if (id) {
+      
+      $('#filter-games-select').val(id)
+      setTimeout(function() {
+        $('#filter-games-select').trigger('change')
+      }, 300)
+      
+    }
+    	  
+	  
+    App.FilterGlobalGames()
+	  
     App.AutoHeight()
 	  
-	  App.SwitchItem();
+	  App.SwitchItem()
 	  
 	  App.DeleteItem()
 	  
@@ -289,7 +329,7 @@
     App.Tooltip()
     App.Datepicker()
     
-    App.TriggerDatepicker();
+    App.TriggerDatepicker()
     
     $('body').delegate('[data-unselect]', 'click', App.unselect)   
     

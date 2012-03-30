@@ -18,7 +18,7 @@
           <?php endif ?>
         </ul>
       </div>       
-      <ul class="thumbnails games-list">
+      <ul class="thumbnails games-list" id="list-of-all-games">
         <?php foreach ($items as $item): ?>
           <li class="span4" data-platforms='<?php echo json_encode($item->platforms) ?>'>
             <div class="item thumbnail <?php echo $item->is_active ? 'alert-success' : '' ?>" data-id="<?php echo $item->id ?>">

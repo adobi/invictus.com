@@ -47,7 +47,6 @@
     <body>    
         	
         <?php if ($this->session->userdata('logged_in')): ?>
-
             <div class="navbar navbar-fixed-top">
               <div class="navbar-inner" style="height:60px">
                 <div class="container-fluid">
@@ -66,15 +65,7 @@
                     <div class="pull-right">
                         <form action="" class="navbar-search pull-left" style="margin:15px 10px 0 0;">
                           <!-- <input type="text" placeholder="Search" class="search-query span3"> -->
-                          <select name="" id="" class="chosen span4">
-                            <option>Name of the game</option>
-                            <option>Name of the game</option>
-                            <option>Name of the game</option>
-                            <option>Name of the game</option>
-                            <option>Name of the game</option>
-                            <option>Name of the game</option>
-                            <option>Name of the game</option>
-                          </select>
+                          <?php echo form_dropdown('filter_games_select', $games_for_select, '', 'class="chosen span4"  data-placeholder="Select a game" id="filter-games-select"') ?>
                         </form>                        
                         <ul class="nav">
                             <li class="divider-vertical"></li>
