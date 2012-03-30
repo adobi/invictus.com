@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-03-30 11:01:17
+Date: 2012-03-30 12:24:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -257,17 +257,26 @@ CREATE TABLE `ic_contact_message` (
   `subject` varchar(250) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
   `message` text,
+  `created` datetime DEFAULT NULL,
+  `is_read` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_contact_message_contact_type` (`email_id`),
   CONSTRAINT `fk_contact_message_contact_type` FOREIGN KEY (`email_id`) REFERENCES `ic_contact_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_contact_message
 -- ----------------------------
-INSERT INTO `ic_contact_message` VALUES ('1', '3', 'a', 'hello@adobi.hu', 'aaaa');
-INSERT INTO `ic_contact_message` VALUES ('2', '3', 'a', 'hello@adobi.hu', 'aaaa');
-INSERT INTO `ic_contact_message` VALUES ('3', '2', 'a', 'hello@adobi.hu', 'a');
+INSERT INTO `ic_contact_message` VALUES ('1', '3', 'Built as a sprite', 'hello@adobi.hu', 'Instead of making every icon an extra request, we\'ve compiled them into a sprite—a bunch of images in one file that uses CSS to position the images with background-position. This is the same method we use on Twitter.com and it has worked well for us.', '2012-03-30 12:02:55', '1');
+INSERT INTO `ic_contact_message` VALUES ('2', '3', 'How to use', 'hello@adobi.hu', 'All icons classes are prefixed with .icon- for proper namespacing and scoping, much like our other components. This will help avoid conflicts with other tools.\r\n\r\nGlyphicons has granted us use of the Halflings set in our open-source toolkit so long as we provide a link and credit here in the docs. Please consider doing the same in your projects.', '2012-03-14 12:02:59', '1');
+INSERT INTO `ic_contact_message` VALUES ('3', '2', 'Use cases', 'hello@adobi.hu', 'Icons are great, but where would one use them? Here are a few ideas:\r\n\r\n    As visuals for your sidebar navigation\r\n    For a purely icon-driven navigation\r\n    For buttons to help convey the meaning of an action\r\n    With links to share context on a user\'s destination\r\n', '2012-03-17 12:03:04', '1');
+INSERT INTO `ic_contact_message` VALUES ('4', '3', 'Built as a sprite', 'hello@adobi.hu', 'Icons are great, but where would one use them? Here are a few ideas:\r\n\r\n    As visuals for your sidebar navigation\r\n    For a purely icon-driven navigation\r\n    For buttons to help convey the meaning of an action\r\n    With links to share context on a user\'s destination\r\n', '2012-03-17 12:03:04', '1');
+INSERT INTO `ic_contact_message` VALUES ('5', '3', 'Built as a sprite', 'hello@adobi.hu', 'Icons are great, but where would one use them? Here are a few ideas:\r\n\r\n    As visuals for your sidebar navigation\r\n    For a purely icon-driven navigation\r\n    For buttons to help convey the meaning of an action\r\n    With links to share context on a user\'s destination\r\n', '2012-03-17 12:03:04', '1');
+INSERT INTO `ic_contact_message` VALUES ('6', '3', 'Built as a sprite', 'hello@adobi.hu', 'Icons are great, but where would one use them? Here are a few ideas:\r\n\r\n    As visuals for your sidebar navigation\r\n    For a purely icon-driven navigation\r\n    For buttons to help convey the meaning of an action\r\n    With links to share context on a user\'s destination\r\n', '2012-03-17 12:03:04', '1');
+INSERT INTO `ic_contact_message` VALUES ('7', '3', 'Built as a sprite', 'hello@adobi.hu', 'Icons are great, but where would one use them? Here are a few ideas:\r\n\r\n    As visuals for your sidebar navigation\r\n    For a purely icon-driven navigation\r\n    For buttons to help convey the meaning of an action\r\n    With links to share context on a user\'s destination\r\n', '2012-03-17 12:03:04', '1');
+INSERT INTO `ic_contact_message` VALUES ('8', '3', 'Built as a sprite', 'hello@adobi.hu', 'Icons are great, but where would one use them? Here are a few ideas:\r\n\r\n    As visuals for your sidebar navigation\r\n    For a purely icon-driven navigation\r\n    For buttons to help convey the meaning of an action\r\n    With links to share context on a user\'s destination\r\n', '2012-03-17 12:03:04', '1');
+INSERT INTO `ic_contact_message` VALUES ('9', '3', 'Built as a sprite', 'hello@adobi.hu', 'Icons are great, but where would one use them? Here are a few ideas:\r\n\r\n    As visuals for your sidebar navigation\r\n    For a purely icon-driven navigation\r\n    For buttons to help convey the meaning of an action\r\n    With links to share context on a user\'s destination\r\n', '2012-03-17 12:03:04', '1');
+INSERT INTO `ic_contact_message` VALUES ('10', '3', 'Built as a sprite', 'hello@adobi.hu', 'Icons are great, but where would one use them? Here are a few ideas:\r\n\r\n    As visuals for your sidebar navigation\r\n    For a purely icon-driven navigation\r\n    For buttons to help convey the meaning of an action\r\n    With links to share context on a user\'s destination\r\n', '2012-03-17 12:03:04', '1');
 
 -- ----------------------------
 -- Table structure for `ic_contact_type`
@@ -428,6 +437,7 @@ CREATE TABLE `ic_job` (
   `apply_ga_label` varchar(250) DEFAULT NULL,
   `apply_ga_value` int(11) DEFAULT NULL,
   `apply_ga_noninteraction` int(11) DEFAULT NULL,
+  `is_first` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_job_job_category` (`category_id`),
   CONSTRAINT `fk_job_job_category` FOREIGN KEY (`category_id`) REFERENCES `ic_job_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -436,9 +446,9 @@ CREATE TABLE `ic_job` (
 -- ----------------------------
 -- Records of ic_job
 -- ----------------------------
-INSERT INTO `ic_job` VALUES ('16', 'Software Engineer - Front-End', 'software-engineer-front-end', 'Debrecen, Hungary', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-30 08:58:00', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `ic_job` VALUES ('17', 'Graphic Master for Game design', 'graphic-master-for-game-design', 'Debrecen, Hungary', '1', '18', 'witter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-30 08:58:12', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `ic_job` VALUES ('18', 'Software Engineer - Back-End', 'software-engineer-back-end', 'San Francisco, USA', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-30 08:58:16', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ic_job` VALUES ('16', 'Software Engineer - Front-End', 'software-engineer-front-end', 'Debrecen, Hungary', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-30 08:58:00', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ic_job` VALUES ('17', 'Graphic Master for Game design', 'graphic-master-for-game-design', 'Debrecen, Hungary', '1', '18', 'witter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-30 08:58:12', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ic_job` VALUES ('18', 'Software Engineer - Back-End', 'software-engineer-back-end', 'San Francisco, USA', '1', '17', 'Twitter has changed the way people communicate.  Now we have a substantial opportunity to change how marketers interact with our rapidly growing user base.  \r\n \r\nTwitter is creating a world-class team of media professionals, and seeking an experienced Account Manager to develop our business with advertisers and their agencies.  \r\n \r\nIf you’re an enthusiastic Twitter user with relevant account management experience, analytical skills, and a passion for learning, we invite you to talk to us about our advertising sales organization at Twitter, Inc.', null, '2012-03-30 08:58:16', '2012-03-31 00:00:00', null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `ic_job_application`
