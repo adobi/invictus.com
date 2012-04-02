@@ -37,6 +37,13 @@
 /* page specific mobile style */
 /* IPHOEN PORTRAIT */
 /* PHONE */
+
+@media (max-width: 320px) {
+  iframe {
+    height:auto;
+  }
+}
+
 @media (max-width: 480px) {
 
   .hidden-phone {
@@ -262,7 +269,7 @@
     .carousel {
       .item {
         img {
-          height:100%!important;
+          height:auto!important;
           max-height:510px!important;
         }
       }
@@ -363,13 +370,16 @@
     display:block!important;
     
   }
+  .navbar .brand {
+    margin-top:0;
+  }
 }
 
 @media (max-width: 1023px) {
     
   .details-pane, .teasers {
     height:auto;
-    width:100%;
+    width:99%;
   }
   
   .contact-form {
