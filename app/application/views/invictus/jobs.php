@@ -1,5 +1,5 @@
   <div class="row">
-    <div class="span8">
+    <div class="span8 job-details">
       <h1>We are <?php echo !$jobs ? 'not' : '' ?> hiring!</h1>
       <hr>
       <?php if ($job): ?>

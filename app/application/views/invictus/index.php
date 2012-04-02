@@ -1,7 +1,7 @@
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit header-carousel" style="">
         <div class="row">
-          <div class="span8" class="image-carousel" style="margin-bottom:10px;">
+          <div class="span8 image-carousel" style="margin-bottom:10px;">
             <div id="simple-carousel" class="carousel slide">
                 <!-- Carousel items -->
                 <div class="carousel-inner">

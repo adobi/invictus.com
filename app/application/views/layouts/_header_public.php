@@ -34,11 +34,13 @@
     <?php endif ?>  
     
     <!--[if IE]>
-      <link href="assets/css/ie.css" rel="stylesheet">
+      <link href="<?php echo base_url() ?>/css/invictus/ie.css" rel="stylesheet" type="text/css" >
     <![endif]-->
     <!--[if IE]>
-      <script src="https://getfirebug.com/firebug-lite-debug.js"></script>
-      <script src="assets/js/respond.min.js"></script>
+      <?php if (ENVIRONMENT === 'development'): ?>
+        <script type="text/javascript" src="https://getfirebug.com/releases/lite/1.3/firebug-lite.js"></script>
+      <?php endif ?>
+      <script src="https://raw.github.com/scottjehl/Respond/master/respond.min.js"></script>
     <![endif]-->
   </head>
 
@@ -97,7 +99,7 @@
                     <?php if ($item): ?>
                       <li>
                         <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>">
-                          <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" alt="" style="width:64px;">
+                          <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" alt="">
                           <span><?php echo $item->name ?></span>
                         </a>
                       </li>

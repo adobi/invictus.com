@@ -50,7 +50,10 @@ footer {
 }
 
 img {
-  max-width:100%;
+  max-width: 100%; // Make images inherently responsive
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
 }
 
 /****************** header icons  ******************/
@@ -174,10 +177,16 @@ img {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
       }
     }
-    a span {
-      font-size:18px;
-      position:relative;
-      top:-10px;
+    a {
+      span {
+        font-size:18px;
+        position:relative;
+        top:-10px;
+      }
+      img {
+        width:64px;
+        display:inline-block;
+      }
     }
   }
 
@@ -199,6 +208,7 @@ img {
       color:#fff!important;
     }
   }
+  
   
   
   .collapse.in {
@@ -397,7 +407,7 @@ img {
   
   .carousel-control-small {
     top: 40%;
-    left: 15px;
+    left: 10px;
     width: 30px;
     height: 30px;
     margin-top: -10px;
@@ -405,7 +415,9 @@ img {
     line-height: 25px;
     .border-radius(20px);
   }
-  
+  .carousel-control-small.right {
+    right:10px;
+  }
   
   .teasers {
     height: 510px;
@@ -460,8 +472,18 @@ img {
     padding:5px;    
   }
   
-  .crosspromo .thumbnails li {
-     width:135px; margin-bottom:0; margin-left:10px;
+  .crosspromo {
+    margin-bottom:20px;
+    h3 {
+      margin-bottom:-15px; padding:5px 20px;
+    }
+    .thumbnails {
+      margin-bottom:10px; 
+      margin-left:20px;
+      li {
+        width:135px; margin-bottom:0; margin-left:10px;
+      }
+    }
   }
   .offer {
     margin-left:-10px
@@ -473,7 +495,7 @@ img {
   
   .game-tab-pane {
      //background:#fff;
-     padding:5px;
+     //padding:5px;
      //border:1px solid #ddd;
      //border-top:0px;
      float:left;
@@ -507,11 +529,11 @@ img {
       margin:0 20px 60px 0;
     }
     .thumbnail:hover {
-      .border-radius(32px);
+      .border-radius(24px);
     }
   }
   .selected-game {
-    .border-radius(32px);
+    .border-radius(24px);
     .selected-item();
     .game {
       .opacity(100);
@@ -532,7 +554,7 @@ img {
   }
   
   .game:hover {
-    .border-radius(32px);
+    .border-radius(24px);
     .opacity(100);
   }
   
@@ -558,6 +580,12 @@ img {
   .details-pane-logo-big {
     text-align:center;
   }
+  
+  .tab-content {
+    display:block;
+  }
+  
+  
 /******************* /page units *******************/
 
 .fb-comments, .fb-activity, .fb-like-box, .fb-comments iframe[style], .fb-activity iframe[style], .fb-like-box iframe[style] {

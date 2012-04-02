@@ -119,10 +119,10 @@
            
       <?php if (!$game->crosspromo_is_empty): ?>
         
-        <div class="span8 crosspromo" style="margin-bottom:20px;">
-          <h3 style="margin-bottom:-15px; padding:5px 20px;">Other games</h3>
+        <div class="span8 crosspromo">
+          <h3>Other games</h3>
           <hr>
-          <ul class="thumbnails" style="margin-bottom:10px; margin-left:20px;">
+          <ul class="thumbnails">
             <?php if ($game->crosspromo): ?>
               <?php foreach ($game->crosspromo as $item): ?>
                 <?php if ($item): ?>

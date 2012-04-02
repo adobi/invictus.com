@@ -20,13 +20,13 @@
           <div class="control-group">
             <label for="subject" class="control-label">Subject</label>
             <div class="controls">
-              <input type="text" name="subject" id="subject" class="input-xlarge">
+              <input type="text" name="subject" id="subject" class="span4">
             </div>
           </div>
           <div class="control-group">
             <label for="email" class="control-label">Email address</label>
             <div class="controls">
-              <input type="text" name="email" id="email" class="input-xlarge">
+              <input type="text" name="email" id="email" class="span4">
             </div>
           </div>
           <div class="control-group">

@@ -50,7 +50,7 @@
     	            "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap.js",
                   
                   "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.easing.1.3.min.js",
-                  "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.elastislide.min.js",
+                  "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.elastislide.js",
                   //"<?php echo base_url() ?>scripts/admin/games.js",
                   "<?php echo base_url() ?>scripts/invictus/invictus.js",
                   

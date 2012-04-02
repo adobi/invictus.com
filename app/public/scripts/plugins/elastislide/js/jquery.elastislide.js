@@ -197,8 +197,8 @@
 		},
 		_addControls		: function() {
 			
-			this.$navNext	= $('<a class="carousel-control carousel-control-small left es-nav-next" href="#" >&lsaquo;</a>');
-			this.$navPrev	= $('<a class="carousel-control carousel-control-small right es-nav-prev" href="#">&rsaquo;</a>');
+			this.$navNext	= $('<a class="carousel-control carousel-control-small left es-nav-next hidden-phone" href="#" >&lsaquo;</a>');
+			this.$navPrev	= $('<a class="carousel-control carousel-control-small right es-nav-prev hidden-phone" href="#">&rsaquo;</a>');
 			$('<div class="es-nav"/>')
 			.append( this.$navPrev )
 			.append( this.$navNext )

@@ -1,9 +1,4 @@
 
-@media (min-width: 480px) and (max-width: 768px) {
-
-
-}
-
 
 @media (min-width: 768px) and (max-width: 980px) {
 
@@ -41,22 +36,34 @@
 
 /* page specific mobile style */
 /* IPHOEN PORTRAIT */
-@media (max-width:320px) {
+/* PHONE */
+@media (max-width: 480px) {
 
-  
+  .hidden-phone {
+    display:none!important;
+  }
+
   .image-carousel {
     text-align:center;
   }
   
   .teasers {
-    width:280px!important;
+    width:100%!important;
+    text-align:center;
+  
+    .teaser {
+      width:100%;
+      a {
+        img {
+          width:280px!important;
+        }
+      }
+    }
+  }
+  
+  footer {
     text-align:center;
   }
-  
-  .teaser {
-    width:100%;
-  }
-  
   
   .all-games-title, .game-title {
     font-size:18px!important;
@@ -65,10 +72,6 @@
   .fb-comments, .fb-activity, .fb-like-box, .fb-comments iframe[style], .fb-activity iframe[style], iframe .fbConnectWidgetTopmost[style], .fb-like-box iframe[style]  {
     width: 100% !important;
   }
-  
-}
-/* IPHONE LANDSCAPE  */
-@media (max-width: 480px) {
 
   .newsletter button {
     display:block;
@@ -90,30 +93,91 @@
     margin-left:0px;
   }
   
-  .all-games-dropdown-menu a span {
-    font-size:12px;
+  .all-games-dropdown-menu {
+    margin-left:0px!important;
+    a {
+      line-height:36px!important;
+      span {
+        font-size:12px;
+      }
+      img {
+        display:none;
+      }
+    }
   }
-  .all-games [class*="span"], .game-available-in [class*="span"] {
+  .all-games [class*="span"]{
     width:120px;
-  }  
+  } 
+  
+  .details-pane{
+    width:auto!important;
+  } 
+  
+  .emails {
+    a.btn {
+      float:none;
+      .border-radius(5px);
+      margin-bottom:5px;
+      display:block!important;
+    }
+  }
+  
+  .all-games {
+    margin-left:-10px!important;
+    li {
+      margin:0 5px 10px 0!important;
+    }
+  }
+  
+  .game-available-in [class*="span"] {
+    //width:100%!important;
+  }
+  .crosspromo {
+    width:100%!important;
+    .thumbnails {
+      margin-left:0px;
+    }
+  }
   
 }
 
-@media (min-width: 768px) and (max-width: 980px)  {
-  .teasers {
-    text-align:center;
-  }
-  
-  .teaser {
-    margin:0px;
+
+@media (max-width: 640px) {
+  .image-carousel {
     height:auto;
   }
+  
+  .newsletter .input-large {
+    width:90%;
+  }
+  
+}
+
+@media (min-width: 768px) and (max-width: 979px)  {
+  .teasers {
+    text-align:center;
+    width:235px;
+    .teaser {
+      margin:0px;
+      height:auto;
+    }
+  }
+  
+  .social [class*="span"] {
+    width:100%;
+  }
+  
+  .social .offer {
+    margin-left:20px;
+  }
+
   .details-pane, .teasers {
     height:auto!important;
+    //width:100%;
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 960px) {
   
   .navbar-fixed-top {
     //position: fixed;
@@ -122,6 +186,14 @@
   .all-games-dropdown-menu img {
     width:24px; height:24px;
   }
+
+  .all-games-dropdown-menu {
+    a {
+      img {
+        height:64px;
+      }
+    }
+  }  
   
   #container {
     margin-top:30px!important;
@@ -170,22 +242,41 @@
   .game-tab-pane {
     width:100%;
   }
-
+  
+  .image-carousel {
+    width:100%!important;
+  }
   
   .details-pane, .teasers {
     height:auto!important;
+    //width:235px;
+    width:100%!important;
+  }
+  
+  .game-logo {
+    width:100%;
+    .carousel {
+      .item {
+        img {
+          height:100%!important;
+          max-height:510px!important;
+        }
+      }
+    }
+    iframe {
+      width:100%!important;
+      max-height:510px!important;
+    }
   }
   
   .all-games-title, .game-title {
     font-size:24px;
   }
   
-  
   .es-carousel-wrapper {
-    width:70%;
+    width:90%;
     padding:10px;
   }
-  
   .carousel-control-small {
     width:20px;
     height:20px;
@@ -210,6 +301,9 @@
   footer {
     height:auto;
     background:rgba(0,0,0,.8);
+    .row {
+      padding:0 5px;
+    }
   }
   
   .navbar .nav > li > a:hover, .navbar .dropdown-menu a:hover {
@@ -244,6 +338,23 @@
   .all-games li {
     margin:10px;
   }
+  
+  .job-details {
+    width:auto;
+  }
+  
+  .all-games-wrapper {
+    width:auto;
+  }
+}
+
+@media (max-width: 1024px) {
+    
+  .details-pane, .teasers {
+    width:290px;
+    height:auto;
+  }
+  
 }
 
 @media (min-width: 1024px) and (max-width: 1200px)  {
@@ -253,7 +364,7 @@
   }
   
   .teasers {
-    width:295px!important;
+    width:295px;
   }
   
   .header-carousel {
@@ -267,19 +378,16 @@
   
   .social-feed {
     display:block;
-    //width:100%;
   }
   
   .social [class*="span"] {
-    //width:100%;
     padding-top:0px;
   }
   
   .details-pane {
-    width:288px;
+    width:290px;
     height:auto;
   }
-  
   .game-available-in li {
     width:130px!important;
   }
