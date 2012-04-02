@@ -1,5 +1,5 @@
   <div class="row">
-    <div class="span8">
+    <div class="span8 contact-form">
       <h1 style="margin-bottom:20px;">Contact us</h1>
       <hr>
 

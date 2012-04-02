@@ -110,7 +110,7 @@
   } 
   
   .details-pane{
-    width:auto!important;
+    width:100%!important;
   } 
   
   .emails {
@@ -132,13 +132,7 @@
   .game-available-in [class*="span"] {
     //width:100%!important;
   }
-  .crosspromo {
-    width:100%!important;
-    .thumbnails {
-      margin-left:0px;
-    }
-  }
-  
+ 
 }
 
 
@@ -153,7 +147,7 @@
   
 }
 
-@media (min-width: 768px) and (max-width: 979px)  {
+@media (min-width: 768px) and (max-width: 959px)  {
   .teasers {
     text-align:center;
     width:235px;
@@ -173,8 +167,14 @@
 
   .details-pane, .teasers {
     height:auto!important;
-    //width:100%;
+    width:100%!important;
   }
+  .crosspromo {
+    width:100%!important;
+    .thumbnails {
+      margin-left:0px;
+    }
+  }  
 }
 
 @media (max-width: 960px) {
@@ -250,7 +250,8 @@
   .details-pane, .teasers {
     height:auto!important;
     //width:235px;
-    width:100%!important;
+    //width:100%!important;
+    width:99%!important;
   }
   
   .game-logo {
@@ -304,6 +305,9 @@
     .row {
       padding:0 5px;
     }
+    [class*="span"] {
+      width:100%;
+    }
   }
   
   .navbar .nav > li > a:hover, .navbar .dropdown-menu a:hover {
@@ -339,25 +343,39 @@
     margin:10px;
   }
   
-  .job-details {
-    width:auto;
-  }
-  
   .all-games-wrapper {
     width:auto;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     
   .details-pane, .teasers {
-    width:290px;
     height:auto;
+    width:100%;
   }
   
+  .contact-form {
+    width:100%!important;
+  }
+  
+  .job-details {
+    width:100%;
+  }
+  
+  .image-carousel {
+    width:100%;
+  }
+  
+
 }
 
 @media (min-width: 1024px) and (max-width: 1200px)  {
+
+    .subscribe, .offer {
+      //width:90%!important;
+    }
+
   
   .newsletter button {
     margin-top:10px;
@@ -397,5 +415,7 @@
     padding:10px;
   }  
   
-  .offer {margin-left:20px;}
+  //.offer {margin-left:20px;}
+  
+  
 }

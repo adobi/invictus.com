@@ -59,7 +59,7 @@
             </div>
             
             <div class="row newsletter" style="margin-top:20px;">
-              <div class="span4" style="margin:auto 10px;">
+              <div class="span4 subscribe" style="margin:auto 10px;">
                 <h2 style="margin-bottom:10px;">Newsletter</h2>
                 <?php echo form_open(base_url()."pages/subscribe", array('id'=>'subscribe-form', 'class'=>'form-search')) ?>
                   <input name="email" type="text" class="input-large search-query" style="font-size:1.4em; height:36px" placeholder="example@domain.com">
