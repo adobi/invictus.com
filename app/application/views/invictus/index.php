@@ -12,7 +12,7 @@
                             <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->hero_image ?>" alt="">
                             <div class="carousel-caption">
                               <h4><?php echo $item->name ?></h4>
-                              <p><?php echo $item->short_description ?> <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class="btn">View detailes <i class="icon-arrow-right"></i></a></p>
+                              <p><?php echo $item->short_description ?> <a  <?php echo event_tracking($item->analytics['hero']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class="btn">View detailes <i class="icon-arrow-right"></i></a></p>
                             </div>        
                         </div> 
                       <?php endif ?>
@@ -29,7 +29,7 @@
               <?php foreach ($carousel as $i=>$item): ?>
                 <?php if ($item): ?>
                   <div class="teaser <?php echo $i === 0 ? 'hide' : '' ?>" data-item="<?php echo $item->id ?>">
-                    <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>">
+                    <a <?php echo event_tracking($item->analytics['teaser']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>">
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>" alt="">
                     </a>
                   </div>

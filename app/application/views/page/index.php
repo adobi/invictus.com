@@ -13,10 +13,10 @@
             <h4>
               <?php echo $item->name ?>
               <p class="pull-right" style="margin-top:5px;">
-                <a href="<?php echo base_url() ?>page/analytics/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>
+                <!-- <a href="<?php echo base_url() ?>page/analytics/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a> -->
                 <a href="<?php echo base_url() ?>page/seo/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="SEO settings"><i class="icon-search"></i></a>
                 <a href="<?php echo base_url() ?>page/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit page"><i class="icon-pencil"></i></a>
-                <a href="<?php echo base_url() ?>page/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete page" data-modal-header="Page <?php echo $item->name ?>"><i class="icon-trash"></i></a>
+                <!-- <a href="<?php echo base_url() ?>page/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete page" data-modal-header="Page <?php echo $item->name ?>"><i class="icon-trash"></i></a> -->
               </p>
             </h4> 
             <h6><?php echo $item->title ?></h6>

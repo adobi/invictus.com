@@ -11,7 +11,17 @@ class Gameplatforms extends MY_Model
     {
       if (!$gameId) return false;
       
-      return $this->fetchRows(array('join'=>array(array('table'=>'c_platform', 'condition'=>'c_platform.id = c_game_platform.platform_id', 'columns'=>array('name', 'image'))), 'where'=>array('game_id'=>$gameId)));
+      $result = $this->fetchRows(array('join'=>array(array('table'=>'c_platform', 'condition'=>'c_platform.id = c_game_platform.platform_id', 'columns'=>array('name', 'image'))), 'where'=>array('game_id'=>$gameId)));
+      
+      if ($result) {
+        $this->load->model('Gameplatformanalytics', 'gpa');
+        
+        foreach ($result as $item) {
+          $item->analytics = $this->gpa->fetchForGamePlatform($item->id);
+        }
+      }
+      //dump($result); die;
+      return $result;
     }
     
     public function fetchIdsForGame($gameId)
@@ -33,6 +43,7 @@ class Gameplatforms extends MY_Model
       return $this->delete(array('game_id'=>$gameId));
     }
     
+    // not used
     public function insertPlatformsForGame($gameId, $platforms) 
     {
       if (!$gameId || !$platforms) return false;
@@ -58,5 +69,62 @@ class Gameplatforms extends MY_Model
       
       return true;
     }
+    
+    public function setupAnalytics($id)
+    {
+      if (!$id) return false;
+      
+      $item = $this->find($id);
+      
+      if (!$item) return false;
+      
+      $locations = array('all_games', 'product_page');
+      
+      $this->load->model('Games', 'games');
+      $this->load->model('Platforms', 'platforms');
+      
+      $game = $this->games->find($item->game_id);
+      $platform = $this->platforms->find($item->platform_id);
+      
+      if (!$game || !$platform) return false;
+      
+      $this->load->model('Gameplatformanalytics', 'analytics');
+      
+      $data = array();
+      $data['game_platform_id'] = $id;
+      $data['ga_value'] = 1;
+      $data['ga_action'] = 'Click';
+      $data['ga_category'] = 'Outbound link';
+      
+      $data['ga_label'] = 'All product - ' . $platform->name . ' - button - ' . time();
+      $data['location'] = $locations[0];
+      $this->analytics->insert($data);
+      
+      $data['ga_label'] = $game->name . ' - ' . $platform->name . ' - button - ' . time();
+      $data['location'] = $locations[1];
+      $this->analytics->insert($data);
+      
+      return true;
+    }
+    
+    public function updateAnalytics($platform) 
+    {
+      if (!$platform) return false;
+      
+      $this->load->model('Gameplatformanalytics', 'analytics');
+      
+      $gamePlatforms = $this->fetchBy('platform_id', $platform);
+      
+      if (!$gamePlatforms) return false;
+      
+      foreach ($gamePlatforms as $gp) {
+        $this->analytics->delete(array('game_platform_id'=>$gp->id));
+        
+        $this->setupAnalytics($gp->id);
+      }
+      
+      return true;
+    }
 }
 
+  

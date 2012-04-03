@@ -32,13 +32,16 @@
   {
     $('#loading-global')
        .ajaxStart(function() {
-            
+          
     		$(this).show();
        })
        .ajaxStop(function() {
     		var self = $(this);
             //self.html('Done!');
             self.html(App.Message)
+            
+            self
+              .css('left', ($(window).width() - self.width()) / 2)
             
             var interval = (App.Message === undefined || App.Message === 'Working...' ? 100 : 6000 )
             //console.log(interval)

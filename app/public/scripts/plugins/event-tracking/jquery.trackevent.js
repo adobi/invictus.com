@@ -52,7 +52,7 @@
                 value = parseInt(self.data('ga-value'),10),
                 nonInteraction = self.data('ga-noninteraction');
             
-            console.log(category, action, label, value, nonInteraction);
+            //console.log(category, action, label, value, nonInteraction);
             
             if (category && action && label && value) {
                 var params = ['_trackEvent', category, action, label, value];
@@ -94,10 +94,7 @@
             analytics: []
         });*/
         
-        $.trackevent({
-            analytics:[]
-        });
-        
+        $.trackevent({});
     })
 
 })( jQuery, window, document );

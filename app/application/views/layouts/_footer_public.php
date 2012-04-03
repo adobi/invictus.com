@@ -10,7 +10,7 @@
                   <?php foreach ($footer_games as $item): ?>
                     <?php if ($item): ?>
                       <li>
-                        <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>"><?php echo $item->name ?></a>
+                        <a <?php echo event_tracking($item->analytics['footer']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>"><?php echo $item->name ?></a>
                       </li>
                     <?php endif ?>
                   <?php endforeach ?>
@@ -51,7 +51,7 @@
                   
                   "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.easing.1.3.min.js",
                   "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.elastislide.js",
-                  //"<?php echo base_url() ?>scripts/admin/games.js",
+                  "<?php echo base_url() ?>scripts/plugins/event-tracking/jquery.trackevent.js",
                   "<?php echo base_url() ?>scripts/invictus/invictus.js",
                   
                   function() {

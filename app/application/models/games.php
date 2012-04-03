@@ -78,8 +78,15 @@ class Games extends MY_Model
       
       $d = array();
       $max = ($section === 'on_mainpage' ? 4 : 5);
+      
+      $this->load->model('Analytics', 'analytics');
+      
       for ( $i=0; $i < $max; $i++ ) {
         $d[$i] = $this->_getByOrder($result, "order_$section", $i);   
+
+        if ($d[$i]) {
+          $d[$i]->analytics = $this->analytics->fetchByGame($d[$i]->id);
+        }
       }
       
       return $d;
@@ -108,8 +115,12 @@ class Games extends MY_Model
         $this->load->model('Crosspromos', 'promo');
         $result->crosspromo = $this->promo->fetchByGame($result->id);
         $result->crosspromo_is_empty = $this->promo->orderedArrayIsEmpty($result->crosspromo);
+        
       }
       
+      $this->load->model('Analytics', 'analytics');
+      $result->analytics = $this->analytics->fetchByGame($result->id);
+      //dump($result);
       return $result;      
     }
     
@@ -127,6 +138,80 @@ class Games extends MY_Model
     public function fetchWithCrosspromo()
     {
       return $this->execute("select g.*, (select count(id) from ic_crosspromo where base_game_id = g.id ) as count from $this->_name g where g.is_active=1");
+    }
+    
+    public function setupAnalytics($id) 
+    {
+      if (!$id) return false;
+      /*      
+        főoldalról hero a product page-re	home	játék neve	hero	fájl_név	timestamp	Banner	Click																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								
+        főoldalról teaser a product page-re	home	játék neve	teaser	fájl_név	timestamp	Banner	Click																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								
+        főoldalról footer a product page-re	home	játék neve	footer	fájl_név	timestamp	Link	Click																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								
+        all product-ról a product page-re	all_product	játék neve	button		timestamp	Inbound link	Click	
+        more games menüből a product page-re	more_games	játék neve	icon	fájl_név	timestamp	Banner	Click																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								
+      */      
+      
+      $game = $this->find($id);
+      
+      if (!$game) return false;
+      
+      $this->load->model('Analytics', 'analytics');
+      
+      $this->analytics->delete(array('game_id'=>$id));
+      
+      $data = array();
+      
+      $hero = array(
+        'game_id'=>$game->id,
+        'type'=>'hero',
+        'ga_category'=>'Banner',
+        'ga_action'=>'Click',
+        'ga_value'=>1,
+        'ga_label'=>'Home - '.$game->name.' - Hero - '.strip_ext($game->hero_image),
+      );
+      
+      $teaser = array(
+        'game_id'=>$game->id,
+        'type'=>'teaser',
+        'ga_category'=>'Banner',
+        'ga_action'=>'Click',
+        'ga_value'=>1,
+        'ga_label'=>'Home - '.$game->name.' - Teaser - '.strip_ext($game->teaser_image),
+      );
+      
+      $footer = array(
+        'game_id'=>$game->id,
+        'type'=>'footer',
+        'ga_category'=>'Link',
+        'ga_action'=>'Click',
+        'ga_value'=>1,
+        'ga_label'=>'Footer - ' . $game->name . ' - Footer - '.time(),
+      );
+      
+      $moreGames = array(
+        'game_id'=>$game->id,
+        'type'=>'more_games',
+        'ga_category'=>'Banner',
+        'ga_action'=>'Click',
+        'ga_value'=>1,
+        'ga_label'=>'More games - '.$game->name.' - Icon - '.strip_ext($game->logo),
+      );
+      
+      $allGames = array(
+        'game_id'=>$game->id,
+        'type'=>'all_games',
+        'ga_category'=>'Inbound link',
+        'ga_action'=>'Click',
+        'ga_value'=>1,
+        'ga_label'=>'All products - '.$game->name.' - Button - '.time(),
+      );
+      $data[] = $hero;
+      $data[] = $teaser;
+      $data[] = $footer;
+      $data[] = $moreGames;
+      $data[] = $allGames;
+      
+      $this->analytics->bulk_insert($data);
     }
     
     private function _getByOrder($items, $column, $order) 

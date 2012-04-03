@@ -25,7 +25,26 @@ class Crosspromos extends MY_Model
       //dump($d); die;
       return $d;
     }
+    
+    public function setupAnalytics($srcGameId, $destGameId, &$return)
+    {
+      /*
+        product page cross promo a másik product page-re	játék_neve	játék neve	cross_promo	fájl_név	timestamp	Outbound link	Click																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								
 
+      */
+      
+      $this->load->model('Games', 'games');
+      $src = $this->games->find($srcGameId);
+      $dest = $this->games->find($destGameId);
+      
+      $return['ga_category'] = 'Inbound link';
+      $return['ga_label'] = $src->name.' - '.$dest->name.' - Crosspromo - '.strip_ext($src->logo);
+      $return['ga_action'] = 'Click';
+      $return['ga_value'] = 1;      
+      
+      return $return;
+    }
+    
     private function _getByOrder($items, $column, $order) 
     {
       foreach( $items as $item ) {

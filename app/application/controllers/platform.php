@@ -48,10 +48,17 @@ class Platform extends MY_Controller
             }
                     
             if ($id) {
-                $this->model->update($_POST, $id);
+                
+              $this->model->update($_POST, $id);
+              
+              $this->load->model('Gameplatforms', 'gp');
+              
+              $this->gp->updateAnalytics($id);  
+                
             } else {
                 $this->model->insert($_POST);
             }
+            
             $response = display_success('Saved');
         } else {
 

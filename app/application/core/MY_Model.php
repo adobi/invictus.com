@@ -461,7 +461,7 @@ class My_Model extends CI_Model
 	
 	public function findBy($columns, $value)
 	{
-	    $result = $this->fetchRows(array('where'=>array($columns=>$value)));
+	    $result = $this->fetchBy($columns, $value);
 	    
 	    return $result ? $result[0] : false;
 	}
@@ -478,8 +478,8 @@ class My_Model extends CI_Model
 	  if (!is_array($data)) return false;
 	  
 	  foreach ($data as $d) {
-	    
-	    $this->insert($d);
+	    if ($d)
+	      $this->insert($d);
 	  }
 	  
 	  return true;

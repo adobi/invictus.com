@@ -126,7 +126,7 @@
             <?php if ($game->crosspromo): ?>
               <?php foreach ($game->crosspromo as $item): ?>
                 <?php if ($item): ?>
-                  <li class="span2"><a href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class="thumbnail"><img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>"></a></li>
+                  <li class="span2"><a <?php echo event_tracking($item) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class="thumbnail"><img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>"></a></li>
                 <?php endif ?>
               <?php endforeach ?>
             <?php endif ?>
@@ -156,7 +156,7 @@
           <?php if ($game->platforms): ?>
             <?php foreach ($game->platforms as $item): ?>
               <li class="span2">
-                <a class="thumbnail" href="<?php echo $item->url ?>" target = "_blank" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block">
+                <a <?php echo event_tracking($item->analytics['product_page']) ?> class="thumbnail" href="<?php echo $item->url ?>" target = "_blank" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block">
                   <img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->image ?>">
                 </a>
               </li>           

@@ -28,7 +28,7 @@
             <h6><?php echo $p->name ?></h6>
             <a href="<?php echo $p->url ?>" target="_blank"><img src="<?php echo base_url() ?>uploads/original/<?php echo $p->image ?>" alt=""></a>
             <div class="pull-right">
-              <a class="btn" href="<?php echo base_url() ?>gameplatform/analytics/<?php echo $p->id ?>" rel="tooltip" title="Analytics settings" data-ajax-link><i class="icon-signal"></i></a>
+              <!--  <a class="btn" href="<?php echo base_url() ?>gameplatform/analytics/<?php echo $p->id ?>" rel="tooltip" title="Analytics settings" data-ajax-link><i class="icon-signal"></i></a>-->
               <a class="btn" href="<?php echo base_url() ?>gameplatform/edit/<?php echo $p->id ?>" rel="tooltip" title="Edit" data-ajax-link><i class="icon-pencil"></i></a>
               <a class="btn delete-item" href="<?php echo base_url() ?>gameplatform/delete/<?php echo $p->id ?>" data-reload="right"  rel="tooltip" title="Delete" data-modal-header="<?php echo $p->name ?> platforms from <?php echo $item->name ?>"><i class="icon-trash"></i></a>
             </div>

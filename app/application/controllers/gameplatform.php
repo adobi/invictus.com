@@ -23,8 +23,6 @@ class Gameplatform extends MY_Controller
 
         $this->load->model('Platforms', 'platform');
         
-        $data['platforms'] = $this->platform->toAssocArray('id', 'name', $this->platform->fetchAll());
-        
         $this->load->model('Gameplatforms', 'model');
         
         $item = false; $gameId = false;
@@ -34,6 +32,9 @@ class Gameplatform extends MY_Controller
         } else {
           $gameId = $this->uri->segment(4);
         }
+
+        $data['platforms'] = $this->platform->toAssocArray('id', 'name', $this->platform->fetchAvailableForGame($gameId));
+        
         $data['item'] = $item;
         
         $this->load->model('Games', 'game');
@@ -50,27 +51,14 @@ class Gameplatform extends MY_Controller
                 $this->model->update($_POST, $id);
             } else {
                 $_POST['game_id'] = $gameId;
+
                 $inserted = $this->model->insert($_POST);
                 
-                $platform = $this->platform->find($_POST['platform_id']);
-                
-                $this->load->model('Gameplatformanalytics', 'analytics');
-                $d = array(
-                  'ga_action'=>'Click',
-                  'ga_value'=>1,
-                  'ga_category'=>'Outbound link',
-                  'ga_label'=>'',
-                  'game_platform_id'=>$inserted,
-                );
-                
-                $label = $data['game']->name . ' - ' . $platform->name;
-                
-                foreach (array('all games page', 'product page') as $location) {
-                  $d['ga_label'] = $label . ' - ' . $location;
-                  $d['location'] = $location;
-                  $this->analytics->insert($d);
-                }
+                $id = $inserted;
             }
+            
+             $this->model->setupAnalytics($id);
+            
             $response = display_success('Saved');
         } else {
 

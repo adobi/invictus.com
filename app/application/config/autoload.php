@@ -65,7 +65,9 @@ $autoload['libraries'] = array('database', 'session', 'template', 'form_validati
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('cookie', 'url', 'form', 'html', 'debug', 'display_errors', 'display_success', 'to_date', 'display_flag', 'display_country_name', 'to_time', 'embed_youtube', 'youtube_video_image', 'panel_close');
+$autoload['helper'] = array('cookie', 'url', 'form', 'html', 'debug', 'display_errors', 'display_success', 'to_date', 
+                            'display_flag', 'display_country_name', 'to_time', 'embed_youtube', 'youtube_video_image', 
+                            'panel_close', 'event_tracking', 'strip_ext');
 
 
 /*

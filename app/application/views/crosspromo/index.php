@@ -1,6 +1,9 @@
 <div class="well">
     <h3>
       Crosspromo
+      <p class="pull-right">
+        <a href="<?php echo base_url() ?>/crosspromo/generate_analytics" class="btn" rel="tooltip" title="Re-generate analytics "><i class="icon-signal"></i></a>
+      </p>      
     </h3>
     <hr>
     <div id="layout" class="accordion in">

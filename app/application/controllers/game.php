@@ -119,6 +119,7 @@ class Game extends MY_Controller
                 $this->model->update($_POST, $id);
                 
                 $this->meta->update($meta, $item->meta_id);
+                //$hash = '#edit/'.$id;
                 
             } else {
                 $met['description'] = $_POST['name'] . ' the official game';
@@ -134,7 +135,11 @@ class Game extends MY_Controller
                 $insertId = $this->model->insert($_POST);
                 
                 $hash = '#platforms/' . $insertId;
+                
+                $id = $insertId;
             }
+            
+            $this->model->setupAnalytics($id);
             
             $response = display_success('Saved');
         } else {
@@ -402,7 +407,21 @@ class Game extends MY_Controller
         
         die;
     }  
-        
+    
+    public function generate_analytics()
+    {
+      $this->load->model('Games', 'games');
+      $games = $this->games->fetchAll();
+      
+      if ($games) {
+        foreach ($games as $item) {
+          $this->games->setupAnalytics($item->id);
+        }
+      }
+      
+      redirect($_SERVER['HTTP_REFERER']);
+    }
+    
     private function _deleteImage($id, $withRecord = false, $field = false) 
     {
         $this->load->model('Games', 'model');

@@ -27,19 +27,17 @@ class Crosspromo extends MY_Controller
         
         $this->load->model("Crosspromos", 'model');
         
+        /*
+          TODO generate analytics
+        */
+        
+        $this->model->setupAnalytics($this->session->userdata('selected_game'), $_POST['promo_game_id'], $_POST);
+        
         if ($id && $id !== "0") {
-          
-          /*
-            TODO update analytics
-          */
           
           $this->model->update($_POST, $id);
           
         } else {
-          
-          /*
-            TODO generate analytics
-          */
           
           $_POST['base_game_id'] = $this->session->userdata('selected_game');
           
@@ -90,5 +88,24 @@ class Crosspromo extends MY_Controller
         
         //redirect($_SERVER['HTTP_REFERER']);
         die;
-    }         
+    } 
+    
+    public function generate_analytics()
+    {
+      $this->load->model('Crosspromos', 'model');
+      
+      $promos = $this->model->fetchAll();
+      
+      if ($promos) {
+        
+        foreach ($promos as $item) {
+          $data = array();
+          
+          $data = $this->model->setupAnalytics($item->base_game_id, $item->promo_game_id, $data);
+          
+          $this->model->update($data, $item->id);
+        }
+      }
+      redirect($_SERVER['HTTP_REFERER']);
+    }        
 }

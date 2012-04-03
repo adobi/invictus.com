@@ -70,6 +70,7 @@
     dest.html(src.html())
     dest.attr('id', dest.find('.item').data('id'))
     dest.find('.caption').show()
+    dest.attr('rel', src.attr('rel')).attr('data-original-title', src.attr('data-original-title'))
     Crosspromo.Add(dest, src)
   }
   
@@ -135,7 +136,7 @@
     
     $('.all-games').find('li.hide').removeClass('hide')
     $('.all-games').find('[data-id='+id+']').parents('li').addClass('hide')
-    
+    App.Tooltip('hide')
     $('#crosspromo-games .accordion-inner').load(App.URL+'crosspromo/for_game/'+id, function() {
       
       (new Crosspromo($('.accordion-group .thumbnails'))).sortable(Crosspromo.UpdateOrder)
@@ -161,7 +162,9 @@
       var self = $(this)
       
       Crosspromo.Remove(self.parents('.item:first').data('id'), function() {
-        self.parents('li:first').empty()
+        var li = self.parents('li:first')
+        
+        li.removeAttr('data-original-title').removeAttr('rel').empty()
       })
       
       e.preventDefault()

@@ -1,6 +1,7 @@
 <div class="well">
   <h3>
     Platforms
+      
     <p class="pull-right">
       <a class="btn btn-primary" href="<?= base_url(); ?>platform/edit" data-ajax-link="1" data-unselect="1" rel="tooltip" title="Create new platform"><i class="icon-plus-sign icon-white"></i></a>
     </p>

@@ -2,6 +2,7 @@
   <h3>
     Games
     <p class="pull-right">
+      <a href="<?php echo base_url() ?>/game/generate_analytics" class="btn" rel="tooltip" title="Re-generate analytics for all games"><i class="icon-signal"></i></a>
       <a class="btn btn-primary" href="<?= base_url(); ?>game/edit" data-ajax-link="1" data-unselect="1" rel="tooltip" title="Create new game"><i class="icon-plus-sign icon-white"></i></a>
     </p>
   </h3>    
@@ -33,7 +34,7 @@
                 <a href="<?php echo base_url() ?>game/platforms/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Available on"><i class="icon-platform"></i></a>
                 <a href="<?php echo base_url() ?>game/images/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Images"><i class="icon-picture"></i></a>
                 <a href="<?php echo base_url() ?>game/videos/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Videos"><i class="icon-facetime-video"></i></a>
-                <a href="<?php echo base_url() ?>game/analytics/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a>
+                <!-- <a href="<?php echo base_url() ?>game/analytics/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a> -->
                 <a href="<?php echo base_url() ?>game/seo/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="SEO settings"><i class="icon-search"></i></a>
                 <a href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>
               </div>
