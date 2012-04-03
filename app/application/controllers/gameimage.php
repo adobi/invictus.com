@@ -64,11 +64,11 @@ class Gameimage extends MY_Controller
       
       //dump($_FILES); die;
       
-          if ($this->upload->do_upload('userfile')) {
-              
-              $this->load->config('upload');
-              
-              $data = $this->upload->data();
+        if ($this->upload->do_upload('userfile')) {
+          
+          $this->load->config('upload');
+          
+          $data = $this->upload->data();
 
           $this->load->model('Gameimages', 'model');
           
@@ -79,6 +79,10 @@ class Gameimage extends MY_Controller
           $inserted = $this->model->insert(array(
               'game_id'=>$this->uri->segment(3),
               'path'=>$data['file_name']
+              'ga_category'=>'Image',
+              'ga_action'=>'View',
+              'ga_value'=>1,
+              'ga_label'=>$game->name.' - image - ' . $data['file_name']
           ));
           
           $info->name = $data['file_name'];

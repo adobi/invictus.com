@@ -61,7 +61,7 @@
                         <?php if ($game->images): ?>
                           <?php foreach ($game->images as $i => $item): ?>
                             <li>
-                              <a href="#" class="thumbnail" data-type="images">
+                              <a <?php echo event_tracking($item) ?> href="#" class="thumbnail" data-type="images">
                                 <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="" style="width:128px">
                               </a>
                             </li>                      
@@ -87,7 +87,7 @@
                         <?php if ($game->videos): ?>
                           <?php foreach ($game->videos as $i => $item): ?>
                             <li>
-                              <a href="#" class="thumbnail" data-type="videos" data-code="<?php echo $item->code ?>">
+                              <a <?php echo event_tracking($item) ?> href="#" class="thumbnail" data-type="videos" data-code="<?php echo $item->code ?>">
                                 <?php echo youtube_video_image($item->code, 128, 70) ?>
                               </a>
                             </li>                      

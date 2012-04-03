@@ -35,9 +35,9 @@
                         <?php echo strlen($item->name) > 12 ? substr($item->name, 0, 13) . '...' : $item->name ?>
                       </h6> 
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
-                      <div class="caption center">
+                      <div class="caption right">
                         <hr style="margin:4px 0 6px;">
-                        <a href="#" class="btn"><i class="icon-signal"></i></a>  
+                        <!-- <a href="#" class="btn"><i class="icon-signal"></i></a>   -->
                         <a href="javascript:void(0)" class="btn layout-remove" rel="tooltip" title="Remove"><i class="icon-trash"></i></a>
                       </div>                 
                     </div>                  
@@ -72,9 +72,9 @@
                         <?php echo $item->name ?>
                       </h6> 
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
-                      <div class="caption center">
+                      <div class="caption right">
                         <hr style="margin:4px 0 6px;">
-                        <a href="#" class="btn"><i class="icon-signal"></i></a>  
+                        <!-- <a href="#" class="btn"><i class="icon-signal"></i></a>   -->
                         <a href="javascript:void(0)" class="btn layout-remove" rel="tooltip" title="Remove"><i class="icon-trash"></i></a>
                       </div>                 
                     </div>                  
@@ -108,9 +108,9 @@
                         <?php echo $item->name ?>
                       </h6> 
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
-                      <div class="caption center">
+                      <div class="caption right">
                         <hr style="margin:4px 0 6px;">
-                        <a href="#" class="btn"><i class="icon-signal"></i></a>  
+                        <!-- <a href="#" class="btn"><i class="icon-signal"></i></a>   -->
                         <a href="javascript:void(0)" class="btn layout-remove" rel="tooltip" title="Remove"><i class="icon-trash"></i></a>
                       </div>                 
                     </div>                  

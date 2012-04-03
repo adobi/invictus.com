@@ -2,7 +2,7 @@
   <h3>
     Games
     <p class="pull-right">
-      <a href="<?php echo base_url() ?>/game/generate_analytics" class="btn" rel="tooltip" title="Re-generate analytics for all games"><i class="icon-signal"></i></a>
+      <!-- <a href="<?php echo base_url() ?>/game/generate_analytics" class="btn" rel="tooltip" title="Re-generate analytics for all games"><i class="icon-signal"></i></a> -->
       <a class="btn btn-primary" href="<?= base_url(); ?>game/edit" data-ajax-link="1" data-unselect="1" rel="tooltip" title="Create new game"><i class="icon-plus-sign icon-white"></i></a>
     </p>
   </h3>    

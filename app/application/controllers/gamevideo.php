@@ -44,16 +44,16 @@ class Gamevideo extends MY_Controller
 
         if ($this->form_validation->run()) {
         
+            $_POST['ga_category'] = "Video";
+            $_POST['ga_action'] = "View";
+            $_POST['ga_value'] = 1;
+            $_POST['ga_label'] = $data['game']->name . ' - ' . $_POST['description'] . ' ' . $_POST['code'] . ' - ' . time();
+            
             if (is_numeric($id)) {
               
                 $this->model->update($_POST, $id);
             } else {
                 $_POST['game_id'] = $gameId;
-                
-                $_POST['ga_category'] = "Video";
-                $_POST['ga_action'] = "watch";
-                $_POST['ga_value'] = 1;
-                $_POST['ga_label'] = $data['game']->name . ' - ' . $_POST['description'];
                 
                 $this->model->insert($_POST);
             }
