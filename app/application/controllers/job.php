@@ -206,4 +206,22 @@ class Job extends MY_Controller
       
       redirect($_SERVER['HTTP_REFERER']);
     }
+    
+    /**
+     * activate/inactivate
+     *
+     * @return void
+     * @author Dobi Attila
+     */
+    public function action()
+    {
+      $action = $this->uri->segment(3);
+      $id = $this->uri->segment(4);
+      
+      $this->load->model('Jobs', 'model');
+      
+      $this->model->$action($id);
+      
+      redirect($_SERVER['HTTP_REFERER']);//die;
+    }     
 }

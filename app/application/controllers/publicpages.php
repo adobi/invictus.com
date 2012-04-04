@@ -25,6 +25,12 @@ class Publicpages extends Page_Controller
     $this->load->model('Games', 'games');
     $this->data['carousel'] = $this->games->fetchForLayout('on_mainpage');
     
+    /**
+     * about
+     */
+    $this->load->model('Pages', 'pages');
+    $this->data['about'] = $this->pages->findBy('name', 'About');
+    
     $this->template->build('invictus/index', $this->data);
   }
   
@@ -104,7 +110,14 @@ class Publicpages extends Page_Controller
     } else {
       
       $this->data['job'] = $this->model->findBy('url', $this->uri->segment(3));
+      
+      if (!$this->data['job'] || !$this->data['job']->is_active) {
+        redirect('missing');
+      }
+          
+
     }
+
     
     $this->form_validation->set_rules('firstname', 'First name', 'trim|required');
     $this->form_validation->set_rules('lastname', 'Last name', 'trim|required');
@@ -128,6 +141,8 @@ class Publicpages extends Page_Controller
       
       if (!$this->data['error']) {
         $this->load->model('Jobapplications', 'application');
+        
+        $_POST['created'] = date('Y-m-d H:i:s', time());
         
         $this->application->insert($_POST);
         
@@ -154,11 +169,11 @@ class Publicpages extends Page_Controller
       $this->load->model('Emailoffers', 'emails');
       $this->load->model('Offers', 'offers');
       
-      $current = current($this->offers->fetchCurrent());
+      $current = $this->offers->fetchCurrent();
       
       if ($current) {
         
-        if ($this->emails->emailExists($_POST['email'])) {
+        if ($this->emails->emailExists($_POST['email'], $current->id)) {
           //echo "This is email is already subscribed";
           echo json_encode(array('success'=>false, 'message'=>'This is email is already subscribed'));
         } else {
@@ -210,6 +225,10 @@ class Publicpages extends Page_Controller
       
       //dump($this->data['game']); die;
     }
+    
+    if (!$this->data['game'] || !$this->data['game']->is_active) {
+      redirect('missing');
+    }    
     
     $this->template->build('invictus/'.$view, $this->data);
   }

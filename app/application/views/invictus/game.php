@@ -144,10 +144,10 @@
       </h3>
       <hr>
       <p>
-        <?php echo $game->short_description ?>
+        <?php echo nl2br($game->short_description) ?>
       </p>
       <p>
-        <?php echo $game->long_description ?>
+        <?php echo nl2br($game->long_description) ?>
       </p>
       <div class="game-available-in">
         <hr>

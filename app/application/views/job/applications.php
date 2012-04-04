@@ -16,7 +16,7 @@
             <div class="item <?php echo $it->called ? 'alert-success' : '' ?>">
               <h4>
                 <a href="<?php echo base_url() ?>jobapplication/<?php echo $it->called ? 'not_called' : 'called' ?>/<?php echo $it->id ?>" class="btn switch-item" rel="tooltip" title="<?php echo $it->called ? 'Remove called flag' : 'Add called flag' ?>"><i class="icon-headphones"></i></a>
-                <?php echo $it->firstname ?> <?php echo $it->lastname ?>
+                <?php echo $it->firstname ?> <?php echo $it->lastname ?> <span class="upper-gray"><?php echo $it->created ?></span>
                 <p class="pull-right">
                   <span style="color:#999; font-size:12px;">Download</span>
                   <?php if ($it->cv): ?>

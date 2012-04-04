@@ -14,10 +14,11 @@ class Emailoffers extends MY_Model
       return $this->fetchRows(array('where'=>array('offer_id'=>$id)));
     }
     
-    public function emailExists($email) 
+    public function emailExists($email, $offerId) 
     {
-      if (!$email) return false;
+      if (!$email || !$offerId) return false;
       
-      return $this->findBy('email', $email);
+      //return $this->findBy('email', $email);
+      return $this->fetchRows(array('where'=>array('email'=>$email, 'offer_id'=>$offerId)));
     }
 }

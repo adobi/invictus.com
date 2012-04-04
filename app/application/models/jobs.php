@@ -7,6 +7,20 @@ class Jobs extends MY_Model
     protected $_name = "ic_job";
     protected $_primary = "id";
     
+    public function activate($id) 
+    {
+      if (!$id) return false;
+      
+      return $this->update(array('is_active'=>1), $id);
+    }
+    
+    public function inactivate($id) 
+    {
+      if (!$id) return false;
+      
+      return $this->update(array('is_active'=>null, 'is_first'=>null), $id);
+    }    
+    
     public function insert($data)
     {
       if (!$data) return false;
@@ -131,7 +145,7 @@ class Jobs extends MY_Model
       
       $result = array();
       foreach ($categories as $category) {
-        $jobs = $this->fetchBy('category_id', $category->id);
+        $jobs = $this->fetchRows(array('where'=>array('category_id'=>$category->id, 'is_active'=>1)));
         if ($jobs) {
           $item = array('category'=>$category);
           foreach ($jobs as $job) {
@@ -154,7 +168,7 @@ class Jobs extends MY_Model
       if ($isFirst) {
         $result = current($isFirst);
       } else {
-        $result = $this->fetchAll(array('order'=>array('by'=>'available', 'dest'=>'desc'), 'limit'=>1, 'offset'=>0), true);
+        $result = $this->fetchRows(array('where'=>array('is_active'=>1), 'order'=>array('by'=>'available', 'dest'=>'desc'), 'limit'=>1, 'offset'=>0), true);
       }
       
       return $result ? $this->find($result->id) : false; 

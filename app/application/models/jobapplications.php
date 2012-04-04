@@ -11,6 +11,6 @@ class Jobapplications extends MY_Model
     {
       if (!$id) return false;
       
-      return $this->fetchRows(array('where'=>array('job_id'=>$id)));
+      return $this->fetchRows(array('where'=>array('job_id'=>$id), 'order'=>array('by'=>'created', 'dest'=>'desc')));
     }
 }

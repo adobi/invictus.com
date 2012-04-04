@@ -25,7 +25,7 @@
             <div class="item thumbnail <?php echo $item->is_active ? 'alert-success' : '' ?>" data-id="<?php echo $item->id ?>">
               <h4 class="center">
                 <?php echo $item->name ?> <span class="upper-gray"><?php echo to_date($item->released) ?></span>
-                  <a data-action="<?php echo $item->is_active ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>game/action/<?php echo $item->is_active ? 'inactivate' : 'activate' ?>/<?php echo $item->id ?>" class="btn action" rel="tooltip" title="<?php echo $item->is_active ? 'Inactivate' : 'Activate' ?> game"><i class="icon-lock"></i></a>
+                <a data-action="<?php echo $item->is_active ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>game/action/<?php echo $item->is_active ? 'inactivate' : 'activate' ?>/<?php echo $item->id ?>" class="btn action" rel="tooltip" title="<?php echo $item->is_active ? 'Inactivate' : 'Activate' ?> game"><i class="icon-lock"></i></a>
               </h4> 
               <img src="<?php echo $item && $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/170x170' ?>" alt="">
               <hr style="margin:4px 0 6px;">

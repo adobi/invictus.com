@@ -45,6 +45,8 @@
   </head>
 
   <body>
+  <?php //if (ENVIRONMENT === 'production'): ?>
+    
     <script type="text/javascript">
     
         var _gaq = _gaq || [];
@@ -77,6 +79,7 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
       })();
     </script>    
+  <?php //endif ?>
     
     
     <div class="navbar navbar-fixed-top">

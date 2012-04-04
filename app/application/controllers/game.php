@@ -109,8 +109,11 @@ class Game extends MY_Controller
             $meta = array(
                   'title'=>$_POST['name'], 
                   'og_url'=>base_url().'games/'.$_POST['url'],
-                  'og_image'=>base_url().'uploads/original/'.$_POST['logo'],
             );
+            
+            if (isset($_POST['logo'])) {
+              $meta['og_image'] = base_url().'uploads/original/'.$_POST['logo'];
+            }
                 
             if ($id) {
                 

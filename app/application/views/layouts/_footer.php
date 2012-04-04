@@ -122,13 +122,7 @@
                     
                     <?php if ($this->uri->segment(1) === 'layout' || $this->uri->segment(1) === 'crosspromo') :?>
                       $(function () {
-                        (new App.Nav()).setHref('<?php echo base_url() ?>game/all').loadIntoRightPanel(function() {
-                          //console.log(App.Layout)
-                          //console.log(App.Crosspromo)
-                          //App.Layout && App.Layout.DragAndDropGames()   
-                          
-                          //App.Crosspromo && App.Crosspromo.DragAndDropGames() 
-                        })
+                        (new App.Nav()).setHref('<?php echo base_url() ?>game/all').loadIntoRightPanel()
                       })
                           //
                     <?php endif; ?>

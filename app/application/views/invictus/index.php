@@ -41,22 +41,30 @@
       </div>
       <div class="hero-unit social">
         <div class="row">
-          <div class="span8">
-            <div>
-              <h2 style="margin-bottom:10px;">Latest blog posts</h2>
-              <?php foreach (range(0,2) as $key => $value): ?>
-                <div>
-                  <h6>Lorem ipsum dolor sit amet</h6>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius lorem in magna ornare dapibus. Nam vel lectus mauris. Sed ante felis vulputate sit amet mi</p>
-                  <p style="text-align:right">
-                    <a href="#">Read more &rarr;</a>
-                  </p>
-                  <?php if ($key !== 2): ?>
-                    <hr>
-                  <?php endif ?>
+          <div class="span8 ">
+            <?php if ($about): ?>
+              <div class="blog">
+                <!-- 
+                <h2 style="margin-bottom:10px;">Latest blog posts</h2>
+                <?php foreach (range(0,2) as $key => $value): ?>
+                  <div>
+                    <h6>Lorem ipsum dolor sit amet</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius lorem in magna ornare dapibus. Nam vel lectus mauris. Sed ante felis vulputate sit amet mi</p>
+                    <p style="text-align:right">
+                      <a href="#">Read more &rarr;</a>
+                    </p>
+                    <?php if ($key !== 2): ?>
+                      <hr>
+                    <?php endif ?>
+                  </div>
+                <?php endforeach ?>
+                 -->
+                <div class="span8">
+                  <h2 style="margin-bottom:10px;">About Invictus</h2>
                 </div>
-              <?php endforeach ?>
-            </div>
+                <p style="padding:10px;"><?php echo nl2br($about->description) ?></p>
+              </div>
+            <?php endif ?>
             
             <?php if ($current_offer): ?>
               <div class="row newsletter" style="margin-top:20px;">

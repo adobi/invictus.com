@@ -72,7 +72,7 @@ class Games extends MY_Model
     public function fetchForLayout($section)
     {
       $result = $this->fetchRows(
-        array('where'=>array("is_$section"=>1), 
+        array('where'=>array('is_active'=>1, "is_$section"=>1), 
               'order'=>array('by'=>"order_$section", 'dest'=>'asc'))
       );
       
