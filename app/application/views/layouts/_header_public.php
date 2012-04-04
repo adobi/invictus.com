@@ -4,6 +4,9 @@
     <title>Invictus Games <?php echo $meta ? $meta->title : '' ?></title>
     
     <meta charset="utf-8">
+
+    <meta http-equiv = "X-UA-Compatible" content = "IE=Edge,chrome=1" >.    
+    
     <meta name="description" content="<?php echo $meta ? $meta->description : 'Invictus Games' ?>">
     <meta name="keywords" content="<?php echo $meta ? $meta->keywords : 'Invictus Games' ?>">
     <meta name="author" content="Attila Dobi, Invictus Games Ltd.">
@@ -42,6 +45,7 @@
       <?php endif ?>
       <script src="https://raw.github.com/scottjehl/Respond/master/respond.min.js"></script>
     <![endif]-->
+    <!-- <script src="<?php echo base_url() ?>scripts/plugins/respondjs/respond.min.js"></script> -->
   </head>
 
   <body>
