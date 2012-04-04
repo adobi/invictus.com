@@ -5,7 +5,7 @@
     
     <meta charset="utf-8">
 
-    <meta http-equiv = "X-UA-Compatible" content = "IE=Edge,chrome=1" >.    
+    <meta http-equiv = "X-UA-Compatible" content = "IE=Edge,chrome=1" >  
     
     <meta name="description" content="<?php echo $meta ? $meta->description : 'Invictus Games' ?>">
     <meta name="keywords" content="<?php echo $meta ? $meta->keywords : 'Invictus Games' ?>">
@@ -45,45 +45,46 @@
       <?php endif ?>
       <script src="https://raw.github.com/scottjehl/Respond/master/respond.min.js"></script>
     <![endif]-->
-    <!-- <script src="<?php echo base_url() ?>scripts/plugins/respondjs/respond.min.js"></script> -->
+    
   </head>
 
   <body>
-  <?php //if (ENVIRONMENT === 'production'): ?>
-    
-    <script type="text/javascript">
-    
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', '<?php echo $settings->google_analytics ?>']);
-        _gaq.push(['_setDomainName', 'invictus.com']);
-        _gaq.push(['_trackPageview']);
-        
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    
-    </script>   
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings ? $settings->facebook_app_id : '' ?>";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-    
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-    <script type="text/javascript">
-      (function() {
-        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-        po.src = 'https://apis.google.com/js/plusone.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-      })();
-    </script>    
-  <?php //endif ?>
+    <?php //if (ENVIRONMENT === 'production'): ?>
+      
+      <script type="text/javascript">
+      
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', '<?php echo $settings->google_analytics ?>']);
+          _gaq.push(['_setDomainName', 'invictus.com']);
+          _gaq.push(['_trackPageview']);
+          
+          (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+      
+      </script>   
+      
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings ? $settings->facebook_app_id : '' ?>";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+      
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+      <script type="text/javascript">
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/plusone.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>    
+    <?php //endif ?>
     
     
     <div class="navbar navbar-fixed-top">
