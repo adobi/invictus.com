@@ -69,7 +69,7 @@
   }
   
   Nav.prototype = {
-    loadIntoRightPanel: function() 
+    loadIntoRightPanel: function(callback) 
     {
       $('[rel=tooltip]').tooltip('hide');      
       var that = this
@@ -78,6 +78,9 @@
         url: that.href, 
         type: that.type || 'GET',
         success: function(response) {
+          
+          callback()
+          
           if(that.el && that.el.data('trigger') === 'reload') {
             if (that.el.data('location') === 'r') {
               Nav.reloadRightPanel();

@@ -7,7 +7,7 @@
   <?php foreach ($games as $item): ?>
     <?php if ($item) :?>
       <li class="span2" id="<?php echo $item->id ?>" rel="tooltip" title="<?php echo $item->name ?>">
-        <div class="item thumbnail" data-id="<?php echo $item->id ?>">
+        <div class="item thumbnail" data-id="<?php echo $item->promo_game_id ?>">
           <h6 class="center">
             <?php echo strlen($item->name) > 12 ? substr($item->name, 0, 13) . '...' : $item->name ?>
           </h6> 

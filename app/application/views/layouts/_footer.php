@@ -39,7 +39,20 @@
           <a href="#" class="btn" data-dismiss="modal">No, I changed my mind</a>
           <a href="#" class="btn btn-warning" id="overwrite-yes">Ok, let's do this!</a>
         </div>
-      </div>      
+      </div>    
+      
+      <div class="modal hide fade" id="already-in-use-error">
+        <div class="modal-header alert-error">
+          <a class="close" data-dismiss="modal">×</a>
+          <h3>Error</h3>
+          </div>
+          <div class="modal-body">
+          <p><strong id="item-to-use"></strong> is already in the list, select something else!</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+      </div>         
       	    
 	  </div>
     <!-- /javascript templates -->
@@ -92,8 +105,12 @@
                 "<?php echo base_url() ?>scripts/admin/jobs.js?<?php echo time(); ?>",
                 "<?php echo base_url() ?>scripts/admin/contacts.js?<?php echo time(); ?>",
                 "<?php echo base_url() ?>scripts/admin/games.js?<?php echo time(); ?>",
-                "<?php echo base_url() ?>scripts/admin/layout.js?<?php echo time(); ?>",
-                "<?php echo base_url() ?>scripts/admin/crosspromo.js?<?php echo time(); ?>",
+                <?php if ($this->uri->segment(1) === 'layout') : ?>
+                  "<?php echo base_url() ?>scripts/admin/layout.js?<?php echo time(); ?>",
+                <?php endif; ?>
+                <?php if ($this->uri->segment(1) === 'crosspromo') : ?>
+                  "<?php echo base_url() ?>scripts/admin/crosspromo.js?<?php echo time(); ?>",
+                <?php endif; ?>
                 "<?php echo base_url() ?>scripts/admin/page.js?<?php echo time(); ?>",
                 function() {
                 
@@ -105,7 +122,13 @@
                     
                     <?php if ($this->uri->segment(1) === 'layout' || $this->uri->segment(1) === 'crosspromo') :?>
                       $(function () {
-                        (new App.Nav()).setHref('<?php echo base_url() ?>game/all').loadIntoRightPanel()
+                        (new App.Nav()).setHref('<?php echo base_url() ?>game/all').loadIntoRightPanel(function() {
+                          //console.log(App.Layout)
+                          //console.log(App.Crosspromo)
+                          //App.Layout && App.Layout.DragAndDropGames()   
+                          
+                          //App.Crosspromo && App.Crosspromo.DragAndDropGames() 
+                        })
                       })
                           //
                     <?php endif; ?>

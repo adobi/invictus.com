@@ -13,6 +13,7 @@
   
   Layout.DragAndDropGames  = function() 
   {
+    
     $( ".all-games li" ).draggable({
       appendTo: ".dnd-helper",
       helper: "clone",
@@ -33,20 +34,27 @@
         
         clone.find('.caption').show()
         
-        if (!$.trim(dropTo.html()).length) {
-          //dropTo.html(clone.html())
-          Layout.Copy(clone, dropTo)
+        if (!dropTo.parents('.thumbnails').find("li>.item[data-id="+clone.find('.item').data('id')+"]").length) {
+          
+          if (!$.trim(dropTo.html()).length) {
+            //dropTo.html(clone.html())
+            Layout.Copy(clone, dropTo)
+          } else {
+          
+            Layout.WarningModal.find('#old-item').html(dropTo.attr('data-original-title'))
+            Layout.WarningModal.find('#new-item').html(clone.attr('data-original-title'))
+          
+            Layout.WarningModal.modal()
+            
+            Layout.DropToElement = dropTo
+            Layout.DraggedElement = clone
+          }
         } else {
-        
-          Layout.WarningModal.find('#old-item').html(dropTo.find('h6').html())
-          Layout.WarningModal.find('#new-item').html(clone.find('h6').html())
-        
-          Layout.WarningModal.modal()
           
-          Layout.DropToElement = dropTo
-          Layout.DraggedElement = clone
+          $('#already-in-use-error').modal().find('#item-to-use').html(clone.attr('data-original-title'))
+          
+          //App.showNotification('<p>'+clone.attr('data-original-title')+' is already in the list, select something else!</p>')
         }
-          
       }
     })     
   }
@@ -55,9 +63,12 @@
   {
     // TODO save to the database
     //console.log(dest.parents('ul:first').data('column'));
+    
     dest.html(src.html())
     dest.attr('id', dest.find('.item').data('id'))
     //Layout.Add(dest.find('.item').data('id'), dest.parents('ul:first').data('section'))
+    dest.find('.caption').show()
+    dest.attr('rel', src.attr('rel')).attr('data-original-title', src.attr('data-original-title'))    
     Layout.Add(dest)
   }
   
@@ -68,7 +79,6 @@
         section = el.parents('ul:first').data('section')
         
     //console.log('SAVE: ', 'game', game, 'section', section)
-    
     
     if (game && section) {
       var data = {}
@@ -126,19 +136,8 @@
       that.el.sortable({
           placeholder: "dnd-li-active",
           stop: function(event, ui) {
-              /*var data = {},
-                  name = $('.csrf-form').find('[type=hidden]').attr('name'),
-                  value = $('.csrf-form').find('[type=hidden]').attr('value'); 
-                             
-              data['order'] = that.el.sortable('toArray');
-              data[name] = value;
-              */
-              
-              //console.log(that.el.data('section'))
+
               callback(that.el.data('section'), that.el.sortable('toArray'))
-              
-              //console.log('SORTABLE: ', data['order'])
-              //$.post(App.URL+"contacttype/update_order", data, function() {});
           }
       });
       this.el.disableSelection();       
@@ -160,6 +159,7 @@
       e.preventDefault()
     })
     
+    $('body').off('click', '#overwrite-yes');
     $('body').on('click', '#overwrite-yes', function(e) {
       
       Layout.Copy(Layout.DraggedElement, Layout.DropToElement)

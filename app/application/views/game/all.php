@@ -36,6 +36,20 @@
     </div> <!-- /items -->
   <?php //endif ?>
 
-<script>
-  App.Layout.DragAndDropGames()   
+<script type="text/javascript">
+                          App.Layout && App.Layout.DragAndDropGames()   
+                          
+                          App.Crosspromo && App.Crosspromo.DragAndDropGames()   
 </script>
+
+<?php if ($this->uri->segment(1) === 'layout'): ?>
+  <script>
+    //App.Layout.DragAndDropGames()   
+  </script>
+<?php endif ?>
+
+<?php if ($this->uri->segment(1) === 'crosspromo'): ?>
+  <script>
+    //App.Crosspromo.DragAndDropGames()   
+  </script>
+<?php endif ?>

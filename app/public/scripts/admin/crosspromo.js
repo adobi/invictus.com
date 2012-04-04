@@ -40,23 +40,33 @@
       accept: ":not(.ui-sortable-helper)",
       drop: function( event, ui ) {
 
-        var clone = ui.draggable.clone(true),
+        var clone = ui.draggable.clone(),
             dropTo = $(this)
         
         clone.find('.caption').show()
         
-        if (!$.trim(dropTo.html()).length) {
-          //dropTo.html(clone.html())
-          Crosspromo.Copy(clone, dropTo)
+        console.log(clone.find('.item').data('id'))
+        console.log(dropTo.parents('.thumbnails').find("li>.item[data-id="+clone.find('.item').data('id')+"]"))
+        if (!dropTo.parents('.thumbnails').find("li>.item[data-id="+clone.find('.item').data('id')+"]").length) {
+         
+          if (!$.trim(dropTo.html()).length) {
+            //dropTo.html(clone.html())
+            Crosspromo.Copy(clone, dropTo)
+          } else {
+          
+            Crosspromo.WarningModal.find('#old-item').html(dropTo.attr('data-original-title'))
+            Crosspromo.WarningModal.find('#new-item').html(clone.attr('data-original-title'))
+          
+            Crosspromo.WarningModal.modal()
+            
+            Crosspromo.DropToElement = dropTo
+            Crosspromo.DraggedElement = clone
+          }
         } else {
         
-          Crosspromo.WarningModal.find('#old-item').html(dropTo.find('h6').html())
-          Crosspromo.WarningModal.find('#new-item').html(clone.find('h6').html())
+        $('#already-in-use-error').modal().find('#item-to-use').html(clone.attr('data-original-title'))
         
-          Crosspromo.WarningModal.modal()
-          
-          Crosspromo.DropToElement = dropTo
-          Crosspromo.DraggedElement = clone
+        //App.showNotification('<p>'+clone.attr('data-original-title')+' is already in the list, select something else!</p>')
         }
           
       }
@@ -65,7 +75,7 @@
   
   Crosspromo.Copy = function (src, dest) 
   {
-    console.log(src, dest)
+    //console.log(src, dest)
     dest.data('old-id', dest.attr('id'))
     dest.html(src.html())
     dest.attr('id', dest.find('.item').data('id'))
@@ -161,7 +171,7 @@
       
       var self = $(this)
       
-      Crosspromo.Remove(self.parents('.item:first').data('id'), function() {
+      Crosspromo.Remove(self.parents('li:first').attr('id'), function() {
         var li = self.parents('li:first')
         
         li.removeAttr('data-original-title').removeAttr('rel').empty()
