@@ -12,7 +12,7 @@ class Offer extends MY_Controller
         
         $this->load->model('Offers', 'model');
         
-        $data['items_current'] = $this->model->fetchCurrent();
+        $data['items_current'] = $this->model->fetchCurrent(false);
         
         $data['items_old'] = $this->model->fetchOld();
         

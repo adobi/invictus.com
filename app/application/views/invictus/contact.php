@@ -37,7 +37,7 @@
           </div>
           <div class="form-actions">
             <input type="hidden" name="email_id" value="">
-            <button class="btn btn-primary  btn-large" type="submit">Send message</button>
+            <button class="btn btn-primary  btn-large" type="submit" <?php echo event_tracking($send_ga) ?>>Send message</button>
             <a href="<?php echo base_url() ?>" class="btn">Cancel</a>
           </div>                                                
         </fieldset>

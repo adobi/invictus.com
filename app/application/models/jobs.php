@@ -159,4 +159,30 @@ class Jobs extends MY_Model
       
       return $result ? $this->find($result->id) : false; 
     }
+    
+    public function setupAnalytics($id) 
+    {
+      if (!$id) return false;
+      
+      $job = $this->find($id, true);
+      
+      if (!$job) return false;
+      
+      /*
+      apply for this job button	Job neve		button		timestamp	Job application	Click																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								
+      send application	Job neve		button		timestamp	Job application	Send																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								
+      */
+      
+      $data['job_ga_category'] = 'Job application';
+      $data['job_ga_action'] = 'Send';
+      $data['job_ga_label'] = $job->name . ' - button - ' . time();
+      $data['job_ga_value'] = '1';
+      
+      $data['apply_ga_category'] = 'Job application';
+      $data['apply_ga_action'] = 'Apply';
+      $data['apply_ga_label'] = $job->name . ' - button - ' . time();
+      $data['apply_ga_value'] = '1';
+      
+      return parent::update($data, $job->id);
+    }
 }

@@ -52,10 +52,15 @@
                   "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.easing.1.3.min.js",
                   "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.elastislide.js",
                   "<?php echo base_url() ?>scripts/plugins/event-tracking/jquery.trackevent.js",
+                  "<?php echo base_url() ?>scripts/plugins/prettify-upload/jquery.prettify-upload.js",
                   "<?php echo base_url() ?>scripts/invictus/invictus.js",
                   
                   function() {
-                  
+                    <?php if ($this->session->flashdata('message')): ?>
+                        $(function() {
+                            App.showNotification("<?php echo ($this->session->flashdata("message")) ?>")
+                        })
+                    <?php endif ?>                  
                   }                     
             );
     	</script>

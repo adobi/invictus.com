@@ -55,10 +55,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </a>
+                  <!-- 
                   <a href="<?php echo base_url() ?>" class="span1 brand" style="margin-top:10px; margin-right:3px;">
                     <i class="icon-big home-icon"></i>
                     <?php //echo SITE_TITLE ?>
                   </a>
+                   -->
                   <div class="nav-collapse">
                     <ul class="nav">
                     </ul>
@@ -88,18 +90,14 @@
           	  <div class="span1 sidebar-navigation-wrapper-left">
           	    <div class="sidebar-nav">
           	      <ul class="nav nav-list left-side-nav">
+          	        <!-- 
                     <li <?php echo $this->uri->segment(1) === 'dashboard' ? 'class="active"' : '' ?>>
                       <a href="<?php echo base_url() ?>dashboard" rel="tooltip" title="Dashboard" data-placement="right">
                         <i class="icon-big dashboard-icon"></i>
                         <span>Dashboard</span>
                       </a>
                     </li>
-          	        <li <?php echo $this->uri->segment(1) === 'page' ? 'class="active"' : '' ?>>
-                      <a href="<?php echo base_url() ?>page" rel="tooltip" title="Links" data-placement="right">
-                        <i class="icon-big link-icon"></i>
-                        <span>Links</span>
-                      </a>
-                    </li>
+                     -->
           	        <li <?php echo $this->uri->segment(1) === 'game' ? 'class="active"' : '' ?>>
                       <a href="<?php echo base_url() ?>game" rel="tooltip" title="Games" data-placement="right">
                         <i class="icon-big games-icon"></i>
@@ -118,6 +116,12 @@
                         <span>Crosspromo</span>
                       </a>
                     </li>                    
+          	        <li <?php echo $this->uri->segment(1) === 'page' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>page" rel="tooltip" title="Links" data-placement="right">
+                        <i class="icon-big link-icon"></i>
+                        <span>Links</span>
+                      </a>
+                    </li>
           	        <li <?php echo $this->uri->segment(1) === 'offer' ? 'class="active"' : '' ?>>
                       <a href="<?php echo base_url() ?>offer" rel="tooltip" title="Offers" data-placement="right">
                         <i class="icon-big gift-icon"></i>

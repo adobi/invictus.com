@@ -89,7 +89,7 @@ class Contact extends MY_Controller
       $this->load->model('Contactmessages', 'model');
       $this->load->model('Contacttypes', 'types');
       
-      $data['items'] = $this->model->fetchBy('email_id', $email);
+      $data['items'] = array_reverse($this->model->fetchBy('email_id', $email));
       $data["item"] = $this->types->find($email);
       
       $this->template->build('contact/messages', $data);

@@ -65,7 +65,11 @@ class Job extends MY_Controller
                 $this->model->update($_POST, $id);
             } else {
                 $inserted = $this->model->insert($_POST);
+                
+                $id = $inserted;
             }
+            
+            $this->model->setupAnalytics($id);
             
             $response = display_success('Saved');
             

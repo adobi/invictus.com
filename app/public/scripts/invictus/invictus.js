@@ -54,6 +54,20 @@
     
   };  
   
+  App.showNotification = function(message) 
+  {
+      var self = $('#loading-global');
+      
+      self.html(message).show();
+
+      setTimeout(function() {
+          self.hide();
+          self.html('Working...');
+
+      }, 4000)
+      
+  };   
+  
   App.disableFormButton = function() 
   {
     $('body').delegate('form', 'submit', function() {
@@ -188,7 +202,10 @@
     })
   };
   
-  $(function() {
+  $(function() 
+  {
+    
+    $('[data-pretty-file], input[type=file]').prettifyUpload();
     
     $('a[data-toggle="tab"]').on('shown', function (e) {
       

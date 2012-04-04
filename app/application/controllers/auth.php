@@ -20,7 +20,7 @@ class Auth extends MY_Controller
         //dump($_POST); die;
         if ($this->form_validation->run()) {
 			
-			redirect(base_url() . 'dashboard');
+			redirect(base_url() . 'game');
 		}
         
         $this->template->build('login/index', $data);

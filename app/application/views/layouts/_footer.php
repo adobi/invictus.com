@@ -66,8 +66,8 @@
                 "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-transition.js",
                 "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap-collapse.js",
 
-                "<?php echo base_url() ?>scripts/plugins/redactor/js/redactor/redactor.js",
-                "<?php echo base_url() ?>scripts/plugins/fancybox/jquery.fancybox.pack.js",
+                //"<?php echo base_url() ?>scripts/plugins/redactor/js/redactor/redactor.js",
+                //"<?php echo base_url() ?>scripts/plugins/fancybox/jquery.fancybox.pack.js",
                 "<?php echo base_url() ?>scripts/plugins/chosen/chosen.jquery.min.js",
                 
                 "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js",
@@ -82,11 +82,11 @@
                 "<?php echo base_url(); ?>scripts/plugins/fileupload/locale.js",
                 "<?php echo base_url(); ?>scripts/plugins/fileupload/main.js",
                 
-                "<?php echo base_url(); ?>scripts/plugins/scroll/jquery.scrollTo-min.js",
-                "<?php echo base_url() ?>scripts/plugins/google-code-prettify/prettify.js",
-                "<?php echo base_url() ?>scripts/plugins/charcounter/jquery.charcounter.js",
+                //"<?php echo base_url(); ?>scripts/plugins/scroll/jquery.scrollTo-min.js",
+                //"<?php echo base_url() ?>scripts/plugins/google-code-prettify/prettify.js",
+                //"<?php echo base_url() ?>scripts/plugins/charcounter/jquery.charcounter.js",
                 "<?php echo base_url() ?>scripts/plugins/prettify-upload/jquery.prettify-upload.js",
-                "<?php echo base_url() ?>scripts/plugins/lionbars/jquery.lionbars.0.3.min.js",
+                //"<?php echo base_url() ?>scripts/plugins/lionbars/jquery.lionbars.0.3.min.js",
 
                 "<?php echo base_url() ?>scripts/admin/nav.js?<?php echo time(); ?>",
                 "<?php echo base_url() ?>scripts/admin/jobs.js?<?php echo time(); ?>",

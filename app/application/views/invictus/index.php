@@ -63,7 +63,7 @@
                 <h2 style="margin-bottom:10px;">Newsletter</h2>
                 <?php echo form_open(base_url()."pages/subscribe", array('id'=>'subscribe-form', 'class'=>'form-search')) ?>
                   <input name="email" type="text" class="input-large search-query" style="font-size:1.4em; height:36px" placeholder="example@domain.com">
-                  <button class="btn btn-orange btn-large" type="submit"><i class="icon-pencil icon-white"></i> Subscribe</button>
+                  <button class="btn btn-orange btn-large" type="submit" <?php echo $current_offer ? event_tracking($current_offer) : '' ?>><i class="icon-pencil icon-white"></i> Subscribe</button>
                 <?php echo form_close() ?>
               </div>
               <div class="span4 offer">

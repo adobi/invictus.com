@@ -314,7 +314,8 @@
       }, 300)
       
     }
-    	  
+   
+    $('#username').focus() 	  
 	  
     App.FilterGlobalGames()
 	  

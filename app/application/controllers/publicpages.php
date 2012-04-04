@@ -17,7 +17,7 @@ class Publicpages extends Page_Controller
      * current offer
      */
     $this->load->model('Offers', 'offers');
-    $this->data['current_offer'] = current($this->offers->fetchCurrent());
+    $this->data['current_offer'] = $this->offers->fetchCurrent();
 
     /**
      * slider
@@ -41,6 +41,8 @@ class Publicpages extends Page_Controller
     
     $this->data['contacts'] = $this->model->fetchAll();
     $this->data['emails'] = $this->types->fetchAll(array('order'=>array('by'=>'order', 'dest'=>'asc')));    
+    
+    $this->data['send_ga'] = $this->model->getAnalytics();
     
     $this->template->build('invictus/contact', $this->data);
   }
@@ -69,7 +71,9 @@ class Publicpages extends Page_Controller
         $this->email->subject($_POST['subject']);
         $this->email->message($_POST['message']);
         
-        //$this->email->send();
+        if (ENVIRONMENT === 'production') {
+          $this->email->send();
+        }
         
         $this->load->model('Contactmessages', 'messages');
         
@@ -101,7 +105,45 @@ class Publicpages extends Page_Controller
       
       $this->data['job'] = $this->model->findBy('url', $this->uri->segment(3));
     }
-  
+    
+    $this->form_validation->set_rules('firstname', 'First name', 'trim|required');
+    $this->form_validation->set_rules('lastname', 'Last name', 'trim|required');
+    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+    $this->form_validation->set_rules('phone', 'Phone', 'trim|required');
+    
+    $this->data['error'] = '';
+    if ($this->form_validation->run()) {
+
+      if ($this->upload->do_upload('cv')) {
+          
+          $_POST['cv'] = $this->upload->file_name;
+      } else {
+        $this->data['error'] .= $this->upload->display_errors();
+      }     
+
+      if ($this->upload->do_upload('portfolio')) {
+          
+          $_POST['portfolio'] = $this->upload->file_name;
+      }    
+      
+      if (!$this->data['error']) {
+        $this->load->model('Jobapplications', 'application');
+        
+        $this->application->insert($_POST);
+        
+        $this->session->set_flashdata("message", '<p>Thanks for your application. We will contact You soon!</p>');
+
+        redirect($_SERVER['HTTP_REFERER']);
+      }
+      
+    } else {
+      $this->data['error'] .= validation_errors();
+      
+      if ($_FILES && isset($_FILES['cv']) && !$_FILES['cv']['name'])
+        $this->data['error'] .= 'The CV field is required';
+      
+    }
+    
     $this->template->build('invictus/jobs', $this->data);
   } 
   

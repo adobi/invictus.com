@@ -34,47 +34,59 @@
           </ul>         
           
           <p style="margin-top:30px;">
-          <a href="#" class="btn btn-primary btn-large" id="apply-for-the-job">Apply for this job &rarr;</a>
+          <a href="#" class="btn btn-primary btn-large" id="apply-for-the-job" <?php echo event_tracking($job, 'apply') ?>>Apply for this job &rarr;</a>
           </p>
         </div>      
-        <div id="job-application-form" style="display:none;">
+        <div id="job-application-form" <?php echo $error ? '' : ' class="hide"' ?>>
           <hr>
-          <form action="" method="post" class="form-horizontal job-application-form">
+          <?php echo form_open_multipart('', array('class'=>'form-horizontal job-application-form')) ?>
             <fieldset>
               <legend>Apply for <?php echo $job->name ?></legend>
+              <?php if ($error): ?>
+                  <div class="alert alert-error">
+                      <?php echo $error ?>
+                  </div>
+              <?php endif ?>          
               <div class="control-group">
-                <label for="firstname" class="control-label">Firstname</label>
+                <label for="firstname" class="control-label">First name</label>
                 <div class="controls">
-                  <input type="text" id="firstname" class="input-xlarge">
+                  <input type="text" name = "firstname" id="firstname" class="input-xlarge" value = "<?php echo $_POST && isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>">
                 </div>
               </div>
               <div class="control-group">
-                <label for="lastname" class="control-label">Lastname</label>
+                <label for="lastname" class="control-label">Last name</label>
                 <div class="controls">
-                  <input type="text" id="lastname" class="input-xlarge">
+                  <input type="text" name="lastname" id="lastname" class="input-xlarge" value = "<?php echo $_POST && isset($_POST['lastname']) ? $_POST['lastname'] : '' ?>">
                 </div>
               </div>
               <div class="control-group">
                 <label for="email" class="control-label">Email</label>
                 <div class="controls">
-                  <input type="text" id="email" class="input-xlarge">
+                  <input type="text" name="email" id="email" class="input-xlarge" value = "<?php echo $_POST && isset($_POST['email']) ? $_POST['email'] : '' ?>">
                 </div>
               </div>
               <div class="control-group">
                 <label for="phone" class="control-label">Phone</label>
                 <div class="controls">
-                  <input type="text" id="phone" class="input-xlarge">
+                  <input type="text" name="phone" id="phone" class="input-xlarge" value = "<?php echo $_POST && isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
                 </div>
               </div>
               <div class="control-group">
                 <label for="cv" class="control-label">CV</label>
                 <div class="controls">
-                  <input type="file" id="cv" class="input-xlarge">
+                  <input type="file" name="cv" id="cv" class="input-xlarge">
                 </div>
               </div>  
+              <div class="control-group">
+                <label for="cv" class="control-label">Portfolio </label>
+                <div class="controls">
+                  <input type="file" name="portfolio" id="portfolio" class="input-xlarge" rel="tooltip" title="Max 3 MB">
+                  
+                </div>
+              </div>               
               <div class="form-actions">
                 <input type="hidden" name="job_id" value="<?php echo $job->id ?>">
-                <button class="btn btn-primary  btn-large" type="submit">Send application</button>
+                <button class="btn btn-primary  btn-large" type="submit" <?php echo event_tracking($job, 'job') ?>>Send application</button>
                 <button class="btn" type="reset" onclick="$('#job-application-form').hide();">Cancel</button>
               </div>                                                
             </fieldset>
