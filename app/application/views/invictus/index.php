@@ -46,7 +46,7 @@
               <h2 style="margin-bottom:10px;">Latest blog posts</h2>
               <?php foreach (range(0,2) as $key => $value): ?>
                 <div>
-                  <h5>Lorem ipsum dolor sit amet</h5>
+                  <h6>Lorem ipsum dolor sit amet</h6>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius lorem in magna ornare dapibus. Nam vel lectus mauris. Sed ante felis vulputate sit amet mi</p>
                   <p style="text-align:right">
                     <a href="#">Read more &rarr;</a>
@@ -58,23 +58,30 @@
               <?php endforeach ?>
             </div>
             
-            <div class="row newsletter" style="margin-top:20px;">
-              <div class="span4 subscribe" style="margin:auto 10px;">
-                <h2 style="margin-bottom:10px;">Newsletter</h2>
-                <?php echo form_open(base_url()."pages/subscribe", array('id'=>'subscribe-form', 'class'=>'form-search')) ?>
-                  <input name="email" type="text" class="input-large search-query" style="font-size:1.4em; height:36px" placeholder="example@domain.com">
-                  <button class="btn btn-orange btn-large" type="submit" <?php echo $current_offer ? event_tracking($current_offer) : '' ?>><i class="icon-pencil icon-white"></i> Subscribe</button>
-                <?php echo form_close() ?>
+            <?php if ($current_offer): ?>
+              <div class="row newsletter" style="margin-top:20px;">
+                <div class="span7">
+                  <h2 style="margin-bottom:10px;">Current offer: <span class="upper-gray"><?php echo $current_offer->name ?></span></h2>
+                </div>
+                <div class="span4 subscribe" style="margin:auto 10px;">
+                  <!-- <img src="http://placehold.it/360x160" alt=""> -->
+                  <img src="<?php echo base_url() ?>uploads/original/<?php echo $current_offer->image ?>" alt="">
+                </div>
+                <div class="span4 offer">
+                  <!-- <h2>Current offer</h2> -->
+                  <p>
+                    <?php echo nl2br($current_offer->description) ?>
+                  </p>
+                </div>
+                <div class="span7">
+                  <hr>
+                  <?php echo form_open(base_url()."pages/subscribe", array('id'=>'subscribe-form', 'class'=>'form-search')) ?>
+                    <input name="email" type="text" class="input-large search-query span5" style="font-size:1.4em; height:36px" placeholder="example@domain.com">
+                    <button class="btn btn-orange btn-large" type="submit" <?php echo $current_offer ? event_tracking($current_offer) : '' ?>><i class="icon-pencil icon-white"></i> Subscribe</button>
+                  <?php echo form_close() ?>
+                </div>
               </div>
-              <div class="span4 offer">
-                <h2>Current offer</h2>
-                <p>
-                  <?php if ($current_offer): ?>
-                    <?php echo $current_offer->description ?>
-                  <?php endif ?>
-                </p>
-              </div>
-          </div>
+            <?php endif ?>
           </div>
           <div class="span4 social-feed">
               <h2 style="margin-bottom:20px;">

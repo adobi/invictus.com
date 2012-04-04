@@ -238,6 +238,11 @@
             
             if (that.data('location') === 'r') App.Nav.reloadRightPanel()
             
+            if (that.data('location') === 'b') {
+              App.Nav.reloadRightPanel()
+              App.Nav.reloadContetPanel()
+            }
+            
           } else {
   
             if (that.data('location') === 'r') App.Nav.CloseRightPanel()
@@ -357,7 +362,7 @@
           e.preventDefault()
       });
     
-		prettyPrint() 
+		//prettyPrint() 
     
     $(".accordion").collapse('show')
 		

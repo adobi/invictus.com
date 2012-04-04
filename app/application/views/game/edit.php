@@ -59,7 +59,7 @@
             <div class="controls">
                 <?php if ($item && $item->logo): ?>
                     <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" alt="">
-                    <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>/logo" class="delete-image pull-right" style="margin-right:20px;" rel="tooltip" title="Delete logo"><i class="icon-trash"></i></a>
+                    <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>/logo" class="btn delete-item pull-right" style="margin-right:20px;" rel="tooltip" title="Delete logo" data-modal-header="<?php echo $item->name ?> logo" data-trigger="reload" data-location="b"><i class="icon-trash"></i></a>
                 <?php else: ?>
                   <input rel="tooltip" title="170x170" data-text="170x170" type="file" name = "logo" id = "logo" class = "span4" value = "<?php echo $_POST && isset($_POST['logo']) ? $_POST['logo'] : ($item ? $item->logo : '') ?>"/>
                 <?php endif; ?>
@@ -70,7 +70,7 @@
             <div class="controls">
                 <?php if ($item && $item->hero_image): ?>
                     <img class="span4" src="<?php echo base_url() ?>uploads/original/<?php echo $item->hero_image ?>" alt="">
-                    <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>/hero_image" class="delete-image pull-right" style="margin-right:20px;" rel="tooltip" title="Delete hero image"><i class="icon-trash"></i></a>
+                    <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>/hero_image" class="btn delete-item pull-right" style="margin-right:20px;" rel="tooltip" title="Delete hero image" data-modal-header="<?php echo $item->name ?> hero image" data-trigger="reload" data-location="r"><i class="icon-trash"></i></a>
                 <?php else: ?>              
                   <input rel="tooltip" title="770x510"  data-text="770x510" type="file" name = "hero_image" id = "hero_image" class = "span4" value = "<?php echo $_POST && isset($_POST['hero_image']) ? $_POST['hero_image'] : ($item ? $item->hero_image : '') ?>"/>
                 <?php endif; ?>
@@ -81,7 +81,7 @@
             <div class="controls">
                 <?php if ($item && $item->teaser_image): ?>
                     <img class="span4" src="<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>" alt="">
-                    <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>/teaser_image" class="delete-image pull-right" style="margin-right:20px;" rel="tooltip" title="Delete teaser image"><i class="icon-trash"></i></a>
+                    <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>/teaser_image" class="btn delete-item pull-right" style="margin-right:20px;" rel="tooltip" title="Delete teaser image" data-modal-header="<?php echo $item->name ?> teaser image" data-trigger="reload" data-location="r"><i class="icon-trash"></i></a>
                 <?php else: ?>               
                   <input rel="tooltip" title="370x165"  data-text="370x165" type="file" name = "teaser_image" id = "teaser_image" class = "span4" value = "<?php echo $_POST && isset($_POST['teaser_image']) ? $_POST['teaser_image'] : ($item ? $item->teaser_image : '') ?>"/>
                 <?php endif; ?>

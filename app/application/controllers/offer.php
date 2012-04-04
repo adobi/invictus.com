@@ -39,7 +39,15 @@ class Offer extends MY_Controller
 		    $response = false;
 		    
         if ($this->form_validation->run()) {
+            if ($this->upload->do_upload('image')) {
+                
+                if ($id) {
                     
+                    $this->_deleteImage($id);
+                }
+                
+                $_POST['image'] = $this->upload->file_name;
+            }                    
             if ($id) {
                 $this->model->update($_POST, $id);
             } else {
@@ -48,8 +56,11 @@ class Offer extends MY_Controller
                 if ($current)
                   $this->model->close($current[0]->id);
                 
-                $this->model->insert($_POST);
+                $id = $this->model->insert($_POST);
             }
+            
+            $this->model->setupAnalytics($id);
+            
             $response = display_success('Saved');
         } else {
 
@@ -67,19 +78,6 @@ class Offer extends MY_Controller
           redirect('offer');
         }        
         $this->template->build('offer/edit', $data);
-    }
-    
-    public function delete()
-    {
-        $id = $this->uri->segment(3);
-        
-        if ($id) {
-            $this->load->model('Offers', 'model');
-            
-            $this->model->delete($id);
-        }
-        
-        redirect($_SERVER['HTTP_REFERER']);
     }
     
     public function emails()
@@ -124,4 +122,58 @@ class Offer extends MY_Controller
       $this->template->build('offer/analytics', $data);
     }    
     
+    public function delete()
+    {
+        $id = $this->uri->segment(3);
+        
+        if ($id) {
+            $this->load->model('Offers', 'model');
+            
+            $this->_deleteImage($id, true);
+
+            $this->model->delete($id);
+            
+            $this->session->set_flashdata('message', 'Deleted');
+        }
+        
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+    
+    public function delete_image() 
+    {
+        $id = $this->uri->segment(3);
+        
+        if ($id) {
+            
+            $this->_deleteImage($id);
+            
+            $this->session->set_flashdata('message', 'Deleted');
+        }
+        
+        echo display_success('Deleted');
+        
+        die;
+        
+        //redirect($_SERVER['HTTP_REFERER']);
+    }  
+    
+    private function _deleteImage($id, $withRecord = false) 
+    {
+        $this->load->model('Offers', 'model');
+        
+        $item = $this->model->find($id);
+        
+        if ($item && $item->image) {
+            $this->load->config('upload');
+            
+            @unlink($this->config->item('upload_path') . $item->image);
+        }
+        
+        if (!$withRecord) {
+            
+            $this->model->update(array('image'=>null), $id);
+        }
+        
+        return $withRecord ? $this->model->delete($id) : true;
+    }      
 }

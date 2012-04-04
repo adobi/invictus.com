@@ -11,7 +11,8 @@
       <?php foreach ($items_current as $item): ?>
         <div class="item">
             <h4>
-              <?php echo to_date($item->from_date) ?> - <?php echo to_date($item->to_date) ?>
+              <?php echo $item->name ?>
+              <span class="upper-gray"><?php echo to_date($item->from_date) ?> - <?php echo to_date($item->to_date) ?></span>
               <a href="<?php echo base_url() ?>offer/emails/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Subscribers">
                 <!--<i class="icon-user"></i>  -->
                 <span class="badge badge-info"><?php echo $item->email_count ? $item->email_count : 0 ?></span>
@@ -21,9 +22,14 @@
                 <a  href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete offer" data-modal-header="Current offer"><i class="icon-trash"></i></a>
               </p>
             </h4> 
-            <p>
-              <?php echo nl2br($item->description) ?>
-            </p>       
+            <div class="row">
+              <div class="span5"><img src="<?php echo base_url() ?>uploads/original/<?php echo $item->image ?>" alt="" _style="float:left; margin: 0 10px 10px 0;"></div>
+              <div class="span7">
+                <p>
+                  <?php echo nl2br($item->description) ?>
+                </p>       
+              </div>
+            </div>
         </div>
       <?php endforeach ?>
     </div>
@@ -39,7 +45,8 @@
       <?php foreach ($items_old as $item): ?>
         <div class="item">
             <h4>
-              <?php echo to_date($item->from_date) ?> - <?php echo to_date($item->to_date) ?>
+              <?php echo $item->name ?>
+              <span class="upper-gray"><?php echo to_date($item->from_date) ?> - <?php echo to_date($item->to_date) ?></span>
               <a href="<?php echo base_url() ?>offer/emails/<?php echo $item->id ?>" class="select-item" data-ajax-link="1" rel="tooltip" title="Candidates for the job">
                 <!--<i class="icon-user"></i>  -->
                 <span class="badge badge-info"><?php echo $item->email_count ? $item->email_count : 0 ?></span>
