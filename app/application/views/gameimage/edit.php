@@ -97,7 +97,7 @@
               <a href="{%=file.url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
               {%=o.formatFileSize(file.size)%}
               <p class="pull-right delete">
-                <a data-ajax-link class="btn" href="<?php echo base_url() ?>gameimage/analytics/{%=file.image_id%}"><i class="icon-signal"></i></a>
+                <!-- <a data-ajax-link class="btn" href="<?php echo base_url() ?>gameimage/analytics/{%=file.image_id%}"><i class="icon-signal"></i></a> -->
                 <a data-trigger="reload" data-location="r" class="btn delete-item" href="{%=file.delete_url%}">
                     <i class="icon-trash"></i>
                 </a>

@@ -115,6 +115,18 @@
           
           $('.prev-right-panel').trigger('click');
           
+        } else if (button.data('trigger') === 'reload') {
+          if (button.data('location') === 'r') {
+            
+            Nav.reloadRightPanel();
+            
+          }
+          if (button.data('location') === 'b') {
+            Nav.reloadContetPanel();
+    
+            Nav.reloadRightPanel();
+          
+          }
         } else {
         
           Nav.reloadContetPanel();
@@ -122,6 +134,8 @@
           Nav.reloadRightPanel();
           
         }
+        
+        
         App.Message = resp;
         
         button.attr('disabled', false)

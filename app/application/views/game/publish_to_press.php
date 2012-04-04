@@ -10,7 +10,7 @@
     <?php echo panel_close('publish_to_news/'.($item ? $item->id : '')) ?>
     
     <legend>
-      <strong>8. </strong>
+      <strong>7. </strong>
         <?php if ($item): ?>
           "<?php echo $item->name ?>" press release
         <?php endif ?>
@@ -26,6 +26,6 @@
     </div>
     <fieldset class="form-actions right">
         <!-- <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button>  -->
-        <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/publish_to_microsite/<?php echo $item->id ?>"><strong>9.</strong> Microsite &rarr;</a>
+        <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/publish_to_microsite/<?php echo $item->id ?>"><strong>8.</strong> Microsite &rarr;</a>
     </fieldset>      
 <?php echo form_close() ?>    

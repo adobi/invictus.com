@@ -10,7 +10,7 @@
     <?php echo panel_close('publish_to_press/'.($item ? $item->id : '')) ?>
     
     <legend>
-      <strong>9. </strong>
+      <strong>8. </strong>
         <?php if ($item): ?>
           "<?php echo $item->name ?>" microsite
         <?php endif ?>

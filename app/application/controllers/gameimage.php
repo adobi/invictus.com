@@ -78,7 +78,7 @@ class Gameimage extends MY_Controller
           
           $inserted = $this->model->insert(array(
               'game_id'=>$this->uri->segment(3),
-              'path'=>$data['file_name']
+              'path'=>$data['file_name'],
               'ga_category'=>'Image',
               'ga_action'=>'View',
               'ga_value'=>1,

@@ -31,7 +31,7 @@
         <div class="controls">
             <?php if ($item && $item->logo): ?>
                 <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" alt="">
-                <a href="<?php echo base_url() ?>settings/delete_image/<?php echo $item->id ?>" class="delete-image pull-right" style="margin-right:20px;" rel="tooltip" title="Delete logo"><i class="icon-trash"></i></a>
+                <a href="<?php echo base_url() ?>settings/delete_image/<?php echo $item->id ?>" class=" btn delete-item pull-right" style="margin-right:20px;" rel="tooltip" title="Delete logo" data-modal-header="Company logo" data-trigger="reload" data-location="b"><i class="icon-trash"></i></a>
             <?php else: ?>
               <input rel="tooltip" title="170x170" data-text="170x170" type="file" name = "logo" id = "logo" class = "span4" value = "<?php echo $_POST && isset($_POST['logo']) ? $_POST['logo'] : ($item ? $item->logo : '') ?>"/>
             <?php endif; ?>

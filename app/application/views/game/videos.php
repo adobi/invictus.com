@@ -48,6 +48,6 @@
     </div>
     <fieldset class="form-actions right">
         <!-- <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button>  -->
-        <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/analytics/<?php echo $item->id ?>"><strong>5.</strong> Set up analytics</a>
+        <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/seo/<?php echo $item->id ?>"><strong>5.</strong> Set up SEO</a>
     </fieldset>      
 <?php echo form_close() ?>    

@@ -6,20 +6,20 @@
  
 <?php echo form_open('', array('id'=>'edit-form', 'data-ajax-form'=>1)) ?>
 
-  <?php echo panel_close('analytics/'.($game ? $game->id : '')) ?>
+  <?php echo panel_close('videos/'.($game ? $game->id : '')) ?>
        
   <legend>
-    <strong>6.</strong>
+    <strong>5.</strong>
+    "<?php echo $game->name ?>" SEO settings
     <p class="pull-right">
-      <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button>
+      <button class="btn btn-primary" rel="tooltip" title="Save game" data-trigger="reload" data-location="r"><i class="icon-ok icon-white"></i></button>
       <?php if ($item): ?>
-        <a href="<?php echo base_url() ?>game/delete/<?php echo $game->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $game->name ?>"><i class="icon-trash"></i></a>
+        <a href="<?php echo base_url() ?>game/delete/<?php echo $game->id ?>" class="btn delete-item"  data-location="r" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $game->name ?>"><i class="icon-trash"></i></a>
       <?php endif ?>
     </p>     
   </legend>
   <div class="right-side-scroll">
     
-    <legend>SEO settings</legend>
     <fieldset class="control-group">
       <label class="control-label" for="title">Title</label>
       <div class="controls">
@@ -90,7 +90,7 @@
     </fieldset>
   </div>
   <fieldset class="form-actions right">
-    <button class="btn btn-primary" rel="tooltip" title="Save settings"><i class="icon-ok icon-white"></i></button>
-    <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/publish_to_news/<?php echo $game->id ?>"><strong>7.</strong> In Game news &rarr;</a>
+    <button class="btn btn-primary" rel="tooltip" title="Save settings" data-trigger="reload" data-location="r"><i class="icon-ok icon-white"></i></button>
+    <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/publish_to_news/<?php echo $game->id ?>"><strong>6.</strong> In Game news &rarr;</a>
   </fieldset>
 <?php echo form_close() ?>
