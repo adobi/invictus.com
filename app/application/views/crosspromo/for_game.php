@@ -1,6 +1,8 @@
 <h3>
   Promotional games
-  
+              <span class="pull-right">
+                <span class="label label-info">Tipp</span> <span class="tipp-text"><strong>Move items to change the order</strong></span>
+              </span>  
 </h3>
 <hr>
 <ul class="thumbnails">

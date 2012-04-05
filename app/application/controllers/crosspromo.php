@@ -11,8 +11,9 @@ class Crosspromo extends MY_Controller
       $data = array();
       
       $this->load->model('Games', 'model');
-      
-      $data['games'] = $this->model->toAssocArray('id', 'name+count', $this->model->fetchWithCrosspromo());
+      $games = $this->model->fetchWithCrosspromo();
+      $data['games_select'] = $this->model->toAssocArray('id', 'name+count', $games);
+      $data['games'] = $games;
       
       $this->template->build('crosspromo/index', $data);
     }

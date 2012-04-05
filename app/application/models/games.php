@@ -44,7 +44,7 @@ class Games extends MY_Model
     
     public function fetchLastReleased() 
     {
-      $result = $this->fetchAll(array('order'=>array('by'=>'released', 'dest'=>'desc'), 'limit'=>1, 'offset'=>0), true);
+      $result = $this->fetchRows(array('where'=>array('is_active'=>1), 'order'=>array('by'=>'released', 'dest'=>'desc'), 'limit'=>1, 'offset'=>0), true);
       
       if (!$result) return false;
       

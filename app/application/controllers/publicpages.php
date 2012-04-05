@@ -117,7 +117,6 @@ class Publicpages extends Page_Controller
           
 
     }
-
     
     $this->form_validation->set_rules('firstname', 'First name', 'trim|required');
     $this->form_validation->set_rules('lastname', 'Last name', 'trim|required');
@@ -207,6 +206,7 @@ class Publicpages extends Page_Controller
       $this->data['game'] = $this->games->fetchLastReleased();
       
       $view = 'games';
+      
     } else {
       
       if ($this->uri->segment(3) && $this->uri->segment(3) === 'short') {
@@ -226,7 +226,8 @@ class Publicpages extends Page_Controller
       //dump($this->data['game']); die;
     }
     
-    if (!$this->data['game'] || !$this->data['game']->is_active) {
+    //dump($url !== 'all' && (!$this->data['game'] || !$this->data['game']->is_active)); die;
+    if ($url !== 'all' && (!$this->data['game'] || !$this->data['game']->is_active)) {
       redirect('missing');
     }    
     
