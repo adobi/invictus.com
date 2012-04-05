@@ -45,8 +45,6 @@
         
         clone.find('.caption').show()
         
-        console.log(clone.find('.item').data('id'))
-        console.log(dropTo.parents('.thumbnails').find("li>.item[data-id="+clone.find('.item').data('id')+"]"))
         if (!dropTo.parents('.thumbnails').find("li>.item[data-id="+clone.find('.item').data('id')+"]").length) {
          
           if (!$.trim(dropTo.html()).length) {
@@ -102,6 +100,7 @@
       App.Tooltip('hide')
       
       callback && callback()
+      Crosspromo.TriggerLoadAllGames()
     })
   }
   
@@ -120,6 +119,7 @@
       el.attr('id', resp)
       
       Crosspromo.UpdateOrder(el.parents('.thumbnails:first').sortable('toArray'))
+      Crosspromo.TriggerLoadAllGames()
     })
     
   }
@@ -139,6 +139,16 @@
     }  
   }
 
+  Crosspromo.LoadAllGames = function() 
+  {
+    $('#crosspromo-all-games').load(App.URL+"crosspromo/load_all_games", function() {
+      $('#crosspromo-all-games').find('[data-id='+Crosspromo.Selected+']').addClass('selected')
+    })
+  }
+  
+  Crosspromo.TriggerLoadAllGames = function() {
+    $('body').trigger('crosspromo-laod-games')
+  }
   
   Crosspromo.LoadForGame = function(id) 
   {
@@ -159,6 +169,10 @@
   
   $(function() {
     
+    $('body').on('crosspromo-laod-games', Crosspromo.LoadAllGames);
+    
+    Crosspromo.TriggerLoadAllGames()
+    
     $('body').on('change', '#crosspromo_base_game', function(e) {
       Crosspromo.LoadForGame($(this).val())
       $('#crosspromo-games>.thumbnails').hide()
@@ -173,6 +187,8 @@
       
       self.parents('ul:first').find('.selected').removeClass('selected')
       self.parents('.item:first').addClass('selected')
+      
+      Crosspromo.Selected = $(this).data('id')
       
       Crosspromo.LoadForGame($(this).data('id'))
       

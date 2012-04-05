@@ -77,8 +77,38 @@ class Publicpages extends Page_Controller
         $this->email->subject($_POST['subject']);
         $this->email->message($_POST['message']);
         
+        $message = $_POST['message'];
+        $subject = $_POST['subject'];
+        
         if (ENVIRONMENT === 'production') {
           $this->email->send();
+          
+          $reply = "Hi,
+
+Your message with the following subject has been forwarded to the relevant people of Invictus Games.
+
+Department: $dest->name
+Subject: $subject
+Message: $message";
+          $reply .= "
+          
+Thank a lot for contacting Invictus Games Ltd. Due to our tight schedule, we assume to respond to your inquiry in 72 hours. Thanks a lot for your patience.
+
+Best regards,
+Invictus Games Support Team";
+          
+          //$config['mailtype'] = 'html';
+          
+          //$this->email->initialize($config);
+          $this->email->from('noreply@invictus.com');
+          $this->email->to($_POST['email']);
+          //$this->email->cc('hello.attila@gmail.com');
+          
+          $this->email->subject('Your Invictus inquiry');
+          $this->email->message(($reply));
+          
+          $this->email->send();
+
         }
         
         $this->load->model('Contactmessages', 'messages');

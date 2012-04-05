@@ -1,6 +1,6 @@
 <?php if ($game): ?>
   <div class="details-pane-logo-big">
-     <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->logo ?>" alt="">
+     <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->teaser_image ?>" alt="">
   </div>
   <h3 style="margin-top:20px;"><?php echo $game->name ?></h3>
   <p><?php echo $game->short_description ?></p>

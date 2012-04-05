@@ -1,11 +1,11 @@
 <h3>
-  Promotional games
+  Promotional games for <?php echo $game->name ?>
               <span class="pull-right">
                 <span class="label label-info">Tipp</span> <span class="tipp-text"><strong>Move items to change the order</strong></span>
               </span>  
 </h3>
 <hr>
-<ul class="thumbnails">
+<ul class="thumbnails" style=" width:650px; margin-left:-15px">
   <?php foreach ($games as $item): ?>
     <?php if ($item) :?>
       <li class="span2" id="<?php echo $item->id ?>" rel="tooltip" title="<?php echo $item->name ?>">

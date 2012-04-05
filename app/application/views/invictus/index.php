@@ -69,7 +69,7 @@
             <?php if ($current_offer): ?>
               <div class="row newsletter" style="margin-top:20px;">
                 <div class="span7">
-                  <h2 style="margin-bottom:10px;">Current offer: <span class="upper-gray"><?php echo $current_offer->name ?></span></h2>
+                  <h2 style="margin-bottom:10px;">Offer: <span class="upper-gray"><?php echo $current_offer->name ?></span></h2>
                 </div>
                 <div class="span4 subscribe" style="margin:auto 10px;">
                   <!-- <img src="http://placehold.it/360x160" alt=""> -->

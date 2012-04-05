@@ -13,7 +13,7 @@ class Crosspromo extends MY_Controller
       $this->load->model('Games', 'model');
       $games = $this->model->fetchWithCrosspromo();
       $data['games_select'] = $this->model->toAssocArray('id', 'name+count', $games);
-      $data['games'] = $games;
+      //$data['games'] = $games;
       
       $this->template->build('crosspromo/index', $data);
     }
@@ -56,6 +56,9 @@ class Crosspromo extends MY_Controller
       $this->load->model('Crosspromos', 'model');
       
       $this->session->set_userdata('selected_game', $this->uri->segment(3)); 
+      
+      $this->load->model('Games', 'games');
+      $data['game'] = $this->games->find($this->uri->segment(3));
       
       $data['games'] = $this->model->fetchByGame($this->uri->segment(3));
       //dump($data['games']); die;
@@ -108,5 +111,17 @@ class Crosspromo extends MY_Controller
         }
       }
       redirect($_SERVER['HTTP_REFERER']);
-    }        
+    }    
+    
+    public function load_all_games()
+    {
+      $data = array();
+      
+      $this->load->model('Games', 'model');
+      $games = $this->model->fetchWithCrosspromo();
+      
+      $data['games'] = $games;
+      
+      $this->template->build('crosspromo/load_all_games', $data);      
+    }    
 }
