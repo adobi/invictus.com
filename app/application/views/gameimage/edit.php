@@ -62,6 +62,11 @@
         <!-- <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table> -->
         <legend>Uploaded files</legend>
         <div class="items files"></div>
+        
+    <fieldset class="form-actions right">
+        <!-- <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button>  -->
+        <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/videos/<?php echo $game->id ?>"><strong>4.</strong> Set up videos</a>
+    </fieldset>         
         <!-- The template to display files available for upload -->
         <script id="template-upload" type="text/x-tmpl">
         {% for (var i=0, file; file=o.files[i]; i++) { %}

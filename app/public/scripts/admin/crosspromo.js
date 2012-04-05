@@ -132,7 +132,7 @@
       that.el.sortable({
           placeholder: "dnd-li-active",
           stop: function(event, ui) {
-              callback(that.el.data('section'), that.el.sortable('toArray'))
+              callback($(ui.item).parents('ul:first').data('section'), $(ui.item).parents('ul:first').sortable('toArray'))
           }
       });
       this.el.disableSelection();       

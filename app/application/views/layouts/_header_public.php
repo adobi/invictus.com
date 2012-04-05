@@ -19,6 +19,7 @@
     <meta property="og:description" content="<?php echo $meta ? $meta->og_description : '' ?>" />    
     <meta property="og:site_name" content="<?php echo $meta ? $meta->og_site_name : 'Invictus Games' ?>" />    
     <meta property="fb:app_id" content="<?php echo $settings ? $settings->facebook_app_id : '' ?>" />
+    
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -43,7 +44,7 @@
       <?php if (ENVIRONMENT === 'development'): ?>
         <script type="text/javascript" src="https://getfirebug.com/releases/lite/1.3/firebug-lite.js"></script>
       <?php endif ?>
-      <script src="https://raw.github.com/scottjehl/Respond/master/respond.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url() ?>scripts/plugins/respondjs/respond.min.js"></script>
     <![endif]-->
     
   </head>

@@ -122,7 +122,7 @@ class Game extends MY_Controller
                 $this->model->update($_POST, $id);
                 
                 $this->meta->update($meta, $item->meta_id);
-                //$hash = '#edit/'.$id;
+                $hash = '#edit/'.$id;
                 
             } else {
                 $met['description'] = $_POST['name'] . ' the official game';

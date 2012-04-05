@@ -110,13 +110,13 @@
         <fieldset class="control-group">
             <label class="control-label" for="facebook_page">Facebook page</label>
             <div class="controls">
-                <input type="text" name = "facebook_page" id = "facebook_page" class = "span4" value = "<?php echo $_POST && isset($_POST['facebook_page']) ? $_POST['facebook_page'] : ($item ? $item->facebook_page : 'http://facebook.com/') ?>"/>
+                http://facebook.com/ <input type="text" name = "facebook_page" id = "facebook_page" class = "span2" value = "<?php echo $_POST && isset($_POST['facebook_page']) ? $_POST['facebook_page'] : ($item ? $item->facebook_page : '') ?>"/>
             </div>
         </fieldset>                          
         <fieldset class="control-group">
             <label class="control-label" for="twitter_page">Twitter page</label>
             <div class="controls">
-                <input type="text" name = "twitter_page" id = "twitter_page" class = "span4" value = "<?php echo $_POST && isset($_POST['twitter_page']) ? $_POST['twitter_page'] : ($item ? $item->twitter_page : 'http://twitter.com/') ?>"/>
+                http://twitter.com/ <input type="text" name = "twitter_page" id = "twitter_page" class = "span2" value = "<?php echo $_POST && isset($_POST['twitter_page']) ? $_POST['twitter_page'] : ($item ? $item->twitter_page : '') ?>"/>
             </div>
         </fieldset> 
         <!-- 
