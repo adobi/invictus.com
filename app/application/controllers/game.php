@@ -146,7 +146,7 @@ class Game extends MY_Controller
             
             $response = display_success('Saved');
         } else {
-
+            $hash = '#edit/' . ($id ? $id : '');
             $response = display_errors(validation_errors());
         }
 

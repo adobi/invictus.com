@@ -311,7 +311,7 @@
     var hash =  window.location.hash.slice(1),
         id = hash.split('/')[1]
 
-    if (id) {
+    if (! /platforms/.test(hash) && id) {
       
       $('#filter-games-select').val(id)
       setTimeout(function() {
