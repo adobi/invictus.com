@@ -186,7 +186,7 @@ class Job extends MY_Controller
         }
       }
       
-      redirect($_SERVER['HTTP_REFERER']);
+      die;redirect($_SERVER['HTTP_REFERER']);
     }
     
     public function remove_first() 
@@ -204,7 +204,7 @@ class Job extends MY_Controller
         }
       }
       
-      redirect($_SERVER['HTTP_REFERER']);
+      die; redirect($_SERVER['HTTP_REFERER']);
     }
     
     /**
@@ -220,8 +220,9 @@ class Job extends MY_Controller
       
       $this->load->model('Jobs', 'model');
       
-      $this->model->$action($id);
+      echo $this->model->$action($id);
       
-      redirect($_SERVER['HTTP_REFERER']);//die;
+      //redirect($_SERVER['HTTP_REFERER']);//die;
+      die;
     }     
 }

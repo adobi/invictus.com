@@ -170,6 +170,15 @@
       e.preventDefault()
     })
     
+    $('body').delegate('[data-contet-ajax-link]', 'click', function(e) {
+      
+      $.get($(this).attr('href'), function() {
+        Nav.reloadContetPanel()
+      })
+      
+      e.preventDefault()
+    })
+    
     $('body').delegate('[data-close-right]', 'click', function(e) {
       
       (new Nav(this)).closeRightPanel();

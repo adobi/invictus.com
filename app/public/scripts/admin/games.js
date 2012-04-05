@@ -31,6 +31,12 @@
               item.removeClass('alert-success')
               break;
           }
+          
+          if (that.el.data('trigger') === 'reload') {
+            if (that.el.data('location') === 'l') App.Nav.reloadContetPanel()
+            
+            if (that.el.data('location') === 'r') App.Nav.reloadRightPanel()
+          }
         }
       })
     },
