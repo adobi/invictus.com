@@ -57,6 +57,8 @@
   App.showNotification = function(message) 
   {
       var self = $('#loading-global');
+      self
+        .css('left', ($(window).width() - self.width()) / 2)
       
       self.html(message).show();
 
