@@ -77,13 +77,15 @@
                   <input type="file" name="cv" id="cv" class="input-xlarge">
                 </div>
               </div>  
-              <div class="control-group">
-                <label for="cv" class="control-label">Portfolio </label>
-                <div class="controls">
-                  <input type="file" name="portfolio" id="portfolio" class="input-xlarge" rel="tooltip" title="Max 3 MB">
-                  
-                </div>
-              </div>               
+              <?php if ($job->is_graphic_designer) :?>
+                <div class="control-group">
+                  <label for="cv" class="control-label">Portfolio </label>
+                  <div class="controls">
+                    <input type="file" name="portfolio" id="portfolio" class="input-xlarge" rel="tooltip" title="Max 3 MB">
+                    
+                  </div>
+                </div>               
+              <?php endif; ?>
               <div class="form-actions">
                 <input type="hidden" name="job_id" value="<?php echo $job->id ?>">
                 <button class="btn btn-primary  btn-large" type="submit" <?php echo event_tracking($job, 'job') ?>>Send application</button>

@@ -4,12 +4,12 @@
     $config['upload_path_base'] = dirname($_SERVER['SCRIPT_FILENAME']) . '/uploads/';
     //echo $config['upload_path'];
     $config['allowed_types'] = 'gif|jpg|png|zip|rar|pdf|doc|docx';
-    $config['max_size'] = '2048';
-    $config['max_width'] = '1024';
-    $config['max_height'] = '768';
-    $config['image_width'] = 340;
-    $config['image_height'] = 260;
-    $config['thumb_width'] = 280;
-    $config['thumb_height'] = 210;
+    $config['max_size'] = '10240';
+//    $config['max_width'] = '1024';
+//    $config['max_height'] = '768';
+//    $config['image_width'] = 340;
+//    $config['image_height'] = 260;
+//    $config['thumb_width'] = 280;
+//    $config['thumb_height'] = 210;
 
 ?>

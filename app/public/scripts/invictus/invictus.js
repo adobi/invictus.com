@@ -204,8 +204,29 @@
     })
   };
   
+  App.ReverseContentColumns = function () 
+  {
+    var w = $(window),
+        c = $('#container .row');
+    
+    if (w.width() < 1010) {
+      //console.log('reverse')
+      c.children().each(function(i,child){c.prepend(child)})
+      App.Reversed = true
+    } else {
+      if (App.Reversed) {
+        c.children().each(function(i,child){c.prepend(child)})
+        App.Reversed = false
+      }
+    }
+  }
+  
+  $(window).resize(App.ReverseContentColumns)
+  
   $(function() 
   {
+    
+    App.ReverseContentColumns()
     
     $('[data-pretty-file], input[type=file]').prettifyUpload();
     

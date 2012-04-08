@@ -60,7 +60,13 @@
                         $(function() {
                             App.showNotification("<?php echo ($this->session->flashdata("message")) ?>")
                         })
-                    <?php endif ?>                  
+                    <?php endif ?> 
+                    
+                    <?php if (isset($was_error) && $was_error && isset($hash) && $hash) :?>
+                      window.location.hash = '<?php echo $hash ?>'
+                    <?php else : ?>
+                      window.location.hash = ''
+                    <?php endif; ?>                 
                   }                     
             );
     	</script>

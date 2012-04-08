@@ -147,6 +147,8 @@ Invictus Games Support Team";
           
 
     }
+    $this->load->model('Jobcategorys', 'category');
+    $this->data['job']->is_graphic_designer = $this->category->isGraphicDesigner($this->data['job']->category_id);
     
     $this->form_validation->set_rules('firstname', 'First name', 'trim|required');
     $this->form_validation->set_rules('lastname', 'Last name', 'trim|required');
@@ -160,6 +162,9 @@ Invictus Games Support Team";
           
           $_POST['cv'] = $this->upload->file_name;
       } else {
+        $this->data['was_error'] = true;
+        $this->data['hash'] = '#job-application-form';
+      
         $this->data['error'] .= $this->upload->display_errors();
       }     
 
@@ -176,7 +181,30 @@ Invictus Games Support Team";
         $this->application->insert($_POST);
         
         $this->session->set_flashdata("message", '<p>Thanks for your application. We will contact You soon!</p>');
+        if (ENVIRONMENT === 'production') {
+          $this->load->library('email');
+          $firstname = $_POST['firstname'];
+          $lastname = $_POST['lastname'];
+          $position = $this->data['job']->name;
+          
+          $reply = "Hi $firstname $lastname 
 
+  Thanks a lot for applying for the $position position. Should your application be succesful, we'll contact you in 2 weeks.
+
+
+  Best regards,
+  Invictus HR team
+  ";
+          $this->email->from('noreply@invictus.com');
+          $this->email->to($_POST['email']);
+          
+          $this->email->subject('Your Invictus inquiry');
+          $this->email->message(($reply));
+          
+          $this->email->send();    
+
+
+        }
         redirect($_SERVER['HTTP_REFERER']);
       }
       
@@ -186,6 +214,8 @@ Invictus Games Support Team";
       if ($_FILES && isset($_FILES['cv']) && !$_FILES['cv']['name'])
         $this->data['error'] .= 'The CV field is required';
       
+      $this->data['was_error'] = true;
+      $this->data['hash'] = '#job-application-form';
     }
     
     $this->template->build('invictus/jobs', $this->data);
