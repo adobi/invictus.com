@@ -134,7 +134,7 @@
         </div>
       <?php endif ?>
 
-      <div class="fb-comments" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>" data-num-posts="2" data-width="620"></div>
+      <div id = "fb-comments-desktop" class="fb-comments" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>" data-num-posts="2" data-width="620"></div>
       <!-- <div class="fb-comments" data-href="http://facebook.com/<?php echo $game->facebook_page ?>" data-num-posts="2" data-width="620"></div> -->
     </div>
     <div class="span4 details-pane game-details">
@@ -173,6 +173,6 @@
       <g:plusone size="medium"></g:plusone>
       <p>&nbsp;</p> 
       <div class="facebook-widget" data-type="like-box" data-page="<?php echo $game->facebook_page ?>"></div>
-      
+      <div id = "fb-comments-mobile" class="fb-comments" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>" data-num-posts="2" data-width="620" _style="display:none"></div>
     </div>
   </div>

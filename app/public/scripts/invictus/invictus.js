@@ -306,17 +306,30 @@
     })
   }
   
+  App.ToggleFacebookCommnet = function() 
+  {
+    if ($(window).width() <= 1023) {
+      $('#fb-comments-desktop').hide()
+      $('#fb-comments-mobile').show()
+    } else {
+      $('#fb-comments-desktop').show()
+      $('#fb-comments-mobile').hide()
+    }
+  }
+  
   $(function() 
   {
       
     $(window).smartresize(function() {
       App.ReverseContentColumns()
       App.LoadSocialWidgets()
+      App.ToggleFacebookCommnet()
     })
     
     App.LoadSocialWidgets()
     App.ReverseContentColumns()
     App.LoadFacebookSdk()
+    App.ToggleFacebookCommnet()
     
     $('[data-pretty-file], input[type=file]').prettifyUpload();
     
