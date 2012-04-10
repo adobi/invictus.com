@@ -49,7 +49,7 @@
     
   </head>
 
-  <body>
+  <body data-app-id = "<?php echo $settings ? $settings->facebook_app_id : '' ?>">
     <div id="fb-root"></div>
     <?php //if (ENVIRONMENT === 'production'): ?>
       
@@ -67,7 +67,7 @@
           })();
       
       </script>   
-      
+      <!-- 
       <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -75,7 +75,8 @@
         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $settings ? $settings->facebook_app_id : '' ?>";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));</script>
-      
+       -->
+       
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   
       <script type="text/javascript">
@@ -140,4 +141,7 @@
     </div>
 
     <div class="container" id="container"> 
-      <div class="well debug"></div>         
+      <?php if (ENVIRONMENT === 'development'): ?>
+        <div class="well debug"></div>
+      <?php endif ?>
+      

@@ -238,7 +238,7 @@
     var w = $(window),
         c = $('[data-reversable]');
     
-    $('.debug').append(w.width() + ', ')
+    //$('.debug').html(w.width() + ', ')
         
     if (w.width() < 1023) {
       
@@ -268,13 +268,55 @@
     }
   }
 
+  App.LoadFacebookSdk = function() 
+  {
+    if ($('#facebook-jssdk').length) $('#facebook-jssdk').remove();
+    
+    
+    ;(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId="+$('body').data('app-id');
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));    
+    
+  }
+  
+  App.LoadSocialWidgets = function() 
+  {
+    var elem = $('.facebook-widget'),
+        type = elem.data('type'),
+        size = 300,
+        page = elem.data('page'),
+        win = $(window)
+        width = win.width()
+    
+    if (width <= 480) size = width - 50
+    else if (width <= 768) size = width - 50
+    else if (width <= 1023) size = width - 50
+    else if (width < 1200) size = 280
+    else size = 360
+
+    $('.debug').html('widget size: ' + size + ' window width: ' + width)
+    
+    elem.load(App.URL+'pages/widget/'+type+'/'+size+'/'+page, function() {
+      App.LoadFacebookSdk()
+      window.FB && window.FB.init({ status: true, cookie: true, xfbml: true });
+    })
+  }
   
   $(function() 
   {
       
-    $(window).smartresize(App.ReverseContentColumns)
-  
+    $(window).smartresize(function() {
+      App.ReverseContentColumns()
+      App.LoadSocialWidgets()
+    })
+    
+    App.LoadSocialWidgets()
     App.ReverseContentColumns()
+    App.LoadFacebookSdk()
     
     $('[data-pretty-file], input[type=file]').prettifyUpload();
     

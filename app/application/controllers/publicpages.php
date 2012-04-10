@@ -300,4 +300,13 @@ Invictus Games Support Team";
     echo embed_youtube($this->uri->segment(3), false, 770, 510);
     die;
   }
+  
+  public function widget()
+  {
+    $this->data['type'] = $this->uri->segment(3);
+    $this->data['size'] = $this->uri->segment(4);
+    $this->data['page'] = $this->uri->segment(5);
+    
+    $this->template->build('invictus/widget', $this->data);
+  }
 }

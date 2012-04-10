@@ -172,6 +172,7 @@
       <a href="https://twitter.com/<?php echo $game->twitter_page ?>" class="twitter-follow-button" data-show-count="false">Follow @<?php echo $game->twitter_page ?></a>
       <g:plusone size="medium"></g:plusone>
       <p>&nbsp;</p> 
-      <div class="fb-like-box" data-href="https://www.facebook.com/<?php echo $game->facebook_page ?>" data-width="360" data-show-faces="true" data-stream="true" data-header="false"></div>
+      <div class="facebook-widget" data-type="like-box" data-page="<?php echo $game->facebook_page ?>"></div>
+      
     </div>
   </div>

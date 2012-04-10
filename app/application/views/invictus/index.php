@@ -44,21 +44,6 @@
           <div class="span8 ">
             <?php if ($about): ?>
               <div class="blog">
-                <!-- 
-                <h2 style="margin-bottom:10px;">Latest blog posts</h2>
-                <?php foreach (range(0,2) as $key => $value): ?>
-                  <div>
-                    <h6>Lorem ipsum dolor sit amet</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius lorem in magna ornare dapibus. Nam vel lectus mauris. Sed ante felis vulputate sit amet mi</p>
-                    <p style="text-align:right">
-                      <a href="#">Read more &rarr;</a>
-                    </p>
-                    <?php if ($key !== 2): ?>
-                      <hr>
-                    <?php endif ?>
-                  </div>
-                <?php endforeach ?>
-                 -->
                 <div class="span8">
                   <h2 style="margin-bottom:10px;">About Invictus</h2>
                 </div>
@@ -100,7 +85,7 @@
               <a href="https://twitter.com/<?php echo $settings->twitter_id ?>" class="twitter-follow-button" data-show-count="false">Follow @<?php echo $settings->twitter_id ?></a>
               <g:plusone size="medium"></g:plusone>
               <p>&nbsp;</p>
-              <div class="fb-like-box" data-href="https://www.facebook.com/<?php echo $settings->facebook_page ?>" data-width="360" data-show-faces="true" data-stream="true" data-header="false"></div>
+              <div class="facebook-widget" data-type="like-box" data-page="<?php echo $settings->facebook_page ?>"></div>
               
           </div>
         </div>
