@@ -139,4 +139,5 @@
       </div>
     </div>
 
-    <div class="container" id="container">          
+    <div class="container" id="container"> 
+      <div class="well debug"></div>         

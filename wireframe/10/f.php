@@ -35,12 +35,29 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/elastislide/js/jquery.easing.1.3.js"></script>
-    <script src="assets/js/elastislide/js/jquery.elastislide.js"></script>
-    <script src="assets/js/invictus.js"></script>
+  	<script src = "<?php echo base_url() ?>assets/js/head.min.js"></script> 
+  	<script type="text/javascript">
+  	    head.js("http://code.jquery.com/jquery-1.7.1.min.js", 
+  	            "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js",
+  	            "https://raw.github.com/cowboy/jquery-hashchange/v1.3/jquery.ba-hashchange.min.js",
+  	            "<?php echo base_url() ?>assets/js/bootstrap/bootstrap-touch.js",
+                "<?php echo base_url() ?>assets/js/bootstrap/bootstrap-dropdown.js",
+                "<?php echo base_url() ?>assets/js/bootstrap/bootstrap-tab.js",
+                "<?php echo base_url() ?>assets/js/bootstrap/bootstrap-transition.js",
+                "<?php echo base_url() ?>assets/js/bootstrap/bootstrap-alert.js",
+                "<?php echo base_url() ?>assets/js/bootstrap/bootstrap-modal.js",
+                "<?php echo base_url() ?>assets/js/bootstrap/bootstrap-tooltip.js",
+                "<?php echo base_url() ?>assets/js/bootstrap/bootstrap-popover.js",
+                "<?php echo base_url() ?>assets/js/bootstrap/bootstrap-transition.js",
+                "<?php echo base_url() ?>assets/js/bootstrap/bootstrap-collapse.js",
+                "<?php echo base_url() ?>assets/js/bootstrap/bootstrap-carousel.js",
+                "<?php echo base_url() ?>assets/js/elastislide/js/jquery.easing.1.3.js",
+                "<?php echo base_url() ?>assets/js/elastislide/js/jquery.elastislide.js",
+                "<?php echo base_url() ?>assets/js/invictus.js",
+                function() {
+                }                     
+          );
+  	</script>
 
   </body>
 

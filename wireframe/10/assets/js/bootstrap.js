@@ -241,7 +241,7 @@
   })
 
 }( window.jQuery );/* ==========================================================
- * bootstrap-carousel.js v2.0.1
+ * bootstrap-carousel.js v2.0.2
  * http://twitter.github.com/bootstrap/javascript.html#carousel
  * ==========================================================
  * Copyright 2012 Twitter, Inc.
@@ -271,6 +271,13 @@
     this.$element = $(element)
     this.options = $.extend({}, $.fn.carousel.defaults, options)
     this.options.slide && this.slide(this.options.slide)
+    
+    this.options.pause == 'hover' && this.$element
+      .on('mouseenter', $.proxy(this.pause, this))
+      .on('mouseleave', $.proxy(this.cycle, this))
+    alert($.support.touch)  
+    $.support.touch && this.$element.touch() && this.$element
+      .on('swipe',$.proxy(this.swipe, this))
   }
 
   Carousel.prototype = {
@@ -325,13 +332,13 @@
         , fallback  = type == 'next' ? 'first' : 'last'
         , that = this
 
-      if (!$next.length) return
-
       this.sliding = true
 
       isCycling && this.pause()
 
       $next = $next.length ? $next : this.$element.find('.item')[fallback]()
+
+      if ($next.hasClass('active')) return
 
       if (!$.support.transition && this.$element.hasClass('slide')) {
         this.$element.trigger('slide')
@@ -357,6 +364,13 @@
 
       return this
     }
+    
+  , swipe: function(e, direction) {
+      
+      this.options.pause in {swipe:1,both:1} && this.pause()
+      direction == 'left' && this.next()
+      direction == 'right' && this.prev()
+    }    
 
   }
 
@@ -372,12 +386,13 @@
       if (!data) $this.data('carousel', (data = new Carousel(this, options)))
       if (typeof option == 'number') data.to(option)
       else if (typeof option == 'string' || (option = options.slide)) data[option]()
-      else data.cycle()
+      else if (options.interval) data.cycle()
     })
   }
 
   $.fn.carousel.defaults = {
     interval: 5000
+  , pause: 'swipe'
   }
 
   $.fn.carousel.Constructor = Carousel

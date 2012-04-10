@@ -1,3 +1,12 @@
+<?php
+
+  function base_url() 
+  {
+    return '';
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

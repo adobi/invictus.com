@@ -238,7 +238,9 @@
     var w = $(window),
         c = $('[data-reversable]');
     
-    if (w.width() < 1170) {
+    $('.debug').append(w.width() + ', ')
+        
+    if (w.width() < 1023) {
       
       c.children().each(function(i,child){c.prepend(child)})
       
@@ -267,11 +269,11 @@
   }
 
   
-  $(window).smartresize(App.ReverseContentColumns)
-  
   $(function() 
   {
-    
+      
+    $(window).smartresize(App.ReverseContentColumns)
+  
     App.ReverseContentColumns()
     
     $('[data-pretty-file], input[type=file]').prettifyUpload();
