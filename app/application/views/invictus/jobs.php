@@ -1,6 +1,6 @@
-  <div class="row">
+  <h1>We are <?php echo !$jobs ? 'not' : '' ?> hiring!</h1>
+  <div class="row" data-reversable>
     <div class="span8 job-details">
-      <h1>We are <?php echo !$jobs ? 'not' : '' ?> hiring!</h1>
       <hr>
       <?php if ($job): ?>
         <div class="job-info">
@@ -96,24 +96,29 @@
         </div> <!-- /#job-application-form -->
       <?php endif ?>
     </div>
-    <div class="span4 details-pane" style="height:auto; margin-top:55px;">
-      <h3>Current positions</h3>
-      <hr style="margin:2px auto 8px auto;">
-
-      <ul class="nav nav-list jobs-list">
-        <?php if ($jobs): ?>
-          <?php foreach ($jobs as $item): ?>
-            <li class="nav-header"><?php echo $item['category']->name ?></li>
-            <?php foreach ($item['jobs'] as $job): ?>
-              <li><a href="<?php echo base_url() ?>pages/jobs/<?php echo $job->url ?>" style="font-size:1.2em">
-                <img src="<?php echo base_url() ?>uploads/original/<?php echo $item['category']->icon ?>" style="width:16px;margin-right:5px; margin-top:0px;"></i>
-                <?php echo $job->name ?>
-              </a></li>
+    <div class="span4 details-pane" style="height:auto; margin-top:20px;">
+      <h3>
+        <span class="visible-desktop">Current positions</span>
+        <a class="btn btn-large hidden-desktop" href="javascript:void(0)"  onclick = "$('.jobs-list-wrapper').toggle()">Current positions</a>
+      </h3>
+      <div class="jobs-list-wrapper visible-desktop">
+        <hr style="margin:2px auto 8px auto;">
+  
+        <ul class="nav nav-list jobs-list">
+          <?php if ($jobs): ?>
+            <?php foreach ($jobs as $item): ?>
+              <li class="nav-header"><?php echo $item['category']->name ?></li>
+              <?php foreach ($item['jobs'] as $job): ?>
+                <li><a href="<?php echo base_url() ?>pages/jobs/<?php echo $job->url ?>" style="font-size:1.2em">
+                  <img src="<?php echo base_url() ?>uploads/original/<?php echo $item['category']->icon ?>" style="width:16px;margin-right:5px; margin-top:0px;"></i>
+                  <?php echo $job->name ?>
+                </a></li>
+              <?php endforeach ?>
             <?php endforeach ?>
-          <?php endforeach ?>
-        <?php else: ?>
-          <li class="nav-header">No open position</li>
-        <?php endif ?>
-      </ul>
+          <?php else: ?>
+            <li class="nav-header">No open position</li>
+          <?php endif ?>
+        </ul>
+      </div>
     </div>
   </div>

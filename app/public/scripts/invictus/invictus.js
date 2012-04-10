@@ -1,3 +1,32 @@
+
+!function($,sr){
+ 
+  // debouncing function from John Hann
+  // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+  var debounce = function (func, threshold, execAsap) {
+      var timeout;
+ 
+      return function debounced () {
+          var obj = this, args = arguments;
+          function delayed () {
+              if (!execAsap)
+                  func.apply(obj, args);
+              timeout = null; 
+          };
+ 
+          if (timeout)
+              clearTimeout(timeout);
+          else if (execAsap)
+              func.apply(obj, args);
+ 
+          timeout = setTimeout(delayed, threshold || 100); 
+      };
+  }
+	// smartresize 
+	jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+ 
+} (jQuery,'smartresize');
+
 !function($) {
 
   $.subnav = function() 
@@ -207,21 +236,38 @@
   App.ReverseContentColumns = function () 
   {
     var w = $(window),
-        c = $('#container .row');
+        c = $('[data-reversable]');
     
-    if (w.width() < 1010) {
-      //console.log('reverse')
+    if (w.width() < 1170) {
+      
       c.children().each(function(i,child){c.prepend(child)})
+      
+      //if (!$('.top-nav').find('.dropdown').length) {
+      //  $('.top-nav').append($('.more-games').html())
+        //$('.top-nav').find('.all-games-dropdown-menu').hide()
+      //  $('.more-games').hide()
+      //}
+      
       App.Reversed = true
     } else {
       if (App.Reversed) {
         c.children().each(function(i,child){c.prepend(child)})
         App.Reversed = false
+        
+        //if ($('.top-nav').find('.dropdown').length) {
+        //  $('.top-nav').find('.dropdown').remove()
+        //  $('.more-games').show()
+        //}
+        
+        var jobList = $('.jobs-list-wrapper')
+        jobList.length && jobList.is(':hidden') && jobList.show()
+        
       }
     }
   }
+
   
-  $(window).resize(App.ReverseContentColumns)
+  $(window).smartresize(App.ReverseContentColumns)
   
   $(function() 
   {
@@ -321,4 +367,5 @@
     });
   });
   
-} (jQuery)
+} (jQuery);
+

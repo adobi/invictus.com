@@ -144,9 +144,8 @@ Invictus Games Support Team";
       if (!$this->data['job'] || !$this->data['job']->is_active) {
         redirect('missing');
       }
-          
-
     }
+    
     $this->load->model('Jobcategorys', 'category');
     $this->data['job']->is_graphic_designer = $this->category->isGraphicDesigner($this->data['job']->category_id);
     
@@ -156,8 +155,9 @@ Invictus Games Support Team";
     $this->form_validation->set_rules('phone', 'Phone', 'trim|required');
     
     $this->data['error'] = '';
+    $this->data['hash'] = false;
+    $this->data['was_error'] = false;
     if ($this->form_validation->run()) {
-
       if ($this->upload->do_upload('cv')) {
           
           $_POST['cv'] = $this->upload->file_name;
@@ -202,22 +202,23 @@ Invictus Games Support Team";
           $this->email->message(($reply));
           
           $this->email->send();    
-
-
         }
         redirect($_SERVER['HTTP_REFERER']);
       }
       
     } else {
-      $this->data['error'] .= validation_errors();
-      
-      if ($_FILES && isset($_FILES['cv']) && !$_FILES['cv']['name'])
-        $this->data['error'] .= 'The CV field is required';
-      
-      $this->data['was_error'] = true;
-      $this->data['hash'] = '#job-application-form';
+      if ($_POST) {
+          
+        $this->data['error'] .= validation_errors();
+        
+        if ($_FILES && isset($_FILES['cv']) && !$_FILES['cv']['name'])
+          $this->data['error'] .= 'The CV field is required';
+        
+        $this->data['was_error'] = true;
+        $this->data['hash'] = '#job-application-form';
+      }
     }
-    
+
     $this->template->build('invictus/jobs', $this->data);
   } 
   

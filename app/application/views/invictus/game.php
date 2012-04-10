@@ -144,9 +144,6 @@
       </h3>
       <hr>
       <p>
-        <?php echo nl2br($game->short_description) ?>
-      </p>
-      <p>
         <?php echo nl2br($game->long_description) ?>
       </p>
       <div class="game-available-in">

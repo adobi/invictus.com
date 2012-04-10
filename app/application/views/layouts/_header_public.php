@@ -106,11 +106,12 @@
           </a>
           
           <div class="nav-collapse">
-            <ul class="nav">
+            <ul class="nav top-nav">
               
               <li <?php echo !$this->uri->segment(1) ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>"><i class="home-icon"></i>Home</a></li>
               <li <?php echo $this->uri->segment(2) === 'contact' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>pages/contact"><i class="contact-icon"></i>Contact</a></li>
               <li <?php echo $this->uri->segment(2) === 'jobs' ? 'class="active"' : '' ?>><a href="<?php echo base_url() ?>pages/jobs"><i class="jobs-icon"></i>Jobs</a></li>
+              <li class="all-games-top-link"><a href="<?php echo base_url() ?>games/all"><i class="games-icon"></i>All games</a></li>
             </ul>
             
             <ul class="nav span4 pull-right more-games">

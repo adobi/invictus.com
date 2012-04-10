@@ -116,7 +116,7 @@
     }
   }
   .all-games [class*="span"]{
-    width:120px;
+    width:106px;
   } 
   
   .details-pane{
@@ -216,6 +216,7 @@
   }
   
   .more-games {
+    display:none!important;
     width:100%;
     margin-left:20px!important;
     
@@ -231,6 +232,8 @@
   
   .all-games-dropdown-menu {
     width:auto;
+    width:100%;
+    margin:0px!important;
   }
   
   .all-games-dropdown-menu a img {
@@ -263,6 +266,8 @@
     //width:100%!important;
     width:99%!important;
   }
+  
+  
   
   .game-logo {
     width:100%;
@@ -349,8 +354,13 @@
     height:auto!important;
   }
   
-  .all-games li {
-    margin:10px;
+  .all-games  {
+    li  {
+      margin:10px;
+    }
+    img {
+      width:96px!important;
+    }
   }
   
   .all-games-wrapper {
@@ -361,7 +371,7 @@
 @media (max-width: 979px) {
   .nav-collapse .nav > li {
     float: none;
-    display:inline-block;
+    //display:inline-block;
   }
   .more-games {
     margin-left:15px!important;
@@ -373,10 +383,19 @@
   .navbar .brand {
     margin-top:0;
   }
+  
+  .top-nav .dropdown-menu {
+    //display:none;
+  }
+  
 }
 
 @media (max-width: 1023px) {
     
+  .details-pane {
+    margin-top:0px!important;
+    margin-bottom:10px!important;
+  }
   .details-pane, .teasers {
     height:auto;
     width:99%;
@@ -394,6 +413,12 @@
     width:auto;
     
   }
+}
+
+@media (min-width:979px) {
+  .all-games-top-link {
+    display:none!important;
+  }  
 }
 
 @media (min-width: 1024px) and (max-width: 1200px)  {
@@ -429,7 +454,7 @@
   }
   
   .details-pane {
-    width:290px;
+    width:290px!important;
     height:auto;
   }
   .game-available-in li {
@@ -440,8 +465,13 @@
     width:80%;
     padding:10px;
   }  
-  
-  //.offer {margin-left:20px;}
-  
-  
+  .all-games  {
+    li  {
+      margin:10px;
+    }
+    img {
+      width:128px!important;
+    }
+  }  
 }
+
