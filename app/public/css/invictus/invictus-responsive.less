@@ -176,14 +176,23 @@
     }
   }
   
-  .social [class*="span"] {
-    width:100%;
-  }
-  
-  .social .offer {
-    margin-left:20px;
-  }
+  .social {
+    [class*="span"] {
+      margin-left:0;
+    }
+    .row > [class*="span"] {
+      width:100%;
+      margin-left:10px;
+    }
+    .offer {
+      margin-left:0px;
+    }
+    .email-subscription {
+      margin-left:0!important;
+    }
 
+  } 
+  
   .details-pane, .teasers {
     height:auto!important;
     width:100%!important;

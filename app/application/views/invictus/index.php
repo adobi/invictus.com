@@ -44,7 +44,7 @@
           <div class="span8 ">
             <?php if ($about): ?>
               <div class="blog">
-                <div class="span8">
+                <div class="">
                   <h2 style="margin-bottom:10px;">About Invictus</h2>
                 </div>
                 <p style="padding:10px;"><?php echo nl2br($about->description) ?></p>
@@ -66,7 +66,7 @@
                     <?php echo nl2br($current_offer->description) ?>
                   </p>
                 </div>
-                <div class="span7">
+                <div class="span7 email-subscription">
                   <hr>
                   <?php echo form_open(base_url()."pages/subscribe", array('id'=>'subscribe-form', 'class'=>'form-search')) ?>
                     <input name="email" type="text" class="input-large search-query span5" style="font-size:1.4em; height:36px" placeholder="example@domain.com">

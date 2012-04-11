@@ -29,47 +29,52 @@
         // is generally empty as we don't want to alter the default options for
         // future instances of the plugin
         this.options = $.extend( {}, defaults, options) ;
-
+        
         this._defaults = defaults;
         this._name = pluginName;
 
         this.init();
     }
-
-    EventTracking.prototype.init = function () {
-        
+    
+    EventTracking.prototype.track = function (self) 
+    {
+      var category = self.data('ga-category'),
+          action = self.data('ga-action'),
+          label = self.data('ga-label'),
+          value = parseInt(self.data('ga-value'),10),
+          nonInteraction = self.data('ga-noninteraction');
+      
+      console.log(category, action, label, value, nonInteraction);
+      
+      if (category && action && label && value) {
+          var params = ['_trackEvent', category, action, label, value];
+          if (nonInteraction == '1') {
+              
+              params.push(true);
+          } 
+          
+          //console.log(params);
+          
+          if (window._gaq) {
+              window._gaq.push(params);
+          } else if(that.options.analytics) {
+          
+              that.options.analytics.push(params);
+          }
+      }
+                        
+    }
+    
+    EventTracking.prototype.init = function () 
+    {
         //if (undefined === window._gaq) return false;
         
         var that = this;
         
-        $('body').delegate(that.options.selector, 'click', function(e) {
-            
+        $('body').on('click', that.options.selector, function(e) {
             var self = $(this);
             
-            var category = self.data('ga-category'),
-                action = self.data('ga-action'),
-                label = self.data('ga-label'),
-                value = parseInt(self.data('ga-value'),10),
-                nonInteraction = self.data('ga-noninteraction');
-            
-            //console.log(category, action, label, value, nonInteraction);
-            
-            if (category && action && label && value) {
-                var params = ['_trackEvent', category, action, label, value];
-                if (nonInteraction == '1') {
-                    
-                    params.push(true);
-                } 
-                
-                //console.log(params);
-                
-                if (window._gaq) {
-                    window._gaq.push(params);
-                } else if(that.options.analytics) {
-                
-                    that.options.analytics.push(params);
-                }
-            }
+            that.track(self)
             
             return true;         
         });
@@ -86,7 +91,7 @@
     }
     
     $[pluginName] = function (options) {
-        new EventTracking( this, options );
+        return new EventTracking( this, options );
     }
     
     $(function() {
@@ -94,7 +99,7 @@
             analytics: []
         });*/
         
-        $.trackevent({});
+        $.trackevent();
     })
 
 })( jQuery, window, document );
