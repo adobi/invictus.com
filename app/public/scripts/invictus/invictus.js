@@ -397,7 +397,7 @@
       //console.log($(this).find('.active'))
       var elem = $(this).find('.item.active')
       
-      console.log(elem.index())
+      //console.log(elem.index())
       
       $.trackevent().track(elem.find('a'))
       

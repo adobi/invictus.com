@@ -1,0 +1,5 @@
+#!/bin/sh
+touch /f/wamp/www/invictus.com/app/public/scripts/invictus/all.js
+cat /f/wamp/www/invictus.com/app/public/scripts/plugins/elastislide/js/jquery.easing.1.3.min.js /f/wamp/www/invictus.com/app/public/scripts/plugins/elastislide/js/jquery.elastislide.js /f/wamp/www/invictus.com/app/public/scripts/plugins/event-tracking/jquery.trackevent.js /f/wamp/www/invictus.com/app/public/scripts/plugins/prettify-upload/jquery.prettify-upload.js /f/wamp/www/invictus.com/app/public/scripts/plugins/bootstrap/bootstrap.js /f/wamp/www/invictus.com/app/public/scripts/invictus/invictus.js >>  /f/wamp/www/invictus.com/app/public/scripts/invictus/all.js
+/f/wamp/node_modules/uglify-js/bin/uglifyjs -o /f/wamp/www/invictus.com/app/public/scripts/invictus/all.min.js /f/wamp/www/invictus.com/app/public/scripts/invictus/all.js
+rm /f/wamp/www/invictus.com/app/public/scripts/invictus/all.js
