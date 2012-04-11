@@ -7,7 +7,9 @@
                 <?php if ($game->images): ?>
                   <?php foreach ($game->images as $i => $item): ?>
                     <div class="item <?php echo $i===0 ? 'active' : '' ?>">
+                      <a <?php echo event_tracking($item) ?> href="#">
                         <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
+                      </a>
                     </div>  
                   <?php endforeach ?>
                   <?php foreach (range(0, 7) as $key => $value): ?>
@@ -35,7 +37,9 @@
                 <?php if ($game->videos): ?>
                   <?php foreach ($game->videos as $i => $item): ?>
                     <div class="item <?php echo $i===0 ? 'active' : '' ?>">
+                      <a <?php echo event_tracking($item) ?> href="#">
                         <?php echo youtube_video_image($item->code, 770, 510) ?>
+                      </a>
                     </div>  
                   <?php endforeach ?>
                   <?php foreach (range(0, 7) as $key => $value): ?>
@@ -61,7 +65,7 @@
                         <?php if ($game->images): ?>
                           <?php foreach ($game->images as $i => $item): ?>
                             <li>
-                              <a <?php echo event_tracking($item) ?> href="#" class="thumbnail" data-type="images">
+                              <a <?php echo event_tracking($item) ?> href="#" class="thumbnail <?php echo $i === 0 ? 'selected-carousel-item' : '' ?>" data-type="images">
                                 <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="" style="width:128px">
                               </a>
                             </li>                      
@@ -87,7 +91,7 @@
                         <?php if ($game->videos): ?>
                           <?php foreach ($game->videos as $i => $item): ?>
                             <li>
-                              <a <?php echo event_tracking($item) ?> href="#" class="thumbnail" data-type="videos" data-code="<?php echo $item->code ?>">
+                              <a <?php echo event_tracking($item) ?> href="#" class="thumbnail <?php echo $i === 0 ? 'selected-carousel-item' : '' ?>" data-type="videos" data-code="<?php echo $item->code ?>">
                                 <?php echo youtube_video_image($item->code, 128, 70) ?>
                               </a>
                             </li>                      

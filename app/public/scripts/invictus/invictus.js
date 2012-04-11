@@ -386,11 +386,25 @@
     $('.emails').button()
     
 		$(".game img").fadeIn(500);
-    $('#simple-carousel').carousel();
+		
+		$('#simple-carousel').carousel();
     
     $('#simple-carousel-details-images').carousel({stop: true, pause:'click'})
     $('#simple-carousel-details-videos').carousel({stop: true, pause:'click'})
     //$('#multi-carousel-images, #multi-carousel-videos').carousel('pause')
+    
+    $('.carousel').on('slid', function(e) {
+      //console.log($(this).find('.active'))
+      var elem = $(this).find('.item.active')
+      
+      console.log(elem.index())
+      
+      $.trackevent().track(elem.find('a'))
+      
+      $('.tab-pane.active .selected-carousel-item').removeClass('selected-carousel-item')
+      $('.tab-pane.active').find('li:eq('+elem.index()+')').find('a').addClass('selected-carousel-item')
+      
+    })
     
     $('body').delegate('a[href=#]', 'click', function() {
       return false;

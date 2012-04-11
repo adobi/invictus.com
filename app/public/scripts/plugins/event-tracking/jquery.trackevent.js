@@ -38,13 +38,15 @@
     
     EventTracking.prototype.track = function (self) 
     {
+      if (!self) return false;
+      
       var category = self.data('ga-category'),
           action = self.data('ga-action'),
           label = self.data('ga-label'),
           value = parseInt(self.data('ga-value'),10),
           nonInteraction = self.data('ga-noninteraction');
       
-      console.log(category, action, label, value, nonInteraction);
+      //console.log(category, action, label, value, nonInteraction);
       
       if (category && action && label && value) {
           var params = ['_trackEvent', category, action, label, value];
