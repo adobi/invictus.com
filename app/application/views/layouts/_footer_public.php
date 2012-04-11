@@ -47,13 +47,16 @@
     	<script type="text/javascript">
     	    head.js("http://code.jquery.com/jquery-1.7.1.min.js", 
     	            //"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js",
-                  //"<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.easing.1.3.min.js",
-                  //"<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.elastislide.js",
-                  //"<?php echo base_url() ?>scripts/plugins/event-tracking/jquery.trackevent.js",
-                  //"<?php echo base_url() ?>scripts/plugins/prettify-upload/jquery.prettify-upload.js",
-    	            //"<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap.js",
-                  //"<?php echo base_url() ?>scripts/invictus/invictus.js",
-                  "<?php echo base_url() ?>scripts/invictus/all.min.js",
+    	            <?php if (ENVIRONMENT === 'development') : ?>
+                    "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.easing.1.3.min.js",
+                    "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.elastislide.js",
+                    "<?php echo base_url() ?>scripts/plugins/event-tracking/jquery.trackevent.js",
+                    "<?php echo base_url() ?>scripts/plugins/prettify-upload/jquery.prettify-upload.js",
+      	            "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap.js",
+                    "<?php echo base_url() ?>scripts/invictus/invictus.js",
+                  <?php else: ?>
+                    "<?php echo base_url() ?>scripts/invictus/all.min.js",
+                  <?php endif ?>
                   
                   function() {
                     <?php if ($this->session->flashdata('message')): ?>

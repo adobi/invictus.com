@@ -158,9 +158,13 @@
     $('#simple-carousel').on('slid', function() {
       var current = $(this).find('.active')
       
-      $('.teaser').show()
+      //$('.teaser').show()
 
-      $('.teaser[data-item='+current.data('item')+']').hide()
+      //$('.teaser[data-item='+current.data('item')+']').hide()
+      
+      $('.teaser.hide').removeClass('hide')
+
+      $('.teaser[data-item='+current.data('item')+']').addClass('hide')
     })
   };
   
