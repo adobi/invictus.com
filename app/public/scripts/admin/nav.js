@@ -37,7 +37,7 @@
     $('[rel=tooltip]').tooltip('hide')
     
     //console.log(App.CurrentHref)
-      
+    App.Tooltip('hide')  
     $('.sidebar-navigation-wrapper-right .well').load(App.CurrentHref, Nav.initRightPanel)
   }
   

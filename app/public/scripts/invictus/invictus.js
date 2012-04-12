@@ -344,7 +344,7 @@
     App.LoadFacebookSdk()
     App.ToggleFacebookCommnet()
     
-    $('[data-pretty-file], input[type=file]').prettifyUpload();
+    $('[data-pretty-file], input[type=file]').prettifyUpload({'text': 'Select a file'});
     
     $('a[data-toggle="tab"]').on('shown', function (e) {
       

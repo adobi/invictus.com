@@ -50,11 +50,12 @@
         
         $(this.element).wrap(wrapper);    
         
-        $(this.element).parents('.input-file-wrapper:first').prepend(button);
-        $(this.element).parents('.input-file-wrapper:first').width($(this.element).parents('.input-file-wrapper:first').find('button').outerWidth())
-        $(this.element).width($(this.element).parents('.input-file-wrapper:first').find('button').outerWidth())
+        var w = $(this.element).parents('.input-file-wrapper:first'),
+            b = w.find('button')
+        w.prepend(button);
+        w.width(b.outerWidth())
+        $(this.element).width(b.outerWidth())
         
-
         $(this.element).bind('change', function() {
             var self = $(this);
             

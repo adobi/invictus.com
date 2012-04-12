@@ -45,7 +45,7 @@
       </script>      
     	<script src = "<?php echo base_url() ?>scripts/plugins/headjs/head.min.js"></script> 
     	<script type="text/javascript">
-    	    head.js("http://code.jquery.com/jquery-1.7.1.min.js", 
+    	    head.js("http://code.jquery.com/jquery-1.7.2.min.js", 
     	            //"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js",
     	            <?php if (ENVIRONMENT === 'development') : ?>
                     "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.easing.1.3.min.js",

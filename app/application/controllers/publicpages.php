@@ -239,6 +239,7 @@ Invictus Games Support Team";
         } else {
           
           $_POST['offer_id'] = $current->id;
+          $_POST['created'] = date('Y-m-d H:i:s');
           $this->emails->insert($_POST);
           //echo "Thank You for the subscription";
           echo json_encode(array('success'=>true, 'message'=>'Thank You for the subscription'));
