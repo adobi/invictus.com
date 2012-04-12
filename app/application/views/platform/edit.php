@@ -37,7 +37,7 @@
                     <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->image ?>" alt="">
                     <a href="<?php echo base_url() ?>platform/delete_image/<?php echo $item->id ?>" class="btn delete-item pull-right" style="margin-right:20px;" rel="tooltip" title="Delete image" data-modal-header="<?php echo $item->name ?> image" data-trigger="reload" data-location="b"><i class="icon-trash"></i></a>
                 <?php else: ?>
-                    <input type="file" name = "image" id = "icon" class = "span4"/>
+                    <input type="file" name = "image" id = "icon" class = "span4" rel="tooltip" title = "105x40"/>
                 <?php endif ?>
             </div>
         </fieldset>      

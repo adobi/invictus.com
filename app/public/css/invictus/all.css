@@ -906,8 +906,9 @@ img{max-width:100%;border:0;-ms-interpolation-mode:bicubic;vertical-align:middle
 .newsletter .search-query{-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;}
 .game-tab-pane{float:left;}
 .game-tabs{margin-bottom:0px;}
-.game-available-in{margin-top:20px;}.game-available-in li{width:125px;margin-left:5px!important;margin-bottom:5px;}
+.game-available-in{margin-top:20px;}.game-available-in li{width:120px;margin-left:0px!important;margin-bottom:5px;}
 .game-available-in .thumbnails{margin-left:0px;margin-top:15px;}
+.game-available-in img{width:105px;}
 .game-details{height:auto;}
 .all-games{margin-left:0px;}.all-games li{margin:0 20px 60px 0;}
 .all-games .thumbnail:hover{-webkit-border-radius:24px;-moz-border-radius:24px;border-radius:24px;-webkit-border-radius:24px;-moz-border-radius:24px;border-radius:24px;}

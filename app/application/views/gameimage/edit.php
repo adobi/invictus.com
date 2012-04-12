@@ -27,7 +27,7 @@
             <div class="span2">
                 <!-- The fileinput-button span is used to style the file input field as button -->
                 <span class="btn btn-success fileinput-button" rel="tooltip" title="Select files">
-                    <i class="icon-plus icon-white"></i>
+                    <i class="icon-plus-sign icon-white"></i>
                     <!-- <span>Add files</span> -->
                     <input type="file" name="userfile" multiple>
                 </span>

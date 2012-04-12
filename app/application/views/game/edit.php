@@ -15,7 +15,8 @@
         <?php else: ?>
             New game
         <?php endif ?>
-        <p class="pull-right">
+        <div class="pull-right">
+          
           <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button>
           <?php if ($item): ?>
             <!-- 
@@ -24,7 +25,7 @@
              -->
             <a href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>
           <?php endif ?>
-        </p>        
+        </div>        
     </legend> 
     <div class="right-side-scroll">     
         <fieldset class="control-group">

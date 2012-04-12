@@ -1,8 +1,8 @@
 <div class="well">
   <h3>
+    <a class="btn" href="#" onclick="$('.category-items').toggle();" rel="tooltip" title="Toggle list"><i class="icon-resize-vertical"></i></a> &nbsp;
     Job categories
     <p class="pull-right">
-      <a class="btn" href="#" onclick="$('.category-items').toggle();" rel="tooltip" title="Toggle list"><i class="icon-resize-vertical"></i></a> &nbsp;
       <a class="btn btn-primary" href="<?= base_url(); ?>jobcategory/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i></a>
     </p>
   </h3>
@@ -16,10 +16,12 @@
             <img src="<?php echo $item->icon ? base_url() . 'uploads/original/' . $item->icon : 'http://placehold.it/24x24' ?>" alt=""> 
             <?php echo $item->name ?>
             
-            <p class="pull-right" style="margin-top:5px;">
+            <div class="pull-right" style="margin-top:5px;">
+              <div class="btn-group">
               <a href="<?php echo base_url() ?>jobcategory/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit category"><i class="icon-pencil"></i></a>
               <a href="<?php echo base_url() ?>jobcategory/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete category" data-modal-header="Job category <?php echo $item->name ?>"><i class="icon-trash"></i></a>
-            </p>
+              </div>
+            </div>
           </h4>
         </div>
       <?php endforeach ?>
@@ -31,9 +33,9 @@
 <div class="well">
   
   <h3>
+    <a class="btn" href="#" onclick="$('.job-items').toggle();" rel="tooltip" title="Toggle list"><i class="icon-resize-vertical"></i></a> &nbsp;
     Jobs
     <p class="pull-right">
-      <a class="btn" href="#" onclick="$('.job-items').toggle();" rel="tooltip" title="Toggle list"><i class="icon-resize-vertical"></i></a> &nbsp;
       <a class="btn btn-primary" href="<?= base_url(); ?>job/edit" data-ajax-link="1" data-unselect="1"><i class="icon-plus-sign icon-white"></i></a>
     </p>
   </h3>
@@ -57,7 +59,8 @@
               <span class="badge badge-info"><?php echo $item->applications ? $item->applications : 0 ?></span>
             </a>
             
-            <p class="pull-right" style="margin-top:5px;">
+            <div class="pull-right" style="margin-top:5px;">
+              <div class="btn-group">
               <?php if ($item->is_active): ?>
                 <a data-contet-ajax-link href="<?php echo base_url() ?>job/<?php echo $item->is_first ? 'remove_first' : 'show_first' ?>/<?php echo $item->id ?>" class="btn" rel="tooltip" title="<?php echo $item->is_first ? 'Remove from first' : 'Show first' ?>"><i class="icon-home"></i></a>
               <?php endif ?>
@@ -66,7 +69,8 @@
               <!-- <a href="<?php echo base_url() ?>job/analytics/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a> -->
               <a href="<?php echo base_url() ?>job/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit job"><i class="icon-pencil"></i></a>
               <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete job" data-modal-header="Job <?php echo $item->name ?>"><i class="icon-trash"></i></a>
-            </p>
+              </div>
+            </div>
           </h4>
           <h6>
             <?php echo $item->type === '1' ? 'Full time' : 'Part time' ?> — <?php echo $item->location ?>

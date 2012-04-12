@@ -16,11 +16,10 @@
       <div class=" accordion-group">
         <div class="accordion-heading">
             <a href="#more-games" data-toggle="collapse" class="accordion-toggle">
-              
+              <a  style="margin-left:5px; margin-top:-7px;" onclick="$('#crosspromo-games>.thumbnails').toggle(); return false;" class="btn" rel="tooltip" title="Toggle list"><i class="icon-resize-vertical" style="left:0; top:0"></i></a>
               <?php echo form_dropdown('game_id', $games_select, '', 'id="crosspromo_base_game" class="span5 chosen" data-placeholder="Select a game"') ?>
-              <h6 style="display:inline-block; position:relative; top:-10px; "> or select from the list</h6>
+              <h6 style="display:inline-block; position:relative; top:0px; "> or select from the list</h6>
             </a>
-            <p class="pull-right" style="position:relative; top:-40px; right:10px;"> <a onclick="$('#crosspromo-games>.thumbnails').toggle(); return false;" class="btn" rel="tooltip" title="Toggle list"><i class="icon-resize-vertical" style="left:0; top:0"></i></a> </p>
         </div>
         <div class="accordion-body collapse in" id="crosspromo-games" style="padding:5px;">
  

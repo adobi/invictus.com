@@ -3,13 +3,15 @@
   <?php echo panel_close() ?>
   <legend>
       <?php if ($item): ?>
-          View <?php echo $item->name ?>
+          View job <?php //echo $item->name ?>
       <?php endif ?>
-      <p class="pull-right">
+      <div class="pull-right">
+        <div class="btn-group">
         <a href = "<?php echo base_url() ?>job/edit/<?php echo $item->id ?>" data-ajax-link="1" class="btn" rel="tooltip" title="Edit job"><i class="icon-pencil"></i></a>          
-          <!-- <a href="<?php echo base_url() ?>job/analytics/<?php echo $item->id ?>" class="btn" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a> -->
-          <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="r" rel="tooltip" title="Delete job" data-modal-header="Job <?php echo $item->name ?>"><i class="icon-trash"></i></a>
-      </p>
+        <!-- <a href="<?php echo base_url() ?>job/analytics/<?php echo $item->id ?>" class="btn" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a> -->
+        <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="r" rel="tooltip" title="Delete job" data-modal-header="Job <?php echo $item->name ?>"><i class="icon-trash"></i></a>
+        </div>
+      </div>
   </legend>  
   <div class=" right-side-scroll">
     <h2><?php echo $item->name ?> <span class="upper-gray"><?php echo to_date($item->available) ?></span></h2>

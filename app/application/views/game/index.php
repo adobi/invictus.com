@@ -21,22 +21,28 @@
       </div>       
       <ul class="thumbnails games-list" id="list-of-all-games">
         <?php foreach ($items as $item): ?>
-          <li class="span4" data-platforms='<?php echo json_encode($item->platforms) ?>'>
-            <div class="item thumbnail <?php echo $item->is_active ? 'alert-success' : '' ?>" data-id="<?php echo $item->id ?>">
+          <li class="span3" data-platforms='<?php echo json_encode($item->platforms) ?>' style="margin-left:10px; margin-bottom:9px;">
+            <div class="item thumbnail <?php echo $item->is_active ? 'alert-success' : '' ?>" data-id="<?php echo $item->id ?>" style="padding:0">
               <h4 class="center">
-                <?php echo $item->name ?> <span class="upper-gray"><?php echo to_date($item->released) ?></span>
+                <span rel="tooltip" title="<?php echo $item->name ?>">
+                  <?php echo strlen($item->name) > 17 ? substr($item->name, 0,17)."..." : $item->name ?> 
+                </span>
+                <a style="margin-top:-5px" href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item select-item pull-right" data-location="l" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>
+                <br>
+                <span class="upper-gray"><?php echo to_date($item->released) ?></span>
               </h4> 
-              <img src="<?php echo $item && $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/170x170' ?>" alt="">
+              <img src="<?php echo $item && $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/170x170' ?>" alt="" style="width:128px;">
               <hr style="margin:4px 0 6px;">
-              <div class="caption center" style="padding-left:0; padding-right:0">
-                <a data-action="<?php echo $item->is_active ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>game/action/<?php echo $item->is_active ? 'inactivate' : 'activate' ?>/<?php echo $item->id ?>" class="btn action" rel="tooltip" title="<?php echo $item->is_active ? 'Inactivate' : 'Activate' ?> game"><i class="icon-lock"></i></a>
-                <a href="<?php echo base_url() ?>game/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit game"><i class="icon-pencil"></i></a>
-                <a href="<?php echo base_url() ?>game/platforms/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Available on"><i class="icon-platform"></i></a>
-                <a href="<?php echo base_url() ?>game/images/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Images"><i class="icon-picture"></i></a>
-                <a href="<?php echo base_url() ?>game/videos/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Videos"><i class="icon-facetime-video"></i></a>
-                <!-- <a href="<?php echo base_url() ?>game/analytics/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a> -->
-                <a href="<?php echo base_url() ?>game/seo/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="SEO settings"><i class="icon-search"></i></a>
-                <a href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>
+              <div class="caption " style="">
+                <div class="btn-group">
+                  <a href="<?php echo base_url() ?>game/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit game"><i class="icon-pencil"></i></a>
+                  <a href="<?php echo base_url() ?>game/platforms/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Available on"><i class="icon-platform"></i></a>
+                  <a href="<?php echo base_url() ?>game/images/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Images"><i class="icon-picture"></i></a>
+                  <a href="<?php echo base_url() ?>game/videos/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Videos"><i class="icon-facetime-video"></i></a>
+                  <a href="<?php echo base_url() ?>game/seo/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="SEO settings"><i class="icon-search"></i></a>
+                  <a data-action="<?php echo $item->is_active ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>game/action/<?php echo $item->is_active ? 'inactivate' : 'activate' ?>/<?php echo $item->id ?>" class="btn action" rel="tooltip" title="<?php echo $item->is_active ? 'Inactivate' : 'Activate' ?> game"><i class="icon-lock"></i></a>
+                  <!-- <a href="<?php echo base_url() ?>game/analytics/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a> -->
+                </div>
               </div>
               </div>
           </li>

@@ -17,10 +17,12 @@
                 <!--<i class="icon-user"></i>  -->
                 <span class="badge badge-info"><?php echo $item->email_count ? $item->email_count : 0 ?></span>
               </a>              
-              <p class="pull-right" style="margin-top:5px;">
+              <div class="pull-right" style="margin-top:5px;">
+                <div class="btn-group">
                 <a  href="<?php echo base_url() ?>offer/edit/<?php echo $item->id ?>" class="btn select-item" data-ajax-link="1" rel="tooltip" title="Edit offer"><i class="icon-pencil"></i></a>
                 <a  href="<?php echo base_url() ?>offer/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" rel="tooltip" title="Delete offer" data-modal-header="Current offer"><i class="icon-trash"></i></a>
-              </p>
+                </div>
+              </div>
             </h4> 
             <div class="row">
               <div class="span5"><img src="<?php echo base_url() ?>uploads/original/<?php echo $item->image ?>" alt="" _style="float:left; margin: 0 10px 10px 0;"></div>

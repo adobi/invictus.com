@@ -15,14 +15,16 @@
         <?php else: ?>
             New page
         <?php endif ?>
-        <p class="pull-right">
+        <div class="pull-right">
           <button class="btn btn-primary" rel="tooltip" title="Save page"><i class="icon-ok icon-white"></i></button>
           <?php if ($item): ?>
+            
             <a href="<?php echo base_url() ?>page/seo/<?php echo $item->id ?>" class="btn" data-ajax-link="1" rel="tooltip" title="SEO settings"><i class="icon-search"></i></a>
             <!-- <a href="<?php echo base_url() ?>page/analytics/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a> -->
-            <a href="<?php echo base_url() ?>page/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete page" data-modal-header="Page <?php echo $item->name ?>"><i class="icon-trash"></i></a>
+            <!-- <a href="<?php echo base_url() ?>page/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete page" data-modal-header="Page <?php echo $item->name ?>"><i class="icon-trash"></i></a> -->
+            
           <?php endif ?>
-        </p>        
+        </div>        
     </legend> 
     <div class="right-side-scroll">     
       <fieldset class="control-group">

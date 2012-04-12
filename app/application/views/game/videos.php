@@ -32,9 +32,11 @@
                 <?php echo $p->description ?>
                   
                 <div class="pull-right">
+                  <div class="btn-group">
                   <!-- <a class="btn" href="<?php echo base_url() ?>gamevideo/analytics/<?php echo $p->id ?>" rel="tooltip" title="Analytics settings" data-ajax-link><i class="icon-signal"></i></a> -->
                   <a class="btn" href="<?php echo base_url() ?>gamevideo/edit/<?php echo $p->id ?>" rel="tooltip" title="Edit video" data-ajax-link><i class="icon-pencil"></i></a>
                   <a class="btn delete-item" href="<?php echo base_url() ?>gamevideo/delete/<?php echo $p->id ?>" data-reload="right"  rel="tooltip" title="Delete video" data-modal-header="<?php echo $p->description ?> video"><i class="icon-trash"></i></a>
+                  </div>
                 </div>
               </h6>
               <br>

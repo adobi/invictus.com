@@ -17,7 +17,10 @@
         <div class="accordion-heading">
           <h6>
             <a href="#more-games" data-toggle="collapse" class="accordion-toggle">
-              <i class="icon-resize-vertical"></i>More games
+              <span class="btn">
+                <i class="icon-resize-vertical" style="left:0; top:0;"></i>
+              </span>
+              More games
               <span class="pull-right">
                 <span class="label label-info">Tipp</span> <span class="tipp-text">Move items to change the order</span>
               </span>
@@ -29,13 +32,13 @@
             <ul class="thumbnails" data-section="is_in_more_games">
               <?php foreach ($in_more_games as $item): ?>
                 <?php if ($item) :?>
-                  <li class="span2" id="<?php echo $item->id ?>" rel="tooltip" title="<?php echo $item->name ?>">
+                  <li class="span2" id="<?php echo $item->id ?>">
                     <div class="item thumbnail" data-id="<?php echo $item->id ?>">
-                      <h6 class="center">
+                      <h6 class="center" rel="tooltip" title="<?php echo $item->name ?>">
                         <?php echo strlen($item->name) > 12 ? substr($item->name, 0, 13) . '...' : $item->name ?>
                       </h6> 
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
-                      <div class="caption right">
+                      <div class="caption center">
                         <hr style="margin:4px 0 6px;">
                         <!-- <a href="#" class="btn"><i class="icon-signal"></i></a>   -->
                         <a href="javascript:void(0)" class="btn layout-remove" rel="tooltip" title="Remove"><i class="icon-trash"></i></a>
@@ -54,8 +57,12 @@
       </div>
       <div class=" accordion-group">
         <div class="accordion-heading">
-          <h6><a href="#footer" data-toggle="collapse" class="accordion-toggle">
-            <i class="icon-resize-vertical"></i>Footer Top games
+          <h6>
+            <a href="#footer" data-toggle="collapse" class="accordion-toggle">
+            <span class="btn">
+              <i class="icon-resize-vertical" style="left:0; top:0;"></i>
+            </span>
+            Footer Top games
               <span class="pull-right">
                 <span class="label label-info">Tipp</span> <span class="tipp-text">Move items to change the order</span>
               </span>            
@@ -72,7 +79,7 @@
                         <?php echo $item->name ?>
                       </h6> 
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
-                      <div class="caption right">
+                      <div class="caption center">
                         <hr style="margin:4px 0 6px;">
                         <!-- <a href="#" class="btn"><i class="icon-signal"></i></a>   -->
                         <a href="javascript:void(0)" class="btn layout-remove" rel="tooltip" title="Remove"><i class="icon-trash"></i></a>
@@ -91,7 +98,10 @@
       <div class=" accordion-group">
         <div class="accordion-heading">
           <h6><a href="#banners" data-toggle="collapse" class="accordion-toggle">
-            <i class="icon-resize-vertical"></i>Banners
+              <span class="btn">
+                <i class="icon-resize-vertical" style="left:0; top:0;"></i>
+              </span>
+            Banners
               <span class="pull-right">
                 <span class="label label-info">Tipp</span> <span class="tipp-text">Move items to change the order</span>
               </span>            
@@ -108,7 +118,7 @@
                         <?php echo $item->name ?>
                       </h6> 
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
-                      <div class="caption right">
+                      <div class="caption center">
                         <hr style="margin:4px 0 6px;">
                         <!-- <a href="#" class="btn"><i class="icon-signal"></i></a>   -->
                         <a href="javascript:void(0)" class="btn layout-remove" rel="tooltip" title="Remove"><i class="icon-trash"></i></a>

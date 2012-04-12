@@ -28,13 +28,19 @@
             opacity: 0,
             filter:'alpha(opacity: 0)',
             position: 'relative',
-            top: '-28px',
-            width: '120px',
+            top: '-38px',
         });
         
+        var button = $('<button />', {rel:'tooltip', 'data-original-title': $(this.element).data('text')});
+
+        
+        button
+            .addClass(this.options.buttonClass)
+            .html($('<i />').addClass(this.options.iconClass))
+            //.append(this.options.text + ($(this.element).data('text') ? ' ' + '<strong>' + $(this.element).data('text') + "</strong>"  : ''));
+            .append(this.options.text);
         var wrapper = $('<div />', {'class': 'input-file-wrapper'}).css({
             cursor:'pointer',
-            width:'110px',
             height:this.options.wrapperHeight,
             display:'inline-block',
             overflow:'hidden',
@@ -42,17 +48,12 @@
             //marginBottom:'10px',
         });        
         
-        var button = $('<button />', {rel:'tooltip', 'data-original-title': $(this.element).data('text')});
-        
-        button
-            .addClass(this.options.buttonClass)
-            .html($('<i />').addClass(this.options.iconClass))
-            //.append(this.options.text + ($(this.element).data('text') ? ' ' + '<strong>' + $(this.element).data('text') + "</strong>"  : ''));
-            .append(this.options.text);
-        
         $(this.element).wrap(wrapper);    
         
         $(this.element).parents('.input-file-wrapper:first').prepend(button);
+        $(this.element).parents('.input-file-wrapper:first').width($(this.element).parents('.input-file-wrapper:first').find('button').outerWidth())
+        $(this.element).width($(this.element).parents('.input-file-wrapper:first').find('button').outerWidth())
+        
 
         $(this.element).bind('change', function() {
             var self = $(this);

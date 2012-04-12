@@ -12,15 +12,16 @@
     <?php if ($item): ?>
       "<?php echo $page->name ?>"
     <?php endif ?>
-    <p class="pull-right">
+    <div class="pull-right">
       <button class="btn btn-primary" rel="tooltip" title="Save settings" data-trigger="reload" data-location="r"><i class="icon-ok icon-white"></i></button>
       <?php if ($page): ?>
+        
         <!-- <a href="<?php echo base_url() ?>page/seo/<?php echo $page->id ?>" class="btn" data-ajax-link="1" rel="tooltip" title="SEO settings"><i class="icon-search"></i></a> -->
         <a href="<?php echo base_url() ?>page/edit/<?php echo $page->id ?>" class="btn" data-ajax-link="1" rel="tooltip" title="Edit page"><i class="icon-pencil"></i></a>
         <!-- <a href="<?php echo base_url() ?>page/analytics/<?php echo $page->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a> -->
-        <a href="<?php echo base_url() ?>page/delete/<?php echo $page->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete page" data-modal-header="Page <?php echo $page->name ?>"><i class="icon-trash"></i></a>
+        <!-- <a href="<?php echo base_url() ?>page/delete/<?php echo $page->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete page" data-modal-header="Page <?php echo $page->name ?>"><i class="icon-trash"></i></a> -->
       <?php endif ?>
-    </p>     
+    </div>     
   </legend>
   <div class="right-side-scroll">
     

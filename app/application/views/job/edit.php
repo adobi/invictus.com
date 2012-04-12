@@ -13,14 +13,16 @@
         <?php else: ?>
             New job
         <?php endif ?>
-        <p class="pull-right">
-          <button class="btn btn-primary" type="submit" rel="tooltip" title="Save job"><i class="icon-ok icon-white"></i></button>          
+        <div class="pull-right">
+          <button class="btn btn-primary pull-left" type="submit" rel="tooltip" title="Save job"><i class="icon-ok icon-white"></i></button>          
           <?php if ($item): ?>
+            <div class="btn-group">
             <a href="<?php echo base_url() ?>job/show/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="View job"><i class="icon-eye-open"></i></a>
             <!-- <a href="<?php echo base_url() ?>job/analytics/<?php echo $item->id ?>" class="btn " data-ajax-link="1" rel="tooltip" title="Analytics settings"><i class="icon-signal"></i></a> -->
             <a href="<?php echo base_url() ?>job/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="r" rel="tooltip" title="Delete job" data-modal-header="Job <?php echo $item->name ?>"><i class="icon-trash"></i></a>
+            </div>
           <?php endif ?>
-        </p>
+        </div>
     </legend>  
     <div class="right-side-scroll">
         <fieldset class="control-group">
@@ -72,11 +74,13 @@
                   <?php if ($item && $item->responsabilities): ?>
                     <?php foreach ($item->responsabilities as $key => $value): ?>
                       <li>
-                        <input type="text" name="responsabilities[]" class="span4" value="<?php echo $value->description ?>"> 
+                        <input type="text" name="responsabilities[]" class="span4 pull-left" value="<?php echo $value->description ?>"> 
+                        <div class="btn-group">
                         <a href="#" class="btn add-ui-item" data-type="responsabilities" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!--  <a href="<?php echo base_url() ?>jobresponsability/edit/<?php echo $value->id ?>" data-ajax-link="1" data-type="post"><i class="icon-pencil"></i></a> -->
                         <a href="<?php echo base_url() ?>jobresponsability/delete/<?php echo $value->id ?>" class="btn delete-job-item" data-type="responsabilities" rel="tooltip" title="Delete"><i class="icon-trash"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
+                        </div>
                       </li>
                     <?php endforeach ?>
                   <?php else: ?>
@@ -96,11 +100,13 @@
                   <?php if ($item && $item->qualifications): ?>
                     <?php foreach ($item->qualifications as $key => $value): ?>
                       <li>
-                        <input type="text" name="qualifications[]" class="span4" value="<?php echo $value->description ?>"> 
+                        <input type="text" name="qualifications[]" class="span4 pull-left" value="<?php echo $value->description ?>"> 
+                        <div class="btn-group">
                         <a href="#" class="btn add-ui-item" data-type="qualifications" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!-- <a href="#"><i class="icon-pencil"></i></a> -->
                         <a href="<?php echo base_url() ?>jobqualification/delete/<?php echo $value->id ?>" class="btn delete-job-item" data-type="qualifications" rel="tooltip" title="Delete"><i class="icon-trash"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
+                        </div>
                       </li>
                     <?php endforeach ?>
                   <?php else: ?>
@@ -120,11 +126,13 @@
                   <?php if ($item && $item->skills): ?>
                     <?php foreach ($item->skills as $key => $value): ?>
                       <li>
-                        <input type="text" name="skills[]" class="span4" value="<?php echo $value->description ?>"> 
+                        <input type="text" name="skills[]" class="span4 pull-left" value="<?php echo $value->description ?>"> 
+                        <div class="btn-group">
                         <a href="#" class="btn add-ui-item" data-type="skills" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!-- <a href="#"><i class="icon-pencil"></i></a> -->
                         <a href="<?php echo base_url() ?>jobskill/delete/<?php echo $value->id ?>" class="btn delete-job-item" data-type="skills" rel="tooltip" title="Delete"><i class="icon-trash"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
+                        </div>
                       </li>
                     <?php endforeach ?>                    
                   <?php else: ?>
@@ -145,11 +153,13 @@
                   <?php if ($item && $item->offers): ?>
                     <?php foreach ($item->offers as $key => $value): ?>
                       <li>
-                        <input type="text" name="offers[]" class="span4" value="<?php echo $value->description ?>"> 
+                        <input type="text" name="offers[]" class="span4 pull-left" value="<?php echo $value->description ?>"> 
+                        <div class="btn-group">
                         <a href="#" class="btn add-ui-item" data-type="offers" rel="tooltip" title="Add another one"><i class="icon-plus-sign"></i></a>
                         <!-- <a href="<?php echo base_url() ?>joboffer/edit/<?php echo $value->id ?>/job/<?php echo $item->id ?>"><i class="icon-pencil"></i></a> -->
                         <a href="<?php echo base_url() ?>joboffer/delete/<?php echo $value->id ?>" class="btn delete-job-item" data-type="offers" rel="tooltip" title="Delete"><i class="icon-trash"></i></a>
                         <!-- <a href="#"><i class="icon-trash"></i></a> -->
+                        </div>
                       </li>
                     <?php endforeach ?>                     
                   <?php else: ?>

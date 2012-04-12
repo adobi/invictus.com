@@ -181,7 +181,7 @@
   
   App.PrettifyUpload = function() 
   {
-    $('input[type=file]').prettifyUpload(); 
+    $('input[type=file]').prettifyUpload({'text': ''}); 
   };
   
   // removes inline image from platforms/job categories

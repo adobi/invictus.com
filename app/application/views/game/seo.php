@@ -10,7 +10,7 @@
        
   <legend>
     <strong>5.</strong>
-    "<?php echo $game->name ?>" SEO settings
+    "<?php echo $game->name ?>" social
     <p class="pull-right">
       <button class="btn btn-primary" rel="tooltip" title="Save game" data-trigger="reload" data-location="r"><i class="icon-ok icon-white"></i></button>
       <?php if ($item): ?>
@@ -19,7 +19,7 @@
     </p>     
   </legend>
   <div class="right-side-scroll">
-    
+    <legend> SEO settings</legend>
     <fieldset class="control-group">
       <label class="control-label" for="title">Title</label>
       <div class="controls">

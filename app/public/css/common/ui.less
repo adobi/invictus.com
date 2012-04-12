@@ -24,25 +24,44 @@ html, body {
     .box-shadow(inset 0 0 1px 1px @itemBoxShadowColor);    
     border-bottom:1px solid #ededed;
     #gradient > .vertical(@itemBeginColor, @itemEndColor);
+    h4 {
+      margin-bottom:5px!important;
+      color:#555;
+    }
+    &.alert-success {
+      background-color:#DFF0D8;
+      background-image:none;
+      background-repeat:no-repeat;
+    }
+    &.alert-warning {
+      background-color:#FCF8E3;
+      background-image:none;
+      background-repeat:no-repeat;  
+    }
+    .caption {
+      padding:0; 
+      margin-left:3px;
+      a {
+        margin-bottom:3px;
+      }
+      .btn-group {
+        margin-left:0px;
+      }
+    }
+    .btn-group {
+      display:inline-block;
+    }
 }
 
-.item h4 {
-  margin-bottom:5px!important;
-  color:#555;
+  .btn-group {
+    display:inline-block;
+  }
+
+.pull-left {
+  margin-right:3px;
+  float:left!important;
 }
 
-.item.alert-success {
-  background-color:#DFF0D8;
-  background-image:none;
-  background-repeat:no-repeat;
-}
-
-.item.alert-warning {
-  
-  background-color:#FCF8E3;
-  background-image:none;
-  background-repeat:no-repeat;  
-}
 
 .item-header {
     background:rgba(0, 0, 0, 0.05); 
