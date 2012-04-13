@@ -310,4 +310,28 @@ Invictus Games Support Team";
     
     $this->template->build('invictus/widget', $this->data);
   }
+  
+  public function download() 
+  {
+    $id = $this->uri->segment(3);
+    
+    $this->load->model('Gameimages', 'images');
+    
+    $image = $this->images->find($id);
+    //dump($image); die;
+    if ($image) {
+      //$mime = finfo_open(FILEINFO_MIME_TYPE);
+      $file = dirname($_SERVER['DOCUMENT_ROOT'].$_SERVER['SCRIPT_NAME']).'/uploads/original/'.$image->path;
+      header('Content-Description: File Transfer');
+      header("Content-disposition: attachment; filename= ".$file."");
+
+      header("Content-type: application/octet-stream");//.finfo_file($mime, $file);
+      echo file_get_contents(base_url().'uploads/original/'.$image->path);
+      die;
+    } else {
+      redirect('missing');
+    }
+    
+    //echo 'hello'; die;
+  }
 }

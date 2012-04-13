@@ -332,15 +332,21 @@
   
   App.ImageInModal = function() 
   {
+    /*
     $('body').on('click', '[rel="in-modal"]', function(e) {
       var modal = $('#image-in-modal'),
           self = $(this)
-      console.log(modal)    
+      console.log(modal)  
+      modal.css({
+          'margin-top': -(modal.outerHeight() / 2),
+          'margin-left': -(modal.outerWidth() / 2)
+      });  
       modal.find('img').attr('src', self.data('href'))
       $('#download-image').attr('href', self.data('href'))
       modal.modal()
       e.preventDefault()
     })
+    */
   }
   
   $(function() 

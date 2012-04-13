@@ -7,9 +7,12 @@
                 <?php if ($game->images): ?>
                   <?php foreach ($game->images as $i => $item): ?>
                     <div class="item <?php echo $i===0 ? 'active' : '' ?>">
-                      <a rel="in-modal" <?php echo event_tracking($item) ?> href="javascript:void();" data-href="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>">
+                      <a _rel="in-modal" <?php echo event_tracking($item) ?> href="javascript:void();" _data-href="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>">
                         <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
                       </a>
+                      <div class="carousel-caption" style="text-align:right; color:#fff">
+                        Get the HD version of the image <a href="<?php echo base_url() ?>/pages/download/<?php echo $item->id ?>" class="btn _btn-primary btn-large" id="download-image" target="_blank"><i class="icon-download _icon-white" style="margin-right:3px;"></i>Download</a>
+                      </div>                       
                     </div>  
                   <?php endforeach ?>
                   <?php foreach (range(0, 7) as $key => $value): ?>

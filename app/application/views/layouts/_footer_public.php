@@ -46,7 +46,7 @@
             <h3>&nbsp;</h3>
           </div>
           <div class="modal-body">
-            <img src="" alt="" style="max-width:1280">
+            <img src="" alt="">
           </div>
           <div class="modal-footer">
             <a href="" class="btn btn-primary btn-large" id="download-image" target="_blank"><i class="icon-download icon-white" style="margin-right:3px;"></i>Download</a>
