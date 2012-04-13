@@ -330,8 +330,25 @@
     }
   }
   
+  App.ImageInModal = function() 
+  {
+    $('body').on('click', '[rel="in-modal"]', function(e) {
+      var modal = $('#image-in-modal'),
+          self = $(this)
+      console.log(modal)    
+      modal.find('img').attr('src', self.data('href'))
+      $('#download-image').attr('href', self.data('href'))
+      modal.modal()
+      e.preventDefault()
+    })
+  }
+  
   $(function() 
   {
+    
+    App.ImageInModal();
+    
+    //$("[rel=colorbox]").colorbox({slideshow:true});
       
     $(window).smartresize(function() {
       App.ReverseContentColumns()

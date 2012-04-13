@@ -37,6 +37,9 @@
     <p class="pull-right">
       <a class="btn btn-primary" href="<?= base_url(); ?>contacttype/edit" data-ajax-link="1" data-unselect="1" rel="tooltip" title="Create new email address"><i class="icon-plus-sign icon-white"></i></a>
     </p>    
+      <span class="pull-right" style="margin-right:10px;">
+        <span class="label label-info">Tipp</span> <span class="tipp-text">Move items to change the order</span>
+      </span>
   </h3>    
   <?php if ($items_emails): ?>
     <div class="items contact-type-items">

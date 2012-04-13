@@ -37,6 +37,25 @@
       </footer>    	  
       
       <div id="loading-global">Working...</div>		
+
+  		<!-- Le javascript templates -->
+  	  <div class="hide_">
+        <div class="modal hide fade" id="image-in-modal">
+          <div class="modal-header well">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>&nbsp;</h3>
+          </div>
+          <div class="modal-body">
+            <img src="" alt="">
+          </div>
+          <div class="modal-footer">
+            <a href="" class="btn btn-primary btn-large" id="download-image" target="_blank"><i class="icon-download icon-white" style="margin-right:3px;"></i>Download</a>
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+          </div>
+        </div>
+        	    
+  	  </div>
+      <!-- /javascript templates -->
                 
       <script type="text/javascript">
           var App = App || {};
@@ -53,6 +72,7 @@
                     "<?php echo base_url() ?>scripts/plugins/event-tracking/jquery.trackevent.js",
                     "<?php echo base_url() ?>scripts/plugins/prettify-upload/jquery.prettify-upload.js",
       	            "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap.js",
+      	            //"http://www.jacklmoore.com/colorbox/colorbox/jquery.colorbox.js",
                     "<?php echo base_url() ?>scripts/invictus/invictus.js",
                   <?php else: ?>
                     "<?php echo base_url() ?>scripts/invictus/all.min.js",

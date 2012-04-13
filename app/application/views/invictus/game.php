@@ -7,14 +7,16 @@
                 <?php if ($game->images): ?>
                   <?php foreach ($game->images as $i => $item): ?>
                     <div class="item <?php echo $i===0 ? 'active' : '' ?>">
-                      <a <?php echo event_tracking($item) ?> href="#">
+                      <a rel="in-modal" <?php echo event_tracking($item) ?> href="javascript:void();" data-href="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>">
                         <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
                       </a>
                     </div>  
                   <?php endforeach ?>
                   <?php foreach (range(0, 7) as $key => $value): ?>
                     <div class="item">
+                      <a rel="in-modal" <?php echo event_tracking($item) ?> href="javascript:void();" data-href="http://placehold.it/1920x1280">
                         <img alt="" src="http://placehold.it/770x510&text=<?php echo $key.'-image' ?>">
+                      </a>
                     </div>
                   <?php endforeach ?>
                 <?php endif ?>
