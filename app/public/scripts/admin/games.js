@@ -128,6 +128,7 @@
   }
   
   $(function() {
+    
     $('body').on('click', '.action', function(e) {
       
       (new Games(this)).set($(this).data('action'))

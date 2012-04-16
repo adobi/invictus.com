@@ -176,6 +176,7 @@
   
   App.Tooltip = function(option) 
   {
+    //console.log('tootlip: ', option)
     $('[rel=tooltip]').tooltip(option||null);
   };
   

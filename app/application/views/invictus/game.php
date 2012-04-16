@@ -10,18 +10,14 @@
                       <a _rel="in-modal" <?php echo event_tracking($item) ?> href="javascript:void();" _data-href="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>">
                         <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
                       </a>
-                      <div class="carousel-caption" style="text-align:right; color:#fff">
-                        Get the HD version of the image <a href="<?php echo base_url() ?>/pages/download/<?php echo $item->id ?>" class="btn _btn-primary btn-large" id="download-image" target="_blank"><i class="icon-download _icon-white" style="margin-right:3px;"></i>Download</a>
-                      </div>                       
+                      <?php if ($item->hd_path): ?>
+                        <div class="carousel-caption" style="color:#fff">
+                          Get the HD version of the image <a <?php echo event_tracking($item, 'hd') ?> href="<?php echo base_url() ?>/pages/download/<?php echo $item->id ?>" class="btn _btn-primary btn-large" id="download-image" target="_blank"><i class="icon-download _icon-white" style="margin-right:3px;"></i>Download</a>
+                        </div>                       
+                      <?php endif ?>
                     </div>  
                   <?php endforeach ?>
-                  <?php foreach (range(0, 7) as $key => $value): ?>
-                    <div class="item">
-                      <a rel="in-modal" <?php echo event_tracking($item) ?> href="javascript:void();" data-href="http://placehold.it/1920x1280">
-                        <img alt="" src="http://placehold.it/770x510&text=<?php echo $key.'-image' ?>">
-                      </a>
-                    </div>
-                  <?php endforeach ?>
+
                 <?php endif ?>
             </div>
             <!-- Carousel nav -->
@@ -47,11 +43,7 @@
                       </a>
                     </div>  
                   <?php endforeach ?>
-                  <?php foreach (range(0, 7) as $key => $value): ?>
-                    <div class="item">
-                        <img alt="" src="http://placehold.it/770x510&text=<?php echo $key.'-video' ?>">
-                    </div>
-                  <?php endforeach ?>
+
                 <?php endif ?>
             </div>                
             <!-- Carousel nav -->
@@ -76,13 +68,6 @@
                             </li>                      
                           <?php endforeach ?>
                         <?php endif ?>                      
-                        <?php foreach (range(0, 7) as $key => $value): ?>
-                          <li>
-                            <a href="#" class="thumbnail" data-type="images">
-                              <img alt="" src="http://placehold.it/128x85/&text=<?php echo $key.'-image' ?>">
-                            </a>
-                          </li>
-                        <?php endforeach ?>
                       </ul>
                   </div>
               </div>             
@@ -102,13 +87,6 @@
                             </li>                      
                           <?php endforeach ?>
                         <?php endif ?>                      
-                        <?php foreach (range(0, 7) as $key => $value): ?>
-                          <li>
-                            <a href="#" class="thumbnail" data-type="videos">
-                              <img alt="" src="http://placehold.it/128x85/&text=<?php echo $key . '-video' ?>">
-                            </a>
-                          </li>
-                        <?php endforeach ?>
                       </ul>
                   </div>
               </div>             

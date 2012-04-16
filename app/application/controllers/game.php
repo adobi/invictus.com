@@ -205,7 +205,7 @@ class Game extends MY_Controller
       $this->load->model('Gameimages', 'images');
       
       $data['images'] = $this->images->fetchForGame($id);
-
+      
       $this->template->build('game/images', $data);
     }
     

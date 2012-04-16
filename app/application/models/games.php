@@ -105,7 +105,7 @@ class Games extends MY_Model
       if ($allInfo) {
         
         $this->load->model('Gameimages', 'images');
-        $result->images = $this->images->fetchForGame($result->id);
+        $result->images = $this->images->fetchForGame($result->id, true);
         $result->images_is_empty = $this->images->orderedArrayIsEmpty($result->images);
 
         $this->load->model('Gamevideos', 'videos');

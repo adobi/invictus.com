@@ -104,6 +104,14 @@
                         <span>Games</span>
                       </a>
                     </li>
+                    <!-- 
+          	        <li <?php echo $this->uri->segment(1) === 'images' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>game" rel="tooltip" title="HD images" data-placement="right">
+                        <i class="icon-big picture-icon"></i>
+                        <span>Images</span>
+                      </a>
+                    </li>
+                     -->
           	        <li <?php echo $this->uri->segment(1) === 'layout' ? 'class="active"' : '' ?>>
                       <a href="<?php echo base_url() ?>layout" rel="tooltip" title="Internal linking: menus and banners" data-placement="right">
                         <i class="icon-big display-icon"></i>

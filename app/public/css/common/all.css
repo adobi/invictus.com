@@ -716,6 +716,7 @@ a.thumbnail:hover{border-color:#0088cc;-webkit-box-shadow:0 1px 4px rgba(0, 105,
 .display-icon{width:28px;height:24px;background:url("../../img/glyphicons_086_display.png") no-repeat transparent;}
 .icon-platform{width:14px;height:14px;background:url("../../img/glyphicons_163_iphone_small.png") no-repeat transparent;}
 .icon-signal{width:14px;height:14px;background:url("../../img/glyphicons_040_stats.png") no-repeat transparent;}
+.picture-icon{width:24px;height:20px;background:url("../../img/glyphicons_159_picture.png") no-repeat transparent;}
 .navbar .nav>li>a{color:#dedede;}
 .left-side-nav{margin:0 auto;display:block;}
 .left-side-nav .nav-header{padding:15px 0!important;font-size:1.1em;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}

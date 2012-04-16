@@ -72,7 +72,7 @@ class Publicpages extends Page_Controller
         
         $this->email->from($_POST['email']);
         $this->email->to($dest->email);
-        $this->email->cc('hello.attila@gmail.com');
+        //$this->email->cc('hello.attila@gmail.com');
         
         $this->email->subject($_POST['subject']);
         $this->email->message($_POST['message']);
@@ -321,12 +321,12 @@ Invictus Games Support Team";
     //dump($image); die;
     if ($image) {
       //$mime = finfo_open(FILEINFO_MIME_TYPE);
-      $file = dirname($_SERVER['DOCUMENT_ROOT'].$_SERVER['SCRIPT_NAME']).'/uploads/original/'.$image->path;
+      $file = dirname($_SERVER['DOCUMENT_ROOT'].$_SERVER['SCRIPT_NAME']).'/uploads/original/'.$image->hd_path;
       header('Content-Description: File Transfer');
-      header("Content-disposition: attachment; filename= ".$file."");
+      header("Content-disposition: attachment; filename= ".$image->hd_path."");
 
       header("Content-type: application/octet-stream");//.finfo_file($mime, $file);
-      echo file_get_contents(base_url().'uploads/original/'.$image->path);
+      echo file_get_contents(base_url().'uploads/original/'.$image->hd_path);
       die;
     } else {
       redirect('missing');

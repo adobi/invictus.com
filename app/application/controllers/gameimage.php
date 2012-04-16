@@ -59,6 +59,42 @@ class Gameimage extends MY_Controller
 
     }
     
+
+    public function delete_normal()
+    {
+        $id = $this->uri->segment(3);
+        
+        if ($id) {
+            //$this->load->model('Gameimages', 'model');
+            
+            //$this->model->delete($id);
+            $this->_deleteImage($id, false, 'path');
+        }
+        if ($this->input->is_ajax_request()) {
+          die;
+        }        
+        redirect($_SERVER['HTTP_REFERER']);
+
+    }    
+    
+
+    public function delete_hd()
+    {
+        $id = $this->uri->segment(3);
+        
+        if ($id) {
+            //$this->load->model('Gameimages', 'model');
+            
+            //$this->model->delete($id);
+            $this->_deleteImage($id, false, 'hd_path');
+        }
+        if ($this->input->is_ajax_request()) {
+          die;
+        }        
+        redirect($_SERVER['HTTP_REFERER']);
+
+    }    
+    
     public function upload_for_game()
     {
       
@@ -90,7 +126,7 @@ class Gameimage extends MY_Controller
           $info->type = $data['file_type'];
           $info->url = base_url() . 'uploads/original/' .$data['file_name'];
           $info->thumbnail_url = base_url() . 'uploads/original/' .$data['file_name'];
-          $info->delete_url = base_url().'gameimage/delete/'.$inserted;
+          $info->delete_url = base_url().'gameimage/delete_normal/'.$inserted;
           $info->delete_type = 'GET';
           $info->image_id = $inserted;	 
           
@@ -101,6 +137,90 @@ class Gameimage extends MY_Controller
 	  	
       die;      
     }
+
+    public function upload_hd()
+    {
+      
+      //dump($_FILES); die;
+      
+        if ($this->upload->do_upload('userfile')) {
+          
+          $this->load->config('upload');
+          
+          $data = $this->upload->data();
+
+          $this->load->model('Gameimages', 'model');
+          
+          $this->load->model("Games", 'games');
+          
+          $game = $this->games->find($this->model->find($this->uri->segment(3))->game_id);
+          
+          $inserted = $this->model->update(array(
+              'hd_path'=>$data['file_name'],
+              'hd_ga_category'=>'Image',
+              'hd_ga_action'=>'View',
+              'hd_ga_value'=>1,
+              'hd_ga_label'=>$game->name.' - HD image - ' . $data['file_name']
+          ), $this->uri->segment(3));
+          
+          $info->name = $data['file_name'];
+          $info->size = $data['file_size'];
+          $info->type = $data['file_type'];
+          $info->url = base_url() . 'uploads/original/' .$data['file_name'];
+          $info->thumbnail_url = base_url() . 'uploads/original/' .$data['file_name'];
+          $info->delete_url = base_url().'gameimage/delete_hd/'.$this->uri->segment(3);
+          $info->delete_type = 'GET';
+          $info->image_id = $this->uri->segment(3);	 
+          
+          if ($this->input->is_ajax_request()) {
+              echo json_encode(array($info));
+          } 
+        }
+	  	
+      die;      
+    }
+    
+    public function upload_normal()
+    {
+      
+      //dump($_FILES); die;
+      
+        if ($this->upload->do_upload('userfile')) {
+          
+          $this->load->config('upload');
+          
+          $data = $this->upload->data();
+
+          $this->load->model('Gameimages', 'model');
+          
+          $this->load->model("Games", 'games');
+          
+          $game = $this->games->find($this->model->find($this->uri->segment(3))->game_id);
+          
+          $inserted = $this->model->update(array(
+              'path'=>$data['file_name'],
+              //'ga_category'=>'Image',
+              //'ga_action'=>'View',
+              //'ga_value'=>1,
+              //'ga_label'=>$game->name.' - image - ' . $data['file_name']
+          ), $this->uri->segment(3));
+          
+          $info->name = $data['file_name'];
+          $info->size = $data['file_size'];
+          $info->type = $data['file_type'];
+          $info->url = base_url() . 'uploads/original/' .$data['file_name'];
+          $info->thumbnail_url = base_url() . 'uploads/original/' .$data['file_name'];
+          $info->delete_url = base_url().'gameimage/delete_normal/'.$this->uri->segment(3);
+          $info->delete_type = 'GET';
+          $info->image_id = $this->uri->segment(3);	 
+          
+          if ($this->input->is_ajax_request()) {
+              echo json_encode(array($info));
+          } 
+        }
+	  	
+      die;      
+    }    
     
     public function analytics()
     {
@@ -136,21 +256,34 @@ class Gameimage extends MY_Controller
       $this->template->build('gameimage/analytics', $data);
     }   
     
-    private function _deleteImage($id, $withRecord = false) 
+    private function _deleteImage($id, $withRecord = false, $type = true) 
     {
         $this->load->model('Gameimages', 'model');
         
         $item = $this->model->find($id);
         
-        if ($item && $item->path) {
-            $this->load->config('upload');
-            
-            @unlink($this->config->item('upload_path') . $item->path);
+        $this->load->config('upload');
+        
+        if (true === $type) {
+          @unlink($this->config->item('upload_path') . $item->path);
+          @unlink($this->config->item('upload_path') . $item->hd_path);
+          
+        } else {
+          
+          if ($type && $item && $item->$type) {
+              
+              @unlink($this->config->item('upload_path') . $item->$type);
+          }
+          
         }
         
         if (!$withRecord) {
+            if ($type)
+              $params = array($type=>null);
+            else 
+              $params = array('path'=>null, 'hd_path'=>null);
             
-            $this->model->update(array('path'=>null), $id);
+            $this->model->update($params, $id);
         }
         
         return $withRecord ? $this->model->delete($id) : true;

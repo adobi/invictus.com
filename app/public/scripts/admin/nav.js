@@ -34,7 +34,7 @@
   
   Nav.reloadRightPanel = function() 
   {
-    $('[rel=tooltip]').tooltip('hide')
+    //$('[rel=tooltip]').tooltip('hide')
     
     //console.log(App.CurrentHref)
     App.Tooltip('hide')  
@@ -46,8 +46,17 @@
     //App.TriggerDatepicker()
     App.Datepicker()
     //App.PrettifyUpload()
-    if ($('#fileupload').length) $('#fileupload').fileupload()
-    else App.PrettifyUpload()
+    if ($('.fileupload').length) {
+      $('.fileupload').each(function () {
+        
+          $(this).fileupload({
+              dropZone: $(this),
+          }).bind('fileuploadstop',  function() {
+            
+            $('.item.selected').find('.icon-picture').parent().trigger('click')
+          });
+      });      
+    } else App.PrettifyUpload()
     
     App.Tooltip('hide')      
     App.Tooltip() 
