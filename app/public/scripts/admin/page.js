@@ -278,7 +278,8 @@
   App.AutoHeight = function () 
   {
     //$('.right-side-scroll').css('height', $('body').height()-300)
-    $('.right-side-scroll').css('height', $('.sidebar-navigation-wrapper-right .well').height() - 160)
+    //console.log($('.sidebar-navigation-wrapper-right .well').height())
+    $('.right-side-scroll').css('height', $('.sidebar-navigation-wrapper-right .well').height() - 200)
   }
   
   App.FilterGlobalGames = function() 
