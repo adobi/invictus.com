@@ -4,9 +4,12 @@
           <?php if (!$game->images_is_empty): ?>
             <!-- Carousel items -->
             <div class="carousel-inner">
+                <div class="item active">
+                    <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->hero_image ?>" alt="">
+                </div>               
                 <?php if ($game->images): ?>
                   <?php foreach ($game->images as $i => $item): ?>
-                    <div class="item <?php echo $i===0 ? 'active' : '' ?>">
+                    <div class="item ">
                       <a _rel="in-modal" <?php echo event_tracking($item) ?> href="javascript:void();" _data-href="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>">
                         <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
                       </a>
@@ -59,10 +62,15 @@
               <div id="image-carousel" class="es-carousel-wrapper span7" style="margin-left:0">
                   <div class="es-carousel">
                       <ul>
+                        <li>
+                          <a  href="#" class="thumbnail selected-carousel-item" data-type="images">
+                            <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->hero_image ?>" alt="">
+                          </a>
+                        </li>
                         <?php if ($game->images): ?>
                           <?php foreach ($game->images as $i => $item): ?>
                             <li>
-                              <a <?php echo event_tracking($item) ?> href="#" class="thumbnail <?php echo $i === 0 ? 'selected-carousel-item' : '' ?>" data-type="images">
+                              <a <?php echo event_tracking($item) ?> href="#" class="thumbnail " data-type="images">
                                 <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="" style="width:128px">
                               </a>
                             </li>                      

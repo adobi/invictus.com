@@ -5,7 +5,7 @@
     </div>
 <?php endif ?>
 
-<?php echo form_open_multipart('', array('id'=>'edit-form', 'data-ajax-form'=>1)) ?>    
+<?php echo form_open('', array('id'=>'edit-form', 'data-ajax-form'=>1)) ?>    
 
     <?php echo panel_close('seo/'.($item ? $item->id : '')) ?>
     
@@ -40,6 +40,8 @@
           <label class="control-label" for="thumbnail">Thumbnail</label>
           <div class="controls">
               <input type="text" name = "thumbnail" id = "thumbnail" class = "span4" value = "<?php echo base_url() . 'uploads/original/'.$item->logo ?>"/>
+              <br>
+              <img src="<?php echo base_url() . 'uploads/original/'.$item->logo ?>" alt="" style="width:64px">
           </div>
       </fieldset>       
       <fieldset class="control-group">
@@ -57,16 +59,23 @@
       <fieldset class="control-group">
           <label class="control-label" for="image">Image</label>
           <div class="controls">
-              <input type="text" name = "image" id = "image" class = "span4" value = "<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>"/>
+              <?php if ($item->teaser_image): ?>
+                <input type="text" name = "image" id = "image" class = "span4" value = "<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>"/>
+                <br>
+                <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>" alt=""  style="width:135px">
+              <?php endif ?>
           </div>
-      </fieldset>       
-      <fieldset class="control-group">
-          <label class="control-label">&nbsp;</label>
-          <div class="controls">
+      </fieldset>  
+      <?php if ($item->logo && $item->teaser_image): ?>
+        <fieldset class="form-actions right">
             <button class="btn btn-primary" rel="tooltip" title="Save as in game news" data-noaction="1"><i class="icon-ok icon-white"></i> Save as in game news</button>
-          </div>
-      </fieldset>       
-    </div>
+        </fieldset>       
+      <?php else: ?>
+        <div class="alert alert-error">
+          <p>First upload the logo and/or teaser image for <strong><?php echo $item->name ?></strong></p>
+        </div>
+       <?php endif ?>     
+    </div><!-- /.right-side-scroll -->
     <fieldset class="form-actions right">
         <!-- <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button>  -->
         <a class="btn" data-ajax-link="1" href="<?php echo base_url() ?>game/publish_to_press/<?php echo $item->id ?>"><strong>7.</strong> Press release &rarr;</a>

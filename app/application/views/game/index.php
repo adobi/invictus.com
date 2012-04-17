@@ -19,15 +19,29 @@
           <?php endif ?>
         </ul>
       </div>       
-      <ul class="thumbnails games-list" id="list-of-all-games">
+      <ul class="thumbnails games-list" id="list-of-all-games" style="margin-left:-10px">
         <?php foreach ($items as $item): ?>
           <li class="span3" data-platforms='<?php echo json_encode($item->platforms) ?>' style="margin-left:10px; margin-bottom:9px;">
             <div class="item thumbnail <?php echo $item->is_active ? 'alert-success' : '' ?>" data-id="<?php echo $item->id ?>" style="padding:0">
+              <div class="btn-group pull-right">
+                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" style="border-bottom-right-radius:0px; border-top-right-radius: 0px;"><i class="icon-list"></i></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="<?php echo base_url() ?>game/publish_to_news/<?php echo $item->id ?>" class="select-item" data-ajax-link>In game news</a>
+                  </li>
+                  <li>
+                    <a href="<?php echo base_url() ?>game/publish_to_press/<?php echo $item->id ?>" class="select-item" data-ajax-link>Press release</a>
+                  </li>
+                  <li>
+                    <a href="<?php echo base_url() ?>game/publish_to_microsite/<?php echo $item->id ?>" class="select-item" data-ajax-link>Microsite</a>
+                  </li>
+                </ul>
+                <a _style="margin-top:-5px" href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item select-item" data-location="l" data-trigget="reload" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>
+              </div>
               <h4 class="center">
                 <span rel="tooltip" title="<?php echo $item->name ?>">
-                  <?php echo strlen($item->name) > 17 ? substr($item->name, 0,17)."..." : $item->name ?> 
+                  <?php echo strlen($item->name) > 17 ? substr($item->name, 0,16)."..." : $item->name ?> 
                 </span>
-                <a style="margin-top:-5px" href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item select-item pull-right" data-location="l" data-trigget="reload" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>
                 <br>
                 <span class="upper-gray"><?php echo to_date($item->released) ?></span>
               </h4> 

@@ -93,6 +93,16 @@ class Game extends MY_Controller
                 
                 $_POST['teaser_image'] = $this->upload->file_name;
             }            
+
+            if ($this->upload->do_upload('splash_image')) {
+                
+                if ($id) {
+                    
+                    $this->_deleteImage($id, false, 'splash_image');
+                }
+                
+                $_POST['splash_image'] = $this->upload->file_name;
+            }  
             
             $this->load->library('Sanitizer', 'sanitizer');
             
@@ -351,11 +361,21 @@ class Game extends MY_Controller
         $_POST['thumbnail_name'] = $data['item']->logo;
         $_POST['image_name'] = $data['item']->teaser_image;
         $_POST['game_id'] = $data['item']->id;
+
+        $res = json_decode($this->curl->simple_post(NEWS_API_URL, $_POST));
         
-        $res = $this->curl->simple_post(NEWS_API_URL, $_POST);
-        //dump($res);
+        
         //$this->session->set_flashdata('message', 'In game news created');
-        echo display_success('In game news created');
+
+        if (!property_exists($res, 'insert_id')) {
+          echo display_success('Something went wrong: '.$res->message);
+        } else {
+          
+        
+          echo display_success($res->message);
+          
+          $this->session->set_userdata('created_news_id', $res->insert_id);
+        }
         die;
       }
       
@@ -369,7 +389,13 @@ class Game extends MY_Controller
       $this->load->model('Games', 'model');
             
       $data['item'] = $this->model->find($id);
-            
+      
+      $this->load->model('Gamevideos', 'videos');
+      $data['videos'] = $this->videos->fetchForGame($id);
+      
+      $this->load->model('Gameplatforms', 'game_platforms');
+      $data['platforms'] = $this->game_platforms->fetchForGame($id);
+      
       $this->template->build('game/publish_to_press', $data);
     }
     

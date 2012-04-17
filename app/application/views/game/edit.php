@@ -87,7 +87,18 @@
                   <input rel="tooltip" title="370x165"  data-text="370x165" type="file" name = "teaser_image" id = "teaser_image" class = "span4" value = "<?php echo $_POST && isset($_POST['teaser_image']) ? $_POST['teaser_image'] : ($item ? $item->teaser_image : '') ?>"/>
                 <?php endif; ?>
             </div>
-        </fieldset>  
+        </fieldset> 
+        <fieldset class="control-group">
+            <label class="control-label" for="splash_image">Splash image</label>
+            <div class="controls">
+                <?php if ($item && $item->splash_image): ?>
+                    <img class="span4" src="<?php echo base_url() ?>uploads/original/<?php echo $item->splash_image ?>" alt="">
+                    <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>/splash_image" class="btn delete-item pull-right" style="margin-right:20px;" rel="tooltip" title="Delete splash image" data-modal-header="<?php echo $item->name ?> splash image" data-trigger="reload" data-location="r"><i class="icon-trash"></i></a>
+                <?php else: ?>               
+                  <input rel="tooltip" title="370x165"  data-text="370x165" type="file" name = "splash_image" id = "splash_image" class = "span4" value = "<?php echo $_POST && isset($_POST['splash_image']) ? $_POST['splash_image'] : ($item ? $item->splash_image : '') ?>"/>
+                <?php endif; ?>
+            </div>
+        </fieldset>           
         <fieldset class="control-group">
             <label class="control-label" for="short_description">Short description</label>
             <div class="controls">
