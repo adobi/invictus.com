@@ -27,7 +27,7 @@
                 <span rel="tooltip" title="<?php echo $item->name ?>">
                   <?php echo strlen($item->name) > 17 ? substr($item->name, 0,17)."..." : $item->name ?> 
                 </span>
-                <a style="margin-top:-5px" href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item select-item pull-right" data-location="l" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>
+                <a style="margin-top:-5px" href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item select-item pull-right" data-location="l" data-trigget="reload" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>
                 <br>
                 <span class="upper-gray"><?php echo to_date($item->released) ?></span>
               </h4> 

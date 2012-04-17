@@ -71,9 +71,11 @@
                 <div class="thumbnail" style="margin-bottom:10px;">
                   <h6>
                     Normal image 
-                    <div class="pull-right">
-                      <a class="btn delete-item" href="<?php echo base_url() ?>gameimage/delete_normal/<?php echo $p->id ?>" rel="tooltip" title="Delete image" data-trigger="reload" data-location="r"  data-modal-header="<?php echo $p->path ?> image"><i class="icon-trash"></i></a>
-                    </div>
+                    <?php if ($p->path): ?>
+                      <div class="pull-right">
+                        <a class="btn delete-item" href="<?php echo base_url() ?>gameimage/delete_normal/<?php echo $p->id ?>" rel="tooltip" title="Delete image" data-trigger="reload" data-location="r"  data-modal-header="<?php echo $p->path ?> image"><i class="icon-trash"></i></a>
+                      </div>
+                    <?php endif ?>
                   </h6>
                   <hr>
                   <?php if (!$p->path): ?>
@@ -171,7 +173,14 @@
                 </div> <!-- /.thumbnail -->
                 
                 <div class="thumbnail">
-                  <h6>HD image</h6>
+                  <h6>
+                    HD image
+                    <?php if ($p->hd_path): ?>
+                      <div class="pull-right">
+                        <a class="btn delete-item" href="<?php echo base_url() ?>gameimage/delete_hd/<?php echo $p->id ?>" rel="tooltip" title="Delete image" data-trigger="reload" data-location="r"  data-modal-header="<?php echo $p->hd_path ?> HD image"><i class="icon-trash"></i></a>
+                      </div>
+                    <?php endif ?>                    
+                  </h6>
                   <?php if (!$p->hd_path): ?>
                     <?php echo form_open_multipart(base_url() .'gameimage/upload_hd/'.$p->id, array('class'=>'fileupload', 
                             'data-upload-template-id'=>'hd-template-upload-'.$p->id, 

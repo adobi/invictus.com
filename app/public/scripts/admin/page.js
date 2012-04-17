@@ -214,7 +214,6 @@
     {
       var that = $(this),
           modal = App.ModalElement
-      
       if (!App.Modal) {
         App.Modal = true;
         
@@ -233,11 +232,16 @@
         modal.modal();
         
       } else {
+        
+        //console.log(that)
+        
         $.get(that.attr('href'), function() {
           
           if (that.data('trigger') === 'reload') {
             
             if (that.data('location') === 'r') App.Nav.reloadRightPanel()
+            
+            if (that.data('location') === 'l') App.Nav.reloadContetPanel()
             
             if (that.data('location') === 'b') {
               App.Nav.reloadRightPanel()
