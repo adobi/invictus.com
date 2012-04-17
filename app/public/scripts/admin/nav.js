@@ -140,11 +140,12 @@
           
           }
         } else {
-        
-          Nav.reloadContetPanel();
-  
-          Nav.reloadRightPanel();
-          
+          if (!button.data('noaction')) {
+            
+            Nav.reloadContetPanel();
+    
+            Nav.reloadRightPanel();
+          }
         }
         
         

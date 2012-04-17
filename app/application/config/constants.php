@@ -37,6 +37,8 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 define('SITE_TITLE', 'Invictus Admin');
+define('NEWS_API_URL', 'http://localhost/invictus-news/api/create');
+
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

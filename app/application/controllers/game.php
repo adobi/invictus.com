@@ -340,6 +340,25 @@ class Game extends MY_Controller
             
       $data['item'] = $this->model->find($id);
       
+      $this->form_validation->set_rules('title', 'Title', 'trim|required');
+      $this->form_validation->set_rules('description', 'Description', 'trim|required');
+      $this->form_validation->set_rules('thumbnail', 'Thumbnail', 'trim|required');
+      $this->form_validation->set_rules('link_text', 'Link text', 'trim|required');
+      $this->form_validation->set_rules('link_url', 'Link url', 'trim|required');
+      
+      if ($this->form_validation->run()) {
+        
+        $_POST['thumbnail_name'] = $data['item']->logo;
+        $_POST['image_name'] = $data['item']->teaser_image;
+        $_POST['game_id'] = $data['item']->id;
+        
+        $res = $this->curl->simple_post(NEWS_API_URL, $_POST);
+        //dump($res);
+        //$this->session->set_flashdata('message', 'In game news created');
+        echo display_success('In game news created');
+        die;
+      }
+      
       $this->template->build('game/publish_to_news', $data);
     }
 
