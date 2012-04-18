@@ -17,16 +17,20 @@
         if (response) {
           var item = that.el.parents('.item'),
               title = that.el.attr('title')
+              
+          if (that.el.data('reset')) {
+            that.el.parents('.items:first').find('.alert-success').removeClass('alert-success')
+          }    
           switch (type) {
             case 'activate':
               that.el.attr('href', href.replace('activate', 'inactivate'))
-              that.el.attr('data-original-title', 'Inactivate game')
+              that.el.attr('data-original-title', 'Inactivate')
               that.el.data('action', 'inactivate')
               item.addClass('alert-success')
               break;
             case 'inactivate':
               that.el.attr('href', href.replace('inactivate', 'activate'))
-              that.el.attr('data-original-title', 'Activate game')
+              that.el.attr('data-original-title', 'Activate')
               that.el.data('action', 'activate')
               item.removeClass('alert-success')
               break;
@@ -67,8 +71,9 @@
   Games.shortenWithBitly = function(el) 
   {
     var url = $('#bitly-input-url').val(),
-        api_login = "adobi",
-        api_key = "R_d46703b23cbd9840555311a8b08175f8";
+        api_login = "invictusgames",
+        //api_key = "R_d46703b23cbd9840555311a8b08175f8";
+        api_key = "R_c279e7aa82400801e49fe4b2cf455020"
 
     if ($.trim(url).length) {
       $.getJSON(

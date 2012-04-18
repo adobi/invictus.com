@@ -119,5 +119,17 @@ class Gamevideo extends MY_Controller
       }
                 
       $this->template->build('gamevideo/analytics', $data);
-    }     
+    } 
+    
+    public function action()
+    {
+      $action = $this->uri->segment(3);
+      $id = $this->uri->segment(4);
+      
+      $this->load->model('Gamevideos', 'model');
+      
+      echo $this->model->$action($id);
+      
+      die;
+    }          
 }

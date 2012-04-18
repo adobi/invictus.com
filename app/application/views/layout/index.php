@@ -76,7 +76,7 @@
                   <li class="span2" id="<?php echo $item->id ?>">
                     <div class="item thumbnail" data-id="<?php echo $item->id ?>">
                       <h6 class="center">
-                        <?php echo $item->name ?>
+                        <?php echo strlen($item->name) > 12 ? substr($item->name, 0, 13) . '...' : $item->name ?>
                       </h6> 
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
                       <div class="caption center">
@@ -115,7 +115,7 @@
                   <li class="span2" id="<?php echo $item->id ?>">
                     <div class="item thumbnail" data-id="<?php echo $item->id ?>">
                       <h6 class="center">
-                        <?php echo $item->name ?>
+                        <?php echo strlen($item->name) > 12 ? substr($item->name, 0, 13) . '...' : $item->name ?>
                       </h6> 
                       <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" style="width:96px" alt="">
                       <div class="caption center">

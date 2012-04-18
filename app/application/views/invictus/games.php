@@ -35,7 +35,7 @@
         <h3 style="margin-top:20px;"><?php echo $game->name ?></h3>
         <p><?php echo $game->short_description ?></p>
         <p style="text-align:right">
-          <a href="<?php echo base_url() ?>games/<?php echo $game->url ?>" class="btn">View detailes <i class="icon-arrow-right"></i></a>
+          <a href="<?php echo base_url() ?>games/<?php echo $game->url ?>" class="btn btn-orange"><strong>View details</strong> <i style="margin-top:1px;" class="icon-chevron-right icon-white"></i></a>
         </p>
         <hr>
         <div class="game-available-in">
