@@ -27,18 +27,19 @@
           <?php endif ?>
         </div>        
     </legend> 
-    <div class="right-side-scroll">     
+    <div class="right-side-scroll"> 
+      
         <fieldset class="control-group">
             <label class="control-label" for="name">Name</label>
             <div class="controls">
-                <input type="text" name = "name" id = "name" class = "span4" value = "<?php echo $_POST && isset($_POST['name']) ? $_POST['name'] : ($item ? $item->name : '') ?>"/>
+                <input type="text" name = "name" id = "name" class = "span4" value = "<?php echo $post && isset($post['name']) ? $post['name'] : ($item ? $item->name : '') ?>"/>
             </div>
         </fieldset>  
         <fieldset class="control-group">
             <label class="control-label" for="released">Released</label>
             <div class="controls">
               <div class="input-append">
-                <input type="text" name = "released" id = "released" class = "span2 datepicker" value = "<?php echo $_POST && isset($_POST['released']) ? $_POST['released'] : ($item ? to_date($item->released) : '') ?>"/>
+                <input type="text" name = "released" id = "released" class = "span2 datepicker" value = "<?php echo $post && isset($post['released']) ? $post['released'] : ($item ? to_date($item->released) : '') ?>"/>
                 <a class="btn add-on trigger-datepicker"><i class="icon-calendar"></i></a>
               </div>
             </div>
@@ -62,7 +63,7 @@
                     <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>" alt="">
                     <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>/logo" class="btn delete-item pull-right" style="margin-right:20px;" rel="tooltip" title="Delete logo" data-modal-header="<?php echo $item->name ?> logo" data-trigger="reload" data-location="b"><i class="icon-trash"></i></a>
                 <?php else: ?>
-                  <input rel="tooltip" title="170x170" data-text="170x170" type="file" name = "logo" id = "logo" class = "span4" value = "<?php echo $_POST && isset($_POST['logo']) ? $_POST['logo'] : ($item ? $item->logo : '') ?>"/>
+                  <input rel="tooltip" title="170x170" data-text="170x170" type="file" name = "logo" id = "logo" class = "span4" value = "<?php echo $post && isset($post['logo']) ? $post['logo'] : ($item ? $item->logo : '') ?>"/>
                 <?php endif; ?>
             </div>
         </fieldset>  
@@ -73,7 +74,7 @@
                     <img class="span4" src="<?php echo base_url() ?>uploads/original/<?php echo $item->hero_image ?>" alt="">
                     <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>/hero_image" class="btn delete-item pull-right" style="margin-right:20px;" rel="tooltip" title="Delete hero image" data-modal-header="<?php echo $item->name ?> hero image" data-trigger="reload" data-location="r"><i class="icon-trash"></i></a>
                 <?php else: ?>              
-                  <input rel="tooltip" title="770x510"  data-text="770x510" type="file" name = "hero_image" id = "hero_image" class = "span4" value = "<?php echo $_POST && isset($_POST['hero_image']) ? $_POST['hero_image'] : ($item ? $item->hero_image : '') ?>"/>
+                  <input rel="tooltip" title="770x510"  data-text="770x510" type="file" name = "hero_image" id = "hero_image" class = "span4" value = "<?php echo $post && isset($post['hero_image']) ? $post['hero_image'] : ($item ? $item->hero_image : '') ?>"/>
                 <?php endif; ?>
             </div>
         </fieldset>  
@@ -84,7 +85,7 @@
                     <img class="span4" src="<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>" alt="">
                     <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>/teaser_image" class="btn delete-item pull-right" style="margin-right:20px;" rel="tooltip" title="Delete teaser image" data-modal-header="<?php echo $item->name ?> teaser image" data-trigger="reload" data-location="r"><i class="icon-trash"></i></a>
                 <?php else: ?>               
-                  <input rel="tooltip" title="370x165"  data-text="370x165" type="file" name = "teaser_image" id = "teaser_image" class = "span4" value = "<?php echo $_POST && isset($_POST['teaser_image']) ? $_POST['teaser_image'] : ($item ? $item->teaser_image : '') ?>"/>
+                  <input rel="tooltip" title="370x165"  data-text="370x165" type="file" name = "teaser_image" id = "teaser_image" class = "span4" value = "<?php echo $post && isset($post['teaser_image']) ? $post['teaser_image'] : ($item ? $item->teaser_image : '') ?>"/>
                 <?php endif; ?>
             </div>
         </fieldset> 
@@ -95,20 +96,20 @@
                     <img class="span4" src="<?php echo base_url() ?>uploads/original/<?php echo $item->splash_image ?>" alt="">
                     <a href="<?php echo base_url() ?>game/delete_image/<?php echo $item->id ?>/splash_image" class="btn delete-item pull-right" style="margin-right:20px;" rel="tooltip" title="Delete splash image" data-modal-header="<?php echo $item->name ?> splash image" data-trigger="reload" data-location="r"><i class="icon-trash"></i></a>
                 <?php else: ?>               
-                  <input rel="tooltip" title="370x165"  data-text="370x165" type="file" name = "splash_image" id = "splash_image" class = "span4" value = "<?php echo $_POST && isset($_POST['splash_image']) ? $_POST['splash_image'] : ($item ? $item->splash_image : '') ?>"/>
+                  <input rel="tooltip" title="370x165"  data-text="370x165" type="file" name = "splash_image" id = "splash_image" class = "span4" value = "<?php echo $post && isset($post['splash_image']) ? $post['splash_image'] : ($item ? $item->splash_image : '') ?>"/>
                 <?php endif; ?>
             </div>
         </fieldset>           
         <fieldset class="control-group">
             <label class="control-label" for="short_description">Short description</label>
             <div class="controls">
-                <textarea rows="2"name = "short_description" id = "short_description" class = "span4"><?php echo $_POST && isset($_POST['short_description']) ? $_POST['short_description'] : ($item ? $item->short_description : '') ?></textarea>
+                <textarea rows="2"name = "short_description" id = "short_description" class = "span4"><?php echo $post && isset($post['short_description']) ? $post['short_description'] : ($item ? $item->short_description : '') ?></textarea>
             </div>
         </fieldset>  
         <fieldset class="control-group">
             <label class="control-label" for="long_description">Long description</label>
             <div class="controls">
-                <textarea rows="5" name="long_description" id = "long_description" class="span4"><?php echo $_POST && isset($_POST['long_description']) ? $_POST['long_description'] : ($item ? $item->long_description : '') ?></textarea>
+                <textarea rows="5" name="long_description" id = "long_description" class="span4"><?php echo $post && isset($post['long_description']) ? $post['long_description'] : ($item ? $item->long_description : '') ?></textarea>
             </div>
         </fieldset> 
         <!-- 
@@ -122,13 +123,13 @@
         <fieldset class="control-group">
             <label class="control-label" for="facebook_page">Facebook page</label>
             <div class="controls">
-                http://facebook.com/ <input type="text" name = "facebook_page" id = "facebook_page" class = "span2" value = "<?php echo $_POST && isset($_POST['facebook_page']) ? $_POST['facebook_page'] : ($item ? $item->facebook_page : '') ?>"/>
+                http://facebook.com/ <input type="text" name = "facebook_page" id = "facebook_page" class = "span2" value = "<?php echo $post && isset($post['facebook_page']) ? $post['facebook_page'] : ($item ? $item->facebook_page : '') ?>"/>
             </div>
         </fieldset>                          
         <fieldset class="control-group">
             <label class="control-label" for="twitter_page">Twitter page</label>
             <div class="controls">
-                http://twitter.com/ <input type="text" name = "twitter_page" id = "twitter_page" class = "span2" value = "<?php echo $_POST && isset($_POST['twitter_page']) ? $_POST['twitter_page'] : ($item ? $item->twitter_page : '') ?>"/>
+                http://twitter.com/ <input type="text" name = "twitter_page" id = "twitter_page" class = "span2" value = "<?php echo $post && isset($post['twitter_page']) ? $post['twitter_page'] : ($item ? $item->twitter_page : '') ?>"/>
             </div>
         </fieldset> 
         <!-- 
@@ -147,3 +148,5 @@
         <?php endif; ?>
     </fieldset>    
 <?php echo form_close() ?>
+
+<?php $this->session->set_userdata('post') ?>
