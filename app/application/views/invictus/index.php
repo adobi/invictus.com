@@ -11,8 +11,24 @@
                         <div class="item <?php echo $i===0 ? 'active' : '' ?>" data-item="<?php echo $item->id ?>">
                             <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->hero_image ?>" alt="">
                             <div class="carousel-caption">
-                              <h4><?php echo $item->name ?></h4>
-                              <p><?php echo $item->short_description ?> <a  <?php echo event_tracking($item->analytics['hero']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class="btn">View detailes <i class="icon-arrow-right"></i></a></p>
+                              <div class="row">
+                                <div class="span6">
+                                  <h3>
+                                    <?php echo $item->name ?>
+                                  </h3>
+                                  <p>
+                                    <?php echo $item->short_description ?> 
+                                  </p>
+                                </div>
+                                <div class="span2" style="text-align:right; margin-left:0;">
+                                  <p>
+                                    <a style="width:130px" href="#" class="btn btn-primary "><strong>Watch video</strong> <i style="margin-top:1px;" class="icon-facetime-video icon-white"></i></a>
+                                  </p>
+                                  <p>
+                                    <a style="width:130px"  <?php echo event_tracking($item->analytics['hero']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class=" btn btn-orange"><strong>View details</strong> <i style="margin-top:1px;" class="icon-chevron-right icon-white"></i></a>
+                                  </p>
+                                </div>
+                              </div>
                             </div>        
                         </div> 
                       <?php endif ?>

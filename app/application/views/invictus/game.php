@@ -14,8 +14,8 @@
                         <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
                       </a>
                       <?php if ($item->hd_path): ?>
-                        <div class="carousel-caption" style="color:#fff">
-                          Get the HD version of the image <a <?php echo event_tracking($item, 'hd') ?> href="<?php echo base_url() ?>/pages/download/<?php echo $item->id ?>" class="btn _btn-primary btn-large" id="download-image" target="_blank"><i class="icon-download _icon-white" style="margin-right:3px;"></i>Download</a>
+                        <div class="carousel-caption" style="color:#fff; padding-top:12px; padding-bottom:10px;">
+                          Get the HD version of the image <a <?php echo event_tracking($item, 'hd') ?> href="<?php echo base_url() ?>/uploads/original/<?php echo $item->hd_path ?>" class="btn btn-orange _btn-large" id="download-image" target="_blank"><i class="icon-download icon-white" style="margin-right:3px;"></i>Download</a>
                         </div>                       
                       <?php endif ?>
                     </div>  
@@ -161,13 +161,22 @@
       
       <hr>
       
-      <h3 style="margin-bottom:20px;"><?php echo $game->name ?> on Facebook</h3>
+      <?php if ($game->facebook_page): ?>
+        <h3 style="margin-bottom:20px;"><?php echo $game->name ?> in social media</h3>
+      <?php endif ?>
+      
       <div class="fb-like" data-send="false" data-layout="button_count" data-width="60" data-show-faces="false"></div>
       <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-via="adobi">Tweet</a> -->
-      <a href="https://twitter.com/<?php echo $game->twitter_page ?>" class="twitter-follow-button" data-show-count="false">Follow @<?php echo $game->twitter_page ?></a>
+      <?php if ($game->twitter_page): ?>
+        <a href="https://twitter.com/<?php echo $game->twitter_page ?>" class="twitter-follow-button" data-show-count="false">Follow @<?php echo $game->twitter_page ?></a>
+      <?php else: ?>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="invictusgames">Tweet</a>
+      <?php endif; ?>
       <g:plusone size="medium"></g:plusone>
       <p>&nbsp;</p> 
-      <div class="facebook-widget" data-type="like-box" data-page="<?php echo $game->facebook_page ?>"></div>
+      <?php if ($game->facebook_page): ?>
+        <div class="facebook-widget" data-type="like-box" data-page="<?php echo $game->facebook_page ?>"></div>
+      <?php endif ?>
       <div id = "fb-comments-mobile" class="fb-comments" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>" data-num-posts="2" data-width="620" _style="display:none"></div>
     </div>
   </div>

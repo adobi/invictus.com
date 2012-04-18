@@ -39,8 +39,7 @@
       <fieldset class="control-group">
           <label class="control-label" for="thumbnail">Thumbnail</label>
           <div class="controls">
-              <input type="text" name = "thumbnail" id = "thumbnail" class = "span4" value = "<?php echo base_url() . 'uploads/original/'.$item->logo ?>"/>
-              <br>
+              <input type="hidden" name = "thumbnail" id = "thumbnail" class = "span4" value = "<?php echo base_url() . 'uploads/original/'.$item->logo ?>"/>
               <img src="<?php echo base_url() . 'uploads/original/'.$item->logo ?>" alt="" style="width:64px">
           </div>
       </fieldset>       
@@ -60,8 +59,7 @@
           <label class="control-label" for="image">Image</label>
           <div class="controls">
               <?php if ($item->teaser_image): ?>
-                <input type="text" name = "image" id = "image" class = "span4" value = "<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>"/>
-                <br>
+                <input type="hidden" name = "image" id = "image" class = "span4" value = "<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>"/>
                 <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>" alt=""  style="width:135px">
               <?php endif ?>
           </div>

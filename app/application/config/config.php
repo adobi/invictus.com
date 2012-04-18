@@ -186,7 +186,7 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 2;
+$config['log_threshold'] = 0;
 
 /*
 |--------------------------------------------------------------------------
@@ -300,8 +300,8 @@ $config['global_xss_filtering'] = true;
 | 'csrf_expire' = The number in seconds the token should expire.
 */
 $config['csrf_protection'] = true;
-$config['csrf_token_name'] = 'csrf_test_name';
-$config['csrf_cookie_name'] = 'csrf_cookie_name';
+$config['csrf_token_name'] = 'invictus_com_csrf_token';
+$config['csrf_cookie_name'] = 'invictus_com_csrf_coockie';
 $config['csrf_expire'] = 7200;
 
 /*

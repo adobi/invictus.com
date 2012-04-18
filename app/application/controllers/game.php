@@ -61,10 +61,14 @@ class Game extends MY_Controller
     		$this->form_validation->set_rules("short_description", "Short_description", "trim|required");
     		$this->form_validation->set_rules("long_description", "Long_description", "trim|required");
     		//$this->form_validation->set_rules("facebook_app_id", "Facebook_app_id", "trim|required");
-    		$this->form_validation->set_rules("twitter_page", "Twitter_page", "trim|required");
-    		$this->form_validation->set_rules("facebook_page", "Facebook_page", "trim|required");
-
-        if ($this->form_validation->run()) {
+    		//$this->form_validation->set_rules("twitter_page", "Twitter_page", "trim|required");
+    		//$this->form_validation->set_rules("facebook_page", "Facebook_page", "trim|required");
+        
+    		$response = false;
+    		
+    		$data['post'] = $this->session->userdata('post');
+    		
+    		if ($this->form_validation->run()) {
             
             if ($this->upload->do_upload('logo')) {
                 
@@ -156,8 +160,12 @@ class Game extends MY_Controller
             
             $response = display_success('Saved');
         } else {
-            $hash = '#edit/' . ($id ? $id : '');
-            $response = display_errors(validation_errors());
+            if ($_POST) {
+              
+              $hash = '#edit/' . ($id ? $id : '');
+              $response = display_errors(validation_errors());
+              $this->session->set_userdata('post', $_POST);
+            }
         }
 
         if ($this->input->is_ajax_request() && $response) {
@@ -364,19 +372,24 @@ class Game extends MY_Controller
 
         $res = json_decode($this->curl->simple_post(NEWS_API_URL, $_POST));
         
-        
         //$this->session->set_flashdata('message', 'In game news created');
 
-        if (!property_exists($res, 'insert_id')) {
+        if ($res && !property_exists($res, 'insert_id')) {
           echo display_success('Something went wrong: '.$res->message);
         } else {
-          
-        
-          echo display_success($res->message);
-          
-          $this->session->set_userdata('created_news_id', $res->insert_id);
+          if ($res) {
+            $this->session->set_userdata('created_news_id', $res->insert_id);
+            echo display_success($res->message);
+          } else {
+            echo display_success('No response from remote');
+          }
         }
         die;
+      } else {
+        if ($_POST) {
+  		    
+  		    echo validation_errors(); die;
+  		  }        
       }
       
       $this->template->build('game/publish_to_news', $data);
@@ -395,6 +408,53 @@ class Game extends MY_Controller
       
       $this->load->model('Gameplatforms', 'game_platforms');
       $data['platforms'] = $this->game_platforms->fetchForGame($id);
+      
+      $this->form_validation->set_rules('title', 'Title', 'trim|required');
+      $this->form_validation->set_rules('released', 'Released', 'trim|required');
+      $this->form_validation->set_rules('logo', 'Logo', 'trim|required');
+      $this->form_validation->set_rules('video', 'Video', 'trim|required');
+      $this->form_validation->set_rules('platforms[]', 'Platforms', 'trim|required');
+      $this->form_validation->set_rules('urls[]', 'Urls', 'trim|required');      
+      
+      if ($this->form_validation->run()) {
+        
+        $_POST['logo_name'] = $data['item']->logo;
+        $_POST['game_id'] = $data['item']->id;
+        
+        //$token = json_decode($this->curl->simple_get(PRESS_RELEASE_GET_TOKEN));
+        
+        //if (!$token) {
+        //  echo display_success('No token name');
+        //  die;
+        //}
+        
+        //$_POST[$token->token_name] = $token->token_value;
+        //dump(json_encode($_POST));
+        $response = $this->curl->simple_post(PRESS_RELEASE_CREATE_URL, $_POST);
+        
+        $res = json_decode($response);
+        
+        //$this->session->set_flashdata('message', 'In game news created');
+
+        if ($res && !property_exists($res, 'insert_id')) {
+          echo display_success('Something went wrong: '.$res->message);
+        } else {
+          
+          if ($res) {
+            $this->session->set_userdata('created_press_release_id', $res->insert_id);
+            echo display_success($res->message);
+          } else {
+            echo display_success('No response from remote');
+          }
+            
+        }
+        die;
+      } else {
+        if ($_POST) {
+  		    
+  		    echo validation_errors(); die;
+  		  }        
+      }      
       
       $this->template->build('game/publish_to_press', $data);
     }
