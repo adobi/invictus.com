@@ -40,17 +40,17 @@
 
   		<!-- Le javascript templates -->
   	  <div class="hide_">
-        <div class="modal hide fade" id="image-in-modal">
+        <div class="modal hide fade" id="video-in-modal">
           <div class="modal-header well">
             <a class="close" data-dismiss="modal">×</a>
-            <h3>&nbsp;</h3>
+            <h3 class="modal-title">&nbsp;</h3>
           </div>
           <div class="modal-body">
-            <img src="" alt="">
+            
           </div>
           <div class="modal-footer">
-            <a href="" class="btn btn-primary btn-large" id="download-image" target="_blank"><i class="icon-download icon-white" style="margin-right:3px;"></i>Download</a>
             <a href="#" class="btn" data-dismiss="modal">Close</a>
+            <a id="view-details-from-video" <?php echo event_tracking($item->analytics['hero']) ?> href="" class=" btn-large btn btn-orange"><strong>View details</strong> <i style="margin-top:1px;" class="icon-chevron-right icon-white"></i></a>
           </div>
         </div>
         	    

@@ -23,8 +23,8 @@ class Publicpages extends Page_Controller
      * slider
      */
     $this->load->model('Games', 'games');
-    $this->data['carousel'] = $this->games->fetchForLayout('on_mainpage');
-    
+    $this->data['carousel'] = $this->games->fetchForMainpageCarousel();
+    //dump($this->data['carousel']); die;
     /**
      * about
      */
@@ -270,7 +270,7 @@ Invictus Games Support Team";
       $view = 'games';
       
     } else {
-      
+
       if ($this->uri->segment(3) && $this->uri->segment(3) === 'short') {
         $allInfo = false;
         $view = 'game_short';
@@ -278,11 +278,28 @@ Invictus Games Support Team";
         $allInfo = true;
         $view = 'game';
       }
-      
+
       $this->data['game'] = $this->games->fetchByUrl($url, $allInfo);
       
       if (!$this->data['game']) {
         $view = 'error';
+      }
+      
+      if ($this->uri->segment(3) && $this->uri->segment(3) === 'video') {
+        
+        $this->load->model('Gamevideos', 'videos');
+        
+        $video = $this->videos->fetchOnMainpageForGame($this->data['game']->id);
+        
+        if ($video) {
+          $response['embed_code'] = embed_youtube($video->code, true, 770, 510);
+          $response['title'] = $video->description;
+          
+          echo json_encode($response);
+        } else {
+          redirect('missing');
+        }
+        die;
       }
       
       //dump($this->data['game']); die;

@@ -306,17 +306,18 @@
     $('.debug').html('widget size: ' + size + ' window width: ' + width)
     
     App.xhr && App.xhr.abort()
-    
-    App.xhr = $.ajax({
-        type: "GET",
-        url: App.URL+'pages/widget/'+type+'/'+size+'/'+page,
-        success: function(resp){
-         elem.html(resp)
-          App.LoadFacebookSdk()
-          window.FB && window.FB.init({ status: true, cookie: true, xfbml: true });
-        }
-    });
-    
+    if (type) {
+      App.xhr = $.ajax({
+          type: "GET",
+          url: App.URL+'pages/widget/'+type+'/'+size+'/'+page,
+          success: function(resp){
+           elem.html(resp)
+            App.LoadFacebookSdk()
+            window.FB && window.FB.init({ status: true, cookie: true, xfbml: true });
+          }
+      });
+      
+    }
   }
   
   App.ToggleFacebookCommnet = function() 
@@ -349,8 +350,42 @@
     */
   }
   
+  App.VideoInModal = function() 
+  {
+    $('body').on('click', '[rel="in-modal"]', function(e) {
+      var modal = $('#video-in-modal'),
+          modalBody = modal.find('.modal-body'),
+          modalTitle = modal.find('.modal-title'),
+          self = $(this)
+
+      modal.modal()
+      modalBody.html('<h1 style="text-align:center">Loading...</h1>')
+      $.getJSON(self.attr('href'), function(response) {
+        
+        modalBody.html(response.embed_code)
+        modalTitle.html(response.title)
+        
+        modal.css({
+            'margin-top': -(modal.outerHeight() / 2),
+            'margin-left': -(modal.outerWidth() / 2)
+        });  
+        $('#view-details-from-video').attr('href', self.attr('href').replace('video', ''))
+      })
+      
+      e.preventDefault()
+    })    
+
+    $('#video-in-modal').on('hidden', function () {
+      $(this).find('.modal-body').empty()
+    })
+    
+
+  }
+  
   $(function() 
   {
+    
+    App.VideoInModal();
     
     App.ImageInModal();
     

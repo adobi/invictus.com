@@ -92,6 +92,22 @@ class Games extends MY_Model
       return $d;
     }
     
+    public function fetchForMainpageCarousel()
+    {
+      $result = $this->fetchForLayout('on_mainpage');
+      
+      if (!$result) return false;
+      
+      $this->load->model('Gamevideos', 'videos');
+      
+      foreach ($result as $item) {
+        
+        $item->video = $this->videos->fetchOnMainpageForGame($item->id);
+      }
+      
+      return $result;
+    }
+    
     public function fetchByUrl($url, $allInfo = false) 
     {
       $result = $this->fetchRows(array('where'=>array('url'=>$url)), true);

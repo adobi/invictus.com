@@ -5,7 +5,7 @@
 		function embed_youtube($video, $autoplay = false, $width = 340, $height = 260) {
             
 			return '<div class="video-wrapper"><div class="video-container">'.
-			  '<iframe width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$video.'/?wmode=opaque'.($autoplay ? 'autoplay=1&' : '') .'" frameborder="0" allowfullscreen></iframe>'
+			  '<iframe width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$video.'/?wmode=opaque'.($autoplay ? '&autoplay=1&' : '') .'" frameborder="0" allowfullscreen></iframe>'
 			  .'</div></div>';
 			  
 		}	

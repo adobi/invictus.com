@@ -30,4 +30,13 @@ class Gamevideos extends MY_Model
       
       return $this->update(array('is_on_mainpage'=>null), $id);
     }    
+    
+    public function fetchOnMainpageForGame($gameId) 
+    {
+      if (!$gameId) return false;
+      
+      $result = $this->fetchRows(array('where'=>array('game_id'=>$gameId, 'is_on_mainpage'=>'1')));
+      
+      return $result ? $result[0] : false;
+    }
 }

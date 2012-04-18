@@ -141,7 +141,7 @@
     </div>
 
     <div class="container" id="container"> 
-      <?php if (ENVIRONMENT === '_development'): ?>
+      <?php if (ENVIRONMENT === 'development'): ?>
         <div class="well debug"></div>
       <?php endif ?>
       
