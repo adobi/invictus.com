@@ -21,12 +21,12 @@
                                   </p>
                                 </div>
                                 <div class="span2" style="text-align:right; margin-left:0;">
-                                    <p>
-                                      <a style="width:130px"  <?php echo event_tracking($item->analytics['hero']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class=" btn btn-orange"><strong>View details</strong> <i style="margin-top:1px;" class="icon-chevron-right icon-white"></i></a>
-                                    </p>
-                                    <p>
-                                      <a style="width:130px" href="#" class="btn btn-primary "><strong>Watch viedeo</strong> <i style="margin-top:1px;" class="icon-facetime-video icon-white"></i></a>
-                                    </p>
+                                  <p>
+                                    <a style="width:130px" href="#" class="btn btn-primary "><strong>Watch video</strong> <i style="margin-top:1px;" class="icon-facetime-video icon-white"></i></a>
+                                  </p>
+                                  <p>
+                                    <a style="width:130px"  <?php echo event_tracking($item->analytics['hero']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class=" btn btn-orange"><strong>View details</strong> <i style="margin-top:1px;" class="icon-chevron-right icon-white"></i></a>
+                                  </p>
                                 </div>
                               </div>
                             </div>        
