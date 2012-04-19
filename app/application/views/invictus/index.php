@@ -12,7 +12,7 @@
                             <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->hero_image ?>" alt="">
                             <div class="carousel-caption">
                               <div class="row">
-                                <div class="span6">
+                                <div class="span6 hidden-phone">
                                   <h3>
                                     <?php echo $item->name ?>
                                   </h3>
@@ -20,16 +20,16 @@
                                     <?php echo $item->short_description ?> 
                                   </p>
                                 </div>
-                                <div class="span2" style="text-align:right; margin-left:0;">
-                                  <p>
+                                <div class="options span2">
+                                  <p class="hidden-phone">
                                     <?php if ($item->video): ?>
-                                      <a rel="in-modal" style="width:130px" href="<?php echo base_url() ?>games/<?php echo $item->url ?>/video" class="btn btn-primary"><strong>Watch video</strong> <i style="margin-top:2px;" class="icon-facetime-video icon-white"></i></a>
+                                      <a rel="in-modal" href = "#" data-href="<?php echo base_url() ?>games/<?php echo $item->url ?>/video/on_mainpage" class="btn btn-primary"><strong>Watch video</strong> <i style="margin-top:2px;" class="icon-facetime-video icon-white"></i></a>
                                     <?php else: ?>
                                       &nbsp;
                                     <?php endif ?>
                                   </p>
                                   <p>
-                                    <a style="width:130px"  <?php echo event_tracking($item->analytics['hero']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class=" btn btn-orange"><strong>View details</strong> <i style="margin-top:1px;" class="icon-chevron-right icon-white"></i></a>
+                                    <a <?php echo event_tracking($item->analytics['hero']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class=" view-game-details btn btn-orange"><strong>View details</strong> <i style="margin-top:1px;" class="icon-chevron-right icon-white"></i></a>
                                   </p>
                                 </div>
                               </div>
@@ -40,8 +40,8 @@
                   <?php endif ?>
                 </div>
                 <!-- Carousel nav -->
-                <a class="carousel-control left" href="#simple-carousel" data-slide="prev">&lsaquo;</a>
-                <a class="carousel-control right" href="#simple-carousel" data-slide="next">&rsaquo;</a>
+                <a class="carousel-control left hidden-phone" href="#simple-carousel" data-slide="prev">&lsaquo;</a>
+                <a class="carousel-control right hidden-phone" href="#simple-carousel" data-slide="next">&rsaquo;</a>
             </div>
           </div>  
           <div class="span4 teasers">

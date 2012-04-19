@@ -28,14 +28,16 @@
         <div class="items">
         
         <?php foreach ($videos as $p): ?>
-            <div class="item <?php echo $p->is_on_mainpage ? 'alert-success' : '' ?>">
+            <div class="item">
               <h6>
                 <?php echo $p->description ?>
                   
                 <div class="pull-right">
                   <div class="btn-group">
                   <!-- <a class="btn" href="<?php echo base_url() ?>gamevideo/analytics/<?php echo $p->id ?>" rel="tooltip" title="Analytics settings" data-ajax-link><i class="icon-signal"></i></a> -->
-                  <a data-reset="reload" data-action="<?php echo $p->is_on_mainpage ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>gamevideo/action/<?php echo $p->is_on_mainpage ? 'inactivate' : 'activate' ?>/<?php echo $p->id ?>" class="btn action" rel="tooltip" title="<?php echo $p->is_on_mainpage ? 'Inactivate' : 'Activate' ?> "><i class="icon-home"></i></a>
+                  <a data-reset="reload" data-type="on-mainpage" data-action="<?php echo $p->is_on_mainpage ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>gamevideo/action/<?php echo $p->is_on_mainpage ? 'inactivate' : 'activate' ?>/<?php echo $p->id ?>/on_mainpage" class="btn video-action <?php echo $p->is_on_mainpage ? 'active' : '' ?>" rel="tooltip" title="<?php echo $p->is_on_mainpage ? 'Inactivate' : 'Activate' ?> "><i class="icon-home"></i></a>
+                  <a data-reset="reload" data-type="on-more-games" data-action="<?php echo $p->is_on_all_games ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>gamevideo/action/<?php echo $p->is_on_all_games ? 'inactivate' : 'activate' ?>/<?php echo $p->id ?>/on_all_games" class="btn video-action <?php echo $p->is_on_all_games ? 'active' : '' ?>" rel="tooltip" title="<?php echo $p->is_on_all_games ? 'Inactivate' : 'Activate' ?> "><i class="icon-list"></i></a>
+                  <a data-reset="reload" data-type="on-more-product-page" data-action="<?php echo $p->is_on_product_page ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>gamevideo/action/<?php echo $p->is_on_product_page ? 'inactivate' : 'activate' ?>/<?php echo $p->id ?>/on_product_page" class="btn video-action <?php echo $p->is_on_product_page ? 'active' : '' ?>" rel="tooltip" title="<?php echo $p->is_on_product_page ? 'Inactivate' : 'Activate' ?> "><i class="icon-file"></i></a>
                   <a class="btn" href="<?php echo base_url() ?>gamevideo/edit/<?php echo $p->id ?>" rel="tooltip" title="Edit video" data-ajax-link><i class="icon-pencil"></i></a>
                   <a class="btn delete-item" href="<?php echo base_url() ?>gamevideo/delete/<?php echo $p->id ?>" data-reload="right"  rel="tooltip" title="Delete video" data-modal-header="<?php echo $p->description ?> video"><i class="icon-trash"></i></a>
                   </div>

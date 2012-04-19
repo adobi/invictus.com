@@ -284,12 +284,12 @@ Invictus Games Support Team";
       if (!$this->data['game']) {
         $view = 'error';
       }
-      
+      //dump($this->data['game']);
       if ($this->uri->segment(3) && $this->uri->segment(3) === 'video') {
         
         $this->load->model('Gamevideos', 'videos');
         
-        $video = $this->videos->fetchOnMainpageForGame($this->data['game']->id);
+        $video = $this->videos->fetchOnSectionForGame($this->data['game']->id, $this->uri->segment(4));
         
         if ($video) {
           $response['embed_code'] = embed_youtube($video->code, true, 770, 510);

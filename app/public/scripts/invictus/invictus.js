@@ -356,11 +356,22 @@
       var modal = $('#video-in-modal'),
           modalBody = modal.find('.modal-body'),
           modalTitle = modal.find('.modal-title'),
-          self = $(this)
-
+          self = $(this),
+          detailsButton = self
+                            .parents('.options:first')
+                            .find('.view-game-details')
+                            .clone()
+                            .addClass('btn-large')
+      
+      $('#simple-carousel').carousel('pause')
+      modal.find('.modal-footer').find('.btn-large').remove()
+      modal.find('.modal-footer').append(detailsButton)
+      detailsButton = modal.find('.modal-footer').find('.btn-large')
+      detailsButton.attr('data-ga-label', detailsButton.attr('data-ga-label') + ' - Popup')
+          
       modal.modal()
       modalBody.html('<h1 style="text-align:center">Loading...</h1>')
-      $.getJSON(self.attr('href'), function(response) {
+      $.getJSON(self.data('href'), function(response) {
         
         modalBody.html(response.embed_code)
         modalTitle.html(response.title)
@@ -369,7 +380,7 @@
             'margin-top': -(modal.outerHeight() / 2),
             'margin-left': -(modal.outerWidth() / 2)
         });  
-        $('#view-details-from-video').attr('href', self.attr('href').replace('video', ''))
+        //$('#view-details-from-video').attr('href', self.attr('href').replace('video', ''))
       })
       
       e.preventDefault()
@@ -377,6 +388,7 @@
 
     $('#video-in-modal').on('hidden', function () {
       $(this).find('.modal-body').empty()
+      $('#simple-carousel').carousel('cycle')
     })
     
 
@@ -387,7 +399,7 @@
     
     App.VideoInModal();
     
-    App.ImageInModal();
+    //App.ImageInModal();
     
     //$("[rel=colorbox]").colorbox({slideshow:true});
       
@@ -449,7 +461,7 @@
     
 		$(".game img").fadeIn(500);
 		
-		$('#simple-carousel').carousel();
+		$('#simple-carousel').carousel('cycle');
     
     $('#simple-carousel-details-images').carousel({stop: true, pause:'click'})
     $('#simple-carousel-details-videos').carousel({stop: true, pause:'click'})

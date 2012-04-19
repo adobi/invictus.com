@@ -6,6 +6,17 @@
             <div class="carousel-inner">
                 <div class="item active">
                     <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->hero_image ?>" alt="">
+                    <div class="carousel-caption" style="text-align:center">
+                        <div class="options">
+                          <p class="hidden-phone">
+                            <?php if ($game->video): ?>
+                              <a rel="in-modal" href = "#" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>/video/on_product_page" class="btn btn-primary"><strong>Watch video</strong> <i style="margin-top:2px;" class="icon-facetime-video icon-white"></i></a>
+                            <?php else: ?>
+                              &nbsp;
+                            <?php endif ?>
+                          </p>
+                        </div>
+                    </div>        
                 </div>               
                 <?php if ($game->images): ?>
                   <?php foreach ($game->images as $i => $item): ?>
@@ -24,8 +35,8 @@
                 <?php endif ?>
             </div>
             <!-- Carousel nav -->
-            <a class="carousel-control left" href="#simple-carousel-details-images" data-slide="prev">&lsaquo;</a>
-            <a class="carousel-control right" href="#simple-carousel-details-images" data-slide="next">&rsaquo;</a>
+            <a class="carousel-control left hidden-phone" href="#simple-carousel-details-images" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right hidden-phone" href="#simple-carousel-details-images" data-slide="next">&rsaquo;</a>
           <?php else: ?>
             <div class="carousel-inner">
               <div class="item active">
@@ -50,8 +61,8 @@
                 <?php endif ?>
             </div>                
             <!-- Carousel nav -->
-            <a class="carousel-control left" href="#simple-carousel-details-videos" data-slide="prev">&lsaquo;</a>
-            <a class="carousel-control right" href="#simple-carousel-details-videos" data-slide="next">&rsaquo;</a>
+            <a class="carousel-control left hidden-phone" href="#simple-carousel-details-videos" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right hidden-phone" href="#simple-carousel-details-videos" data-slide="next">&rsaquo;</a>
         </div>      
       <?php endif ?>      
 

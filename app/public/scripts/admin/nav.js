@@ -83,6 +83,11 @@
       $('[rel=tooltip]').tooltip('hide');      
       var that = this
       
+      if ($('#list-of-all-games .btn-group').length) {
+        $('#list-of-all-games .btn-group').find('.active').removeClass('active')
+        that.el.addClass('active')
+      }
+      
       $.ajax({
         url: that.href, 
         type: that.type || 'GET',

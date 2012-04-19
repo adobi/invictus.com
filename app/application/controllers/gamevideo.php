@@ -128,7 +128,7 @@ class Gamevideo extends MY_Controller
       
       $this->load->model('Gamevideos', 'model');
       
-      echo $this->model->$action($id);
+      echo $this->model->$action($id, $this->uri->segment(5));
       
       die;
     }          

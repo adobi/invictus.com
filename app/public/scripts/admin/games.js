@@ -45,6 +45,50 @@
       })
     },
   }
+
+  Games.setVideo = function(elem) 
+  {
+    var that = elem,
+        type = that.attr('data-action'),
+        href = that.attr('href')
+    $.get(href, function(response) {
+      
+      if (response==1) {
+        
+        var item = that.parents('.item'),
+            title = that.attr('title')
+            
+        if (that.data('reset')) {
+          console.log(that.parents('.items:first').find('[data-type="'+that.data('type')+'"]'))
+          that.parents('.items:first').find('[data-type="'+that.data('type')+'"]').removeClass('active')
+          that.parents('.items:first').find('[data-type="'+that.data('type')+'"]').attr('data-action', (type==='activate' ? 'inactivate' : 'activate'))
+        }    
+        
+        switch (type) {
+          case 'activate':
+            that.attr('href', href.replace('activate', 'inactivate'))
+            that.attr('data-original-title', 'Inactivate')
+            that.attr('data-action', 'inactivate')
+            //item.addClass('alert-success')
+            that.addClass('active')
+            break;
+          case 'inactivate':
+            that.attr('href', href.replace('inactivate', 'activate'))
+            that.attr('data-original-title', 'Activate')
+            that.attr('data-action', 'activate')
+            //item.removeClass('alert-success')
+            that.removeClass('active')
+            break;
+        }
+        //console.log('after: ', that.el)
+        if (that.data('trigger') === 'reload') {
+          if (that.data('location') === 'l') App.Nav.reloadContetPanel()
+          
+          if (that.data('location') === 'r') App.Nav.reloadRightPanel()
+        }
+      }
+    })
+  }
     
   Games.loadFromHash = function ()
   {
@@ -133,6 +177,13 @@
   }
   
   $(function() {
+
+    $('body').on('click', '.video-action', function(e) {
+      //console.log('bofre: ', this);
+      Games.setVideo($(this))
+      
+      e.preventDefault()
+    })
     
     $('body').on('click', '.action', function(e) {
       

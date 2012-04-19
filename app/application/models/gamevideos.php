@@ -13,29 +13,33 @@ class Gamevideos extends MY_Model
       
       return $this->fetchRows(array('where'=>array('game_id'=>$gameId)));
     }    
-    public function activate($id) 
+    public function activate($id, $col) 
     {
-      if (!$id) return false;
+      if (!$id || !$col) return false;
+      
+      $col = 'is_'.$col;
       
       $item = $this->find($id);
       
       if (!$item) return false;
-      $this->update(array('is_on_mainpage'=>null), array('game_id'=>$item->game_id, 'is_on_mainpage'=>1));
-      return  $this->update(array('is_on_mainpage'=>1), $id);
+      $this->update(array($col=>null), array('game_id'=>$item->game_id, $col=>1));
+      return  $this->update(array($col=>1), $id);
     }
     
-    public function inactivate($id) 
+    public function inactivate($id, $col) 
     {
-      if (!$id) return false;
+      if (!$id || !$col) return false;
       
-      return $this->update(array('is_on_mainpage'=>null), $id);
+      $col = 'is_'.$col;
+      
+      return $this->update(array($col=>null), $id);
     }    
     
-    public function fetchOnMainpageForGame($gameId) 
+    public function fetchOnSectionForGame($gameId, $section) 
     {
       if (!$gameId) return false;
       
-      $result = $this->fetchRows(array('where'=>array('game_id'=>$gameId, 'is_on_mainpage'=>'1')));
+      $result = $this->fetchRows(array('where'=>array('game_id'=>$gameId, 'is_'.$section=>'1')));
       
       return $result ? $result[0] : false;
     }

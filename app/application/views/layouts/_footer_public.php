@@ -50,7 +50,7 @@
           </div>
           <div class="modal-footer">
             <a href="#" class="btn" data-dismiss="modal">Close</a>
-            <a id="view-details-from-video" <?php echo event_tracking($item->analytics['hero']) ?> href="" class=" btn-large btn btn-orange"><strong>View details</strong> <i style="margin-top:1px;" class="icon-chevron-right icon-white"></i></a>
+            <!-- <a id="view-details-from-video" href="" class=" btn-large btn btn-orange"><strong>View details</strong> <i style="margin-top:1px;" class="icon-chevron-right icon-white"></i></a> -->
           </div>
         </div>
         	    

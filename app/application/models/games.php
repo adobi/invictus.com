@@ -51,6 +51,9 @@ class Games extends MY_Model
       $this->load->model('Gameplatforms', 'gameplatforms');
       
       $result->platforms = $this->gameplatforms->fetchForGame($result->id);
+
+      $this->load->model('Gamevideos', 'videos');
+      $result->video = $this->videos->fetchOnSectionForGame($result->id, 'on_all_games');
       
       return $result;
     }
@@ -102,7 +105,7 @@ class Games extends MY_Model
       
       foreach ($result as $item) {
         
-        $item->video = $this->videos->fetchOnMainpageForGame($item->id);
+        $item->video = $this->videos->fetchOnSectionForGame($item->id, 'on_mainpage');
       }
       
       return $result;
@@ -117,6 +120,8 @@ class Games extends MY_Model
       $this->load->model('Gameplatforms', 'gameplatforms');
       
       $result->platforms = $this->gameplatforms->fetchForGame($result->id);
+
+      $this->load->model('Gamevideos', 'videos');
       
       if ($allInfo) {
         
@@ -131,7 +136,10 @@ class Games extends MY_Model
         $this->load->model('Crosspromos', 'promo');
         $result->crosspromo = $this->promo->fetchByGame($result->id);
         $result->crosspromo_is_empty = $this->promo->orderedArrayIsEmpty($result->crosspromo);
-        
+
+        $result->video = $this->videos->fetchOnSectionForGame($result->id, 'on_product_page');
+      } else {
+        $result->video = $this->videos->fetchOnSectionForGame($result->id, 'on_all_games');
       }
       
       $this->load->model('Analytics', 'analytics');
