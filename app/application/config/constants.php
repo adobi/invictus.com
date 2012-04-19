@@ -37,8 +37,12 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 define('SITE_TITLE', 'Invictus Admin');
-define('NEWS_API_URL', 'http://localhost/invictus-news/api/create');
-define('PRESS_RELEASE_API_URL', 'http://localhost/press/api/');
+
+define('NEWS_URL', 'http://localhost/invictus-news/');
+define('NEWS_API_URL', NEWS_URL.'api/create');
+
+define('PRESS_RELEASE_URL', 'http://localhost/press/');
+define('PRESS_RELEASE_API_URL', PRESS_RELEASE_URL.'api/');
 define('PRESS_RELEASE_CREATE_URL', PRESS_RELEASE_API_URL.'create');
 define('PRESS_RELEASE_GET_TOKEN', PRESS_RELEASE_API_URL.'get_token_name');
 

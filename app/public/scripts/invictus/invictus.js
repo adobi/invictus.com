@@ -301,7 +301,7 @@
     else if (width <= 768) size = width - 50
     else if (width <= 1023) size = width - 50
     else if (width < 1200) size = 280
-    else size = 370
+    else size = 360
 
     $('.debug').html('widget size: ' + size + ' window width: ' + width)
     

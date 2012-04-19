@@ -21,13 +21,12 @@
                 <?php if ($game->images): ?>
                   <?php foreach ($game->images as $i => $item): ?>
                     <div class="item ">
-                      <a _rel="in-modal" <?php echo event_tracking($item) ?> href="javascript:void();" _data-href="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>">
-                        <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
-                      </a>
                       <?php if ($item->hd_path): ?>
-                        <div class="carousel-caption" style="color:#fff; padding-top:12px; padding-bottom:10px;">
-                          Get the HD version of the image <a <?php echo event_tracking($item, 'hd') ?> href="<?php echo base_url() ?>/uploads/original/<?php echo $item->hd_path ?>" class="btn btn-orange _btn-large" id="download-image" target="_blank"><i class="icon-download icon-white" style="margin-right:3px;"></i>Download</a>
-                        </div>                       
+                        <a <?php echo event_tracking($item, 'hd') ?> href="<?php echo base_url() ?>/uploads/original/<?php echo $item->hd_path ?>" target="_blank">
+                          <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
+                        </a>
+                      <?php else: ?>
+                        <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
                       <?php endif ?>
                     </div>  
                   <?php endforeach ?>
@@ -140,7 +139,7 @@
         </div>
       <?php endif ?>
 
-      <div id = "fb-comments-desktop" class="fb-comments" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>" data-num-posts="2" data-width="620"></div>
+      <div id = "fb-comments-desktop" class="fb-comments" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>" data-num-posts="2" data-width="770"></div>
       <!-- <div class="fb-comments" data-href="http://facebook.com/<?php echo $game->facebook_page ?>" data-num-posts="2" data-width="620"></div> -->
     </div>
     <div class="span4 details-pane game-details">

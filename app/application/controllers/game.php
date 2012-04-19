@@ -470,6 +470,17 @@ class Game extends MY_Controller
       $this->template->build('game/publish_to_microsite', $data);
     }    
         
+    public function publish_final()
+    {
+      $id = $this->uri->segment(3);
+      
+      $this->load->model('Games', 'model');
+            
+      $data['item'] = $this->model->find($id);
+            
+      $this->template->build('game/publish_final', $data);
+    }
+    
     /**
      * activate/inactivate
      *

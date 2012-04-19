@@ -62,17 +62,8 @@
       <div class="hero-unit social">
         <div class="row">
           <div class="span8 ">
-            <?php if ($about): ?>
-              <div class="blog">
-                <div class="">
-                  <h2 style="margin-bottom:10px;">About Invictus</h2>
-                </div>
-                <p style="padding:10px;"><?php echo nl2br($about->description) ?></p>
-              </div>
-            <?php endif ?>
-            
             <?php if ($current_offer): ?>
-              <div class="row newsletter" style="margin-top:20px;">
+              <div class="row newsletter">
                 <div class="span7">
                   <h2 style="margin-bottom:10px;">Offer: <span class="upper-gray"><?php echo $current_offer->name ?></span></h2>
                 </div>
@@ -95,18 +86,24 @@
                 </div>
               </div>
             <?php endif ?>
+            <?php if ($about): ?>
+              <div class="blog">
+                <div class="">
+                  <h2 style="margin-bottom:10px;">About Invictus</h2>
+                </div>
+                <p style="padding:10px;"><?php echo nl2br($about->description) ?></p>
+              </div>
+            <?php endif ?>
           </div>
           <div class="span4 social-feed">
               <h2 style="margin-bottom:20px;">
                 Invictus on
               </h2>
-              
               <div class="fb-like" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false"></div>
               <a href="https://twitter.com/<?php echo $settings->twitter_id ?>" class="twitter-follow-button" data-show-count="false">Follow @<?php echo $settings->twitter_id ?></a>
               <g:plusone size="medium"></g:plusone>
               <p>&nbsp;</p>
               <div class="facebook-widget" data-type="like-box" data-page="<?php echo $settings->facebook_page ?>"></div>
-              
           </div>
         </div>
       </div>

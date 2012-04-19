@@ -58,7 +58,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                      <a href="<?php echo base_url() ?>game/publish_to_microsite/<?php echo $item->id ?>" class="select-item" data-ajax-link><i class="icon-share"></i>All links</a>
+                      <a href="<?php echo base_url() ?>game/publish_final/<?php echo $item->id ?>" class="select-item" data-ajax-link><i class="icon-exclamation-sign"></i>Verification</a>
                     </li>
                     
                   </ul>
