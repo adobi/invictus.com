@@ -38,6 +38,7 @@
           
           if (!$.trim(dropTo.html()).length) {
             //dropTo.html(clone.html())
+            
             Layout.Copy(clone, dropTo)
           } else {
           
@@ -68,7 +69,8 @@
     dest.attr('id', dest.find('.item').data('id'))
     //Layout.Add(dest.find('.item').data('id'), dest.parents('ul:first').data('section'))
     dest.find('.caption').show()
-    dest.attr('rel', src.attr('rel')).attr('data-original-title', src.attr('data-original-title'))    
+    dest.attr('rel', src.attr('rel')).attr('data-original-title', src.attr('data-original-title'))   
+    
     Layout.Add(dest)
   }
   
@@ -161,6 +163,10 @@
     
     $('body').off('click', '#overwrite-yes');
     $('body').on('click', '#overwrite-yes', function(e) {
+      //console.log('drop to', Layout.DropToElement)
+      Layout.Remove(Layout.DropToElement.attr('id'), Layout.DropToElement.parents('ul:first').data('section'), function() {
+        //Layout.DropToElement.empty()
+      })      
       
       Layout.Copy(Layout.DraggedElement, Layout.DropToElement)
       

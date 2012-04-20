@@ -123,5 +123,16 @@ class Crosspromo extends MY_Controller
       $data['games'] = $games;
       
       $this->template->build('crosspromo/load_all_games', $data);      
+    }
+    
+    public function empty_promo_game()
+    {
+      $id = $this->uri->segment(3);
+      
+      if ($id) {
+        $this->load->model('Crosspromos', 'model');
+        
+        $this->model->update(array('promo_game_id'=>null), $id);
+      }
     }    
 }

@@ -104,8 +104,8 @@ class Games extends MY_Model
       $this->load->model('Gamevideos', 'videos');
       
       foreach ($result as $item) {
-        
-        $item->video = $this->videos->fetchOnSectionForGame($item->id, 'on_mainpage');
+        if ($item)
+         $item->video = $this->videos->fetchOnSectionForGame($item->id, 'on_mainpage');
       }
       
       return $result;

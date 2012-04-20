@@ -167,6 +167,15 @@
     })
   };
   
+  Crosspromo.Empty = function (targetId)
+  {
+    if (targetId) {
+      $.get(App.URL+"crosspromo/empty_promo_game/"+targetId, function(resp) {
+      
+      })
+    }
+  }
+  
   $(function() {
     
     $('body').on('crosspromo-laod-games', Crosspromo.LoadAllGames);
@@ -211,6 +220,8 @@
     
     $('body').off('click', '#overwrite-yes');
     $('body').on('click', '#overwrite-yes', function(e) {
+      //console.log(Crosspromo.DropToElement)
+      Crosspromo.Empty(Crosspromo.DropToElement.attr('id'))
       
       Crosspromo.Copy(Crosspromo.DraggedElement, Crosspromo.DropToElement)
       
