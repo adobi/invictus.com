@@ -155,16 +155,25 @@
 
   App.Carousel = function() 
   {
+    App.hiddenTeaser = $('.teaser.hide').remove()
+    
     $('#simple-carousel').on('slid', function() {
-      var current = $(this).find('.active')
+      var currentHero = $(this).find('.active')
       
       //$('.teaser').show()
 
       //$('.teaser[data-item='+current.data('item')+']').hide()
       
-      $('.teaser.hide').removeClass('hide')
-
-      $('.teaser[data-item='+current.data('item')+']').addClass('hide')
+      
+      
+      //$('.teaser.hide').removeClass('hide')
+      
+      //$('.teaser[data-item='+current.data('item')+']').addClass('hide')
+      
+      $('.teasers').prepend(App.hiddenTeaser.removeClass('hide'))
+      
+      $('.teaser[data-item='+currentHero.data('item')+']').addClass('hide')
+      App.hiddenTeaser = $('.teaser.hide').remove()
     })
   };
   
