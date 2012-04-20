@@ -1,6 +1,13 @@
   <h1 style="margin-bottom:20px;" class="all-games-title">All games by Invictus</h1>
-
   <div class="subnav" style="margin-bottom:40px;">
+    <div class=" hidden-desktop" style="float:right; width:100%; margin:5px 0;">
+        <span style="font-size:12px; font-weight:bold;position:relative; top:3px; left:5px; color:#999">FILTERS</span>
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".games-filter">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+    </div>
     <ul class="nav nav-pills games-filter">
       <li class="active"><a href="#" data-platform="all">All</a></li>
       <?php if ($platforms): ?>
@@ -11,7 +18,7 @@
     </ul>
   </div>  
   
-  <div class="row">
+  <div class="row" data-reversable>
     <div class="span8 all-games-wrapper">
       <?php if ($games): ?>
         <ul class="thumbnails all-games games-list">

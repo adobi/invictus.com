@@ -116,7 +116,7 @@
     }
   }
   .all-games [class*="span"]{
-    width:106px;
+    //width:106px;
   } 
   
   .details-pane{
@@ -136,6 +136,16 @@
     margin-left:-10px!important;
     li {
       margin:0 5px 10px 0!important;
+      width:72px;
+      .border-radius(12px);
+      img{
+        width: 64px!important;
+      }
+      .thumbnail {
+        &:hover{
+          .border-radius(12px);
+        }
+      }
     }
   }
   
@@ -158,6 +168,14 @@
       .btn {
         width:90%;
       }
+    }
+  }
+  
+  .games-filter {
+    height:0;
+    overflow:hidden;
+    &.in {
+      overflow:visible
     }
   }
 }
