@@ -50,7 +50,7 @@ class Gameimages extends MY_Model
     {
       if (!$id) return false;
       
-      return $this->fetchRows(array('where'=>array('game_id'=>$id, 'platform_id is null'=>null)));
+      return $this->fetchRows(array('where'=>array('game_id'=>$id, '(platform_id is null or platform_id = 0)'=>null)));
     }
     
     public function addToPlatform($image, $platform) 

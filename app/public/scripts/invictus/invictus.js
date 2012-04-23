@@ -201,22 +201,25 @@
     el.parents('li:first').addClass('active')    
     
     //console.log('filter ', filter)
-        
-    if (filter === 'all') {
-      
-      items.show()
-    } else {
-      
-      $.each(items, function (i, v) {
-        
-        var platforms = $(v).data('platforms')
+    
+    if (!$('#simple-carousel-details-videos').is(':visible')) {
 
-        //console.log('platforms ', platforms)
-        //console.log('in-array ', $.inArray(filter.toString(), platforms))
+      if (filter === 'all') {
         
-        !platforms || $.inArray(filter.toString(), platforms) === -1 ? $(v).hide() : $(v).show()
+        items.show()
+      } else {
         
-      })
+        $.each(items, function (i, v) {
+          
+          var platforms = $(v).data('platforms')
+  
+          //console.log('platforms ', platforms)
+          //console.log('in-array ', $.inArray(filter.toString(), platforms))
+          
+          !platforms || $.inArray(filter.toString(), platforms) === -1 ? $(v).hide() : $(v).show()
+          
+        })
+      }
     }
     el.parents('li.dropdown.open').removeClass('open')
   }  
@@ -430,6 +433,8 @@
       var active = $(e.target); // activated tab
       
       $('.carousel-images, .carousel-videos').toggle()
+      
+      $(active.attr('href')).find('.es-carousel li').show()
       
       $(active.attr('href')).find('.es-carousel-wrapper').elastislide({
           imageW  : 110,
