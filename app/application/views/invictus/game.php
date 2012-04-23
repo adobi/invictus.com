@@ -20,7 +20,7 @@
                 </div>               
                 <?php if ($game->images): ?>
                   <?php foreach ($game->images as $i => $item): ?>
-                    <div class="item ">
+                    <div class="item " data-platforms='<?php echo json_encode(array($item->platform_id)) ?>'>
                       <?php if ($item->hd_path): ?>
                         <a <?php echo event_tracking($item, 'hd') ?> href="<?php echo base_url() ?>/uploads/original/<?php echo $item->hd_path ?>" target="_blank">
                           <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
@@ -64,7 +64,6 @@
             <a class="carousel-control right hidden-phone" href="#simple-carousel-details-videos" data-slide="next">&rsaquo;</a>
         </div>      
       <?php endif ?>      
-
       <div class="tabbable tabs-below" style="margin:15px 0;">
         <div class="tab-content">
           <?php if (!$game->images_is_empty): ?>
@@ -79,7 +78,7 @@
                         </li>
                         <?php if ($game->images): ?>
                           <?php foreach ($game->images as $i => $item): ?>
-                            <li>
+                            <li data-platforms='<?php echo json_encode(array($item->platform_id)) ?>'>
                               <a <?php echo event_tracking($item) ?> href="#" class="thumbnail " data-type="images">
                                 <img src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="" style="width:128px">
                               </a>
@@ -112,6 +111,18 @@
           <?php endif ?>
         </div> <!-- /tab-content -->
         <ul class="nav nav-tabs game-tabs">
+          <?php if ($game->platforms): ?>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter by platform <b class="caret"></b></a>
+              <ul class="dropdown-menu games-filter">
+                <li><a href="#" data-platform="all">All</a></li>
+                <?php foreach ($game->platforms as $p): ?>
+                  <li><a href="#" data-platform="<?php echo $p->platform_id ?>"><?php echo $p->name ?></a></li>
+                <?php endforeach ?>
+              </ul>
+            </li>          
+          <?php endif ?>
+
           <?php if (!$game->videos_is_empty ||  !$game->images_is_empty): ?>
             <li class="active"><a data-toggle="tab" href="#<?php echo $game->images_is_empty ? 'videos' : 'images' ?>">Images</a></li>
           <?php endif ?>

@@ -176,8 +176,22 @@
     }
   }
   
+  Games.addImageToPlatform = function(el) 
+  {
+    $.get(App.URL + 'game/add_image/'+el.parents('.item:first').data('image-id')+'/to_platform/'+el.data('platform-id'), function() {
+      App.Nav.reloadRightPanel()
+    })
+  };
+  
   $(function() {
-
+    
+    $('body').on('click', '.add-to-platform', function(e) {
+      //console.log('bofre: ', this);
+      Games.addImageToPlatform($(this))
+      
+      e.preventDefault()
+    })
+    
     $('body').on('click', '.video-action', function(e) {
       //console.log('bofre: ', this);
       Games.setVideo($(this))

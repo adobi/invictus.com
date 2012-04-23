@@ -222,9 +222,23 @@ class Game extends MY_Controller
 
       $this->load->model('Gameimages', 'images');
       
-      $data['images'] = $this->images->fetchForGame($id);
+      $data['images'] = $this->images->fetchForGameByPlatform($id);
+      $data['images_without_platform'] = $this->images->fetchForGameWithoutPlatform($id);
       
+      $this->load->model('Gameplatforms', 'platforms');
+      $data['platforms'] = $this->platforms->fetchForGame($id);
+      
+      //dump($data['images']); die;
       $this->template->build('game/images', $data);
+    }
+    
+    public function add_image()
+    {
+      $this->load->model('Gameimages', 'images');
+      
+      echo $this->images->addToPlatform($this->uri->segment(3), $this->uri->segment(5));
+      
+      die;
     }
     
     public function videos() 

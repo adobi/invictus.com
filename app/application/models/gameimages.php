@@ -22,5 +22,41 @@ class Gameimages extends MY_Model
       //$return = $this->fetchBy('game_id', $gameId);
       
       return $return;
-    }      
+    }   
+    
+    public function fetchForGameByPlatform($id)
+    {
+      if (!$id) return false;
+      
+      $this->load->model('Gameplatforms', 'platforms');
+      
+      $platforms = $this->platforms->fetchForGame($id, false);
+      
+      if (!$platforms) return false;
+      
+      $return = array();
+      foreach ($platforms as $platform) {
+        
+        $return[] = array(
+          'platform' => $platform,
+          'images' => $this->fetchRows(array('where'=>array('game_id'=>$id, 'platform_id'=>$platform->platform_id))),
+        );
+      }
+      
+      return $return;
+    }
+    
+    public function fetchForGameWithoutPlatform($id) 
+    {
+      if (!$id) return false;
+      
+      return $this->fetchRows(array('where'=>array('game_id'=>$id, 'platform_id is null'=>null)));
+    }
+    
+    public function addToPlatform($image, $platform) 
+    {
+      if (!$image || !$platform) return false;
+      
+      return $this->update(array('platform_id'=>$platform), $image);
+    }
 }

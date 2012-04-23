@@ -193,10 +193,9 @@
     })
   };
   
-  App.Filter = function (el) 
+  App.Filter = function (el, items) 
   {
-    var filter = el.data('platform'),
-        items = $('.games-list').find('li')
+    var filter = el.data('platform')
     
     el.parents('ul').find('.active').removeClass('active')
     el.parents('li:first').addClass('active')    
@@ -219,6 +218,7 @@
         
       })
     }
+    el.parents('li.dropdown.open').removeClass('open')
   }  
   
   App.HandleSmallCarousel = function() 
@@ -443,7 +443,7 @@
     
     $('body').on('click', '.games-filter a', function(e) {
       
-      App.Filter($(this));
+      App.Filter($(this), $('.games-list li, .es-carousel li'));
       
       e.preventDefault()
     })    

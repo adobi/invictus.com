@@ -7,13 +7,13 @@ class Gameplatforms extends MY_Model
     protected $_name = "c_game_platform";
     protected $_primary = "id";
     
-    public function fetchForGame($gameId) 
+    public function fetchForGame($gameId, $withAnalytics = true) 
     {
       if (!$gameId) return false;
       
       $result = $this->fetchRows(array('join'=>array(array('table'=>'c_platform', 'condition'=>'c_platform.id = c_game_platform.platform_id', 'columns'=>array('name', 'image'))), 'where'=>array('game_id'=>$gameId)));
       
-      if ($result) {
+      if ($result && $withAnalytics) {
         $this->load->model('Gameplatformanalytics', 'gpa');
         
         foreach ($result as $item) {

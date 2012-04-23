@@ -5,7 +5,7 @@
     </div>
 <?php endif ?>
 
-<?php echo form_open_multipart(base_url() .'gameimage/upload_for_game/'.$game->id, array('class'=>'fileupload')) ?>    
+<?php echo form_open_multipart(base_url() .'gameimage/upload_for_game/'.$game->id.'/platform/'.$platform->id, array('class'=>'fileupload')) ?>    
     <?php echo panel_close('images/'.($game ? $game->id : '')) ?>
     <legend>
       <?php if ($item): ?>
@@ -13,7 +13,7 @@
       <?php else: ?>
           New images
       <?php endif ?>
-      for <?php echo $game->name ?>
+      for "<?php echo $game->name ?>" <?php echo $platform->name ?>
       <p class="pull-right">
         <?php if ($item): ?>
           <a href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete video" data-modal-header="<?php echo $item->description ?> video"><i class="icon-trash"></i></a>

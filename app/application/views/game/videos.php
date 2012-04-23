@@ -50,6 +50,10 @@
             </div>
         <?php endforeach ?>
         </div>
+      <?php else: ?>
+        <div class="alert alert-error">
+          No videos
+        </div>
       <?php endif ?>    
     </div>
     <fieldset class="form-actions right">

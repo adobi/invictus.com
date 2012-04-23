@@ -38,6 +38,10 @@ class Gameimage extends MY_Controller
         $this->load->model('Games', 'game');
         
         $data['game'] = $this->game->find($gameId);        
+
+        $this->load->model('Platforms', 'platforms');
+        $data['platform'] = $this->platforms->find($this->uri->segment(6));
+
                 
         $this->template->build('gameimage/edit', $data);
     }
@@ -118,7 +122,8 @@ class Gameimage extends MY_Controller
               'ga_category'=>'Image',
               'ga_action'=>'View',
               'ga_value'=>1,
-              'ga_label'=>$game->name.' - image - ' . $data['file_name']
+              'ga_label'=>$game->name.' - image - ' . $data['file_name'],
+              'platform_id' =>$this->uri->segment(5)
           ));
           
           $info->name = $data['file_name'];
