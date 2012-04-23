@@ -92,6 +92,7 @@
                     <?php endif; ?>                 
                   }                     
             );
+            
     	</script>
      
   </body>

@@ -32,13 +32,11 @@
         });
         
         var button = $('<button />', {rel:'tooltip', 'data-original-title': $(this.element).data('text')});
-
         
         button
             .addClass(this.options.buttonClass)
-            .html($('<i />').addClass(this.options.iconClass))
-            //.append(this.options.text + ($(this.element).data('text') ? ' ' + '<strong>' + $(this.element).data('text') + "</strong>"  : ''));
-            .append(this.options.text);
+            .html(this.options.text)
+            .prepend($('<i />').addClass(this.options.iconClass))
         var wrapper = $('<div />', {'class': 'input-file-wrapper'}).css({
             cursor:'pointer',
             height:this.options.wrapperHeight,
@@ -52,11 +50,12 @@
         
         var w = $(this.element).parents('.input-file-wrapper:first')
             
-        w.prepend(button)
-        var b = w.find('button')
-        w.width(b.outerWidth())
+        $(this.element).parents('.input-file-wrapper:first').prepend(button)
         
-        $(this.element).width(b.outerWidth())
+        var b = w.find('button')
+        
+        w.width(b.outerWidth())
+        $(this.element).width(b.outerWidth())        
         
         $(this.element).bind('change', function() {
             var self = $(this);
@@ -77,7 +76,6 @@
                   );            
             }
         });
-        
     };
 
     $.fn[pluginName] = function ( options ) {

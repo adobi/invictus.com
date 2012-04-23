@@ -427,6 +427,8 @@
     App.ToggleFacebookCommnet()
     
     $('[data-pretty-file], input[type=file]').prettifyUpload({'text': 'Select a file'});
+    $('.show').show()
+    $('.dont-show').hide()
     
     $('a[data-toggle="tab"]').on('shown', function (e) {
       

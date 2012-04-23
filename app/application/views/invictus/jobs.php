@@ -37,7 +37,7 @@
           <a href="#" class="btn btn-primary btn-large" id="apply-for-the-job" <?php echo event_tracking($job, 'apply') ?>>Apply for this job &rarr;</a>
           </p>
         </div>      
-        <div id="job-application-form" <?php echo $error ? '' : ' class="hide"' ?>>
+        <div id="job-application-form" <?php echo $error ? 'show' : ' class="dont-show"' ?>>
           <hr>
           <?php echo form_open_multipart('', array('class'=>'form-horizontal job-application-form')) ?>
             <fieldset>
