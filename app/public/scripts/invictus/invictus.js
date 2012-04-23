@@ -253,7 +253,7 @@
     
     //$('.debug').append(w.width() + ', ')
         
-    if (w.width() < 1023) {
+    if (!App.Reversed && w.width() < 1023) {
       
       c.children().each(function(i,child){c.prepend(child)})
       

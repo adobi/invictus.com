@@ -170,14 +170,7 @@
       }
     }
   }
-  
-  .games-filter {
-    height:0;
-    overflow:hidden;
-    &.in {
-      overflow:visible
-    }
-  }
+
 }
 
 
@@ -419,6 +412,17 @@
   .all-games-wrapper {
     width:auto;
   }
+  
+  
+  .games-filter {
+    height:0;
+    overflow:hidden;
+    clear:both;
+    &.in {
+      overflow:visible;
+      display:block!important;
+    }
+  }  
 }
 
 @media (max-width: 979px) {
@@ -480,6 +484,10 @@
   .all-games-top-link {
     display:none!important;
   }  
+  .games-filter {
+    height:auto!important;
+  }
+
 }
 
 @media (min-width: 1024px) and (max-width: 1200px)  {

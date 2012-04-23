@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
       </a>
     </div>
-    <ul class="nav nav-pills games-filter">
+    <ul class="nav nav-pills games-filter visible-desktop">
       <li class="active"><a href="#" data-platform="all">All</a></li>
       <?php if ($platforms): ?>
         <?php foreach ($platforms as $item): ?>

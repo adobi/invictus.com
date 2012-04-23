@@ -1,6 +1,6 @@
 #!/bin/sh
-LESS_HOME="/d/wamp/node_modules/less/bin/"
-BASE_PATH="/d/wamp/www/invictus.com/app/public/css/"
+LESS_HOME="/f/wamp/node_modules/less/bin/"
+BASE_PATH="/f/wamp/www/invictus.com/app/public/css/"
 
 $LESS_HOME"lessc" $BASE_PATH"common/all.less" > $BASE_PATH"common/all.css" -x --yui-compressor
 $LESS_HOME"lessc" $BASE_PATH"invictus/all.less" > $BASE_PATH"invictus/all.css" -x --yui-compressor
