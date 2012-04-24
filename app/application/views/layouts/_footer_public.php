@@ -71,6 +71,7 @@
                     "<?php echo base_url() ?>scripts/plugins/elastislide/js/jquery.elastislide.js",
                     "<?php echo base_url() ?>scripts/plugins/event-tracking/jquery.trackevent.js",
                     "<?php echo base_url() ?>scripts/plugins/prettify-upload/jquery.prettify-upload.js",
+                    //"<?php echo base_url() ?>scripts/plugins/fotorama/fotorama.src.js",
       	            "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap.js",
       	            //"http://www.jacklmoore.com/colorbox/colorbox/jquery.colorbox.js",
                     "<?php echo base_url() ?>scripts/invictus/invictus.js",
@@ -89,7 +90,9 @@
                       window.location.hash = '<?php echo $hash ?>'
                     <?php else : ?>
                       window.location.hash = ''
-                    <?php endif; ?>                 
+                    <?php endif; ?>    
+                    
+                    
                   }                     
             );
             

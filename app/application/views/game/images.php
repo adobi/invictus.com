@@ -26,7 +26,12 @@
         <?php foreach ($images as $img): ?>
           <legend for="">
             <?php echo $img['platform'] ? $img['platform']->name : '' ?>
-            <a class="btn btn-primary pull-right" href="<?php echo base_url() ?>gameimage/edit/for_game/<?php echo $item->id ?>/platform/<?php echo $img['platform']->platform_id ?>" rel="tooltip" title="Add new image to <?php echo $img['platform']->name ?>" data-ajax-link><i class="icon-plus-sign icon-white"></i></a>
+            <div class="btn-group pull-right">
+              <a class="btn btn-primary _pull-right" href="<?php echo base_url() ?>gameimage/edit/for_game/<?php echo $item->id ?>/platform/<?php echo $img['platform']->platform_id ?>" rel="tooltip" title="Add new image to <?php echo $img['platform']->name ?>" data-ajax-link><i class="icon-plus-sign icon-white"></i></a>
+              <?php if ($img['images']): ?>
+                <a  class="btn delete-item _pull-right" href="<?php echo base_url() ?>gameimage/delete_for_game/<?php echo $item->id ?>/and_platform/<?php echo $img['platform']->platform_id ?>" data-trigger="reload" data-location="r" rel="tooltip" title="Delete all images for  <?php echo @$img['platform']->name ?> " data-modal-header="All images for <?php echo @$img['platform']->name ?> "><i class="icon-trash"></i></a>
+              <?php endif; ?>
+            </div>
           </legend>
           <?php if (!$img['images']): ?>
             <div class="alert alert-error">No images for this platform</div>

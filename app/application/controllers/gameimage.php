@@ -63,6 +63,22 @@ class Gameimage extends MY_Controller
 
     }
     
+    public function delete_for_game() 
+    {
+      $this->load->model('Gameimages', 'model');
+      
+      $items = $this->model->fetchByGameAndPlatform($this->uri->segment(3), $this->uri->segment(5));
+      //dump($items);
+      if ($items) {
+        foreach ($items as $item) {
+          $this->_deleteImage($item->id, true);
+        }
+      }
+      if ($this->input->is_ajax_request()) {
+        die;
+      }        
+      redirect($_SERVER['HTTP_REFERER']);
+    }
 
     public function delete_normal()
     {
@@ -272,6 +288,7 @@ class Gameimage extends MY_Controller
         if (true === $type) {
           @unlink($this->config->item('upload_path') . $item->path);
           @unlink($this->config->item('upload_path') . $item->hd_path);
+          @unlink($this->config->item('upload_path_thumbs') . $item->path);
           
         } else {
           

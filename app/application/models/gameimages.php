@@ -59,4 +59,11 @@ class Gameimages extends MY_Model
       
       return $this->update(array('platform_id'=>$platform), $image);
     }
+    
+    public function fetchByGameAndPlatform($game, $platform) 
+    {
+      if (!$game || !$platform) return false;
+      
+      return $this->fetchRows(array('where'=>array('game_id'=>$game, 'platform_id'=>$platform)));
+    }
 }

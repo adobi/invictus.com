@@ -402,14 +402,26 @@
       $(this).find('.modal-body').empty()
       $('#simple-carousel').carousel('cycle')
     })
+  }
+  
+  App.PreloadImages = function() 
+  {
+    var items = $('[data-src]')
     
-
+    $.each(items, function(i, v) {
+      
+      $(v).attr('src', $(v).data('src'))
+      
+    })
+    console.log('images loaded')
   }
   
   $(function() 
   {
     
-    App.VideoInModal();
+    App.PreloadImages()
+    
+    App.VideoInModal()
     
     //App.ImageInModal();
     
@@ -481,7 +493,17 @@
     
     $('#simple-carousel-details-images').carousel({stop: true, pause:'click'})
     $('#simple-carousel-details-videos').carousel({stop: true, pause:'click'})
-    //$('#multi-carousel-images, #multi-carousel-videos').carousel('pause')
+    
+    /*$('#images-fotorama, #videos-fotorama').fotorama({
+      click: false,
+      onClick: function(data) {
+        //console.log($(data.img));
+        
+      },
+      onShowImg: function(data) {
+        //console.log(data)
+      }
+    })*/
     
     $('.carousel').on('slid', function(e) {
       //console.log($(this).find('.active'))

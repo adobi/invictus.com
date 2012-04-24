@@ -42,7 +42,7 @@
     <![endif]-->
     <!--[if IE]>
       <?php if (ENVIRONMENT === 'development'): ?>
-        <script type="text/javascript" src="https://getfirebug.com/releases/lite/1.3/firebug-lite.js"></script>
+        <script type="text/javascript" src="https://getfirebug.com/releases/lite/1.4/firebug-lite.js"></script>
       <?php endif ?>
       <script type="text/javascript" src="<?php echo base_url() ?>scripts/plugins/respondjs/respond.min.js"></script>
     <![endif]-->
@@ -100,7 +100,7 @@
           <a class="btn btn-navbar bigger-font" href="#" style="padding-top:5px;padding-bottom:4px;"><span class="icon-zoom-in icon-white"></span></a>
           <a class="brand" href="<?php echo base_url() ?>">
             <?php if ($settings->logo): ?>
-              <img src="<?php echo base_url() ?>uploads/original/<?php echo $settings->logo ?>" alt="">
+              <img src="<?php echo base_url() ?>uploads/original/<?php echo $settings->logo ?>" alt="" style="height:48px">
             <?php else: ?>
               Invictus Games
             <?php endif ?>
