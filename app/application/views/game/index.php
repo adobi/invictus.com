@@ -19,7 +19,7 @@
           <?php endif ?>
         </ul>
       </div>       
-      <ul class="thumbnails games-list" id="list-of-all-games" style="margin-left:-10px; overflow-y:scroll; height: 700px;">
+      <ul class="thumbnails games-list" id="list-of-all-games" style="margin-left:-10px; ">
         <?php foreach ($items as $item): ?>
           <li class="span3" data-platforms='<?php echo json_encode($item->platforms) ?>' style="margin-left:10px; margin-bottom:9px;">
             <div class="item thumbnail <?php echo $item->is_active ? 'alert-success' : '' ?>" data-id="<?php echo $item->id ?>" style="padding:0">

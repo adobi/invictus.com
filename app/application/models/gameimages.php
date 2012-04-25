@@ -72,15 +72,33 @@ class Gameimages extends MY_Model
       
       if (!$img) return false;
       
-      $newPath = $this->rename($img->path);
-      $newHDPath = $this->rename($img->hd_path);
+      $this->_copyImage($img, $platform);
+    }
+    
+    public function copyAllToPlatform($game, $platform) 
+    {
+      if (!$game || !$platform) return false;
+      
+      $items = $this->fetchForGame($game);
+      
+      if (!$items) return false;
+      
+      foreach ($items as $img) {
+        $this->_copyImage($img, $platform);
+      }
+    }
+    
+    private function _copyImage($item, $platform) 
+    {
+      $newPath = $this->_rename($item->path);
+      $newHDPath = $this->_rename($item->hd_path);
       
       $this->load->config('upload');
       
       $dir = $this->config->item('upload_path');
       
       $data = array();
-      foreach ($img as $k=>$v) {
+      foreach ($item as $k=>$v) {
         if ($k !== 'id')
           $data[$k] = $v;
       }
@@ -91,11 +109,12 @@ class Gameimages extends MY_Model
       
       $this->insert($data);
       
-      @copy($dir.$img->path, $dir.$newPath);
-      @copy($dir.$img->hd_path, $dir.$newHDPath);
-    }    
+      @copy($dir.$item->path, $dir.$newPath);
+      @copy($dir.$item->hd_path, $dir.$newHDPath);
+      
+    }
     
-    private function rename($image) 
+    private function _rename($image) 
     {
       if ($image) {
         $path = explode('_', $image);

@@ -196,9 +196,22 @@
       App.Nav.reloadRightPanel()
     })
   };
+
+  Games.copyAllImagesToPlatform = function(el) 
+  {
+    $.get(App.URL + 'game/copy_all_images/'+el.data('game-id')+'/to_platform/'+el.data('platform-id'), function() {
+      App.Nav.reloadRightPanel()
+    })
+  };
   
   $(function() {
-
+    $('body').on('click', '.copy-all-to-platform', function(e) {
+      //console.log('bofre: ', this);
+      Games.copyAllImagesToPlatform($(this))
+      
+      e.preventDefault()
+    }) 
+    
     $('body').on('click', '.copy-to-platform', function(e) {
       //console.log('bofre: ', this);
       Games.copyImageToPlatform($(this))
