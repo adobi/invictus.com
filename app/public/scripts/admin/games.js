@@ -151,7 +151,7 @@
   Games.Filter = function (el) 
   {
     var filter = el.data('platform'),
-        items = $('.games-list').find('li')
+        items = $('.games-list > li')
     
     el.parents('ul').find('.active').removeClass('active')
     el.parents('li:first').addClass('active')    

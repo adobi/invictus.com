@@ -39,7 +39,11 @@ class Gameimages extends MY_Model
         
         $return[] = array(
           'platform' => $platform,
-          'images' => $this->fetchRows(array('where'=>array('game_id'=>$id, 'platform_id'=>$platform->platform_id))),
+          'images' => $this->fetchRows(array(
+            'columns'=>array('SUBSTR(path, 12, LENGTH(path)) as original'), 
+            'where'=>array('game_id'=>$id, 'platform_id'=>$platform->platform_id),
+            'order'=>array('by'=>'original', 'dest'=>'asc')
+          ), false, true, true),
         );
       }
       
