@@ -489,7 +489,7 @@
     
 		$(".game img").fadeIn(500);
 		
-		$('#simple-carousel').carousel('pause');
+		$('#simple-carousel').carousel('cycle');
     
     $('#simple-carousel-details-images').carousel('pause')
     $('#simple-carousel-details-videos').carousel('pause')

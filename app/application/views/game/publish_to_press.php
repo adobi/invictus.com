@@ -33,7 +33,7 @@
       <fieldset class="control-group">
           <label class="control-label" for="released">Released</label>
           <div class="controls">
-              <input type="text" name = "released" id = "released" class = "span4" value = "<?php echo to_date($item->released) ?>"/>
+              <input type="text" name = "released" id = "released" class = "span2 datepicker" value = "<?php echo to_date($item->released) ?>"/>
           </div>
       </fieldset>       
       <fieldset class="control-group">

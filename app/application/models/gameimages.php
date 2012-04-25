@@ -70,4 +70,11 @@ class Gameimages extends MY_Model
       
       return $this->fetchRows(array('where'=>array('game_id'=>$game, 'platform_id'=>$platform)));
     }
+    
+    public function addAllToPlatform($game, $platform)
+    {
+      if (!$game || !$platform) return false;
+      
+      return $this->update(array('platform_id'=>$platform), array('game_id'=>$game));
+    }
 }

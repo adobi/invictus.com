@@ -310,7 +310,22 @@
       <?php endif ?>  
     
       <?php if ($images_without_platform): ?>
-        <legend>Images without platform</legend>
+        <legend>
+          Images without platform
+          <?php if ($platforms): ?>
+            <div class="pull-right">
+              <div class="btn-group">
+            <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" _style="border-bottom-right-radius:0px; border-top-right-radius: 0px;" rel="tooltip" title="Add all to"><i class="icon-platform"></i></a>
+            <ul class="dropdown-menu">
+              <?php foreach ($platforms as $pl): ?>
+                <li><a style="font-size:13px" href="#" class="add-all-images-to-platform" data-game-id="<?php echo $item->id ?>" data-platform-id="<?php echo $pl->platform_id ?>"><?php echo $pl->name ?></a></li>
+              <?php endforeach ?>
+            </ul>
+            </div>
+            </div>
+          <?php endif ?>
+          
+        </legend>
         <div class="items">
           <?php foreach ($images_without_platform as $p): ?>
             <div class="item" data-image-id = "<?php echo $p->id ?>">

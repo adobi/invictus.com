@@ -241,6 +241,15 @@ class Game extends MY_Controller
       die;
     }
     
+    public function add_game_images() 
+    {
+      $this->load->model('Gameimages', 'images');
+      
+      echo $this->images->addAllToPlatform($this->uri->segment(3), $this->uri->segment(5));
+      
+      die;
+    }
+    
     public function videos() 
     {
       $id = $this->uri->segment(3);
@@ -480,6 +489,15 @@ class Game extends MY_Controller
       $this->load->model('Games', 'model');
             
       $data['item'] = $this->model->find($id);
+      
+      $this->load->model('Gamevideos', 'videos');
+      $data['videos'] = $this->videos->fetchForGame($id);
+
+      $this->load->model('Gameimages', 'images');
+      $data['images'] = $this->images->fetchForGame($id);
+      
+      $this->load->model('Gameplatforms', 'game_platforms');
+      $data['platforms'] = $this->game_platforms->fetchForGame($id);      
             
       $this->template->build('game/publish_to_microsite', $data);
     }    
