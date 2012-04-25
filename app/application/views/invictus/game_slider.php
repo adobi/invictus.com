@@ -5,17 +5,15 @@
             <div class="carousel-inner">
                 <div class="item active">
                     <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->hero_image ?>" alt="">
-                    <div class="carousel-caption" style="text-align:center">
-                        <div class="options">
-                          <p class="hidden-phone">
-                            <?php if ($game->video): ?>
+                    <?php if ($game->video): ?>
+                      <div class="carousel-caption" style="text-align:center">
+                          <div class="options">
+                            <p class="hidden-phone">
                               <a rel="in-modal" href = "#" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>/video/on_product_page" class="btn btn-primary"><strong>Watch video</strong> <i style="margin-top:2px;" class="icon-facetime-video icon-white"></i></a>
-                            <?php else: ?>
-                              &nbsp;
-                            <?php endif ?>
-                          </p>
-                        </div>
-                    </div>        
+                            </p>
+                          </div>
+                      </div>        
+                    <?php endif ?>
                 </div>               
                 <?php if ($game->images): ?>
                   <?php foreach ($game->images as $i => $item): ?>

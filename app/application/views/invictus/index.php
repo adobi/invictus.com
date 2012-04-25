@@ -9,7 +9,7 @@
                     <?php foreach ($carousel as $i=>$item): ?>
                       <?php if ($item): ?>
                         <div class="item <?php echo $i===0 ? 'active' : '' ?>" data-item="<?php echo $item->id ?>">
-                            <img <?php echo $i!=='0' ? 'data-' : '' ?>src="<?php echo base_url() ?>uploads/original/<?php echo $item->hero_image ?>" alt="">
+                            <img <?php echo $i!==0 ? 'data-' : '' ?>src="<?php echo base_url() ?>uploads/original/<?php echo $item->hero_image ?>" alt="">
                             <div class="carousel-caption">
                               <div class="row">
                                 <div class="span6 hidden-phone">

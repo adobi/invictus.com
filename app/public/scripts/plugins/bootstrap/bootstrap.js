@@ -427,13 +427,15 @@
         , fallback  = type == 'next' ? 'first' : 'last'
         , that = this
         , e = $.Event('slide')
-
+      
       this.sliding = true
 
       isCycling && this.pause()
 
       $next = $next.length ? $next : this.$element.find('.item')[fallback]()
-
+      
+      this.preload($next);
+      
       if ($next.hasClass('active')) return
 
       if ($.support.transition && this.$element.hasClass('slide')) {
@@ -466,8 +468,16 @@
       this.options.pause in {swipe:1,both:1} && this.pause()
       direction == 'left' && this.next()
       direction == 'right' && this.prev()
-    }      
-
+    }
+  , preload: function(elem) {
+      
+      if(!elem) return
+    
+      var img = elem.find('img')
+      if (!img.attr('src') && img.data('src')) {
+        img.attr('src', img.data('src'))
+      }        
+  }      
   }
 
 
@@ -499,6 +509,7 @@
 
   $(function () {
     $('body').on('click.carousel.data-api', '[data-slide]', function ( e ) {
+      
       var $this = $(this), href
         , $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
         , options = !$target.data('modal') && $.extend({}, $target.data(), $this.data())

@@ -406,14 +406,14 @@
   
   App.PreloadImages = function() 
   {
-    var items = $('[data-src]')
+    var items = $('.teasers [data-src]')
     
     $.each(items, function(i, v) {
       
       $(v).attr('src', $(v).data('src'))
       
     })
-    console.log('images loaded')
+    //console.log('images loaded')
   }
   
   $(function() 
@@ -489,10 +489,10 @@
     
 		$(".game img").fadeIn(500);
 		
-		$('#simple-carousel').carousel('cycle');
+		$('#simple-carousel').carousel('pause');
     
-    $('#simple-carousel-details-images').carousel({stop: true, pause:'click'})
-    $('#simple-carousel-details-videos').carousel({stop: true, pause:'click'})
+    $('#simple-carousel-details-images').carousel('pause')
+    $('#simple-carousel-details-videos').carousel('pause')
     
     /*$('#images-fotorama, #videos-fotorama').fotorama({
       click: false,
@@ -508,7 +508,6 @@
     $('.carousel').on('slid', function(e) {
       //console.log($(this).find('.active'))
       var elem = $(this).find('.item.active')
-      
       //console.log(elem.index())
       
       $.trackevent().track(elem.find('a'))
@@ -516,6 +515,7 @@
       $('.tab-pane.active .selected-carousel-item').removeClass('selected-carousel-item')
       $('.tab-pane.active').find('li:eq('+elem.index()+')').find('a').addClass('selected-carousel-item')
       
+    }).on('slide', function(e) {
     })
     
     $('body').delegate('a[href=#]', 'click', function() {

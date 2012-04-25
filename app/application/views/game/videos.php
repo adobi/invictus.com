@@ -39,7 +39,7 @@
                   <a data-reset="reload" data-type="on-more-games" data-action="<?php echo $p->is_on_all_games ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>gamevideo/action/<?php echo $p->is_on_all_games ? 'inactivate' : 'activate' ?>/<?php echo $p->id ?>/on_all_games" class="btn video-action <?php echo $p->is_on_all_games ? 'active' : '' ?>" rel="tooltip" title="<?php echo $p->is_on_all_games ? 'Inactivate' : 'Activate' ?> "><i class="icon-list"></i></a>
                   <a data-reset="reload" data-type="on-more-product-page" data-action="<?php echo $p->is_on_product_page ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>gamevideo/action/<?php echo $p->is_on_product_page ? 'inactivate' : 'activate' ?>/<?php echo $p->id ?>/on_product_page" class="btn video-action <?php echo $p->is_on_product_page ? 'active' : '' ?>" rel="tooltip" title="<?php echo $p->is_on_product_page ? 'Inactivate' : 'Activate' ?> "><i class="icon-file"></i></a>
                   <a class="btn" href="<?php echo base_url() ?>gamevideo/edit/<?php echo $p->id ?>" rel="tooltip" title="Edit video" data-ajax-link><i class="icon-pencil"></i></a>
-                  <a class="btn delete-item" href="<?php echo base_url() ?>gamevideo/delete/<?php echo $p->id ?>" data-reload="right"  rel="tooltip" title="Delete video" data-modal-header="<?php echo $p->description ?> video"><i class="icon-trash"></i></a>
+                  <a class="btn delete-item" href="<?php echo base_url() ?>gamevideo/delete/<?php echo $p->id ?>" data-trigger="reload" data-location="r"   rel="tooltip" title="Delete video" data-modal-header="<?php echo $p->description ?> video"><i class="icon-trash"></i></a>
                   </div>
                 </div>
               </h6>
