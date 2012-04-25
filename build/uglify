@@ -1,8 +1,8 @@
 #!/bin/sh
-BASE_PATH="/f/wamp/www/invictus.com/app/public/scripts/"
+BASE_PATH="/d/wamp2/www/invictus.com/app/public/scripts/"
 ALL_JS=$BASE_PATH"invictus/all.js"
 ALL_JS_MIN=$BASE_PATH"invictus/all.min.js"
-UGLIFY_HOME="/f/wamp/node_modules/uglify-js/bin/"
+UGLIFY_HOME="/d/wamp2/node_modules/uglify-js/bin/"
 touch $ALL_JS
 cat $BASE_PATH"plugins/elastislide/js/jquery.easing.1.3.min.js" $BASE_PATH"plugins/elastislide/js/jquery.elastislide.js" $BASE_PATH"plugins/event-tracking/jquery.trackevent.js" $BASE_PATH"plugins/prettify-upload/jquery.prettify-upload.js" $BASE_PATH"plugins/bootstrap/bootstrap.js" $BASE_PATH"invictus/invictus.js" >>  $ALL_JS
 $UGLIFY_HOME"uglifyjs" -o $ALL_JS_MIN  $ALL_JS
