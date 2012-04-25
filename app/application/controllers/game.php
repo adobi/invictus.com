@@ -240,6 +240,15 @@ class Game extends MY_Controller
       
       die;
     }
+
+    public function copy_image()
+    {
+      $this->load->model('Gameimages', 'images');
+      
+      echo $this->images->copyToPlatform($this->uri->segment(3), $this->uri->segment(5));
+      
+      die;
+    }
     
     public function add_game_images() 
     {

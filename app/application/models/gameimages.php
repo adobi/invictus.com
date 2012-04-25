@@ -64,6 +64,49 @@ class Gameimages extends MY_Model
       return $this->update(array('platform_id'=>$platform), $image);
     }
     
+    public function copyToPlatform($image, $platform) 
+    {
+      if (!$image || !$platform) return false;
+      
+      $img = $this->find($image);
+      
+      if (!$img) return false;
+      
+      $newPath = $this->rename($img->path);
+      $newHDPath = $this->rename($img->hd_path);
+      
+      $this->load->config('upload');
+      
+      $dir = $this->config->item('upload_path');
+      
+      $data = array();
+      foreach ($img as $k=>$v) {
+        if ($k !== 'id')
+          $data[$k] = $v;
+      }
+      
+      $data['platform_id'] = $platform;
+      $data['path'] = $newPath;
+      $data['hd_path'] = $newHDPath;
+      
+      $this->insert($data);
+      
+      @copy($dir.$img->path, $dir.$newPath);
+      @copy($dir.$img->hd_path, $dir.$newHDPath);
+    }    
+    
+    private function rename($image) 
+    {
+      if ($image) {
+        $path = explode('_', $image);
+        
+        $path[0] = time();
+        sleep(1);
+        return implode('_', $path);
+      }
+      return false;
+    }
+    
     public function fetchByGameAndPlatform($game, $platform) 
     {
       if (!$game || !$platform) return false;

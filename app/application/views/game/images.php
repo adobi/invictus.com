@@ -24,10 +24,10 @@
     <div class="right-side-scroll">
       <?php if ($images): ?>
         <?php foreach ($images as $img): ?>
-          <legend for="">
+          <legend for="" onclick="$(this).nextAll('.items:first').toggle()">
             <?php echo $img['platform'] ? $img['platform']->name : '' ?>
             <div class="btn-group pull-right">
-              <a class="btn btn-primary _pull-right" href="<?php echo base_url() ?>gameimage/edit/for_game/<?php echo $item->id ?>/platform/<?php echo $img['platform']->platform_id ?>" rel="tooltip" title="Add new image to <?php echo $img['platform']->name ?>" data-ajax-link><i class="icon-plus-sign icon-white"></i></a>
+              <a class="btn btn-primary " href="<?php echo base_url() ?>gameimage/edit/for_game/<?php echo $item->id ?>/platform/<?php echo $img['platform']->platform_id ?>" rel="tooltip" title="Add new image to <?php echo $img['platform']->name ?>" data-ajax-link><i class="icon-plus-sign icon-white"></i></a>
               <?php if ($img['images']): ?>
                 <a  class="btn delete-item _pull-right" href="<?php echo base_url() ?>gameimage/delete_for_game/<?php echo $item->id ?>/and_platform/<?php echo $img['platform']->platform_id ?>" data-trigger="reload" data-location="r" rel="tooltip" title="Delete all images for  <?php echo @$img['platform']->name ?> " data-modal-header="All images for <?php echo @$img['platform']->name ?> "><i class="icon-trash"></i></a>
               <?php endif; ?>
@@ -44,13 +44,28 @@
                     <div class="pull-right">
                       <div class="btn-group">
                         <?php if ($platforms): ?>
-                          <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" style="border-bottom-right-radius:0px; border-top-right-radius: 0px;" rel="tooltip" title="Select a platform"><i class="icon-platform"></i></a>
+                          <span class="btn" style="display:inline-block">
+                          <a href="#" class="_btn dropdown-toggle" data-toggle="dropdown" style="border-bottom-right-radius:0px; border-top-right-radius: 0px;" rel="tooltip" title="Add to platform"><i class="icon-platform"></i></a>
                           <ul class="dropdown-menu">
                             <?php foreach ($platforms as $pl): ?>
                               <li><a href="#" class="add-to-platform" data-platform-id="<?php echo $pl->platform_id ?>"><?php echo $pl->name ?></a></li>
                             <?php endforeach ?>
                           </ul>
-                        <?php endif ?>                      
+                          </span>
+                        <?php endif ?>       
+                        <?php if ($platforms && count($platforms)>1): ?>
+                          <span class="btn" style="display:inline-block">
+                          <a href="#" class="_btn dropdown-toggle" data-toggle="dropdown" rel="tooltip" title="Copy to platform"><i class="icon-folder-open"></i></a>
+                          <ul class="dropdown-menu">
+                            <?php foreach ($platforms as $pl): ?>
+                              <?php if ($pl->id !== $img['platform']->id): ?>
+                                <li><a href="#" class="copy-to-platform" data-platform-id="<?php echo $pl->platform_id ?>"><?php echo $pl->name ?></a></li>
+                              <?php endif ?>
+                            <?php endforeach ?>
+                          </ul>
+                          </span>
+                        <?php endif ?>       
+                                       
                         <a class="btn delete-item" href="<?php echo base_url() ?>gameimage/delete/<?php echo $p->id ?>" rel="tooltip" title="Delete image" data-trigger="reload" data-location="r"  data-modal-header="<?php echo $p->path ?> image with the HD version"><i class="icon-trash"></i></a>
                       </div>
                     </div>

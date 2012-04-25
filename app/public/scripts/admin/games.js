@@ -189,9 +189,22 @@
       App.Nav.reloadRightPanel()
     })
   };  
+
+  Games.copyImageToPlatform = function(el) 
+  {
+    $.get(App.URL + 'game/copy_image/'+el.parents('.item:first').data('image-id')+'/to_platform/'+el.data('platform-id'), function() {
+      App.Nav.reloadRightPanel()
+    })
+  };
   
   $(function() {
-    
+
+    $('body').on('click', '.copy-to-platform', function(e) {
+      //console.log('bofre: ', this);
+      Games.copyImageToPlatform($(this))
+      
+      e.preventDefault()
+    })    
     
     $('body').on('click', '.add-all-images-to-platform', function(e) {
       //console.log('bofre: ', this);
