@@ -24,14 +24,14 @@
         </p>
     </legend> 
     <div class="right-side-scroll">
-      <h4 style="text-align:center;font-size:1em" class="upper-gray">Customize the setup in the following systems:</h4>
+      <h4 style="margin-left:10px;font-size:1em" class="upper-gray">Customize the setup in the following systems:</h4>
       <br>
       
       <div class="span4" style="margin-bottom:20px;">
-        <a class="btn btn-large span4" href="<?php echo NEWS_URL ?>auth/auto_login/?r=rumor/edit/<?php echo $this->session->userdata('created_news_id') ?>" target="_blank">Go to "Invictus In game news"</a>
+        <a class="btn btn-large span4" href="<?php echo NEWS_URL ?>auth/auto_login/<?php echo $this->session->userdata('created_news_id') ? '?r=rumor/edit/'.$this->session->userdata('created_news_id') : '' ?>" target="_blank">Go to "Invictus In game news"</a>
       </div>
       <div class="span4" style="margin-bottom:20px;">
-        <a class="btn btn-large span4" href="<?php echo PRESS_RELEASE_URL ?>auth/auto_login/?r=pressrelease/edit/<?php echo $this->session->userdata('created_press_release_id') ?>" target="_blank">Go to "Invictus Press"</a>
+        <a class="btn btn-large span4" href="<?php echo PRESS_RELEASE_URL ?>auth/auto_login/<?php echo $this->session->userdata('created_press_release_id') ? '?r=pressrelease/edit/'.$this->session->userdata('created_news_id') : '' ?>" target="_blank">Go to "Invictus Press"</a>
       </div>
       <div class="span4" style="margin-bottom:20px;">
         <a class="btn btn-large span4" href="#" target="_blank">Go to "Invictus Microsites"</a>
