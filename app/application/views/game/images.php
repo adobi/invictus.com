@@ -45,10 +45,12 @@
                       <div class="btn-group">
                         <?php if ($platforms): ?>
                           <span class="btn" style="display:inline-block">
-                          <a href="#" class="_btn dropdown-toggle" data-toggle="dropdown" style="border-bottom-right-radius:0px; border-top-right-radius: 0px;" rel="tooltip" title="Add to platform"><i class="icon-platform"></i></a>
+                          <a href="#" class="_btn dropdown-toggle" data-toggle="dropdown" style="border-bottom-right-radius:0px; border-top-right-radius: 0px;" rel="tooltip" title="Move to platform"><i class="icon-move"></i></a>
                           <ul class="dropdown-menu">
                             <?php foreach ($platforms as $pl): ?>
-                              <li><a href="#" class="add-to-platform" data-platform-id="<?php echo $pl->platform_id ?>"><?php echo $pl->name ?></a></li>
+                              <?php if ($pl->id !== $img['platform']->id): ?>
+                                <li><a href="#" class="add-to-platform" data-platform-id="<?php echo $pl->platform_id ?>"><?php echo $pl->name ?></a></li>
+                              <?php endif ?>
                             <?php endforeach ?>
                           </ul>
                           </span>
