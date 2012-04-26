@@ -42,8 +42,8 @@ class Gameplatform extends MY_Controller
         $data['game'] = $this->game->find($gameId);
         
     		$this->form_validation->set_rules("platform_id", "Platform", "trim|required");
-    		$this->form_validation->set_rules("url", "Url", "trim|required");        
-    		$this->form_validation->set_rules("long_url", "Long url", "trim|required");        
+    		//$this->form_validation->set_rules("url", "Url", "trim|required");        
+    		//$this->form_validation->set_rules("long_url", "Long url", "trim|required");        
         
         if ($this->form_validation->run()) {
         

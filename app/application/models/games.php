@@ -9,7 +9,7 @@ class Games extends MY_Model
     
     public function fetchAllWithPlatforms()
     {
-      $items = $this->fetchAll();
+      $items = $this->fetchAll(array('order'=>array('by'=>'order', 'dest'=>'asc')));
       
       if (!$items) return false;
       
@@ -24,7 +24,7 @@ class Games extends MY_Model
     
     public function fetchActive()
     {
-      return $this->fetchRows(array('where'=>array('is_active'=>1)));
+      return $this->fetchRows(array('where'=>array('is_active'=>1),'order'=>array('by'=>'order', 'dest'=>'asc')));
     }
     
     public function fetchAllActiveWithPlatforms()

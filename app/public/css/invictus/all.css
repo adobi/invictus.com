@@ -935,9 +935,9 @@ img{max-width:100%;border:0;-ms-interpolation-mode:bicubic;vertical-align:middle
 .game-available-in .thumbnails{margin-left:0px;margin-top:15px;}
 .game-available-in img{width:105px;}
 .game-details{height:auto;}
-.all-games{margin-left:0px;}.all-games li{margin:0 20px 20px 0;}
+.all-games{margin-left:0px;}.all-games li{margin:0 20px 20px 0;width:130px;}
 .all-games .thumbnail:hover{-webkit-border-radius:24px;-moz-border-radius:24px;border-radius:24px;-webkit-border-radius:24px;-moz-border-radius:24px;border-radius:24px;}
-.all-games img{width:160px;}
+.all-games img{width:120px;}
 .selected-game{-webkit-border-radius:24px;-moz-border-radius:24px;border-radius:24px;-webkit-border-radius:24px;-moz-border-radius:24px;border-radius:24px;border-color:#0088cc;-webkit-box-shadow:0 1px 4px rgba(0, 105, 214, 0.25);-moz-box-shadow:0 1px 4px rgba(0, 105, 214, 0.25);box-shadow:0 1px 4px rgba(0, 105, 214, 0.25);}.selected-game .game{opacity:1;filter:alpha(opacity=100);opacity:1;filter:alpha(opacity=100);}
 .game-name-and-icon{line-height:64px;margin-bottom:10px;}
 .game{border:0;box-shadow:none;opacity:0.7;filter:alpha(opacity=70);opacity:0.7;filter:alpha(opacity=70);}

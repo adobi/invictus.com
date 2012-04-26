@@ -25,7 +25,7 @@
       <?php if ($images): ?>
         <?php foreach ($images as $img): ?>
           <legend for="">
-            <span onclick="$(this).nextAll('.items:first').toggle()">
+            <span onclick="$(this).parent().nextAll('.items:first').toggle()">
               <?php echo $img['platform'] ? $img['platform']->name : '' ?>
             </span>
             <div class="btn-group pull-right">

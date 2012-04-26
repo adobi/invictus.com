@@ -832,3 +832,4 @@ span.btn{display:inline-block;}span.btn .dropdown-toggle{border-bottom-right-rad
 legend .dropdown-menu a{font-size:13px;}
 input+.btn{margin-bottom:9px;}
 .collapse{overflow:visible;}
+#list-of-all-games .alert{width:180px;height:200px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}

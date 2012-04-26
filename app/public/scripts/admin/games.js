@@ -46,6 +46,24 @@
     },
   }
 
+  Games.sortable = function() 
+  {
+    $("#list-of-all-games" ).sortable({
+        placeholder: "alert",
+        stop: function(event, ui) {
+            var data = {},
+                name = $('.csrf-form').find('[type=hidden]').attr('name'),
+                value = $('.csrf-form').find('[type=hidden]').attr('value'); 
+                           
+            data['order'] = $( "#list-of-all-games" ).sortable('toArray');
+            data[name] = value;
+            
+            $.post(App.URL+"game/update_order", data, function() {});
+        }
+    });
+		$( ".contact-type-items" ).disableSelection(); 
+  }
+
   Games.setVideo = function(elem) 
   {
     var that = elem,
@@ -205,6 +223,9 @@
   };
   
   $(function() {
+    
+    Games.sortable()
+    
     $('body').on('click', '.copy-all-to-platform', function(e) {
       //console.log('bofre: ', this);
       Games.copyAllImagesToPlatform($(this))

@@ -18,10 +18,14 @@
             <?php endforeach ?>
           <?php endif ?>
         </ul>
-      </div>       
+      </div>     
+      <div class="hidden csrf-form">
+        <?php echo form_open() ?>
+        <?php echo form_close() ?>
+      </div>
       <ul class="thumbnails games-list" id="list-of-all-games" style="margin-left:-10px; ">
         <?php foreach ($items as $item): ?>
-          <li class="span3" data-platforms='<?php echo json_encode($item->platforms) ?>' style="margin-left:10px; margin-bottom:9px;">
+          <li id = "<?php echo $item->id ?>" class="span3" data-platforms='<?php echo json_encode($item->platforms) ?>' style="margin-left:10px; margin-bottom:9px;">
             <div class="item thumbnail <?php echo $item->is_active ? 'alert-success' : '' ?>" data-id="<?php echo $item->id ?>" style="padding:0">
               <h4 class="center">
                 <a style="margin-top:-5px" href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item select-item pull-right" data-location="l" data-trigget="reload" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>

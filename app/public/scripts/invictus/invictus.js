@@ -406,7 +406,7 @@
   
   App.PreloadImages = function() 
   {
-    var items = $('.teasers [data-src]')
+    var items = $('.teasers [data-src], .all-games [data-src]')
     
     $.each(items, function(i, v) {
       

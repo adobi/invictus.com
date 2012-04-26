@@ -590,6 +590,21 @@ class Game extends MY_Controller
       
       redirect($_SERVER['HTTP_REFERER']);
     }
+
+    
+    public function update_order()
+    {
+        if ($_POST && isset($_POST['order'])) {
+            
+            $this->load->model('Games', 'model');
+            
+            foreach ($_POST['order'] as $order => $id) {
+                $this->model->update(array('order'=>$order), $id);
+            }
+        }
+        
+        die;
+    } 
     
     private function _deleteImage($id, $withRecord = false, $field = false) 
     {
