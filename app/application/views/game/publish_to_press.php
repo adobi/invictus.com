@@ -49,7 +49,7 @@
             <?php if ($videos): ?>
               <ul class="thumbnails">
                 <?php foreach ($videos as $p): ?>
-                  <li class="thumbnail">
+                  <li class="thumbnail" style="margin-left:10px;">
                     <?php echo embed_youtube($p->code, false, 170, 130) ?>
                     <p style="text-align:center">
                       <input type="radio" name="video" value="<?php echo $p->code ?>">
