@@ -18,7 +18,7 @@
           <!-- <button class="btn btn-primary" rel="tooltip" title="Save game"><i class="icon-ok icon-white"></i></button> -->
           <a class="btn btn-primary" href="<?php echo base_url() ?>gamevideo/edit/for_game/<?php echo $item->id ?>" rel="tooltip" title="Add new video" data-ajax-link><i class="icon-plus-sign icon-white"></i></a>
           <?php if ($item): ?>
-            <a href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a>
+            <!-- <a href="<?php echo base_url() ?>game/delete/<?php echo $item->id ?>" class="btn delete-item" data-location="r" rel="tooltip" title="Delete game" data-modal-header="Game <?php echo $item->name ?>"><i class="icon-trash"></i></a> -->
           <?php endif ?>
         </p>  
       
