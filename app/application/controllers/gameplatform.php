@@ -33,7 +33,7 @@ class Gameplatform extends MY_Controller
           $gameId = $this->uri->segment(4);
         }
 
-        $data['platforms'] = $this->platform->toAssocArray('id', 'name', $this->platform->fetchAvailableForGame($gameId));
+        $data['platforms'] = $this->platform->toAssocArray('id', 'name', (!$item ? $this->platform->fetchAvailableForGame($gameId) : $this->platform->fetchAll()));
         
         $data['item'] = $item;
         

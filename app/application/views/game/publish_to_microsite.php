@@ -27,7 +27,7 @@
       <fieldset class="control-group">
           <label class="control-label" for="name">Title</label>
           <div class="controls">
-              <input type="text" name = "name" id = "name" class = "span4" value = "<?php echo $item->name ?> released"/>
+              <input type="text" name = "name" id = "name" class = "span4" value = "<?php echo $item->name ?>"/>
           </div>
       </fieldset>       
       <fieldset class="control-group">

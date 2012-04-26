@@ -18,10 +18,10 @@ class Auth extends MY_Controller
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|callback_check_credentials');
         //dump($_POST); die;
-        if ($this->form_validation->run()) {
-			
-			redirect(base_url() . 'game');
-		}
+      if ($this->form_validation->run()) {
+			  
+  			redirect(base_url() . 'game');
+  		}
         
         $this->template->build('login/index', $data);
     }

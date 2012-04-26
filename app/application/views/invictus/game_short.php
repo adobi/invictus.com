@@ -23,7 +23,7 @@
       <?php if ($game->platforms): ?>
         <?php foreach ($game->platforms as $item): ?>
           <li class="span2">
-            <a  <?php echo event_tracking($item->analytics['all_games']) ?> class="thumbnail" href="<?php echo $item->url ?>" target = "_blank" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block">
+            <a  <?php echo $item->url ? event_tracking($item->analytics['all_games']) : '' ?> class="thumbnail" href="<?php echo $item->url ? $item->url : '#' ?>" target = "_blank" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block">
               <img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->image ?>">
             </a>
           </li>           

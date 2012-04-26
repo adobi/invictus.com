@@ -20,6 +20,7 @@ class Api extends Page_Controller
     if ($platforms) {
       
       foreach ($platforms as $item) {
+        $item->image_name = $item->image;
         $item->image = base_url() . 'uploads/original/'.$item->image;
       }
     } else {
