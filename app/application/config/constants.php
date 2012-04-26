@@ -46,7 +46,9 @@ define('PRESS_RELEASE_API_URL', PRESS_RELEASE_URL.'api/');
 define('PRESS_RELEASE_CREATE_URL', PRESS_RELEASE_API_URL.'create');
 define('PRESS_RELEASE_GET_TOKEN', PRESS_RELEASE_API_URL.'get_token_name');
 
-
+define('MICROSITES_URL', 'http://localhost/microsites/public/');
+define('MICROSITES_API_URL', MICROSITES_URL.'api/');
+define('MICROSITES_CREATE_URL', MICROSITES_API_URL.'create/');
 
 
 

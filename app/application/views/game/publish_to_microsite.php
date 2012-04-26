@@ -5,7 +5,7 @@
     </div>
 <?php endif ?>
 
-<?php echo form_open('', array('id'=>'edit-form', '_data-ajax-form'=>1)) ?>    
+<?php echo form_open('', array('id'=>'edit-form', 'data-ajax-form'=>1)) ?>    
 
     <?php echo panel_close('publish_to_press/'.($item ? $item->id : '')) ?>
     
@@ -25,9 +25,9 @@
     <div class="right-side-scroll">
     
       <fieldset class="control-group">
-          <label class="control-label" for="title">Title</label>
+          <label class="control-label" for="name">Title</label>
           <div class="controls">
-              <input type="text" name = "title" id = "title" class = "span4" value = "<?php echo $item->name ?> released"/>
+              <input type="text" name = "name" id = "name" class = "span4" value = "<?php echo $item->name ?> released"/>
           </div>
       </fieldset>       
       <fieldset class="control-group">
@@ -56,7 +56,7 @@
                     <label>
                     <img src="<?php echo base_url() ?>uploads/original/<?php echo $p->path ?>" alt=""  style="width:128px">
                     <p style="text-align:center">
-                      <input style="display:inline-block" type="checkbox" name="images[]" value="<?php echo base_url() ?>uploads/original/<?php echo $p->path ?>">
+                      <input style="display:inline-block" type="checkbox" name="images[]" value="<?php echo $p->id ?>">
                     </p>
                     </label>
                   </li>
@@ -117,7 +117,7 @@
           </div>
       </fieldset>       
       <fieldset class="form-actions right">
-          <button class="btn btn-primary" rel="tooltip" title="Save as press release" data-noaction="1"><i class="icon-ok icon-white"></i> Save as press release</button>
+          <button class="btn btn-primary" rel="tooltip" title="Save as microsite" data-noaction="1"><i class="icon-ok icon-white"></i> Save as microsite</button>
       </fieldset>       
     </div> <!-- /.right-side-scroll -->
     <fieldset class="form-actions right">

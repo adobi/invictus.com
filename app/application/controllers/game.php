@@ -487,7 +487,6 @@ class Game extends MY_Controller
           } else {
             echo display_success('No response from remote');
           }
-            
         }
         die;
       } else {
@@ -515,8 +514,51 @@ class Game extends MY_Controller
       $data['images'] = $this->images->fetchForGame($id);
       
       $this->load->model('Gameplatforms', 'game_platforms');
-      $data['platforms'] = $this->game_platforms->fetchForGame($id);      
-            
+      $data['platforms'] = $this->game_platforms->fetchForGame($id);   
+      
+      $this->form_validation->set_rules('name', 'Name', 'trim|required');   
+      $this->form_validation->set_rules('released', 'Released', 'trim|required');
+      $this->form_validation->set_rules('logo', 'Logo', 'trim|required');
+      
+      if ($this->form_validation->run()) {
+        
+        $_POST['url'] = $data['item']->url;
+        $_POST['logo_name'] = $data['item']->logo;
+        
+        if ($_POST['images']) {
+          $images = array();
+          $images[] = array('image'=>base_url().'uploads/original/'.$data['item']->hero_image, 'image_name'=>$data['item']->hero_image);
+          foreach ($_POST['images'] as $item) {
+            $img = $this->images->find($item);
+            $images[] = array('image'=>base_url().'uploads/original/'.$img->path, 'image_name'=>$img->path);
+          }
+          $_POST['images'] = $images;
+        }
+        //dump($_POST); 
+        $response = $this->curl->simple_post(MICROSITES_CREATE_URL, $_POST);
+        //dump($response); 
+        $res = json_decode($response);
+        
+        //$this->session->set_flashdata('message', 'In game news created');
+
+        if ($res && !property_exists($res, 'insert_id')) {
+          echo display_success('Something went wrong: '.$res->message);
+        } else {
+          
+          if ($res) {
+            $this->session->set_userdata('created_microsite_id', $res->insert_id);
+            echo display_success($res->message);
+          } else {
+            echo display_success('No response from remote');
+          }
+        }
+        die;
+      } else {
+        if ($_POST) {
+  		    
+  		    echo validation_errors(); die;
+  		  }   
+      }
       $this->template->build('game/publish_to_microsite', $data);
     }    
         
