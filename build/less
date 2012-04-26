@@ -1,5 +1,5 @@
 #!/bin/sh
-DRIVE="/f/wamp/"
+. build/define
 LESS_HOME=$DRIVE"node_modules/less/bin/"
 BASE_PATH=$DRIVE"www/invictus.com/app/public/css/"
 

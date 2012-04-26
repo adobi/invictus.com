@@ -1,5 +1,5 @@
 #!/bin/sh
-DRIVE="/f/wamp/"
+. build/define
 BASE_PATH=$DRIVE"www/invictus.com/app/public/scripts/"
 ALL_JS=$BASE_PATH"invictus/all.js"
 ALL_JS_MIN=$BASE_PATH"invictus/all.min.js"
