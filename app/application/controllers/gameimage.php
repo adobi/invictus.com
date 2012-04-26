@@ -127,10 +127,12 @@ class Gameimage extends MY_Controller
           $data = $this->upload->data();
 
           $this->load->model('Gameimages', 'model');
-          
+          /*
           $this->load->model("Games", 'games');
+          $this->load->model('Platforms', 'platforms');
           
           $game = $this->games->find($this->uri->segment(3));
+          $platform = $this->platforms->find($this->uri->segment(5));
           
           $inserted = $this->model->insert(array(
               'game_id'=>$this->uri->segment(3),
@@ -138,9 +140,11 @@ class Gameimage extends MY_Controller
               'ga_category'=>'Image',
               'ga_action'=>'View',
               'ga_value'=>1,
-              'ga_label'=>$game->name.' - image - ' . $data['file_name'],
+              'ga_label'=>$game->name.' - '.$platform->name.' - image - ' . $data['file_name'],
               'platform_id' =>$this->uri->segment(5)
           ));
+          */
+          $inserted = $this->model->setupAnalytics($this->uri->segment(3), $this->uri->segment(5), $data['file_name']);
           
           $info->name = $data['file_name'];
           $info->size = $data['file_size'];
@@ -173,15 +177,19 @@ class Gameimage extends MY_Controller
           $this->load->model('Gameimages', 'model');
           
           $this->load->model("Games", 'games');
+          $item = $this->model->find($this->uri->segment(3));
           
-          $game = $this->games->find($this->model->find($this->uri->segment(3))->game_id);
+          $game = $this->games->find($item->game_id);
+          
+          $this->load->model('Platforms', 'platforms');
+          $p = $this->platforms->find($item->platform_id);
           
           $inserted = $this->model->update(array(
               'hd_path'=>$data['file_name'],
               'hd_ga_category'=>'Image',
               'hd_ga_action'=>'View',
               'hd_ga_value'=>1,
-              'hd_ga_label'=>$game->name.' - HD image - ' . $data['file_name']
+              'hd_ga_label'=>$game->name.' - '.$p->name.' - HD image - ' . $data['file_name']
           ), $this->uri->segment(3));
           
           $info->name = $data['file_name'];

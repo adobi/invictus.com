@@ -61,7 +61,19 @@ class Gameimages extends MY_Model
     {
       if (!$image || !$platform) return false;
       
-      return $this->update(array('platform_id'=>$platform), $image);
+      $data = array('platform_id'=>$platform);
+      
+      $this->load->model('Platforms', 'platforms');
+      $newp = $this->platforms->find($platform);
+      
+      $item = $this->find($image);
+      
+      $oldp = $this->platforms->find($item->platform_id);
+      
+      $data['ga_label'] = str_replace($oldp->name, $newp->name, $item->ga_label);
+      $data['hd_ga_label'] = str_replace($oldp->name, $newp->name, $item->hd_ga_label);
+      
+      return $this->update($data, $image);
     }
     
     public function copyToPlatform($image, $platform) 
@@ -88,6 +100,29 @@ class Gameimages extends MY_Model
       }
     }
     
+    public function setupAnalytics($gameId, $platformId, $image)
+    {
+        $this->load->model("Games", 'games');
+        $this->load->model('Platforms', 'platforms');
+        
+        $game = $this->games->find($gameId);
+        $p = $this->platforms->find($platformId);
+        //dump($game); dump($platform); dump($image);
+        //dump($p);
+        //die;
+        $inserted = parent::insert(array(
+            'game_id'=>$gameId,
+            'path'=>$image,
+            'ga_category'=>'Image',
+            'ga_action'=>'View',
+            'ga_value'=>1,
+            'ga_label'=>$game->name.' - '.$p->name.' - image - ' . $image,
+            'platform_id' =>$platformId
+        ));      
+        
+        return $inserted;
+    }
+    
     private function _copyImage($item, $platform) 
     {
       $newPath = $this->_rename($item->path);
@@ -96,13 +131,22 @@ class Gameimages extends MY_Model
       $this->load->config('upload');
       
       $dir = $this->config->item('upload_path');
+    
+      $this->load->model("Games", 'games');
+      $this->load->model('Platforms', 'platforms');
+      
+      $game = $this->games->find($item->game_id);
+      $p = $this->platforms->find($platform);      
       
       $data = array();
+      
       foreach ($item as $k=>$v) {
         if ($k !== 'id')
           $data[$k] = $v;
       }
-      
+      $data['ga_label'] = $game->name.' - '.$p->name.' - image - ' . $newPath;      
+      $data['hd_ga_label'] = $game->name.' - '.$p->name.' - HD image - ' . $newPath;      
+
       $data['platform_id'] = $platform;
       $data['path'] = $newPath;
       $data['hd_path'] = $newHDPath;

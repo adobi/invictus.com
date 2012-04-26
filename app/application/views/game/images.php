@@ -30,7 +30,7 @@
             </span>
             <div class="btn-group pull-right">
               <a class="btn btn-primary " href="<?php echo base_url() ?>gameimage/edit/for_game/<?php echo $item->id ?>/platform/<?php echo $img['platform']->platform_id ?>" rel="tooltip" title="Add new image to <?php echo $img['platform']->name ?>" data-ajax-link><i class="icon-plus-sign icon-white"></i></a>
-              <?php if ($platforms && count($platforms)>1): ?>
+              <?php if ($platforms && count($platforms)>1 && $img['images']): ?>
                 <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" rel="tooltip" title="Copy to platform"><i class="icon-folder-open"></i></a>
                 <ul class="dropdown-menu">
                   <?php foreach ($platforms as $pl): ?>
