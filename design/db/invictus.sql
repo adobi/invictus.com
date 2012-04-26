@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-04-19 16:09:50
+Date: 2012-04-26 17:07:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -47,22 +47,23 @@ CREATE TABLE `c_game` (
   `ga_label` varchar(250) DEFAULT NULL,
   `ga_value` int(11) DEFAULT NULL,
   `ga_noninteraction` int(11) DEFAULT NULL,
+  `order` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_game_meta` (`meta_id`),
   CONSTRAINT `fk_game_meta` FOREIGN KEY (`meta_id`) REFERENCES `ic_meta` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game
 -- ----------------------------
-INSERT INTO `c_game` VALUES ('4', '12', 'Lazy Farmer', 'lazy-farmer', '2012-03-01 00:00:00', '1332930420_Icon170.png', '1332926239_hero.png', '1332925952_teaser.png', null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '1', null, '0', '3', '1', '3', '12272771881', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazyfarmer.game', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('5', '12', 'Santa Ride', 'santa-ride', '1970-01-01 00:00:00', '1332930492_Icon170.png', '1332926168_hero.png', '1332926168_teaser.png', null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '2', null, '1', '4', '1', '4', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('6', '12', 'Froggy Jump', 'froggy-jump', '1970-01-01 00:00:00', '1332930460_Icon170.png', '1332926009_hero.png', '1332925765_teaser.png', null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '3', null, '1', '1', '1', '4', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('7', '12', 'Greed Corp', 'greed-corp', '1970-01-01 00:00:00', '1332930505_Icon170.png', '1333548148_hero.png', '1333548148_teaser.png', null, 'Race of Champions Mobile Game is the official game of the actual event. It includes 6 original tracks and 8 cars from the official racing event.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '0', null, '1', '2', '0', '0', '1221233123', 'greed_corp', 'invictusgames', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('8', '12', 'Froggy Launcher', 'froggy-launcher', '1970-01-01 00:00:00', '1332930545_Icon170.png', null, null, null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '3', null, '1', '4', '0', '0', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('9', '12', 'Fly Fu', 'fly-fu', '1970-01-01 00:00:00', '1333535537_Icon170.png', null, null, null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '3', null, '0', '3', '1', '1', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('10', '12', 'Mist Bouncer', 'mist-bouncer', '1970-01-01 00:00:00', '1332930595_Icon170.png', null, null, null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', null, null, null, '1', '4', '1', '2', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null);
-INSERT INTO `c_game` VALUES ('11', '12', 'Race of Champions the official game', 'race-of-champions-the-official-game', '1970-01-01 00:00:00', '1333096600_Icon170.png', '1334772692_1334661531_ROC_hero_banner.png', '1334772692_1334661531_ROC_teaser_banner.png', '1334772692_1334670770_ROC__splash.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '1', null, '1', '3', '1', '0', '1221233123', 'http://twitter.com/lazy_farmer', 'raceofchampions.game', null, null, null, null, null);
+INSERT INTO `c_game` VALUES ('4', '12', 'Lazy Farmer', 'lazy-farmer', '2012-03-01 00:00:00', '1332930420_Icon170.png', '1332926239_hero.png', '1332925952_teaser.png', null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '1', null, '0', '3', '1', '3', '12272771881', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazyfarmer.game', null, null, null, null, null, '0');
+INSERT INTO `c_game` VALUES ('5', '12', 'Santa Ride', 'santa-ride', '1970-01-01 00:00:00', '1332930492_Icon170.png', '1332926168_hero.png', '1332926168_teaser.png', null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '2', null, '1', '4', '1', '4', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null, '3');
+INSERT INTO `c_game` VALUES ('6', '12', 'Froggy Jump', 'froggy-jump', '1970-01-01 00:00:00', '1332930460_Icon170.png', '1332926009_hero.png', '1332925765_teaser.png', null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '3', null, '1', '1', '1', '4', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null, '2');
+INSERT INTO `c_game` VALUES ('7', '12', 'Greed Corp', 'greed-corp', '1970-01-01 00:00:00', '1332930505_Icon170.png', '1333548148_hero.png', '1333548148_teaser.png', null, 'Race of Champions Mobile Game is the official game of the actual event. It includes 6 original tracks and 8 cars from the official racing event.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '0', null, '1', '2', '0', '0', '1221233123', 'greed_corp', 'invictusgames', null, null, null, null, null, '4');
+INSERT INTO `c_game` VALUES ('8', '12', 'Froggy Launcher', 'froggy-launcher', '1970-01-01 00:00:00', '1332930545_Icon170.png', null, null, null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '3', null, '1', '4', '0', '0', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null, '6');
+INSERT INTO `c_game` VALUES ('9', '12', 'Fly Fu', 'fly-fu', '1970-01-01 00:00:00', '1333535537_Icon170.png', null, null, null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '0', '3', null, '0', '3', '1', '1', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null, '5');
+INSERT INTO `c_game` VALUES ('10', '12', 'Mist Bouncer', 'mist-bouncer', '1970-01-01 00:00:00', '1332930595_Icon170.png', null, null, null, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', null, null, null, '1', '4', '1', '2', '1221233123', 'http://twitter.com/lazy_farmer', 'http://facebook.com/lazy.farmer', null, null, null, null, null, '7');
+INSERT INTO `c_game` VALUES ('11', '12', 'Race of Champions the official game', 'race-of-champions-the-official-game', '1970-01-01 00:00:00', '1333096600_Icon170.png', '1334772692_1334661531_ROC_hero_banner.png', '1334772692_1334661531_ROC_teaser_banner.png', '1334772692_1334670770_ROC__splash.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec tempus purus. Etiam vitae ligula vitae libero tincidunt commodo.', '1', '1', '1', null, '1', '3', '1', '0', '1221233123', 'http://twitter.com/lazy_farmer', 'raceofchampions.game', null, null, null, null, null, '1');
 
 -- ----------------------------
 -- Table structure for `c_game_image`
@@ -74,6 +75,7 @@ CREATE TABLE `c_game_image` (
   `path` varchar(250) DEFAULT NULL,
   `thumb_path` varchar(250) DEFAULT NULL,
   `game_id` int(11) DEFAULT NULL,
+  `platform_id` int(11) DEFAULT NULL,
   `ga_category` varchar(250) DEFAULT NULL,
   `ga_action` varchar(150) DEFAULT NULL,
   `ga_label` varchar(250) DEFAULT NULL,
@@ -87,17 +89,22 @@ CREATE TABLE `c_game_image` (
   `hd_ga_noninteraction` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_game_vide_game` (`game_id`),
-  CONSTRAINT `fk_game_vide_game0` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+  KEY `fk_game_image_platform` (`platform_id`),
+  CONSTRAINT `fk_game_image_platform` FOREIGN KEY (`platform_id`) REFERENCES `c_platform` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
+  CONSTRAINT `fk_game_image_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_image
 -- ----------------------------
-INSERT INTO `c_game_image` VALUES ('6', null, '1332934989_greed-corp-20090812111453863.jpg', null, '7', null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `c_game_image` VALUES ('7', null, '1332934989_greed-corp-20090812111456832.jpg', null, '7', null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `c_game_image` VALUES ('19', null, '1334132318_1332935171_IMG_1808.png', null, '6', 'Image', 'View', 'Froggy Jump - image - 1334132318_1332935171_IMG_1808.png', '1', null, '1334836640_IMG_1806.png', 'Image', 'Froggy Jump - HD image - 1334836640_IMG_1806.png', '1', 'View', null);
-INSERT INTO `c_game_image` VALUES ('20', null, '1334132318_1332935171_IMG_1806.png', null, '6', 'Image', 'View', 'Froggy Jump - image - 1334132318_1332935171_IMG_1806.png', '1', null, '1334836645_IMG_1807.png', 'Image', 'Froggy Jump - HD image - 1334836645_IMG_1807.png', '1', 'View', null);
-INSERT INTO `c_game_image` VALUES ('21', null, '1334132318_1332935171_IMG_1807.png', null, '6', 'Image', 'View', 'Froggy Jump - image - 1334132318_1332935171_IMG_1807.png', '1', null, '1334836651_IMG_1808.png', 'Image', 'Froggy Jump - HD image - 1334836651_IMG_1808.png', '1', 'View', null);
+INSERT INTO `c_game_image` VALUES ('6', null, '1332934989_greed-corp-20090812111453863.jpg', null, '7', '5', null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('7', null, '1332934989_greed-corp-20090812111456832.jpg', null, '7', '5', null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('22', null, '1335178551_1332935171_IMG_1806.png', null, '6', null, 'Image', 'View', 'Froggy Jump - image - 1335178551_1332935171_IMG_1806.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('23', null, '1335178871_1332935171_IMG_1808.png', null, '6', null, 'Image', 'View', 'Froggy Jump - image - 1335178871_1332935171_IMG_1808.png', '1', null, '1335178883_1332935171_IMG_1807.png', 'Image', 'Froggy Jump - HD image - 1335178883_1332935171_IMG_1807.png', '1', 'View', null);
+INSERT INTO `c_game_image` VALUES ('24', null, '1335178899_1332935171_IMG_1808.png', null, '6', '1', 'Image', 'View', 'Froggy Jump - image - 1335178899_1332935171_IMG_1808.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('25', null, '1335178915_1332935171_IMG_1806.png', null, '6', '3', 'Image', 'View', 'Froggy Jump - image - 1335178915_1332935171_IMG_1806.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('26', null, '1335188511_greed-corp-20091110101343512.jpg', null, '7', null, 'Image', 'View', 'Greed Corp - image - 1335188511_greed-corp-20091110101343512.jpg', '1', null, '1335188546_greed-corp-20091110101343512.jpg', 'Image', 'Greed Corp - HD image - 1335188546_greed-corp-20091110101343512.jpg', '1', 'View', null);
+INSERT INTO `c_game_image` VALUES ('70', null, '1335452711_greed-corp-20100114031319534.jpg', null, '5', '7', 'Image', 'View', 'Santa Ride - iPhone, iPod - image - 1335452711_greed-corp-20100114031319534.jpg', '1', null, '1335452717_greed-corp-20100114031319534.jpg', 'Image', 'Santa Ride - iPhone, iPod - HD image - 1335452717_greed-corp-20100114031319534.jpg', '1', 'View', null);
 
 -- ----------------------------
 -- Table structure for `c_game_platform`
@@ -114,16 +121,19 @@ CREATE TABLE `c_game_platform` (
   KEY `fk_game_platform_platform` (`platform_id`),
   CONSTRAINT `fk_game_platform_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_game_platform_platform` FOREIGN KEY (`platform_id`) REFERENCES `c_platform` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_platform
 -- ----------------------------
 INSERT INTO `c_game_platform` VALUES ('14', '7', '5', 'http://bit.ly/GFP5iK', 'http://twitter.github.com/bootstrap/base-css.html#icons');
-INSERT INTO `c_game_platform` VALUES ('15', '11', '2', 'http://mzl.la/HdSycu', 'https://developer.mozilla.org/en-US/demos/detail/paperfold-css');
 INSERT INTO `c_game_platform` VALUES ('16', '11', '1', 'http://mzl.la/HdSycu', 'https://developer.mozilla.org/en-US/demos/detail/paperfold-css');
 INSERT INTO `c_game_platform` VALUES ('17', '11', '5', 'http://mzl.la/HdSycu', 'https://developer.mozilla.org/en-US/demos/detail/paperfold-css');
-INSERT INTO `c_game_platform` VALUES ('18', '6', '2', 'http://bit.ly/GGmzwe', 'http://glyphicons.com/');
+INSERT INTO `c_game_platform` VALUES ('19', '6', '1', 'http://bit.ly/I3wj82', 'http://twitter.github.com/bootstrap/base-css.html#icons');
+INSERT INTO `c_game_platform` VALUES ('20', '6', '3', 'http://bit.ly/I3wj82', 'http://twitter.github.com/bootstrap/base-css.html#icons');
+INSERT INTO `c_game_platform` VALUES ('23', '5', '3', 'http://bit.ly/I7QJjZ', 'http://index.hu');
+INSERT INTO `c_game_platform` VALUES ('24', '4', '7', '', '');
+INSERT INTO `c_game_platform` VALUES ('25', '5', '7', 'http://bit.ly/Jsl6wN', 'http://origo.hu');
 
 -- ----------------------------
 -- Table structure for `c_game_video`
@@ -145,7 +155,7 @@ CREATE TABLE `c_game_video` (
   PRIMARY KEY (`id`),
   KEY `fk_game_vide_game` (`game_id`),
   CONSTRAINT `fk_game_vide_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_video
@@ -157,6 +167,9 @@ INSERT INTO `c_game_video` VALUES ('4', 'Asd', 'gnF07oYqwGQ', '11', 'Video', 'Vi
 INSERT INTO `c_game_video` VALUES ('5', 'Asd', 'VA770wpLX-Q', '11', 'Video', 'View', 'Race of Champions the official game - Asd VA770wpLX-Q - 1334670513', '1', null, null, null, '1');
 INSERT INTO `c_game_video` VALUES ('6', 'Video', 'VA770wpLX-Q', '6', 'Video', 'View', 'Froggy Jump - Video VA770wpLX-Q - 1334748913', '1', null, '1', '1', '1');
 INSERT INTO `c_game_video` VALUES ('7', 'Asd', 'JByDbPn6A1o', '7', 'Video', 'View', 'Greed Corp - Asd JByDbPn6A1o - 1334833495', '1', null, null, null, '1');
+INSERT INTO `c_game_video` VALUES ('10', 'Asd', 'VA770wpLX-Q', '5', 'Video', 'View', 'Santa Ride - Asd VA770wpLX-Q - 1335360606', '1', null, null, null, null);
+INSERT INTO `c_game_video` VALUES ('11', 'Asd', 'VA770wpLX-Q', '5', 'Video', 'View', 'Santa Ride - Asd VA770wpLX-Q - 1335360613', '1', null, null, null, null);
+INSERT INTO `c_game_video` VALUES ('12', 'Asd', 'VA770wpLX-Q', '5', 'Video', 'View', 'Santa Ride - Asd VA770wpLX-Q - 1335360618', '1', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `c_platform`
@@ -168,16 +181,16 @@ CREATE TABLE `c_platform` (
   `url` varchar(150) DEFAULT NULL,
   `image` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_platform
 -- ----------------------------
 INSERT INTO `c_platform` VALUES ('1', 'iMac', null, '1331653081_mac_store.png');
-INSERT INTO `c_platform` VALUES ('2', 'iPod, iPhone', null, '1331653106_app_store.png');
 INSERT INTO `c_platform` VALUES ('3', 'Android Phone', null, '1332227844_android_market.png');
 INSERT INTO `c_platform` VALUES ('4', 'Andorid Tablet', null, '1331653136_android_market.png');
 INSERT INTO `c_platform` VALUES ('5', 'iPad', null, '1332228002_app_store.png');
+INSERT INTO `c_platform` VALUES ('7', 'iPhone, iPod', null, '1335444290_1332228002_app_store.png');
 
 -- ----------------------------
 -- Table structure for `ic_analytics`
@@ -440,21 +453,31 @@ CREATE TABLE `ic_game_platorm_analyitcs` (
   PRIMARY KEY (`id`),
   KEY `fk_game_platform_analytics_game_platform` (`game_platform_id`),
   CONSTRAINT `fk_game_platform_analytics_game_platform` FOREIGN KEY (`game_platform_id`) REFERENCES `c_game_platform` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_game_platorm_analyitcs
 -- ----------------------------
 INSERT INTO `ic_game_platorm_analyitcs` VALUES ('39', 'Outbound link', 'All product - iPad - button - 1333463623', '1', 'Click', null, '14', 'all_games');
 INSERT INTO `ic_game_platorm_analyitcs` VALUES ('40', 'Outbound link', 'Greed Corp - iPad - button - 1333463623', '1', 'Click', null, '14', 'product_page');
-INSERT INTO `ic_game_platorm_analyitcs` VALUES ('41', 'Outbound link', 'All product - iPod, iPhone - button - 1333535585', '1', 'Click', null, '15', 'all_games');
-INSERT INTO `ic_game_platorm_analyitcs` VALUES ('42', 'Outbound link', 'Race of Champions - iPod, iPhone - button - 1333535585', '1', 'Click', null, '15', 'product_page');
 INSERT INTO `ic_game_platorm_analyitcs` VALUES ('43', 'Outbound link', 'All product - iMac - button - 1333535592', '1', 'Click', null, '16', 'all_games');
 INSERT INTO `ic_game_platorm_analyitcs` VALUES ('44', 'Outbound link', 'Race of Champions - iMac - button - 1333535592', '1', 'Click', null, '16', 'product_page');
 INSERT INTO `ic_game_platorm_analyitcs` VALUES ('45', 'Outbound link', 'All product - iPad - button - 1333535598', '1', 'Click', null, '17', 'all_games');
 INSERT INTO `ic_game_platorm_analyitcs` VALUES ('46', 'Outbound link', 'Race of Champions - iPad - button - 1333535598', '1', 'Click', null, '17', 'product_page');
-INSERT INTO `ic_game_platorm_analyitcs` VALUES ('47', 'Outbound link', 'All product - iPod, iPhone - button - 1334748931', '1', 'Click', null, '18', 'all_games');
-INSERT INTO `ic_game_platorm_analyitcs` VALUES ('48', 'Outbound link', 'Froggy Jump - iPod, iPhone - button - 1334748931', '1', 'Click', null, '18', 'product_page');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('49', 'Outbound link', 'All product - iMac - button - 1335174313', '1', 'Click', null, '19', 'all_games');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('50', 'Outbound link', 'Froggy Jump - iMac - button - 1335174313', '1', 'Click', null, '19', 'product_page');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('51', 'Outbound link', 'All product - Android Phone - button - 1335174322', '1', 'Click', null, '20', 'all_games');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('52', 'Outbound link', 'Froggy Jump - Android Phone - button - 1335174322', '1', 'Click', null, '20', 'product_page');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('57', 'Outbound link', 'All product - Android Phone - button - 1335364727', '1', 'Click', null, '23', 'all_games');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('58', 'Outbound link', 'Santa Ride - Android Phone - button - 1335364727', '1', 'Click', null, '23', 'product_page');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('59', 'Outbound link', 'All product - iPhone, iPod - button - 1335444315', '1', 'Click', null, '24', 'all_games');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('60', 'Outbound link', 'Lazy Farmer - iPhone, iPod - button - 1335444315', '1', 'Click', null, '24', 'product_page');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('61', 'Outbound link', 'All product - iPhone, iPod - button - 1335445476', '1', 'Click', null, '24', 'all_games');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('62', 'Outbound link', 'Lazy Farmer - iPhone, iPod - button - 1335445476', '1', 'Click', null, '24', 'product_page');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('63', 'Outbound link', 'All product - Andorid Tablet - button - 1335449056', '1', 'Click', null, '25', 'all_games');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('64', 'Outbound link', 'Santa Ride - Andorid Tablet - button - 1335449056', '1', 'Click', null, '25', 'product_page');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('65', 'Outbound link', 'All product - iPhone, iPod - button - 1335449067', '1', 'Click', null, '25', 'all_games');
+INSERT INTO `ic_game_platorm_analyitcs` VALUES ('66', 'Outbound link', 'Santa Ride - iPhone, iPod - button - 1335449067', '1', 'Click', null, '25', 'product_page');
 
 -- ----------------------------
 -- Table structure for `ic_job`
@@ -673,7 +696,7 @@ CREATE TABLE `ic_meta` (
   `og_description` varchar(250) DEFAULT NULL,
   `og_site_name` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_meta
@@ -760,7 +783,7 @@ CREATE TABLE `ic_settings` (
 -- ----------------------------
 -- Records of ic_settings
 -- ----------------------------
-INSERT INTO `ic_settings` VALUES ('1', '1333537678_twitter_logo_top_bar.png', '298005276910571', 'invictusgames', 'invictusgames', 'UA-27571060-1');
+INSERT INTO `ic_settings` VALUES ('1', '1335259894_web_logo_pic_text3.png', '298005276910571', 'invictusgames', 'invictusgames', 'UA-27571060-1');
 
 -- ----------------------------
 -- Table structure for `ic_user`
