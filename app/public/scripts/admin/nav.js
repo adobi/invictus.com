@@ -48,11 +48,14 @@
     //App.PrettifyUpload()
     if ($('.fileupload').length) {
       $('.fileupload').each(function () {
-        
+          var that = $(this)
+          //console.log(App.CurrentPlatform)
+          //console.log(that)
           $(this).fileupload({
               dropZone: $(this),
           }).bind('fileuploadstop',  function() {
             
+            App.CurrentPlatform = that.data('platform-id')
             $('.item.selected').find('.icon-picture').parent().trigger('click')
           });
       });      
@@ -63,6 +66,8 @@
     App.AutoHeight()
     App.enhanceChosen()  
     $('.sidebar-navigation-wrapper-right .controls:first').children(':first').focus()
+    //console.log($('.items[data-platform-id='+App.CurrentPlatform+']'))
+    $('.items[data-platform-id='+App.CurrentPlatform+']').prevAll('legend:first').find('.toggle-platform-images').trigger('click')
     
     if ($('.game-platforms').length) {
       

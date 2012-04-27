@@ -24,8 +24,9 @@
       <?php if ($images): ?>
         <?php foreach ($images as $img): ?>
           <legend for="">
-            <span onclick="$(this).parent().nextAll('.items:first').toggle()">
-              <?php echo $img['platform'] ? $img['platform']->name : '' ?>
+            <a href="#" class="btn toggle-platform-images" rel="tooltip" title="Toggle images"><i class="icon-resize-vertical"></i></a>
+            <span>
+              <?php echo $img['platform'] ? $img['platform']->name . ($img['images'] ? ' ('.count($img['images']).')' : '') : '' ?>
             </span>
             <div class="btn-group pull-right">
               <a class="btn btn-primary " href="<?php echo base_url() ?>gameimage/edit/for_game/<?php echo $item->id ?>/platform/<?php echo $img['platform']->platform_id ?>" rel="tooltip" title="Add new image to <?php echo $img['platform']->name ?>" data-ajax-link><i class="icon-plus-sign icon-white"></i></a>
@@ -47,7 +48,7 @@
           <?php if (!$img['images']): ?>
             <div class="alert alert-error">No images for this platform</div>
           <?php else: ?>
-            <div class="items">
+            <div class="items hide" data-platform-id="<?php echo $img['platform']->platform_id ?>">
             <?php foreach ($img['images'] as $p): ?>
                 <div class="item" data-image-id = "<?php echo $p->id ?>">
                   <h6>
@@ -99,7 +100,7 @@
                         <?php endif ?>
                         <div>
                           <span style="display:inline-block">
-                            <img style="max-width:300px; max-height:80px" src="<?php echo base_url() ?>uploads/original/<?php echo $p->path ?>" alt="">
+                            <img style="max-width:300px; max-height:80px" data-src="<?php echo base_url() ?>uploads/original/<?php echo $p->path ?>" alt="">
                           </span>
                         </div>
                       </div>
@@ -114,7 +115,7 @@
                         </h6>
                         <hr>
                         <span style="display:inline-block">
-                          <img style="max-width:300px; max-height:80px" src="<?php echo base_url() ?>uploads/original/<?php echo $p->hd_path ?>" alt="">
+                          <img style="max-width:300px; max-height:80px" data-src="<?php echo base_url() ?>uploads/original/<?php echo $p->hd_path ?>" alt="">
                         </span>                  
                       </div>
                     </div> <!-- /.row -->
@@ -132,7 +133,10 @@
                       <?php if (!$p->path): ?>
                         <?php echo form_open_multipart(base_url() .'gameimage/upload_normal/'.$p->id, array('class'=>'fileupload', 
                                 'data-upload-template-id'=>'template-upload-'.$p->id, 
-                                'data-download-template-id'=>'template-download-'.$p->id)) ?>    
+                                'data-download-template-id'=>'template-download-'.$p->id, 
+                                'data-platform-id'=>$p->platform_id
+                                )) 
+                                ?>    
                             <div class="row fileupload-buttonbar">
                                 <div class="span2">
                                     <!-- The fileinput-button span is used to style the file input field as button -->
@@ -217,7 +221,7 @@
                       <?php else: ?>
                         <div>
                           <span style="display:inline-block">
-                            <img style="max-width:300px; max-height:80px" src="<?php echo base_url() ?>uploads/original/<?php echo $p->path ?>" alt="">
+                            <img style="max-width:300px; max-height:80px" data-src="<?php echo base_url() ?>uploads/original/<?php echo $p->path ?>" alt="">
                           </span>
                         </div>                
                       <?php endif ?>
@@ -235,7 +239,9 @@
                       <?php if (!$p->hd_path): ?>
                         <?php echo form_open_multipart(base_url() .'gameimage/upload_hd/'.$p->id, array('class'=>'fileupload', 
                                 'data-upload-template-id'=>'hd-template-upload-'.$p->id, 
-                                'data-download-template-id'=>'hd-template-download-'.$p->id)) ?>    
+                                'data-download-template-id'=>'hd-template-download-'.$p->id,
+                                'data-platform-id'=>$p->platform_id
+                                )) ?>    
                             <div class="row fileupload-buttonbar">
                                 <div class="span2">
                                     <!-- The fileinput-button span is used to style the file input field as button -->
@@ -319,7 +325,7 @@
                       <?php else: ?>
                         <div>
                           <span style="display:inline-block">
-                            <img style="max-width:300px; max-height:80px" src="<?php echo base_url() ?>uploads/original/<?php echo $p->hd_path ?>" alt="">
+                            <img style="max-width:300px; max-height:80px" data-src="<?php echo base_url() ?>uploads/original/<?php echo $p->hd_path ?>" alt="">
                           </span>
                         </div>                     
                       <?php endif ?>
@@ -373,7 +379,7 @@
                   </div>
                 </div>
               </h6>
-              <img style="max-width:300px; max-height:80px" src="<?php echo base_url() ?>uploads/original/<?php echo $p->path ?>" alt="">
+              <img style="max-width:300px; max-height:80px" data-src="<?php echo base_url() ?>uploads/original/<?php echo $p->path ?>" alt="">
             </div>
           <?php endforeach ?>
         </div>

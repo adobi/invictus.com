@@ -5,7 +5,7 @@
     </div>
 <?php endif ?>
 
-<?php echo form_open_multipart(base_url() .'gameimage/upload_for_game/'.$game->id.'/platform/'.$platform->id, array('class'=>'fileupload')) ?>    
+<?php echo form_open_multipart(base_url() .'gameimage/upload_for_game/'.$game->id.'/platform/'.$platform->id, array('class'=>'fileupload', 'data-platform-id'=>$platform->id)) ?>    
     <?php echo panel_close('images/'.($game ? $game->id : '')) ?>
     <legend>
       <?php if ($item): ?>

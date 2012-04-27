@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well crosspromo" style="overflow:visible">
     <h3>
       Crosspromo
       <!-- 

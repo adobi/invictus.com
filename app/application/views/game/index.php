@@ -35,7 +35,7 @@
                 <br>
                 <span class="upper-gray"><?php echo to_date($item->released) ?></span>
               </h4> 
-              <img src="<?php echo $item && $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/170x170' ?>" alt="" style="width:128px;">
+              <img data-src="<?php echo $item && $item->logo ? base_url() . 'uploads/original/'.$item->logo : 'http://placehold.it/170x170' ?>" alt="" style="width:128px;">
               <hr style="margin:4px 0 6px;">
               <div class="caption " style="">
                 <div class="btn-group">

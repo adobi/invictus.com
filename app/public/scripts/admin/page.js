@@ -312,8 +312,22 @@
     })
   };
   
+  App.PreloadImages = function() 
+  {
+    var items = $('[data-src]')
+    
+    $.each(items, function(i, v) {
+      
+      $(v).attr('src', $(v).data('src'))
+      
+    })
+    //console.log('images loaded')
+  }  
+  
 	$(function() 
 	{
+	  App.PreloadImages()
+	  
     var hash =  window.location.hash.slice(1),
         id = hash.split('/')[1]
 

@@ -222,9 +222,25 @@
     })
   };
   
+  
+  Games.togglePlatformImages = function(el) 
+  {
+    el.parent().nextAll('.items:first').toggle(100, function() {
+      App.PreloadImages()
+    })
+  }
+  
   $(function() {
     
     Games.sortable()
+    
+    $('body').on('click', '.toggle-platform-images', function(e) {
+      //console.log('bofre: ', this);
+      Games.togglePlatformImages($(this))
+      
+      e.preventDefault()
+    }) 
+    
     
     $('body').on('click', '.copy-all-to-platform', function(e) {
       //console.log('bofre: ', this);
