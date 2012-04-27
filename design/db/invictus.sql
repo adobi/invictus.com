@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2012-04-26 17:07:18
+Date: 2012-04-27 11:56:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -90,21 +90,31 @@ CREATE TABLE `c_game_image` (
   PRIMARY KEY (`id`),
   KEY `fk_game_vide_game` (`game_id`),
   KEY `fk_game_image_platform` (`platform_id`),
-  CONSTRAINT `fk_game_image_platform` FOREIGN KEY (`platform_id`) REFERENCES `c_platform` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
-  CONSTRAINT `fk_game_image_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_game_image_game` FOREIGN KEY (`game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_game_image_platform` FOREIGN KEY (`platform_id`) REFERENCES `c_platform` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of c_game_image
 -- ----------------------------
 INSERT INTO `c_game_image` VALUES ('6', null, '1332934989_greed-corp-20090812111453863.jpg', null, '7', '5', null, null, null, null, null, null, null, null, null, null, null);
 INSERT INTO `c_game_image` VALUES ('7', null, '1332934989_greed-corp-20090812111456832.jpg', null, '7', '5', null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `c_game_image` VALUES ('22', null, '1335178551_1332935171_IMG_1806.png', null, '6', null, 'Image', 'View', 'Froggy Jump - image - 1335178551_1332935171_IMG_1806.png', '1', null, null, null, null, null, null, null);
-INSERT INTO `c_game_image` VALUES ('23', null, '1335178871_1332935171_IMG_1808.png', null, '6', null, 'Image', 'View', 'Froggy Jump - image - 1335178871_1332935171_IMG_1808.png', '1', null, '1335178883_1332935171_IMG_1807.png', 'Image', 'Froggy Jump - HD image - 1335178883_1332935171_IMG_1807.png', '1', 'View', null);
-INSERT INTO `c_game_image` VALUES ('24', null, '1335178899_1332935171_IMG_1808.png', null, '6', '1', 'Image', 'View', 'Froggy Jump - image - 1335178899_1332935171_IMG_1808.png', '1', null, null, null, null, null, null, null);
-INSERT INTO `c_game_image` VALUES ('25', null, '1335178915_1332935171_IMG_1806.png', null, '6', '3', 'Image', 'View', 'Froggy Jump - image - 1335178915_1332935171_IMG_1806.png', '1', null, null, null, null, null, null, null);
 INSERT INTO `c_game_image` VALUES ('26', null, '1335188511_greed-corp-20091110101343512.jpg', null, '7', null, 'Image', 'View', 'Greed Corp - image - 1335188511_greed-corp-20091110101343512.jpg', '1', null, '1335188546_greed-corp-20091110101343512.jpg', 'Image', 'Greed Corp - HD image - 1335188546_greed-corp-20091110101343512.jpg', '1', 'View', null);
 INSERT INTO `c_game_image` VALUES ('70', null, '1335452711_greed-corp-20100114031319534.jpg', null, '5', '7', 'Image', 'View', 'Santa Ride - iPhone, iPod - image - 1335452711_greed-corp-20100114031319534.jpg', '1', null, '1335452717_greed-corp-20100114031319534.jpg', 'Image', 'Santa Ride - iPhone, iPod - HD image - 1335452717_greed-corp-20100114031319534.jpg', '1', 'View', null);
+INSERT INTO `c_game_image` VALUES ('71', null, '1335507532_Groovy_Garage_Screenshot_02.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_02.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('72', null, '1335507532_Groovy_Garage_Screenshot_01.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_01.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('73', null, '1335507532_Groovy_Garage_Screenshot_05.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_05.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('74', null, '1335507532_Groovy_Garage_Screenshot_03.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_03.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('75', null, '1335507532_Groovy_Garage_Screenshot_04.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_04.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('76', null, '1335507532_Groovy_Garage_Screenshot_06.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_06.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('77', null, '1335507532_Groovy_Garage_Screenshot_07.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_07.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('78', null, '1335507532_Groovy_Garage_Screenshot_10.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_10.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('79', null, '1335507532_Groovy_Garage_Screenshot_09.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_09.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('80', null, '1335507532_Groovy_Garage_Screenshot_08.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_08.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('81', null, '1335507532_Groovy_Garage_Screenshot_12.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_12.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('82', null, '1335507532_Groovy_Garage_Screenshot_11.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507532_Groovy_Garage_Screenshot_11.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('83', null, '1335507533_Groovy_Garage_Screenshot_13.png', null, '5', '3', 'Image', 'View', 'Santa Ride - Android Phone - image - 1335507533_Groovy_Garage_Screenshot_13.png', '1', null, null, null, null, null, null, null);
+INSERT INTO `c_game_image` VALUES ('96', null, '1335516100_1335454818_Froggy_Jump_Screenshot_03.png', null, '6', '3', 'Image', 'View', 'Froggy Jump - Android Phone - image - 1335516100_1335454818_Froggy_Jump_Screenshot_03.png', '1', null, '1335516107_greed-corp-20090812111456832.jpg', 'Image', 'Froggy Jump - Android Phone - HD image - 1335516107_greed-corp-20090812111456832.jpg', '1', 'View', null);
 
 -- ----------------------------
 -- Table structure for `c_game_platform`
@@ -383,15 +393,15 @@ CREATE TABLE `ic_crosspromo` (
   KEY `fk_crosspromo_game_promo` (`promo_game_id`),
   CONSTRAINT `fk_crosspromo_game_base` FOREIGN KEY (`base_game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_crosspromo_game_promo` FOREIGN KEY (`promo_game_id`) REFERENCES `c_game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ic_crosspromo
 -- ----------------------------
 INSERT INTO `ic_crosspromo` VALUES ('54', '5', '4', '0', 'Inbound link', 'Click', 'Santa Ride - Lazy Farmer - Crosspromo - 1332930492_Icon170', '1', null);
 INSERT INTO `ic_crosspromo` VALUES ('55', '5', '10', '1', 'Inbound link', 'Click', 'Santa Ride - Mist Bouncer - Crosspromo - 1332930492_Icon170', '1', null);
-INSERT INTO `ic_crosspromo` VALUES ('57', '5', '8', '3', 'Inbound link', 'Click', 'Santa Ride - Froggy Launcher - Crosspromo - 1332930492_Icon170', '1', null);
-INSERT INTO `ic_crosspromo` VALUES ('58', '5', '9', '4', 'Inbound link', 'Click', 'Santa Ride - Fly Fu - Crosspromo - 1332930492_Icon170', '1', null);
+INSERT INTO `ic_crosspromo` VALUES ('57', '5', '6', '3', 'Inbound link', 'Click', 'Santa Ride - Froggy Jump - Crosspromo - 1332930492_Icon170', '1', null);
+INSERT INTO `ic_crosspromo` VALUES ('58', '5', '7', '4', 'Inbound link', 'Click', 'Santa Ride - Greed Corp - Crosspromo - 1332930492_Icon170', '1', null);
 INSERT INTO `ic_crosspromo` VALUES ('61', '7', '9', '3', 'Inbound link', 'Click', 'Greed Corp - Fly Fu - Crosspromo - 1332930505_Icon170', '1', null);
 INSERT INTO `ic_crosspromo` VALUES ('62', '8', '10', '4', 'Inbound link', 'Click', 'Froggy Launcher - Mist Bouncer - Crosspromo - 1332930545_Icon170', '1', null);
 INSERT INTO `ic_crosspromo` VALUES ('63', '8', '9', '3', 'Inbound link', 'Click', 'Froggy Launcher - Fly Fu - Crosspromo - 1332930545_Icon170', '1', null);
@@ -403,9 +413,10 @@ INSERT INTO `ic_crosspromo` VALUES ('69', '6', '10', '4', 'Inbound link', 'Click
 INSERT INTO `ic_crosspromo` VALUES ('70', '7', '4', '0', 'Inbound link', 'Click', 'Greed Corp - Lazy Farmer - Crosspromo - 1332930505_Icon170', '1', null);
 INSERT INTO `ic_crosspromo` VALUES ('71', '7', '5', '1', 'Inbound link', 'Click', 'Greed Corp - Santa Ride - Crosspromo - 1332930505_Icon170', '1', null);
 INSERT INTO `ic_crosspromo` VALUES ('72', '7', '10', '2', 'Inbound link', 'Click', 'Greed Corp - Mist Bouncer - Crosspromo - 1332930505_Icon170', '1', null);
-INSERT INTO `ic_crosspromo` VALUES ('73', '7', '11', '4', 'Inbound link', 'Click', 'Greed Corp - Race of Champions - Crosspromo - 1332930505_Icon170', '1', null);
+INSERT INTO `ic_crosspromo` VALUES ('73', '7', null, '4', 'Inbound link', 'Click', 'Greed Corp - Froggy Launcher - Crosspromo - 1332930505_Icon170', '1', null);
 INSERT INTO `ic_crosspromo` VALUES ('74', '8', '4', '1', 'Inbound link', 'Click', 'Froggy Launcher - Lazy Farmer - Crosspromo - 1332930545_Icon170', '1', null);
 INSERT INTO `ic_crosspromo` VALUES ('75', '8', '5', '0', 'Inbound link', 'Click', 'Froggy Launcher - Santa Ride - Crosspromo - 1332930545_Icon170', '1', null);
+INSERT INTO `ic_crosspromo` VALUES ('76', '5', '11', '2', 'Inbound link', 'Click', 'Santa Ride - Race of Champions the official game - Crosspromo - 1332930492_Icon170', '1', null);
 
 -- ----------------------------
 -- Table structure for `ic_email_offer`
