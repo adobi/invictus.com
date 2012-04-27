@@ -279,6 +279,11 @@
 			});
 			
 		},
+		
+		reset: function() {
+		  this._slide('left', 0)
+		},
+		
 		_slide				: function( dir, val, anim, callback ) {
 			
 			// if animating return

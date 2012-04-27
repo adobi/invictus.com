@@ -203,7 +203,11 @@
     //console.log('filter ', filter)
     
     if (!$('#simple-carousel-details-videos').is(':visible')) {
-
+      //console.log($.data($('#image-carousel').elastislide()[0], 'elastislide'))
+      //console.log($.data($('#video-carousel').elastislide()[0], 'elastislide'))
+      $.data($('#image-carousel').elastislide()[0], 'elastislide').reset()
+      $.data($('#video-carousel').elastislide()[0], 'elastislide').reset()
+      
       if (filter === 'all') {
         
         items.show()
@@ -528,7 +532,8 @@
           border: 1,
           minItems	: 5,
           onClick: function(e) { $.trackevent().track($(e).find('a'));}
-      });      
+      });     
+      
     } else {
       if($('#video-carousel').length)
         $('#video-carousel').elastislide({

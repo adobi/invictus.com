@@ -10,8 +10,9 @@
         $config['source_image'] = dirname($_SERVER['SCRIPT_FILENAME']).DIRECTORY_SEPARATOR.'uploads/original/'.$originalImage;
         $config['new_image'] = dirname($_SERVER['SCRIPT_FILENAME']).DIRECTORY_SEPARATOR.'uploads/thumbs/'.$originalImage;
         $config['width'] = $width;
+        $config['height'] = 85;
         //$config['dynamic_output'] = true;
-        $config['maintain_ratio'] = TRUE;
+        //$config['maintain_ratio'] = TRUE;
         
         $ci->load->library('image_lib');
         $ci->image_lib->initialize($config);
