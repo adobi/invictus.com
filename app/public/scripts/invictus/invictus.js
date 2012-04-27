@@ -227,9 +227,30 @@
     }
     el.parents('li.dropdown.open').removeClass('open')
   }  
+
+  App.PlayVideo = function(code, callback)
+  {
+    if (!code) return;
+  
+    setTimeout(function() {
+      $.get(App.URL+'pages/video/'+code, function(resp) {
+        callback(resp)
+        //carousel.carousel('pause')
+      })
+    }, 500)    
+  }
   
   App.HandleSmallCarousel = function() 
   {
+
+
+    $('#simple-carousel-details-videos .active').on('click', function() {
+      var that = $(this)
+      App.PlayVideo($('#videos .selected-carousel-item').data('code'), function(resp) {
+        that.html(resp)
+      })
+    })
+    
     $('#images a.thumbnail, #videos a.thumbnail').on('click', function(e) {
       var self = $(this),
           type = self.data('type'),
@@ -240,14 +261,12 @@
           
       carousel.carousel(self.parents('li:first').index())
       carousel.carousel('pause')
-      setTimeout(function() {
-        if (type==="videos" && self.data('code')) {
-          $.get(App.URL+'pages/video/'+self.data('code'), function(resp) {
-            carousel.find('.active').html(resp)
-            //carousel.carousel('pause')
-          })
-        }
-      }, 500)
+      if (type==="videos" && self.data('code')) {
+        App.PlayVideo(self.data('code'), function(resp) {
+          carousel.find('.active').html(resp)
+          //carousel.carousel('pause')
+        })
+      }
       
       e.preventDefault()
     })
@@ -450,6 +469,10 @@
       
       var active = $(e.target); // activated tab
       
+      App.PlayVideo($('#videos .selected-carousel-item').data('code'), function(resp) {
+        $('#simple-carousel-details-videos .active').html(resp)
+      })
+      
       $('.carousel-images, .carousel-videos').toggle()
       
       $(active.attr('href')).find('.es-carousel li').show()
@@ -518,6 +541,12 @@
       
       $('.tab-pane.active .selected-carousel-item').removeClass('selected-carousel-item')
       $('.tab-pane.active').find('li:eq('+elem.index()+')').find('a').addClass('selected-carousel-item')
+      
+      if ($(this).is('.carousel-videos')) {
+        App.PlayVideo($('#videos .selected-carousel-item').data('code'), function(resp) {
+          $('#simple-carousel-details-videos .active').html(resp)
+        })
+      }
       
     }).on('slide', function(e) {
     })

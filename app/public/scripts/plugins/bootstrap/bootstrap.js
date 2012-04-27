@@ -410,6 +410,7 @@
     }
 
   , next: function () {
+  
       if (this.sliding) return
       return this.slide('next')
     }
@@ -433,35 +434,38 @@
       isCycling && this.pause()
 
       $next = $next.length ? $next : this.$element.find('.item')[fallback]()
-      
-      this.preload($next);
-      
-      if ($next.hasClass('active')) return
+      that = this
+      //console.log($next)
+      this.preload($next, function() {
+        if ($next.hasClass('active')) return
 
-      if ($.support.transition && this.$element.hasClass('slide')) {
-        this.$element.trigger(e)
-        if (e.isDefaultPrevented()) return
-        $next.addClass(type)
-        $next[0].offsetWidth // force reflow
-        $active.addClass(direction)
-        $next.addClass(direction)
-        this.$element.one($.support.transition.end, function () {
-          $next.removeClass([type, direction].join(' ')).addClass('active')
-          $active.removeClass(['active', direction].join(' '))
+        if ($.support.transition && that.$element.hasClass('slide')) {
+          that.$element.trigger(e)
+          if (e.isDefaultPrevented()) return
+          $next.addClass(type)
+          $next[0].offsetWidth // force reflow
+          $active.addClass(direction)
+          $next.addClass(direction)
+          that.$element.one($.support.transition.end, function () {
+            $next.removeClass([type, direction].join(' ')).addClass('active')
+            $active.removeClass(['active', direction].join(' '))
+            that.sliding = false
+            setTimeout(function () { that.$element.trigger('slid') }, 0)
+          })
+        } else {
+          that.$element.trigger(e)
+          if (e.isDefaultPrevented()) return
+          $active.removeClass('active')
+          $next.addClass('active')
           that.sliding = false
-          setTimeout(function () { that.$element.trigger('slid') }, 0)
-        })
-      } else {
-        this.$element.trigger(e)
-        if (e.isDefaultPrevented()) return
-        $active.removeClass('active')
-        $next.addClass('active')
-        this.sliding = false
-        this.$element.trigger('slid')
-      }
-
-      isCycling && this.cycle()
-
+          that.$element.trigger('slid')
+        }
+        
+        isCycling && that.cycle()
+      
+      })
+            
+      
       return this
     }
   , swipe: function(e, direction) {
@@ -469,14 +473,23 @@
       direction == 'left' && this.next()
       direction == 'right' && this.prev()
     }
-  , preload: function(elem) {
+  , preload: function(elem, callback) {
       
       if(!elem) return
     
       var img = elem.find('img')
       if (!img.attr('src') && img.data('src')) {
-        img.attr('src', img.data('src'))
+        $('#loading-global').show()
+        img.attr('src', img.data('src')).load(function() {
+          //console.log('image loaded')
+          callback();
+          $('#loading-global').hide()
+        })
+      } else {
+        callback()
       }        
+      
+      return this
   }      
   }
 
