@@ -205,8 +205,11 @@
     if (!$('#simple-carousel-details-videos').is(':visible')) {
       //console.log($.data($('#image-carousel').elastislide()[0], 'elastislide'))
       //console.log($.data($('#video-carousel').elastislide()[0], 'elastislide'))
-      $.data($('#image-carousel').elastislide()[0], 'elastislide').reset()
-      $.data($('#video-carousel').elastislide()[0], 'elastislide').reset()
+      if ($('#image-carousel').length)
+        $.data($('#image-carousel').elastislide()[0], 'elastislide').reset()
+      
+      if ($('#video-carousel').length)
+        $.data($('#video-carousel').elastislide()[0], 'elastislide').reset()
       
       if (filter === 'all') {
         
