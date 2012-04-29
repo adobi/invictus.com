@@ -428,14 +428,16 @@
         , fallback  = type == 'next' ? 'first' : 'last'
         , that = this
         , e = $.Event('slide')
+        , platform = this.$element.data('selected-platform')
       
       this.sliding = true
 
       isCycling && this.pause()
-
+      
       $next = $next.length ? $next : this.$element.find('.item')[fallback]()
+
       that = this
-      //console.log($next)
+      
       this.preload($next, function() {
         if ($next.hasClass('active')) return
 
@@ -474,7 +476,7 @@
       direction == 'right' && this.prev()
     }
   , preload: function(elem, callback) {
-      
+      console.log(elem)
       if(!elem) return
     
       var img = elem.find('img')

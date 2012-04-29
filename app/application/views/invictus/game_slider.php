@@ -1,5 +1,5 @@
    
-      <div id="simple-carousel-details-images" class="carousel slide carousel-images">
+      <div id="simple-carousel-details-images" class="carousel slide carousel-images" style="width:770px, height:510px">
           <?php if (!$game->images_is_empty): ?>
             <!-- Carousel items -->
             <div class="carousel-inner">
@@ -75,7 +75,7 @@
                         </li>
                         <?php if ($game->images): ?>
                           <?php foreach ($game->images as $i => $item): ?>
-                            <li data-platforms='<?php echo json_encode(array($item->platform_id)) ?>'>
+                            <li data-platforms='<?php echo json_encode(array($item->platform_id)) ?>' data-item-id="<?php echo $item->id ?>">
                               <a <?php echo event_tracking($item) ?> href="#" class="thumbnail " data-type="images">
                                 <img src="<?php echo create_thumb($item->path, 128) ?>" alt="" style="width:128px">
                               </a>
@@ -130,3 +130,47 @@
         </ul> <!-- /nav -->
     </div>      
            
+    <div class="hide">
+      <div id="hidden-simple-carousel-details-images" class="">
+          <?php if (!$game->images_is_empty): ?>
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->hero_image ?>" alt="">
+                    <?php if ($game->video): ?>
+                      <div class="carousel-caption" style="text-align:center">
+                          <div class="options">
+                            <p class="hidden-phone">
+                              <a rel="in-modal" href = "#" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>/video/on_product_page" class="btn btn-primary"><strong>Watch video</strong> <i style="margin-top:2px;" class="icon-facetime-video icon-white"></i></a>
+                            </p>
+                          </div>
+                      </div>        
+                    <?php endif ?>
+                </div>               
+                <?php if ($game->images): ?>
+                  <?php foreach ($game->images as $i => $item): ?>
+                    <div class="item " data-platforms='<?php echo json_encode(array($item->platform_id)) ?>' data-item-id="<?php echo $item->id ?>">
+                      <?php if ($item->hd_path): ?>
+                        <a <?php echo event_tracking($item, 'hd') ?> href="<?php echo base_url() ?>/uploads/original/<?php echo $item->hd_path ?>" target="_blank">
+                          <img data-src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
+                        </a>
+                      <?php else: ?>
+                        <img data-src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
+                      <?php endif ?>
+                    </div>  
+                  <?php endforeach ?>
+
+                <?php endif ?>
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left hidden-phone" href="#simple-carousel-details-images" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right hidden-phone" href="#simple-carousel-details-images" data-slide="next">&rsaquo;</a>
+          <?php else: ?>
+            <div class="carousel-inner">
+              <div class="item active">
+                  <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->hero_image ?>" alt="">
+              </div>  
+            </div>
+          <?php endif ?>
+      </div>        
+    </div>           

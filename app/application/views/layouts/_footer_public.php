@@ -74,6 +74,7 @@
                     //"<?php echo base_url() ?>scripts/plugins/fotorama/fotorama.src.js",
       	            "<?php echo base_url() ?>scripts/plugins/bootstrap/bootstrap.js",
       	            //"http://www.jacklmoore.com/colorbox/colorbox/jquery.colorbox.js",
+                    "<?php echo base_url() ?>scripts/plugins/spinjs/spin.min.js",
                     "<?php echo base_url() ?>scripts/invictus/invictus.js",
                   <?php else: ?>
                     "<?php echo base_url() ?>scripts/invictus/all.min.js",

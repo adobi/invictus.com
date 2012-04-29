@@ -196,6 +196,7 @@
   
   Games.addImageToPlatform = function(el) 
   {
+    App.CurrentPlatform = el.parents('.items:first').data('platform-id')
     $.get(App.URL + 'game/add_image/'+el.parents('.item:first').data('image-id')+'/to_platform/'+el.data('platform-id'), function() {
       App.Nav.reloadRightPanel()
     })
@@ -210,6 +211,7 @@
 
   Games.copyImageToPlatform = function(el) 
   {
+    App.CurrentPlatform = el.parents('.items:first').data('platform-id')
     $.get(App.URL + 'game/copy_image/'+el.parents('.item:first').data('image-id')+'/to_platform/'+el.data('platform-id'), function() {
       App.Nav.reloadRightPanel()
     })

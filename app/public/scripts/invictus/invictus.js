@@ -29,6 +29,22 @@
 
 !function($) {
 
+  $.fn.spin = function(opts) {
+    this.each(function() {
+      var $this = $(this),
+          data = $this.data();
+
+      if (data.spinner) {
+        data.spinner.stop();
+        delete data.spinner;
+      }
+      if (opts !== false) {
+        data.spinner = new Spinner($.extend({color: $this.css('color')}, opts)).spin(this);
+      }
+    });
+    return this;
+  };
+
   $.subnav = function() 
   {
       
@@ -205,12 +221,20 @@
     if (!$('#simple-carousel-details-videos').is(':visible')) {
       //console.log($.data($('#image-carousel').elastislide()[0], 'elastislide'))
       //console.log($.data($('#video-carousel').elastislide()[0], 'elastislide'))
+      
+      // reset elastislide images 
       if ($('#image-carousel').length)
         $.data($('#image-carousel').elastislide()[0], 'elastislide').reset()
       
+      // reset elastislide videos
       if ($('#video-carousel').length)
         $.data($('#video-carousel').elastislide()[0], 'elastislide').reset()
       
+      var carousel = $('#simple-carousel-details-images')
+      // reset carousel
+      carousel.carousel(0).carousel('pause')
+      
+      var carouselItems = []
       if (filter === 'all') {
         
         items.show()
@@ -220,13 +244,44 @@
           
           var platforms = $(v).data('platforms')
   
-          //console.log('platforms ', platforms)
-          //console.log('in-array ', $.inArray(filter.toString(), platforms))
-          
-          !platforms || $.inArray(filter.toString(), platforms) === -1 ? $(v).hide() : $(v).show()
+          !platforms || $.inArray(filter.toString(), platforms) === -1 ? $(v).hide() : $(v).show() && carouselItems.push($(v).data('item-id'))
           
         })
       }
+      
+      if (carouselItems.length) {
+        var hiddenCarousel = $('#hidden-simple-carousel-details-images'),
+            hiddenItems = hiddenCarousel.find('.item[data-item-id]'),
+            visibleCarousel = $('#simple-carousel-details-images .carousel-inner'),
+            filteredItems = hiddenItems.filter(function(index){
+            //console.log($.inArray($(this).data('item-id'), carouselItems), $(this).data('item-id'))
+              return $.inArray($(this).data('item-id'), carouselItems) !== -1
+            })    
+        
+        if (!filteredItems.length) return
+        
+        visibleCarousel.empty()
+        
+        for (var i = 0; i < filteredItems.length; i++) {
+          
+          visibleCarousel.append($(filteredItems[i]).clone(true, true))
+        }
+        visibleCarousel.find('.item:first').addClass('active')
+        
+        
+      } else {
+        var hiddenCarousel = $('#hidden-simple-carousel-details-images'),
+            hiddenItems = hiddenCarousel.find('.item').clone(true, true),
+            visibleCarousel = $('#simple-carousel-details-images .carousel-inner')
+        
+        visibleCarousel.empty()
+        visibleCarousel.append(hiddenItems)
+        
+      }
+      
+      $('#simple-carousel-details-images').carousel('pause')
+      
+      App.PreloadImages(visibleCarousel.find('[data-src]'))
     }
     el.parents('li.dropdown.open').removeClass('open')
   }  
@@ -430,13 +485,16 @@
     })
   }
   
-  App.PreloadImages = function() 
+  App.PreloadImages = function(items) 
   {
-    var items = $('.teasers [data-src], .all-games [data-src]')
+    $('img[data-src]').spin()
     
     $.each(items, function(i, v) {
       
-      $(v).attr('src', $(v).data('src'))
+      $(v).attr('src', $(v).data('src')).load(function() {
+        $('the-selected-game').addClass('selected-game').removeClass('the-selected-game')
+        $('img[data-src]').spin().stop()
+      })
       
     })
     //console.log('images loaded')
@@ -445,7 +503,7 @@
   $(function() 
   {
     
-    App.PreloadImages()
+    App.PreloadImages($('.teasers [data-src], .all-games [data-src], .crosspromo [data-src]'))
     
     App.VideoInModal()
     

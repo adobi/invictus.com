@@ -12,7 +12,7 @@
             <?php if ($game->crosspromo): ?>
               <?php foreach ($game->crosspromo as $item): ?>
                 <?php if ($item): ?>
-                  <li class="span2"><a <?php echo event_tracking($item) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class="thumbnail"><img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>"></a></li>
+                  <li class="span2"><a <?php echo event_tracking($item) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>" class="thumbnail"><img alt="" data-src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>"></a></li>
                 <?php endif ?>
               <?php endforeach ?>
             <?php endif ?>
