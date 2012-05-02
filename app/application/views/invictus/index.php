@@ -64,8 +64,8 @@
           <div class="span8 ">
             <?php if ($current_offer): ?>
               <div class="row newsletter">
-                <div class="span7">
-                  <h2 style="margin-bottom:10px;">Offer: <span class="upper-gray"><?php echo $current_offer->name ?></span></h2>
+                <div class="">
+                  <h2>Offer: <span class="upper-gray"><?php echo $current_offer->name ?></span></h2>
                 </div>
                 <div class="span4 subscribe">
                   <!-- <img src="http://placehold.it/360x160" alt=""> -->
@@ -89,7 +89,7 @@
             <?php if ($about): ?>
               <div class="blog">
                 <div class="">
-                  <h2 style="margin-bottom:10px;">About Invictus</h2>
+                  <h2>About Invictus</h2>
                 </div>
                 <p style="padding:10px;"><?php echo nl2br($about->description) ?></p>
               </div>

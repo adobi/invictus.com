@@ -63,6 +63,7 @@
       a {
         img {
           width:280px!important;
+          height:auto;
         }
       }
     }
@@ -136,12 +137,12 @@
     margin-left:-10px!important;
     li {
       margin:0 5px 10px 0!important;
-      width:72px;
+      width:70px!important;
       .border-radius(12px);
-      img{
-        width: 64px!important;
-      }
       .thumbnail {
+        img{
+          width: 64px!important;
+        }
         &:hover{
           .border-radius(12px);
         }
@@ -310,10 +311,20 @@
     height:auto!important;
     //width:235px;
     //width:100%!important;
-    width:99%!important;
+    //width:100%!important;
   }
   
-  
+  .details-pane {
+    //margin-left:0;
+    .options {
+      
+      text-align:center;
+      a {
+        width:100%!important;
+        padding:15px 0px;
+      }
+    }
+  }
   
   .game-logo {
     width:100%;
@@ -403,12 +414,17 @@
   .all-games  {
     li  {
       margin:10px;
-    }
-    img {
-      width:96px!important;
+      width:100px;
+      a {
+        width:100px;
+        height:100%;
+        img {
+          width:96px!important;
+        }
+      }
     }
   }
-  
+
   .all-games-wrapper {
     width:auto;
   }
@@ -451,7 +467,11 @@
       width:87%;
       margin-left:40px;
     }
-  }   
+  } 
+  
+  .details-pane {
+    //margin-left:20px!important;
+  }  
   
 }
 
@@ -463,7 +483,11 @@
   }
   .details-pane, .teasers {
     height:auto;
-    width:99%;
+    width:99%!important;
+    a {
+      width:100%!important;
+      height:100%!important;
+    }    
   }
   
   .contact-form {
@@ -508,6 +532,10 @@
   
   .teasers {
     width:295px;
+    a {
+      width:100%!important;
+      height:100%!important;
+    }
   }
   
   .header-carousel {
@@ -571,6 +599,10 @@
     .span6 {
       width:450px;
     }
+  }
+  
+  .image-carousel, .teasers {
+    height:450px;
   }
 }
 

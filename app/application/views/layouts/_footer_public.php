@@ -77,7 +77,7 @@
                     "<?php echo base_url() ?>scripts/plugins/spinjs/spin.min.js",
                     "<?php echo base_url() ?>scripts/invictus/invictus.js",
                   <?php else: ?>
-                    "<?php echo base_url() ?>scripts/invictus/all.min.js",
+                    "<?php echo base_url() ?>assets/scripts/all.min.js",
                   <?php endif ?>
                   
                   function() {

@@ -23,7 +23,7 @@
       <div id = "fb-comments-desktop" class="fb-comments" data-href="<?php echo base_url() ?>games/<?php echo $game->url ?>" data-num-posts="2" data-width="770"></div>
       <!-- <div class="fb-comments" data-href="http://facebook.com/<?php echo $game->facebook_page ?>" data-num-posts="2" data-width="620"></div> -->
     </div>
-    <div class="span4 details-pane game-details" style="margin-left:10px;">
+    <div class="span4 details-pane game-details">
       <h3 class="game-name-and-icon">
         <?php echo $game->name ?>
         <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->logo ?>" alt="" class="pull-right" style="width:64px;">

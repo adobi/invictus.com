@@ -34,11 +34,11 @@
         //less.watch();        
       </script>
     <?php else: ?>
-      <link rel = "stylesheet" type="text/css" href="<?= base_url() ?>css/invictus/all.css">
+      <link rel = "stylesheet" type="text/css" href="<?= base_url() ?>assets/css/all.css">
     <?php endif ?>  
     
     <!--[if IE]>
-      <link href="<?php echo base_url() ?>/css/invictus/ie.css" rel="stylesheet" type="text/css" >
+      <link href="<?php echo base_url() ?>/assets/css/ie.css" rel="stylesheet" type="text/css" >
     <![endif]-->
     <!--[if IE]>
       <?php if (ENVIRONMENT === 'development'): ?>

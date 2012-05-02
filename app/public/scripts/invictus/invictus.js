@@ -176,20 +176,14 @@
     $('#simple-carousel').on('slid', function() {
       var currentHero = $(this).find('.active')
       
-      //$('.teaser').show()
-
-      //$('.teaser[data-item='+current.data('item')+']').hide()
-      
-      
-      
-      //$('.teaser.hide').removeClass('hide')
-      
-      //$('.teaser[data-item='+current.data('item')+']').addClass('hide')
-      
       $('.teasers').prepend(App.hiddenTeaser.removeClass('hide'))
       
       $('.teaser[data-item='+currentHero.data('item')+']').addClass('hide')
       App.hiddenTeaser = $('.teaser.hide').remove()
+      
+      //App.PreloadImages($('.teasers [data-src]'));
+      $('.teasers .spinner').remove()
+      
     })
   };
   
@@ -232,9 +226,6 @@
         $.data($('#video-carousel').elastislide()[0], 'elastislide').reset()
       
       var carousel = $('#simple-carousel-details-images')
-      // reset carousel
-      carousel.carousel(0).carousel('pause')
-      
       var carouselItems = []
       if (filter === 'all') {
         
@@ -281,8 +272,11 @@
         visibleCarousel.append(hiddenItems)
         
       }
+
+      // reset carousel
+      carousel.carousel(0).carousel('pause')
       
-      $('#simple-carousel-details-images').carousel('pause')
+      //$('#simple-carousel-details-images').carousel('pause')
       
       App.PreloadImages(visibleCarousel.find('[data-src]'))
     }
@@ -490,15 +484,17 @@
   
   App.PreloadImages = function(items) 
   {
-    $('img[data-src]').parent().spin()
     
     $.each(items, function(i, v) {
-      
+      //console.log($(v))
+      $(v).parent().spin()
       $(v).attr('src', $(v).data('src')).load(function() {
+        //console.log($(v), ' loaded')
         $('the-selected-game').addClass('selected-game').removeClass('the-selected-game')
+        
         $(v).prevAll('.spinner').remove()
       })
-      
+      //$(v).prevAll('.spinner').remove()
     })
     //console.log('images loaded')
   }
