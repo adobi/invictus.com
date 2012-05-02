@@ -476,7 +476,7 @@
       direction == 'right' && this.prev()
     }
   , preload: function(elem, callback) {
-      console.log(elem)
+      //console.log(elem)
       if(!elem) return
     
       var img = elem.find('img')

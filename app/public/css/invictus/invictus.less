@@ -468,6 +468,8 @@ img {
         .opacity(0);
       }
       a {
+        width: 380px;
+        height:165px;
         display:block;
         vertical-align:middle;
         .opacity(80);
@@ -518,6 +520,11 @@ img {
       margin-left:20px;
       li {
         width:135px; margin-bottom:0; margin-left:10px;
+        .thumbnail {
+          width:130px;
+          height:130px;
+          display:inline-block;
+        }
       }
     }
   }
@@ -580,8 +587,13 @@ img {
     .thumbnail:hover {
       .border-radius(24px);
     }
-    img {
+    a {
       width:120px;
+      height:120px;
+      display:inline-block;
+      img {
+        width:120px;
+      }
     }
   }
   .selected-game {

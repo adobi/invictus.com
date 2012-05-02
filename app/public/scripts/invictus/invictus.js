@@ -213,12 +213,13 @@
   {
     var filter = el.data('platform')
     
-    el.parents('ul').find('.active').removeClass('active')
-    el.parents('li:first').addClass('active')    
+    //el.parents('ul').find('.active').removeClass('active')
+    //el.parents('li:first').addClass('active')    
     
     //console.log('filter ', filter)
     
     if (!$('#simple-carousel-details-videos').is(':visible')) {
+      
       //console.log($.data($('#image-carousel').elastislide()[0], 'elastislide'))
       //console.log($.data($('#video-carousel').elastislide()[0], 'elastislide'))
       
@@ -239,14 +240,16 @@
         
         items.show()
       } else {
-        
-        $.each(items, function (i, v) {
+        if (filter) {
           
-          var platforms = $(v).data('platforms')
-  
-          !platforms || $.inArray(filter.toString(), platforms) === -1 ? $(v).hide() : $(v).show() && carouselItems.push($(v).data('item-id'))
-          
-        })
+          $.each(items, function (i, v) {
+            
+            var platforms = $(v).data('platforms')
+    
+            !platforms || $.inArray(filter.toString(), platforms) === -1 ? $(v).hide() : $(v).show() && carouselItems.push($(v).data('item-id'))
+            
+          })
+        }
       }
       
       if (carouselItems.length) {
@@ -487,13 +490,13 @@
   
   App.PreloadImages = function(items) 
   {
-    $('img[data-src]').spin()
+    $('img[data-src]').parent().spin()
     
     $.each(items, function(i, v) {
       
       $(v).attr('src', $(v).data('src')).load(function() {
         $('the-selected-game').addClass('selected-game').removeClass('the-selected-game')
-        $('img[data-src]').spin().stop()
+        $(v).prevAll('.spinner').remove()
       })
       
     })
@@ -529,12 +532,20 @@
     $('a[data-toggle="tab"]').on('shown', function (e) {
       
       var active = $(e.target); // activated tab
+      //console.log(active)
+      if (active.data('carousel') === '.carousel-videos') {
+        $('.games-filter').parents('.dropdown').hide()
+        App.PlayVideo($('#videos .selected-carousel-item').data('code'), function(resp) {
+          $('#simple-carousel-details-videos .active').html(resp)
+        })
+      } else {
+        $('.games-filter').parents('.dropdown').show()
+      }
       
-      App.PlayVideo($('#videos .selected-carousel-item').data('code'), function(resp) {
-        $('#simple-carousel-details-videos .active').html(resp)
-      })
+      //$('.carousel-images, .carousel-videos').toggle()
       
-      $('.carousel-images, .carousel-videos').toggle()
+      $('.carousel').hide()
+      $(active.data('carousel')).show()
       
       $(active.attr('href')).find('.es-carousel li').show()
       
@@ -543,7 +554,9 @@
           border: 1,
           minItems	: 5,
           onClick: function(e) { $.trackevent().track($(e).find('a'));}
-      });      
+      });  
+      
+      App.Filter($('.games-filter .active a'), $('.games-list li, .es-carousel li'));    
     });    
     
     App.HandleSmallCarousel()

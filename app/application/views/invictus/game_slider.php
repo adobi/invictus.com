@@ -121,11 +121,11 @@
           <?php endif ?>
 
           <?php if (!$game->videos_is_empty ||  !$game->images_is_empty): ?>
-            <li class="active"><a data-toggle="tab" href="#<?php echo $game->images_is_empty ? 'videos' : 'images' ?>">Images</a></li>
+            <li class="active"><a data-toggle="tab" href="#<?php echo $game->images_is_empty ? 'videos' : 'images' ?>" data-carousel=".carousel-images">Images</a></li>
           <?php endif ?>
           
           <?php if (!$game->videos_is_empty): ?>
-            <li class=""><a data-toggle="tab" href="#videos">Videos</a></li>
+            <li class=""><a data-toggle="tab" href="#videos" data-carousel=".carousel-videos">Videos</a></li>
           <?php endif ?>
         </ul> <!-- /nav -->
     </div>      
@@ -149,7 +149,7 @@
                 </div>               
                 <?php if ($game->images): ?>
                   <?php foreach ($game->images as $i => $item): ?>
-                    <div class="item " data-platforms='<?php echo json_encode(array($item->platform_id)) ?>' data-item-id="<?php echo $item->id ?>">
+                    <div class="item" data-platforms='<?php echo json_encode(array($item->platform_id)) ?>' data-item-id="<?php echo $item->id ?>">
                       <?php if ($item->hd_path): ?>
                         <a <?php echo event_tracking($item, 'hd') ?> href="<?php echo base_url() ?>/uploads/original/<?php echo $item->hd_path ?>" target="_blank">
                           <img data-src="<?php echo base_url() ?>uploads/original/<?php echo $item->path ?>" alt="">
