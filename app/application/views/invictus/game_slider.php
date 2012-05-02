@@ -159,7 +159,6 @@
                       <?php endif ?>
                     </div>  
                   <?php endforeach ?>
-
                 <?php endif ?>
             </div>
             <!-- Carousel nav -->

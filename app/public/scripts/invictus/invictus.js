@@ -528,7 +528,7 @@
   {
     
     $.each(items, function(i, v) {
-      //console.log($(v))
+      console.log('loading image: ', $(v).data('src')
       $(v).parent().spin()
       $(v).attr('src', $(v).data('src')).load(function() {
         //console.log($(v), ' loaded')
@@ -562,6 +562,8 @@
     App.ReverseContentColumns()
     App.LoadFacebookSdk()
     App.ToggleFacebookCommnet()
+    App.HandleSmallCarousel()
+    
     
     $('[data-pretty-file], input[type=file]').prettifyUpload({'text': 'Select a file'});
     $('.show').show()
@@ -596,8 +598,6 @@
       
       App.Filter($('.games-filter .active a'), $('#hidden-es-carousel-images .es-carousel li'));    
     });    
-    
-    App.HandleSmallCarousel()
     
     $('body').on('click', '.games-filter a', function(e) {
       
