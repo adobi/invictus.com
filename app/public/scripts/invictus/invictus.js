@@ -225,52 +225,93 @@
       if ($('#video-carousel').length)
         $.data($('#video-carousel').elastislide()[0], 'elastislide').reset()
       
-      var carousel = $('#simple-carousel-details-images')
-      var carouselItems = []
+      var carousel = $('#simple-carousel-details-images'),
+          carouselItems = [], elastslideItems = []
+      console.log('all items', items.length)    
+      console.log('platform', filter)
       if (filter === 'all') {
         
-        items.show()
+        //items.show()
       } else {
         if (filter) {
           
           $.each(items, function (i, v) {
             
             var platforms = $(v).data('platforms')
-    
-            !platforms || $.inArray(filter.toString(), platforms) === -1 ? $(v).hide() : $(v).show() && carouselItems.push($(v).data('item-id'))
+            
+            !platforms || $.inArray(filter.toString(), platforms) === -1 ? $(v) : carouselItems.push($(v).data('item-id')) && elastslideItems.push($(v).data('item-id'))
             
           })
         }
       }
-      
-      if (carouselItems.length) {
+      console.log('carousel ', carouselItems) 
+      console.log('elastislide ', elastslideItems)
+      if (carouselItems.length && elastslideItems.length) {
         var hiddenCarousel = $('#hidden-simple-carousel-details-images'),
             hiddenItems = hiddenCarousel.find('.item[data-item-id]'),
             visibleCarousel = $('#simple-carousel-details-images .carousel-inner'),
             filteredItems = hiddenItems.filter(function(index){
-            //console.log($.inArray($(this).data('item-id'), carouselItems), $(this).data('item-id'))
               return $.inArray($(this).data('item-id'), carouselItems) !== -1
-            })    
+            }),
+
+            hiddenElastislide = $('#hidden-es-carousel-images'),
+            hiddenElastislideItems = hiddenElastislide.find('li'),
+            visibleElastislide = $('#image-carousel .es-carousel ul'),
+            filteredElastislideItems = hiddenElastislideItems.filter(function(index){
+              return $.inArray($(this).data('item-id'), elastslideItems) !== -1
+            })
         
-        if (!filteredItems.length) return
+        //console.log(filteredElastislideItems)
+        if (!filteredItems.length || !filteredElastislideItems.length) return
         
         visibleCarousel.empty()
+        visibleElastislide.empty()
         
         for (var i = 0; i < filteredItems.length; i++) {
           
           visibleCarousel.append($(filteredItems[i]).clone(true, true))
+          
+          visibleElastislide.append($(filteredElastislideItems[i]).clone(true, true))
         }
         visibleCarousel.find('.item:first').addClass('active')
+        visibleElastislide.find('.thumbnail:first').addClass('selected-carousel-item')
         
+        $.data($('#image-carousel').elastislide()[0], 'elastislide').destroy()
+        
+        $('#image-carousel').elastislide({
+            imageW  : 110,
+            border: 1,
+            minItems	: 5,
+            onClick: function(e) { $.trackevent().track($(e).find('a'));}
+        });        
         
       } else {
+        
         var hiddenCarousel = $('#hidden-simple-carousel-details-images'),
             hiddenItems = hiddenCarousel.find('.item').clone(true, true),
             visibleCarousel = $('#simple-carousel-details-images .carousel-inner')
+            hiddenElastislide = $('#hidden-es-carousel-images'),
+            hiddenElastislideItems = hiddenElastislide.find('li').clone(true, true),
+            visibleElastislide = $('#image-carousel .es-carousel ul')
         
         visibleCarousel.empty()
         visibleCarousel.append(hiddenItems)
+        //console.log(hiddenElastislideItems)
+        visibleElastislide.empty()
+        visibleElastislide.append(hiddenElastislideItems)
+
+        visibleCarousel.find('.item:first').addClass('active')
+        visibleElastislide.find('.thumbnail:first').addClass('selected-carousel-item')
+
+        $.data($('#image-carousel').elastislide()[0], 'elastislide').destroy()
         
+        $('#image-carousel').elastislide({
+            imageW  : 110,
+            border: 1,
+            minItems	: 5,
+            onClick: function(e) { $.trackevent().track($(e).find('a'));}
+        });        
+
       }
 
       // reset carousel
@@ -306,7 +347,8 @@
       })
     })
     
-    $('#images a.thumbnail, #videos a.thumbnail').on('click', function(e) {
+    $('body').on('click', '#images a.thumbnail, #videos a.thumbnail', function(e) {
+      
       var self = $(this),
           type = self.data('type'),
           carousel = $('#simple-carousel-details-'+type)
@@ -552,14 +594,14 @@
           onClick: function(e) { $.trackevent().track($(e).find('a'));}
       });  
       
-      App.Filter($('.games-filter .active a'), $('.games-list li, .es-carousel li'));    
+      App.Filter($('.games-filter .active a'), $('#hidden-es-carousel-images .es-carousel li'));    
     });    
     
     App.HandleSmallCarousel()
     
     $('body').on('click', '.games-filter a', function(e) {
       
-      App.Filter($(this), $('.games-list li, .es-carousel li'));
+      App.Filter($(this), $('#hidden-es-carousel-images .es-carousel li'));
       
       e.preventDefault()
     })    

@@ -173,4 +173,28 @@
             </div>
           <?php endif ?>
       </div>        
-    </div>           
+      <?php if (!$game->images_is_empty): ?>
+        <div id="hidden-es-carousel-images">
+          <div  class="es-carousel-wrapper span7" style="margin-left:0">
+              <div class="es-carousel">
+                  <ul>
+                    <li>
+                      <a  href="#" class="thumbnail selected-carousel-item" data-type="images">
+                        <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->hero_image ?>" alt="">
+                      </a>
+                    </li>
+                    <?php if ($game->images): ?>
+                      <?php foreach ($game->images as $i => $item): ?>
+                        <li data-platforms='<?php echo json_encode(array($item->platform_id)) ?>' data-item-id="<?php echo $item->id ?>">
+                          <a <?php echo event_tracking($item) ?> href="#" class="thumbnail " data-type="images">
+                            <img src="<?php echo create_thumb($item->path, 128) ?>" alt="" style="width:128px">
+                          </a>
+                        </li>                      
+                      <?php endforeach ?>
+                    <?php endif ?>                      
+                  </ul>
+              </div>
+          </div>             
+        </div> <!-- /#images -->
+      <?php endif ?>
+    </div> <!-- /.hide -->       
