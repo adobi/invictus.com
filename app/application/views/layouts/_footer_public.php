@@ -10,7 +10,7 @@
                   <?php foreach ($footer_games as $item): ?>
                     <?php if ($item): ?>
                       <li>
-                        <a <?php echo event_tracking($item->analytics['footer']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>"><?php echo $item->name ?></a>
+                        <a <?php echo event_tracking($item->analytics['footer']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>"><i class="icon-heart icon-white"></i><?php echo $item->name ?></a>
                       </li>
                     <?php endif ?>
                   <?php endforeach ?>
@@ -18,20 +18,25 @@
               <?php endif ?>
             </div>
             <div class="span4 footer-column">
-              <h4>Terms and Conditions</h4>
+              <h4>Privacy plociy</h4>
+              <ul class="unstyled">
+                <li>
+                  <a href="http://privacy.invictus.com/" target="_blank"><i class="icon-book icon-white"></i>Privacy</a>
+                </li>
+              </ul>
             </div>
             <div class="span4 footer-column text-right">
               <h4>Find us on</h4>
               <ul class="unstyled">
-                <li><a href="http://twitter.com/<?php echo $settings->twitter_id ?>" target="_blank">Twitter</a></li>
-                <li><a href="http://facebook.com/<?php echo $settings->facebook_page ?>" target="_blank">Facebook</a></li>
+                <li><a href="http://twitter.com/<?php echo $settings->twitter_id ?>" target="_blank"><i class="icon-globe icon-white"></i>Twitter</a></li>
+                <li><a href="http://facebook.com/<?php echo $settings->facebook_page ?>" target="_blank"><i class="icon-globe icon-white"></i>Facebook</a></li>
               </ul>
             </div>
           </div>
         </div>
         <div style="margin-top:20px; background:rgba(18,18,18,.6); padding:10px;">
           <div class="container">
-            <h6>All rights reserved &copy; Invictus Games Ltd</h6>
+            <h6>All rights reserved, <?php echo date('Y') ?> &copy; Invictus Games Ltd</h6>
           </div>
         </div>
       </footer>    	  

@@ -121,11 +121,11 @@
           <?php endif ?>
 
           <?php if (!$game->videos_is_empty ||  !$game->images_is_empty): ?>
-            <li class="active"><a data-toggle="tab" href="#<?php echo $game->images_is_empty ? 'videos' : 'images' ?>" data-carousel=".carousel-images">Images</a></li>
+            <li class="active"><a data-toggle="tab" href="#<?php echo $game->images_is_empty ? 'videos' : 'images' ?>" data-carousel=".carousel-images">Images <span class="badge badge-info"><?php echo count($game->images) + 1 ?></span></a></li>
           <?php endif ?>
           
           <?php if (!$game->videos_is_empty): ?>
-            <li class=""><a data-toggle="tab" href="#videos" data-carousel=".carousel-videos">Videos</a></li>
+            <li class=""><a data-toggle="tab" href="#videos" data-carousel=".carousel-videos">Videos <span class="badge badge-info"><?php echo count($game->videos) ?></span></a></li>
           <?php endif ?>
         </ul> <!-- /nav -->
     </div>      

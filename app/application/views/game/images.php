@@ -26,7 +26,7 @@
           <legend for="">
             <a href="#" class="btn toggle-platform-images" rel="tooltip" title="Toggle images"><i class="icon-resize-vertical"></i></a>
             <span>
-              <?php echo $img['platform'] ? $img['platform']->name . ($img['images'] ? ' ('.count($img['images']).')' : '') : '' ?>
+              <?php echo $img['platform'] ? $img['platform']->name . ($img['images'] ? ' <span class="badge badge-info" style="top:-3px; position:relative">'.count($img['images']).'</span>' : '') : '' ?>
             </span>
             <div class="btn-group pull-right">
               <a class="btn btn-primary " href="<?php echo base_url() ?>gameimage/edit/for_game/<?php echo $item->id ?>/platform/<?php echo $img['platform']->platform_id ?>" rel="tooltip" title="Add new image to <?php echo $img['platform']->name ?>" data-ajax-link><i class="icon-plus-sign icon-white"></i></a>
