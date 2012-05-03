@@ -23,7 +23,7 @@
       <?php if ($games): ?>
         <ul class="thumbnails all-games games-list">
           <?php foreach ($games as $i=>$item): ?>
-            <li class="span2 <?php echo $item->id === $game->id ? 'the-selected-game' : '' ?> " data-platforms='<?php echo json_encode($item->platforms) ?>'>
+            <li class="span2 <?php echo $item->id === $game->id ? 'selected-game' : '' ?> " data-platforms='<?php echo json_encode($item->platforms) ?>'>
               <div class="thumbnail game">
                 <a href="<?php echo base_url() ?>games/<?php echo $item->url ?>/short" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block">
                   <img alt="" data-src="<?php echo base_url() ?>uploads/original/<?php echo $item->logo ?>">
