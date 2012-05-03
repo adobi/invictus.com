@@ -69,14 +69,14 @@
                   <div class="es-carousel">
                       <ul>
                         <li>
-                          <a  href="#" class="thumbnail selected-carousel-item" data-type="images">
+                          <a  href="#" class="thumbnail selected-carousel-item carousel-item" data-type="images">
                             <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->hero_image ?>" alt="">
                           </a>
                         </li>
                         <?php if ($game->images): ?>
                           <?php foreach ($game->images as $i => $item): ?>
                             <li data-platforms='<?php echo json_encode(array($item->platform_id)) ?>' data-item-id="<?php echo $item->id ?>">
-                              <a <?php echo event_tracking($item) ?> href="#" class="thumbnail " data-type="images">
+                              <a <?php echo event_tracking($item) ?> href="javascript:void(0)" class="thumbnail carousel-item" data-type="images">
                                 <img src="<?php echo create_thumb($item->path, 128) ?>" alt="" style="width:128px">
                               </a>
                             </li>                      
@@ -95,7 +95,7 @@
                         <?php if ($game->videos): ?>
                           <?php foreach ($game->videos as $i => $item): ?>
                             <li>
-                              <a <?php echo event_tracking($item) ?> href="#" class="thumbnail <?php echo $i === 0 ? 'selected-carousel-item' : '' ?>" data-type="videos" data-code="<?php echo $item->code ?>">
+                              <a <?php echo event_tracking($item) ?> href="javascript:void(0)" class="thumbnail <?php echo $i === 0 ? 'selected-carousel-item' : '' ?> carousel-item" data-type="videos" data-code="<?php echo $item->code ?>">
                                 <?php echo youtube_video_image($item->code, 128, 70) ?>
                               </a>
                             </li>                      
@@ -178,14 +178,14 @@
               <div class="es-carousel">
                   <ul>
                     <li>
-                      <a  href="#" class="thumbnail selected-carousel-item" data-type="images">
+                      <a  href="#" class="thumbnail selected-carousel-item carousel-item" data-type="images">
                         <img src="<?php echo base_url() ?>uploads/original/<?php echo $game->hero_image ?>" alt="">
                       </a>
                     </li>
                     <?php if ($game->images): ?>
                       <?php foreach ($game->images as $i => $item): ?>
                         <li data-platforms='<?php echo json_encode(array($item->platform_id)) ?>' data-item-id="<?php echo $item->id ?>">
-                          <a <?php echo event_tracking($item) ?> href="#" class="thumbnail " data-type="images">
+                          <a <?php echo event_tracking($item) ?> href="#" class="thumbnail carousel-item" data-type="images">
                             <img src="<?php echo create_thumb($item->path, 128) ?>" alt="" style="width:128px">
                           </a>
                         </li>                      

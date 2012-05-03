@@ -338,16 +338,7 @@
   
   App.HandleSmallCarousel = function() 
   {
-
-
-    $('#simple-carousel-details-videos .active').on('click', function() {
-      var that = $(this)
-      App.PlayVideo($('#videos .selected-carousel-item').data('code'), function(resp) {
-        that.html(resp)
-      })
-    })
-    
-    $('body').on('click', '#images a.thumbnail, #videos a.thumbnail', function(e) {
+    $('body').on('click', '.carousel-item', function(e) {
       
       var self = $(this),
           type = self.data('type'),
@@ -366,8 +357,16 @@
       }
       
       e.preventDefault()
+    });
+    
+    $('#simple-carousel-details-videos .active').on('click', function() {
+      var that = $(this)
+      App.PlayVideo($('#videos .selected-carousel-item').data('code'), function(resp) {
+        that.html(resp)
+      })
     })
-  };
+    
+  }
   
   App.ReverseContentColumns = function () 
   {
@@ -528,7 +527,7 @@
   {
     
     $.each(items, function(i, v) {
-      console.log('loading image: ', $(v).data('src')
+      console.log('loading image: ', $(v).data('src'))
       $(v).parent().spin()
       $(v).attr('src', $(v).data('src')).load(function() {
         //console.log($(v), ' loaded')
@@ -540,6 +539,7 @@
     })
     //console.log('images loaded')
   }
+  window.App = App;
   
   $(function() 
   {
@@ -562,7 +562,6 @@
     App.ReverseContentColumns()
     App.LoadFacebookSdk()
     App.ToggleFacebookCommnet()
-    App.HandleSmallCarousel()
     
     
     $('[data-pretty-file], input[type=file]').prettifyUpload({'text': 'Select a file'});
@@ -593,7 +592,7 @@
           imageW  : 110,
           border: 1,
           minItems	: 5,
-          onClick: function(e) { $.trackevent().track($(e).find('a'));}
+          onClick: function(e) { $.trackevent().track($(e).find('a')); }
       });  
       
       App.Filter($('.games-filter .active a'), $('#hidden-es-carousel-images .es-carousel li'));    
@@ -666,13 +665,14 @@
     $('body').delegate('a[href=#]', 'click', function() {
       return false;
     });
+
     
     if($('#image-carousel').length) {
       $('#image-carousel').elastislide({
           imageW  : 110,
           border: 1,
           minItems	: 5,
-          onClick: function(e) { $.trackevent().track($(e).find('a'));}
+          onClick: function(e) { $.trackevent().track($(e).find('a')); return true;}
       });     
       
     } else {
@@ -684,6 +684,9 @@
             onClick: function(e) { $.trackevent().track($(e).find('a'));}
         });      
     }  
+
+    App.HandleSmallCarousel()
+    
     
     var isBig = 0;
     $('.bigger-font').on('click', function() {
