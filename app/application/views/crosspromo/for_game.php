@@ -1,8 +1,23 @@
 <h3>
   Promotional games for <?php echo $game->name ?>
-              <span class="pull-right">
+              <div class="pull-right">
                 <span class="label label-info">Tipp</span> <span class="tipp-text"><strong>Move items to change the order</strong></span>
-              </span>  
+                <!-- 
+                <?php if ($games_for_select): ?>
+                  <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" rel="tooltip" title="Copy crosspromo" ><i class="icon-list"></i></a></a>
+                  <ul class="dropdown-menu" style="top:auto; right:20px; font-size:13px">
+                    <li style="padding:3px 15px">Copy crosspromo to</li>
+                    <li class="divider"></li>
+                    <?php foreach ($games_for_select as $i=>$item): ?>
+                      <?php if ($item): ?>
+                        <li><a href="<?php echo base_url() ?>crosspromo/copy/<?php echo $game->id ?>/<?php echo $i ?>"><?php echo $item ?></a></li>
+                      <?php endif ?>
+                    <?php endforeach ?>
+                  </ul>                
+                <?php endif ?>
+                 -->
+              </div>  
+        
 </h3>
 <hr>
 <ul class="thumbnails" style=" width:650px; margin-left:-15px">

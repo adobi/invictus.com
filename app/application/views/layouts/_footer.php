@@ -100,7 +100,8 @@
                 //"<?php echo base_url() ?>scripts/plugins/charcounter/jquery.charcounter.js",
                 "<?php echo base_url() ?>scripts/plugins/prettify-upload/jquery.prettify-upload.js",
                 //"<?php echo base_url() ?>scripts/plugins/lionbars/jquery.lionbars.0.3.min.js",
-
+                "<?php echo base_url() ?>scripts/plugins/spinjs/spin.min.js",
+                
                 "<?php echo base_url() ?>scripts/admin/nav.js?<?php echo time(); ?>",
                 "<?php echo base_url() ?>scripts/admin/jobs.js?<?php echo time(); ?>",
                 "<?php echo base_url() ?>scripts/admin/contacts.js?<?php echo time(); ?>",

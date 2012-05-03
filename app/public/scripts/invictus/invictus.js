@@ -550,15 +550,17 @@
   
   App.PreloadImages = function(items) 
   {
-    
     $.each(items, function(i, v) {
       //console.log('loading image: ', $(v).data('src'))
-      //$(v).parent().spin()
-      $(v).attr('src', $(v).data('src')).load(function() {
+      if (!$(v).attr('src'))
+        $(v).parent().spin()
+      
+      $(v).attr('src', $(v).data('src')+'?'+ new Date().getTime()).bind('load', function() {
         //console.log($(v), ' loaded')
+        $(v).parent().find('.spinner').remove()
+
         $('the-selected-game').addClass('selected-game').removeClass('the-selected-game')
         
-        //$(v).prevAll('.spinner').remove()
       })
       //$(v).prevAll('.spinner').remove()
     })
@@ -570,6 +572,7 @@
   {
     
     App.PreloadImages($('.teasers [data-src], .all-games [data-src], .crosspromo [data-src]'))
+    
     
     App.VideoInModal()
     

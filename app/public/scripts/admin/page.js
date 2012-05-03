@@ -311,15 +311,39 @@
       e.preventDefault()
     })
   };
+
+  $.fn.spin = function(opts) {
+    this.each(function() {
+      var $this = $(this),
+          data = $this.data();
+
+      if (data.spinner) {
+        data.spinner.stop();
+        delete data.spinner;
+      }
+      if (opts !== false) {
+        data.spinner = new Spinner($.extend({color: $this.css('color')}, opts)).spin(this);
+      }
+    });
+    return this;
+  };
   
   App.PreloadImages = function() 
   {
     var items = $('[data-src]')
     
     $.each(items, function(i, v) {
+      //console.log('loading image: ', $(v).data('src'))
       
-      $(v).attr('src', $(v).data('src'))
+      if (!$(v).attr('src'))
+        $(v).parent().spin()
       
+      $(v).attr('src', $(v).data('src')).bind('load', function() {
+        //console.log($(v), ' loaded')
+        $(v).parent().find('.spinner').remove()
+
+      })
+      //$(v).prevAll('.spinner').remove()
     })
     //console.log('images loaded')
   }  
