@@ -12,7 +12,7 @@
       <li class="active"><a href="#" data-platform="all">All</a></li>
       <?php if ($platforms): ?>
         <?php foreach ($platforms as $item): ?>
-          <li><a href="#" data-platform='<?php echo $item->id ?>'><?php echo $item->name ?></a></li>
+          <li><a href="javascript:void(0)" data-platform='<?php echo $item->id ?>'><?php echo $item->name ?></a></li>
         <?php endforeach ?>
       <?php endif ?>
     </ul>
@@ -60,7 +60,7 @@
             <?php if ($game->platforms): ?>
               <?php foreach ($game->platforms as $item): ?>
                 <li class="span2">
-                  <a class="thumbnail" href="<?php echo $item->url ?>" target = "_blank" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block">
+                  <a class="thumbnail" href="<?php echo $item->url ?>" target = "_blank" rel="tooltip" title="<?php echo $item->name ?>" style="display:inline-block;  width:100px;">
                     <img alt="" src="<?php echo base_url() ?>uploads/original/<?php echo $item->image ?>">
                   </a>
                 </li>           

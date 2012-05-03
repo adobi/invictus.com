@@ -41,9 +41,9 @@
       <link href="<?php echo base_url() ?>/assets/css/ie.css" rel="stylesheet" type="text/css" >
     <![endif]-->
     <!--[if IE]>
-      <?php if (ENVIRONMENT === 'development'): ?>
+      <?php //if (ENVIRONMENT === 'development'): ?>
         <script type="text/javascript" src="https://getfirebug.com/releases/lite/1.4/firebug-lite.js"></script>
-      <?php endif ?>
+      <?php //endif ?>
       <script type="text/javascript" src="<?php echo base_url() ?>scripts/plugins/respondjs/respond.min.js"></script>
     <![endif]-->
     

@@ -407,7 +407,7 @@
 	
 	var logError 				= function( message ) {
 		if ( this.console ) {
-			console.error( message );
+			//console.error( message );
 		}
 	};
 	

@@ -5,3 +5,18 @@
 .game img {
   width:auto!important;
 }
+
+.options {
+  width:130px!important;
+}
+
+.options .btn {
+  width:130px!important;
+}
+.crosspromo {
+  margin-left:0!important;
+}
+
+.game-logo .options {
+  width: 100%!important;
+}

@@ -207,8 +207,8 @@
   {
     var filter = el.data('platform')
     
-    //el.parents('ul').find('.active').removeClass('active')
-    //el.parents('li:first').addClass('active')    
+    el.parents('ul').find('.active').removeClass('active')
+    el.parents('li:first').addClass('active')    
     
     //console.log('filter ', filter)
     
@@ -227,8 +227,8 @@
       
       var carousel = $('#simple-carousel-details-images'),
           carouselItems = [], elastslideItems = []
-      console.log('all items', items.length)    
-      console.log('platform', filter)
+      //console.log('all items', items.length)    
+      //console.log('platform', filter)
       if (filter === 'all') {
         
         //items.show()
@@ -244,8 +244,8 @@
           })
         }
       }
-      console.log('carousel ', carouselItems) 
-      console.log('elastislide ', elastslideItems)
+      //console.log('carousel ', carouselItems) 
+      //console.log('elastislide ', elastslideItems)
       if (carouselItems.length && elastslideItems.length) {
         var hiddenCarousel = $('#hidden-simple-carousel-details-images'),
             hiddenItems = hiddenCarousel.find('.item[data-item-id]'),
@@ -323,6 +323,31 @@
     }
     el.parents('li.dropdown.open').removeClass('open')
   }  
+
+  App.SimpleFilter = function(el, items) 
+  {
+    var filter = el.data('platform')
+    
+    el.parents('ul').find('.active').removeClass('active')
+    el.parents('li:first').addClass('active')    
+    
+    
+    if (filter === 'all') {
+      
+      items.show()
+    } else {
+      if (filter) {
+        
+        $.each(items, function (i, v) {
+          
+          var platforms = $(v).data('platforms')
+          
+          !platforms || $.inArray(filter.toString(), platforms) === -1 ? $(v).hide() : $(v).show()
+          
+        })
+      }
+    }    
+  }
 
   App.PlayVideo = function(code, callback)
   {
@@ -527,13 +552,13 @@
   {
     
     $.each(items, function(i, v) {
-      console.log('loading image: ', $(v).data('src'))
-      $(v).parent().spin()
+      //console.log('loading image: ', $(v).data('src'))
+      //$(v).parent().spin()
       $(v).attr('src', $(v).data('src')).load(function() {
         //console.log($(v), ' loaded')
         $('the-selected-game').addClass('selected-game').removeClass('the-selected-game')
         
-        $(v).prevAll('.spinner').remove()
+        //$(v).prevAll('.spinner').remove()
       })
       //$(v).prevAll('.spinner').remove()
     })
@@ -600,7 +625,14 @@
     
     $('body').on('click', '.games-filter a', function(e) {
       
-      App.Filter($(this), $('#hidden-es-carousel-images .es-carousel li'));
+      if ($('#hidden-es-carousel-images').length) {
+        
+        App.Filter($(this), $('#hidden-es-carousel-images .es-carousel li'));
+      }
+      
+      if ($('.all-games').length) {
+        App.SimpleFilter($(this), $('.all-games li'))
+      }
       
       e.preventDefault()
     })    

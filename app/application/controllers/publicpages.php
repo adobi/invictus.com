@@ -132,7 +132,7 @@ Invictus Games Support Team";
     $this->load->model('Jobs', 'model');
     
     $this->data['jobs'] = $this->model->fetchAllJobsByCategory();    
-
+    
     if (!$this->uri->segment(3)) {
       
       $this->data['job'] = $this->model->fetchLatestJob();
@@ -147,7 +147,8 @@ Invictus Games Support Team";
     }
     
     $this->load->model('Jobcategorys', 'category');
-    $this->data['job']->is_graphic_designer = $this->category->isGraphicDesigner($this->data['job']->category_id);
+    if ($this->data['job'])
+      $this->data['job']->is_graphic_designer = $this->category->isGraphicDesigner($this->data['job']->category_id);
     
     $this->form_validation->set_rules('firstname', 'First name', 'trim|required');
     $this->form_validation->set_rules('lastname', 'Last name', 'trim|required');
