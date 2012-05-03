@@ -98,7 +98,7 @@
         &nbsp;
       <?php endif ?>
     </div>
-
+    
     <?php if ($jobs): ?>
       <div class="span4 details-pane" style="height:auto; margin-top:20px;">
         <h3>
