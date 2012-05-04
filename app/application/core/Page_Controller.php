@@ -12,7 +12,7 @@ class Page_Controller extends CI_Controller
     {
         parent::__construct();
         
-        if ($_SERVER['HTTP_HOST'] !== 'invictus.com') {
+        if (ENVIRONMENT === 'production' && $_SERVER['HTTP_HOST'] !== 'invictus.com') {
           redirect('http://invictus.com'.$_SERVER['REQUEST_URI']);
         }
         
