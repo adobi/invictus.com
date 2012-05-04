@@ -855,7 +855,7 @@ a.label:hover,a.badge:hover{color:#ffffff;text-decoration:none;cursor:pointer;}
 #container{margin-top:90px;min-height:700px;}
 footer{background:url("../../img/footer-bg.gif") repeat-x transparent;}footer h3,footer h4{color:#fff;}
 footer li{margin-bottom:8px;}
-footer a{color:#aaa;}footer a:hover{color:#E95C41;}
+footer a{color:#aaa;font-weight:bold;}footer a:hover{color:#E95C41;}
 footer a i{opacity:0.2;filter:alpha(opacity=20);opacity:0.2;filter:alpha(opacity=20);margin-right:5px;}
 .footer-column h4{margin-bottom:15px;}
 #loading-global{background:#fff1a8;display:none;font-size:12px;font-weight:bold;left:0;padding:10px 30px 10px 30px;position:fixed;top:0;left:45%;z-index:9999;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}

@@ -797,7 +797,7 @@ input[class*="span"]{display:inline-block !important;}
 .inline-block{display:inline-block;}
 h4{padding:5px 0;}
 hr{margin:8px 0 12px 0;clear:both;}
-form .add-on{margin-left:-5px !important;}
+form .add-on{margin-bottom:0px!important;margin-left:-5px !important;}
 .contact-type-items .item{cursor:move;}
 .contact-type-items .alert{height:2.5em;line-height:2.5em;margin-bottom:10px;}
 .contact-items h6{margin-bottom:10px!important;color:#555;text-transform:none;}

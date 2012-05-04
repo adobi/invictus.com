@@ -138,17 +138,22 @@
           $('.prev-right-panel').trigger('click');
           
         } else if (button.data('trigger') === 'reload') {
+
           if (button.data('location') === 'r') {
             
             Nav.reloadRightPanel();
-            
           }
           if (button.data('location') === 'b') {
+
             Nav.reloadContetPanel();
     
             Nav.reloadRightPanel();
-          
           }
+          if (button.data('location') === 'l') {
+
+            Nav.reloadContetPanel();
+          }
+
         } else {
           if (!button.data('noaction')) {
             
@@ -158,9 +163,17 @@
           }
         }
         
-        
-        App.Message = resp;
-        
+        if (resp !== 'Saved') {
+          resp = $.parseJSON(resp)
+          
+          App.Message = resp.message
+          
+          if (resp.success) Nav.reloadRightPanel()
+        } else {
+          
+          App.Message = resp;
+          
+        }
         button.attr('disabled', false)
       })
     },

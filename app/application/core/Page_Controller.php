@@ -11,9 +11,12 @@ class Page_Controller extends CI_Controller
     public function __construct() 
     {
         parent::__construct();
-
-        $this->data['title'] = $this->uri->segment(1);
         
+        if ($_SERVER['HTTP_HOST'] !== 'invictus.com') {
+          redirect('http://invictus.com'.$_SERVER['REQUEST_URI']);
+        }
+        
+        $this->data['title'] = $this->uri->segment(1);
         
         $this->load->model('Games', 'games');
         /** 

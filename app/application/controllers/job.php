@@ -48,7 +48,7 @@ class Job extends MY_Controller
     		$this->form_validation->set_rules("offers[]", "We offer", "trim|required");
     		$this->form_validation->set_rules("available", "Available", "trim|required");
 
-        $response = 'Saved';
+        $response = array();
         if ($this->form_validation->run()) {
           
           //dump($_POST); die;
@@ -71,18 +71,21 @@ class Job extends MY_Controller
             
             $this->model->setupAnalytics($id);
             
-            $response = display_success('Saved');
-            
+            $response['message'] = display_success('Saved');
+            $response['success'] = true;
             //redirect($_SERVER['HTTP_REFERER']);
         } else {
-            if ($_POST)
-              $response = display_errors(validation_errors());
+            if ($_POST) {
+              
+              $response['message'] = display_errors(validation_errors());
+              $response['error'] = true;
+            }
         }
 
-        if ($_POST && $this->input->is_ajax_request() && $response) {
+        if ($_POST && $this->input->is_ajax_request()) {
           
             //$this->session->set_flashdata('message', $response); 
-            echo $response;
+            echo json_encode($response);
             die;
         } 
         

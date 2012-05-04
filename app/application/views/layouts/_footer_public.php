@@ -18,7 +18,7 @@
               <?php endif ?>
             </div>
             <div class="span4 footer-column">
-              <h4>Privacy plociy</h4>
+              <h4>Privacy policy</h4>
               <ul class="unstyled">
                 <li>
                   <a href="http://privacy.invictus.com/" target="_blank"><i class="icon-book icon-white"></i>Privacy</a>
