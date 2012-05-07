@@ -297,7 +297,8 @@
       if ($('#list-of-all-games').length){
         // game oldalon vagyunk
         var cont = $('#list-of-all-games')
-        cont.find('li').hide()
+        //cont.find('li').hide()
+        cont.children().hide()
         
         cont.find('[data-id='+val+']').parents('li:first').show()
         

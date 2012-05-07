@@ -536,9 +536,9 @@ class Game extends MY_Controller
           }
           $_POST['images'] = $images;
         }
-        //dump($_POST); 
+        
         $response = $this->curl->simple_post(MICROSITES_CREATE_URL, $_POST);
-        //dump($response); 
+        
         $res = json_decode($response);
         
         //$this->session->set_flashdata('message', 'In game news created');
@@ -547,7 +547,7 @@ class Game extends MY_Controller
           $json = array('message'=>display_success('Something went wrong: '.$res->message));
         } else {
           
-          if ($res) {
+          if ($res->insert_id) {
             $this->session->set_userdata('created_microsite_id', $res->insert_id);
             $json = array('message'=>display_success($res->message));
           } else {

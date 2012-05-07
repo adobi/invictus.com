@@ -12,8 +12,51 @@ class Page_Controller extends CI_Controller
     {
         parent::__construct();
         
-        if (ENVIRONMENT === 'production' && $_SERVER['HTTP_HOST'] !== 'invictus.com') {
-          redirect('http://invictus.com'.$_SERVER['REQUEST_URI']);
+        $params = $_SERVER['REQUEST_URI'];
+        $newParams = '/games/';
+
+        $parts = explode('/', $params);
+        $gameUrl = $parts ? $parts[count($parts)-1] : false;
+        $this->load->model('Games', 'games');
+
+        if (ENVIRONMENT !== 'production' && $_SERVER['HTTP_HOST'] !== 'invictus.com') {
+          
+          if ($params && substr_count($params, 'games') === 2) {
+            // regi oldalrol jott a link
+            if ($url = $this->games->gameUrlExists($gameUrl)) {
+              // uj oldalon is letezik a jatek
+              $newParams .= $url;
+            } else {
+              // uj oldalon nem letezik a jatek, megy a fooldalra
+              $newParams .= 'all/';
+            }
+          } else {
+            if (substr_count($params, 'games') === 1) {
+              // rossz domain jo parameterekkel
+              if ($url = $this->games->gameUrlExists($gameUrl)) {
+                $newParams .= $url;
+              } else {
+                $newParams .= 'all/';
+              }
+            } else {
+              $newParams = '';
+            }
+          }
+          //dump($newParams);
+          //die;
+          redirect('http://invictus.com'.$newParams);
+        } else {
+          if ($params && substr_count($params, 'games') === 2) {
+            // regi oldalrol jott a link
+            if ($url = $this->games->gameUrlExists($gameUrl)) {
+              // uj oldalon is letezik a jatek
+              $newParams .= $url;
+            } else {
+              // uj oldalon nem letezik a jatek, megy a fooldalra
+              $newParams .= 'all/';
+            }
+            redirect('http://invictus.com'.$newParams);         
+          } 
         }
         
         $this->data['title'] = $this->uri->segment(1);

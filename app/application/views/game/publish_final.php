@@ -7,7 +7,7 @@
 
 <?php echo form_open('', array('id'=>'edit-form', '_data-ajax-form'=>1)) ?>    
 
-    <?php echo panel_close('publish_to_press/'.($item ? $item->id : '')) ?>
+    <?php echo panel_close('publish_to_microsite/'.($item ? $item->id : '')) ?>
     
     <legend>
       <strong>8. </strong>

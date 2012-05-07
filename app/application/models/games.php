@@ -238,6 +238,27 @@ class Games extends MY_Model
       $this->analytics->bulk_insert($data);
     }
     
+    public function gameUrlExists($url) 
+    {
+      if (!$url) return false;
+      
+      if ($url === 'roc') return 'race-of-champions';
+      
+      $all = $this->fetchActive();
+      
+      if (!$all) return false;
+      
+      foreach ($all as $item) {
+        if ($item->url === $url) return $url;
+        
+        if (strpos($url, $item->url) !== false || strpos($item->url, $url) !== false) {
+          return $item->url;
+        }
+      }
+      
+      return false;
+    }
+    
     private function _getByOrder($items, $column, $order) 
     {
       foreach( $items as $item ) {
