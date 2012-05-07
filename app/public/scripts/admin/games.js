@@ -26,12 +26,14 @@
               that.el.attr('href', href.replace('activate', 'inactivate'))
               that.el.attr('data-original-title', 'Inactivate')
               that.el.data('action', 'inactivate')
+              that.el.find('span').text('Inactivate')
               item.addClass('alert-success')
               break;
             case 'inactivate':
               that.el.attr('href', href.replace('inactivate', 'activate'))
               that.el.attr('data-original-title', 'Activate')
               that.el.data('action', 'activate')
+              that.el.find('span').text('Activate')
               item.removeClass('alert-success')
               break;
           }

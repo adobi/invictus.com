@@ -221,7 +221,7 @@ Invictus Games Support Team";
           $email = $_POST['email'];
           $phone = $_POST['phone'];
           $cv = '<a href = "'.base_url().'uploads/original/'.$_POST['cv'].'">download</a>';
-          $portfolio = ($_POST['portfolio'] ? '<a href = "'.base_url().'uploads/original/'.$_POST['portfolio'].'">download</a>' : '-');
+          $portfolio = (isset($_POST['portfolio']) ? '<a href = "'.base_url().'uploads/original/'.$_POST['portfolio'].'">download</a>' : '-');
           $message = "<h3>Position: $position</h3>
           <strong>Candidate:</strong>
           <p>Name: $firstname $lastname </p>
@@ -230,7 +230,7 @@ Invictus Games Support Team";
           <p>CV: $cv</p>
           <p>Portfolio: $portfolio</p>";
           $this->email->from('noreply@invictus.com');
-          $this->email->to('hr@invictus.com');
+          $this->email->to('invictus@invictus.com');
           $this->email->subject('Job application');
           $this->email->message($message);
           $this->email->send();

@@ -42,7 +42,13 @@
               <input type="hidden" name = "logo" id = "logo" class = "span4" value = "<?php echo base_url() . 'uploads/original/'.$item->logo ?>"/>
               <img src="<?php echo base_url() . 'uploads/original/'.$item->logo ?>" alt="" style="width:64px">
           </div>
-      </fieldset>       
+      </fieldset> 
+      <fieldset class="control-group">
+          <label class="control-label" for="logo">Description</label>
+          <div class="controls">
+              <textarea name="description" id="description" class="span4" rows="5"><?php echo $item->long_description ?></textarea>
+          </div>
+      </fieldset>            
       <fieldset class="control-group">
           <label class="control-label" for="video">
             Images 

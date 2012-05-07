@@ -48,7 +48,7 @@
                   <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" _style="border-bottom-right-radius:0px; border-top-right-radius: 0px;"><i class="icon-list"></i></a>
                   <ul class="dropdown-menu" style="left:100px;">
                     <li>
-                      <a data-action="<?php echo $item->is_active ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>game/action/<?php echo $item->is_active ? 'inactivate' : 'activate' ?>/<?php echo $item->id ?>" class="_btn action" rel="tooltip" title="<?php echo $item->is_active ? 'Inactivate' : 'Activate' ?>"><i class="icon-lock"></i><?php echo $item->is_active ? 'Inactivate' : 'Activate' ?></a>
+                      <a data-action="<?php echo $item->is_active ? 'inactivate' : 'activate' ?>" href="<?php echo base_url() ?>game/action/<?php echo $item->is_active ? 'inactivate' : 'activate' ?>/<?php echo $item->id ?>" class="_btn action" rel="tooltip" title="<?php echo $item->is_active ? 'Inactivate' : 'Activate' ?>"><i class="icon-lock"></i><span><?php echo $item->is_active ? 'Inactivate' : 'Activate' ?></span></a>
                     </li>
                     <li class="divider"></li>
                     <li>
