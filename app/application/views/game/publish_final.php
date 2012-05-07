@@ -31,7 +31,7 @@
         <a class="btn btn-large span4" href="<?php echo NEWS_URL ?>auth/auto_login/<?php echo $this->session->userdata('created_news_id') ? '?r=rumor/edit/'.$this->session->userdata('created_news_id') : '' ?>" target="_blank">Go to "Invictus In game news"</a>
       </div>
       <div class="span4" style="margin-bottom:20px;">
-        <a class="btn btn-large span4" href="<?php echo PRESS_RELEASE_URL ?>auth/auto_login/<?php echo $this->session->userdata('created_press_release_id') ? '?r=pressrelease/edit/'.$this->session->userdata('created_news_id') : '' ?>" target="_blank">Go to "Invictus Press"</a>
+        <a class="btn btn-large span4" href="<?php echo PRESS_RELEASE_URL ?>auth/auto_login/<?php echo $this->session->userdata('created_press_release_id') ? '?r=pressrelease/edit/'.$this->session->userdata('created_press_release_id') : '' ?>" target="_blank">Go to "Invictus Press"</a>
       </div>
       <div class="span4" style="margin-bottom:20px;">
         <a class="btn btn-large span4" href="<?php echo MICROSITES_URL ?>auth/auto_login/<?php echo $this->session->userdata('created_microsite_id') ? '?r=microsite/edit/'.$this->session->userdata('created_microsite_id') : '' ?>" target="_blank">Go to "Invictus Microsites"</a>

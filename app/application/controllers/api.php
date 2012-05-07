@@ -31,4 +31,25 @@ class Api extends Page_Controller
     die;
   }
   
+  public function games()
+  {
+    $this->load->model('Games', 'games');
+    $games = $this->games->fetchActive();
+    
+    if ($games) {
+      
+      foreach ($games as $item) {
+        $item->logo_name = $item->logo;
+        $item->logo = base_url() . 'uploads/original/'.$item->logo_name;
+      }
+      
+    } else {
+      $games = array();
+    }
+    
+    echo json_encode($games);
+    
+    die;
+  }
+  
 }

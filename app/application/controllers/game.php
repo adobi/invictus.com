@@ -416,20 +416,21 @@ class Game extends MY_Controller
         //$this->session->set_flashdata('message', 'In game news created');
 
         if ($res && !property_exists($res, 'insert_id')) {
-          echo display_success('Something went wrong: '.$res->message);
+          $json = array('message'=>display_success('Something went wrong: '.$res->message));
         } else {
           if ($res) {
             $this->session->set_userdata('created_news_id', $res->insert_id);
-            echo display_success($res->message);
+            $json = array('message'=>display_success($res->message));
           } else {
-            echo display_success('No response from remote');
+            $json = array('message'=>display_success('No response from remote'));
           }
         }
+        echo json_encode($json);
         die;
       } else {
         if ($_POST) {
   		    
-  		    echo validation_errors(); die;
+  		    echo json_encode(array('message'=>validation_errors())); die;
   		  }        
       }
       
@@ -476,23 +477,24 @@ class Game extends MY_Controller
         $res = json_decode($response);
         
         //$this->session->set_flashdata('message', 'In game news created');
-
+        
         if ($res && !property_exists($res, 'insert_id')) {
-          echo display_success('Something went wrong: '.$res->message);
+          $json = array('message'=>display_success('Something went wrong: '.$res->message));
         } else {
           
           if ($res) {
             $this->session->set_userdata('created_press_release_id', $res->insert_id);
-            echo display_success($res->message);
+            $json = array('message'=>display_success($res->message));
           } else {
-            echo display_success('No response from remote');
+            $json = array('message'=>display_success('No response from remote'));
           }
         }
+        echo json_encode($json);
         die;
       } else {
         if ($_POST) {
   		    
-  		    echo validation_errors(); die;
+  		    echo json_encode(array('message'=>validation_errors())); die;
   		  }        
       }      
       
@@ -542,21 +544,22 @@ class Game extends MY_Controller
         //$this->session->set_flashdata('message', 'In game news created');
 
         if ($res && !property_exists($res, 'insert_id')) {
-          echo display_success('Something went wrong: '.$res->message);
+          $json = array('message'=>display_success('Something went wrong: '.$res->message));
         } else {
           
           if ($res) {
             $this->session->set_userdata('created_microsite_id', $res->insert_id);
-            echo display_success($res->message);
+            $json = array('message'=>display_success($res->message));
           } else {
-            echo display_success('No response from remote');
+            $json = array('message'=>display_success('No response from remote'));
           }
         }
+        echo json_encode($json);
         die;
       } else {
         if ($_POST) {
   		    
-  		    echo validation_errors(); die;
+  		    echo json_encode(array('message'=>validation_errors())); die;
   		  }   
       }
       $this->template->build('game/publish_to_microsite', $data);
