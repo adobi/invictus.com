@@ -183,6 +183,12 @@ Invictus Games Support Team";
         
         $this->session->set_flashdata("message", '<p>Thanks for your application. We will contact You soon!</p>');
         if (ENVIRONMENT === 'production') {
+          
+          /**
+           * send reply for the application
+           *
+           * @author Dobi Attila
+           */
           $this->load->library('email');
           $firstname = $_POST['firstname'];
           $lastname = $_POST['lastname'];
@@ -202,7 +208,33 @@ Invictus Games Support Team";
           $this->email->subject('Your Invictus inquiry');
           $this->email->message(($reply));
           
-          $this->email->send();    
+          $this->email->send(); 
+          
+          
+          /**
+           * send message to the hr@ address
+           *
+           * @author Dobi Attila
+           */
+          $c['mailtype'] = 'html';
+          $this->email->initialize($c); 
+          $email = $_POST['email'];
+          $phone = $_POST['phone'];
+          $cv = '<a href = "'.base_url().'uploads/original/'.$_POST['cv'].'">download</a>';
+          $portfolio = ($_POST['portfolio'] ? '<a href = "'.base_url().'uploads/original/'.$_POST['portfolio'].'">download</a>' : '-');
+          $message = "<h3>Position: $position</h3>
+          <strong>Candidate:</strong>
+          <p>Name: $firstname $lastname </p>
+          <p>Phone: $phone </p>
+          <p>Email: <a href='mailto:$email'>$email</a></p>
+          <p>CV: $cv</p>
+          <p>Portfolio: $portfolio</p>";
+          $this->email->from('noreply@invictus.com');
+          $this->email->to('hr@invictus.com');
+          $this->email->subject('Job application');
+          $this->email->message($message);
+          $this->email->send();
+          
         }
         redirect($_SERVER['HTTP_REFERER']);
       }
