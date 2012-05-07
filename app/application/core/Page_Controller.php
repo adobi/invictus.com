@@ -19,7 +19,7 @@ class Page_Controller extends CI_Controller
         $gameUrl = $parts ? $parts[count($parts)-1] : false;
         $this->load->model('Games', 'games');
 
-        if (ENVIRONMENT !== 'production' && $_SERVER['HTTP_HOST'] !== 'invictus.com') {
+        if (ENVIRONMENT == 'production' && $_SERVER['HTTP_HOST'] !== 'invictus.com' && $this->uri->segment(1) !== 'api') {
           
           if ($params && substr_count($params, 'games') === 2) {
             // regi oldalrol jott a link
