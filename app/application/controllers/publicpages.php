@@ -384,4 +384,13 @@ Invictus Games Support Team";
     
     //echo 'hello'; die;
   }
+  
+  public function sitemap()
+  {
+    
+    $this->load->library('invictus_sitemap');
+    $this->invictus_sitemap->generate();
+    
+    die;
+  }
 }

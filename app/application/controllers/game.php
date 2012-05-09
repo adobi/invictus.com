@@ -156,6 +156,10 @@ class Game extends MY_Controller
                 $id = $insertId;
             }
             
+            $this->load->library('invictus_sitemap');
+            $this->invictus_sitemap->generate();
+            
+            
             $this->model->setupAnalytics($id);
             
             $response = display_success('Saved');
@@ -399,6 +403,8 @@ class Game extends MY_Controller
             
       $data['item'] = $this->model->find($id);
       
+      $data['games'] = $this->model->toAssocArray('id', 'name', $this->model->fetchActive());
+      unset($data['games'][0]);
       $this->form_validation->set_rules('title', 'Title', 'trim|required');
       $this->form_validation->set_rules('description', 'Description', 'trim|required');
       $this->form_validation->set_rules('thumbnail', 'Thumbnail', 'trim|required');
@@ -411,8 +417,9 @@ class Game extends MY_Controller
         $_POST['image_name'] = $data['item']->teaser_image;
         $_POST['game_id'] = $data['item']->id;
 
-        $res = json_decode($this->curl->simple_post(NEWS_API_URL, $_POST));
+        $res = $this->curl->simple_post(NEWS_API_URL, $_POST);
         
+        $res = json_decode($res);
         //$this->session->set_flashdata('message', 'In game news created');
 
         if ($res && !property_exists($res, 'insert_id')) {

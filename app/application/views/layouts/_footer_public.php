@@ -68,6 +68,8 @@
           App.Produsction = true
       </script>      
     	<script src = "<?php echo base_url() ?>scripts/plugins/headjs/head.min.js"></script> 
+    	<script src = "http://analytics-api-samples.googlecode.com/svn/trunk/src/tracking/javascript/v5/social/ga_social_tracking.js"></script> 
+    	
     	<script type="text/javascript">
     	    head.js("http://code.jquery.com/jquery-1.7.2.min.js", 
     	            //"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js",
@@ -98,10 +100,13 @@
                       window.location.hash = ''
                     <?php endif; ?>    
                     
+                    twttr.ready(function(twttr) {
+                      _ga.trackTwitter(); //Google Analytics tracking
+                    });
                     
                   }                     
             );
-            
+
     	</script>
      
   </body>

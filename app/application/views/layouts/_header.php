@@ -62,7 +62,10 @@
                   </a>
                    -->
                   <div class="nav-collapse">
-                    <ul class="nav">
+                    <ul class="nav systems">
+                      <li <?php echo $this->uri->segment(3) === 'news' ? 'class="active"' : ''  ?>><a href="<?php echo base_url() ?>systems/show/news"><i class="icon-big dashboard-icon"></i>Ingame news</a></li>
+                      <li <?php echo $this->uri->segment(3) === 'press' ? 'class="active"' : ''  ?>><a href="<?php echo base_url() ?>systems/show/press"><i class="icon-big dashboard-icon"></i>Press releases</a></li>
+                      <li <?php echo $this->uri->segment(3) === 'microsites' ? 'class="active"' : ''  ?>><a href="<?php echo base_url() ?>systems/show/microsites"><i class="icon-big dashboard-icon"></i>Microsites</a></li>
                     </ul>
                     <div class="pull-right">
                         <form action="" class="navbar-search pull-left" style="margin:15px 10px 0 0;">
@@ -168,6 +171,6 @@
           	    </div>
           	  </div>
         	  <?php endif ?>
-        	  <div class="span7 content-wrapper">
+        	  <div class="<?php echo $this->uri->segment(1) === 'systems' ? 'span11' : 'span7' ?> content-wrapper">
                 
                 

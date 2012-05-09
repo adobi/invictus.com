@@ -29,6 +29,8 @@
   //color:#999;
   text-transform:uppercase;  
   font-size:.8em;
+  .transition(background-color .2s linear);
+
   &:hover {
     .nav-link-hovered();
   }
@@ -52,6 +54,14 @@
   background-color:@leftNavLinkHoverBackground!important;
   color:@leftNavLinkColor;
   .box-shadow(inset 0 0 1px 2px @leftNavLinkHover);
+}
+
+.sidebar-navigation-wrapper-right input.span4 {
+  width:290px;
+}
+
+.sidebar-navigation-wrapper-right i {
+  margin-right:0px;
 }
 
 .sidebar-navigation-wrapper-left, .sidebar-navigation-wrapper-right {

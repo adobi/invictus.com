@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<urlset xmlns="http://www.google.com/schemas/sitemap/0.9">
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/all</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/lazy-farmer</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/race-of-champions-the-official-game</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/froggy-jump</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/santa-ride</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/greed-corp</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/fly-fu</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/froggy-launcher</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/mist-bouncer</loc>
+		</url>
+
+	</urlset>

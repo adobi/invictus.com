@@ -470,6 +470,7 @@
            elem.html(resp)
             App.LoadFacebookSdk()
             window.FB && window.FB.init({ status: true, cookie: true, xfbml: true });
+            _ga.trackFacebook();
           }
       });
       

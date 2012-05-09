@@ -64,6 +64,22 @@
               <?php endif ?>
           </div>
       </fieldset>  
+       <fieldset class="control-group">
+          <label class="control-label" for="games">Target games</label>
+          <div class="controls">
+            <?php echo form_dropdown('target_games[]', $games, $item->id, 'class="chosen span4"  data-placeholder="Select a game" multiple') ?>
+            <p><strong style="color:#999">Options</strong> <a href="#" class="chosen-select-all btn" rel="tooltip" title="select all"><i class="icon-list"></i></a> <a href="#" class="chosen-cancel-all btn" rel="tooltip" title="cancel all"><i class="icon-ban-circle"></i></a></p>
+          </div>
+      </fieldset>  
+      <fieldset class="control-group">
+          <label class="control-label" for="make_active">&nbsp;</label>
+          <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="make_active" value="1" id="make_active">
+                Make active
+              </label>
+          </div>
+      </fieldset>       
       <?php if ($item->logo && $item->teaser_image): ?>
         <fieldset class="form-actions right">
             <button class="btn btn-primary" rel="tooltip" title="Save as in game news" data-noaction="1"><i class="icon-ok icon-white"></i> Save as in game news</button>

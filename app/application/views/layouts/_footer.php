@@ -1,6 +1,6 @@
 
             </div> <!-- content-wrapper -->
-            <?php if ($this->session->userdata('logged_in')): ?>
+            <?php if ($this->session->userdata('logged_in') && $this->uri->segment(1) !== 'systems'): ?>
               <div class="span5 sidebar-navigation-wrapper-right">
           	    <div class="well">
                 </div> <!-- well -->

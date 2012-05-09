@@ -14,6 +14,11 @@ html, body {
   left:@contentWrapperLeft;
   top:80px;
   margin-left:10px;
+  height:100%;
+  overflow:hidden;
+  > .well {
+    height:90%;
+  }
   .items {
     .games-list{
       min-height:650px;
@@ -27,7 +32,27 @@ html, body {
   }
 }
 
-
+.navbar {
+  .systems {
+    left:30%; text-transform:uppercase; font-size:0.8em; font-weight:bold;
+    a {
+      .transition(background-color .2s linear);
+      padding-bottom:5px!important;
+      &:hover {
+        .nav-link-hovered();
+      }
+    }
+    .active {
+      a {
+        .nav-link-hovered();
+        color:#fff;
+      }
+    }
+    .icon-big {
+      margin:5px auto!important
+    }
+  }
+}
 
 .item {
     padding:5px 5px 5px 10px;
@@ -159,17 +184,11 @@ table td  {
   margin:-10px 0px 20px 0;
 }
 
-.sidebar-navigation-wrapper-right input.span4 {
-  width:290px;
-}
 
 input[class*="span"] {
   display:inline-block!important;
 }
 
-.sidebar-navigation-wrapper-right i {
-  margin-right:0px;
-}
 
 .inline-block {
   display:inline-block;
