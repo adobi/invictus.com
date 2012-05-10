@@ -549,7 +549,7 @@ class Game extends MY_Controller
         $res = json_decode($response);
         
         //$this->session->set_flashdata('message', 'In game news created');
-
+        
         if ($res && !property_exists($res, 'insert_id')) {
           $json = array('message'=>display_success('Something went wrong: '.$res->message));
         } else {

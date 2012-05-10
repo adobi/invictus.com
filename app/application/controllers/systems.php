@@ -12,13 +12,13 @@ class Systems extends MY_Controller
         
         switch ($this->uri->segment(3)) {
           case 'press': 
-            $url = 'http://press.invictus.com/auth/auto_login';
+            $url = 'http://press.invictus.com/auth/auto_login/'.(isset($_GET['r']) ? '?r='.$_GET['r'] : '');
             break;
           case 'news':
-            $url = 'http://invictus.com/invictus-news/auth/auto_login';
+            $url = 'http://invictus.com/invictus-news/auth/auto_login/'.(isset($_GET['r']) ? '?r='.$_GET['r'] : '');
             break;
           case 'microsites':
-            $url = 'http://invictus.com/microsites/auth/auto_login';
+            $url = 'http://invictus.com/microsites/auth/auto_login/'.(isset($_GET['r']) ? '?r='.$_GET['r'] : '');
             break;
         }
         

@@ -85,9 +85,9 @@
                 
                 "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js",
                 //"<?php echo base_url(); ?>scripts/plugins/fileupload/vendor/jquery.ui.widget.js",
-                "http://blueimp.github.com/JavaScript-Templates/tmpl.min.js",
-                "http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js",
-                "http://blueimp.github.com/JavaScript-Canvas-to-Blob/canvas-to-blob.min.js",
+                "<?php echo base_url(); ?>scripts/plugins/fileupload/tmpl.min.js",
+                "<?php echo base_url(); ?>scripts/plugins/fileupload/load-image.min.js",
+                "<?php echo base_url(); ?>scripts/plugins/fileupload/canvas-to-blob.min.js",
                 "<?php echo base_url(); ?>scripts/plugins/fileupload/jquery.iframe-transport.js",
                 "<?php echo base_url(); ?>scripts/plugins/fileupload/jquery.fileupload.js",
                 "<?php echo base_url(); ?>scripts/plugins/fileupload/jquery.fileupload-ip.js",

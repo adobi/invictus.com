@@ -14,10 +14,16 @@ html, body {
   left:@contentWrapperLeft;
   top:80px;
   margin-left:10px;
-  height:100%;
-  overflow:hidden;
+  //height:100%;
+  //overflow:hidden;
   > .well {
-    height:90%;
+    //height:90%;
+    //overflow:hidden;
+    //position:relative;
+	//height:auto !important; /* real browsers */
+	height:100%; /* IE6: treaded as min-height*/
+
+	//min-height:100%; /* real browsers */    
   }
   .items {
     .games-list{
@@ -26,9 +32,13 @@ html, body {
     }
   }
   .crosspromo {
-    min-height:650px;
+    min-height:1000px;
     padding-bottom:200px;
     overflow:visible!important;
+	//height:auto !important; /* real browsers */
+	height:100%; /* IE6: treaded as min-height*/
+
+	//min-height:100%; /* real browsers */    
   }
 }
 
