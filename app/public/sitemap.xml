@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<urlset xmlns="http://www.google.com/schemas/sitemap/0.9">
 		<url>
+			<loc>http://localhost/invictus.com/app/public/pages/contact</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/pages/jobs</loc>
+		</url>
+
+		<url>
+			<loc>http://privacy.invictus.com/</loc>
+		</url>
+
+		<url>
 			<loc>http://localhost/invictus.com/app/public/games/all</loc>
 		</url>
 
 		<url>
-			<loc>http://localhost/invictus.com/app/public/games/lazy-farmer</loc>
+			<loc>http://localhost/invictus.com/app/public/games/race-of-champions</loc>
 		</url>
 
 		<url>
-			<loc>http://localhost/invictus.com/app/public/games/race-of-champions-the-official-game</loc>
+			<loc>http://localhost/invictus.com/app/public/games/groovy-garage</loc>
 		</url>
 
 		<url>
@@ -17,7 +29,7 @@
 		</url>
 
 		<url>
-			<loc>http://localhost/invictus.com/app/public/games/santa-ride</loc>
+			<loc>http://localhost/invictus.com/app/public/games/mist-bouncer</loc>
 		</url>
 
 		<url>
@@ -25,15 +37,67 @@
 		</url>
 
 		<url>
-			<loc>http://localhost/invictus.com/app/public/games/fly-fu</loc>
-		</url>
-
-		<url>
 			<loc>http://localhost/invictus.com/app/public/games/froggy-launcher</loc>
 		</url>
 
 		<url>
-			<loc>http://localhost/invictus.com/app/public/games/mist-bouncer</loc>
+			<loc>http://localhost/invictus.com/app/public/games/4x4-jam</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/fly-fu-pro</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/wild-slide</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/truck-jam</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/fly-control</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/santa-ride</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/monster-garage</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/la-street-racing</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/cross-racing-championship</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/heat-online</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/street-legal</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/1nsane</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/overspeed</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/grim-filler</loc>
+		</url>
+
+		<url>
+			<loc>http://localhost/invictus.com/app/public/games/blastwave</loc>
 		</url>
 
 	</urlset>

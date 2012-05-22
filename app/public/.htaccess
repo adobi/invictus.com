@@ -11,6 +11,12 @@ RewriteCond $1 !^(index\.php|uploads|css|images|scripts)
 #RewriteRule ^.*$ index.php [NC,L]
 RewriteRule ^.*$ index.php [NC,L]
 
+
+RewriteCond %{QUERY_STRING} full=(.*)&?
+RewriteRule (.*)rwd-router/.*\.(jpe?g|png|gif|webp) $1%1 [L]
+# ignore trap for non-image requests, rewrite URL without trap segment
+RewriteRule (.*)rwd-router/(.*)$ $1$2
+
 Header unset ETag
 FileETag None
 
@@ -21,7 +27,7 @@ FileETag None
 </FilesMatch>
 
 <IfModule mod_deflate.c>
-	<FilesMatch "\.(js|css)$">
+	<FilesMatch "\.(js|css|jpg|png|jpeg)$">
 		SetOutputFilter DEFLATE
 	</FilesMatch>
 </IfModule>

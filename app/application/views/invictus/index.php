@@ -9,7 +9,8 @@
                     <?php foreach ($carousel as $i=>$item): ?>
                       <?php if ($item): ?>
                         <div class="item <?php echo $i===0 ? 'active' : '' ?>" data-item="<?php echo $item->id ?>">
-                            <img <?php echo $i!==0 ? 'data-' : '' ?>src="<?php echo base_url() ?>uploads/original/<?php echo $item->hero_image ?>" alt="">
+                            <!-- <img <?php echo $i!==0 ? 'data-' : '' ?>src="<?php echo base_url() ?>uploads/original/<?php echo $item->hero_image ?>" alt=""> -->
+                            <img <?php echo $i!==0 ? 'data-' : '' ?>src="<?php echo create_mobile_image($item->hero_image, 'hero') ?>?full=<?php echo base_url() ?>uploads/original/<?php echo $item->hero_image ?>" alt="">
                             <div class="carousel-caption">
                               <div class="row">
                                 <div class="span6 hidden-phone">
@@ -50,7 +51,8 @@
                 <?php if ($item): ?>
                   <div class="teaser <?php echo $i === 0 ? 'hide' : '' ?>" data-item="<?php echo $item->id ?>">
                     <a <?php echo event_tracking($item->analytics['teaser']) ?> href="<?php echo base_url() ?>games/<?php echo $item->url ?>">
-                      <img data-src="<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>" alt="">
+                      <!-- <img data-src="<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>" alt=""> -->
+                      <img data-src="<?php echo create_mobile_image($item->teaser_image, 'teaser') ?>" data-full="<?php echo base_url() ?>uploads/original/<?php echo $item->teaser_image ?>" alt="">
                     </a>
                   </div>
                 <?php endif ?>
