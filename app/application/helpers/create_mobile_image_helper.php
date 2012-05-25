@@ -28,7 +28,7 @@
         $ci->image_lib->resize();	
         //$ci->image_lib->display_errors();
 		  }
-      return base_url().'uploads/mobile/'.$originalImage;
+      return base_url().'uploads/original/'.$originalImage;
 		}	
 	}
 

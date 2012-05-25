@@ -166,9 +166,16 @@ class Job extends MY_Controller
       $this->load->model('Jobapplications', 'model');
       $this->load->model('Jobs', 'jobs');
       
-      $data['item'] = $this->jobs->find($id);
-      
-      $data['items'] = $this->model->fetchForJob($id);
+      if (is_numeric($id)) {
+        
+        $data['item'] = $this->jobs->find($id);
+        
+        $data['items'] = $this->model->fetchForJob($id);
+        
+      } else {
+        $data['item'] = false;
+        $data['items'] = $this->model->fetchNewTalents();
+      }
       
       $this->template->build('job/applications', $data);
     }

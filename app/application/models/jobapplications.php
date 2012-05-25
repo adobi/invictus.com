@@ -13,4 +13,9 @@ class Jobapplications extends MY_Model
       
       return $this->fetchRows(array('where'=>array('job_id'=>$id), 'order'=>array('by'=>'created', 'dest'=>'desc')));
     }
+    
+    public function fetchNewTalents()
+    {
+      return $this->fetchRows(array('where'=>array('job_id is null'=>null), 'order'=>array('by'=>'created', 'dest'=>'desc')));
+    }    
 }

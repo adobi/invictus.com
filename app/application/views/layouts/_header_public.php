@@ -47,7 +47,7 @@
       <script type="text/javascript" src="<?php echo base_url() ?>scripts/plugins/respondjs/respond.min.js"></script>
     <![endif]-->
     
-    <script type="text/javascript" src="http://filamentgroup.com/examples/responsive-images-new/responsive-images.js"></script>
+    <!-- <script type="text/javascript" src="http://filamentgroup.com/examples/responsive-images-new/responsive-images.js"></script> -->
     <script type="text/javascript" src="https://raw.github.com/scottjehl/Responsive-Images/0b7cb5903d8d003fb146e661da1e6bdbc9b2104f/rwd-images/rwd-images.js"></script>
     
     

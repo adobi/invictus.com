@@ -43,6 +43,16 @@
   <?php if ($job_items): ?>
     <div class="items job-items">
       <hr>
+        <div class="item">
+          <h4>
+            <img src="<?php echo base_url() ?>img/glyphicons_003_user.png"> 
+            New talent
+            <a href="<?php echo base_url() ?>job/applications/new-talent" class="select-item" data-ajax-link="1" rel="tooltip" title="New talents">
+              <!--<i class="icon-user"></i>  -->
+              <span class="badge badge-info"><?php echo isset($newTalent) && $newTalent->applications ? $newTalent->applications : 0 ?></span>
+            </a>
+          </h4>
+        </div>        
       <?php foreach ($job_items as $item): ?>
         <div class="item <?php echo $item->is_active ? 'alert-success' : '' ?> ">
           <h4>

@@ -68,7 +68,7 @@
           App.Produsction = true
       </script>      
     	<script src = "<?php echo base_url() ?>scripts/plugins/headjs/head.min.js"></script> 
-    	<script src = "<?php echo base_url() ?>scripts/plugins/ga_social_tracking.js"></script> 
+    	<script src = ""></script> 
     	
     	<script type="text/javascript">
     	    head.js("http://code.jquery.com/jquery-1.7.2.min.js", 
@@ -84,6 +84,7 @@
                     "<?php echo base_url() ?>scripts/plugins/spinjs/spin.min.js",
                     "<?php echo base_url() ?>scripts/invictus/invictus.js",
                   <?php else: ?>
+                    "<?php echo base_url() ?>scripts/plugins/ga_social_tracking.js",
                     "<?php echo base_url() ?>assets/scripts/all.min.js",
                   <?php endif ?>
                   
