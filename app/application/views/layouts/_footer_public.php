@@ -68,7 +68,7 @@
           App.Produsction = true
       </script>      
     	<script src = "<?php echo base_url() ?>scripts/plugins/headjs/head.min.js"></script> 
-    	<script src = "http://analytics-api-samples.googlecode.com/svn/trunk/src/tracking/javascript/v5/social/ga_social_tracking.js"></script> 
+    	<script src = "<?php echo base_url() ?>scripts/plugins/ga_social_tracking.js"></script> 
     	
     	<script type="text/javascript">
     	    head.js("http://code.jquery.com/jquery-1.7.2.min.js", 
@@ -94,7 +94,7 @@
                         })
                     <?php endif ?> 
                     
-                    <?php if (isset($was_error) && $was_error && isset($hash) && $hash) :?>
+                    <?php if (((isset($was_error_1) && $was_error_1) ||isset($was_error_2) && $was_error_2) && isset($hash) && $hash) :?>
                       window.location.hash = '<?php echo $hash ?>'
                     <?php else : ?>
                       window.location.hash = ''

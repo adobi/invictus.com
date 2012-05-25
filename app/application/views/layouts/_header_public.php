@@ -61,6 +61,7 @@
       
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', '<?php echo $settings->google_analytics ?>']);
+          _gaq.push(['_setSiteSpeedSampleRate', 100]);
           _gaq.push(['_setDomainName', 'invictus.com']);
           _gaq.push(['_trackPageview']);
           

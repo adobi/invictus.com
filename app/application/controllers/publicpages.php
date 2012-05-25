@@ -138,11 +138,15 @@ Invictus Games Support Team";
       $this->data['job'] = $this->model->fetchLatestJob();
       
     } else {
-      
-      $this->data['job'] = $this->model->findBy('url', $this->uri->segment(3));
-      
-      if (!$this->data['job'] || !$this->data['job']->is_active) {
-        redirect('missing');
+      if ($this->uri->segment(3) !== 'new-talent') {
+        
+        $this->data['job'] = $this->model->findBy('url', $this->uri->segment(3));
+        
+        if (!$this->data['job'] || !$this->data['job']->is_active) {
+          redirect('missing');
+        }
+      } else {
+        $this->data['job'] = false;
       }
     }
     
@@ -164,9 +168,14 @@ Invictus Games Support Team";
           $_POST['cv'] = $this->upload->file_name;
       } else {
         $this->data['was_error'] = true;
-        $this->data['hash'] = '#job-application-form';
-      
+
         $this->data['error'] .= $this->upload->display_errors();
+        
+        if (isset($_POST['job_id'])) {
+          $this->data['hash'] = '#job-application-form';
+        } else {
+          $this->data['hash'] = '#general-job-application-form';
+        }
       }     
 
       if ($this->upload->do_upload('portfolio')) {
@@ -192,11 +201,13 @@ Invictus Games Support Team";
           $this->load->library('email');
           $firstname = $_POST['firstname'];
           $lastname = $_POST['lastname'];
-          $position = $this->data['job']->name;
+          $position = $this->data['job'] ? $this->data['job']->name : false;
+          
+          $positionText = $position ? " for the $position position" : "";
           
           $reply = "Hi $firstname $lastname 
 
-  Thanks a lot for applying for the $position position. Should your application be succesful, we'll contact you in 2 weeks.
+  Thanks a lot for applying$positionText. Should your application be succesful, we'll contact you in 2 weeks.
 
 
   Best regards,
@@ -216,6 +227,7 @@ Invictus Games Support Team";
            *
            * @author Dobi Attila
            */
+          $position = !$position ? 'New talent' : $position; 
           $c['mailtype'] = 'html';
           $this->email->initialize($c); 
           $email = $_POST['email'];
@@ -247,8 +259,13 @@ Invictus Games Support Team";
         if ($_FILES && isset($_FILES['cv']) && !$_FILES['cv']['name'])
           $this->data['error'] .= 'The CV field is required';
         
-        $this->data['was_error'] = true;
-        $this->data['hash'] = '#job-application-form';
+        if (isset($_POST['job_id'])) {
+          $this->data['hash'] = '#job-application-form';
+          $this->data['was_error_1'] = true;
+        } else {
+          $this->data['hash'] = '#general-job-application-form';
+          $this->data['was_error_2'] = true;
+        }
       }
     }
 
