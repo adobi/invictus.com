@@ -49,7 +49,7 @@
             New talent
             <a href="<?php echo base_url() ?>job/applications/new-talent" class="select-item" data-ajax-link="1" rel="tooltip" title="New talents">
               <!--<i class="icon-user"></i>  -->
-              <span class="badge badge-info"><?php echo isset($newTalent) && $newTalent->applications ? $newTalent->applications : 0 ?></span>
+              <span class="badge badge-info"><?php echo isset($talents_count) ? $talents_count : 0 ?></span>
             </a>
           </h4>
         </div>        

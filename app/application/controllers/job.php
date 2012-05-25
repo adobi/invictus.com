@@ -11,6 +11,8 @@ class Job extends MY_Controller
         $data = array();
         
         $this->load->model('Jobs', 'model');
+        $this->load->model('Jobapplications', 'application');
+        $data['talents_count'] = count($this->application->fetchNewTalents());
         
         $data['job_items'] = $this->model->fetchAllWithApplicationCount();
         
