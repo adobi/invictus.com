@@ -18,6 +18,25 @@
           </div>
       </fieldset>       
       <fieldset class="control-group">
+          <label class="control-label" for="min_os_version">Minimal OS version</label>
+          <div class="controls">
+              <input type="text" name="min_os_version" id = "min_os_version" class = "span2" value = "<?php echo $item ? $item->min_os_version : '' ?>"/> 
+          </div>
+      </fieldset>       
+      <fieldset class="control-group">
+          <label class="control-label" for="version">Game version</label>
+          <div class="controls">
+              <input type="text" name="version" id = "version" class = "span2" value = "<?php echo $item ? $item->version : '' ?>"/> 
+          </div>
+      </fieldset>      
+      <fieldset class="control-group">
+          <label class="control-label" for="price">Price</label>
+          <div class="controls">
+              <input type="text" name="price" id = "price" class = "span2" value = "<?php echo $item ? $item->price : '' ?>"/> 
+              <?php echo form_dropdown('currency', array('$'=>'$', '€'=>'€'), $item->currency, 'class="span1"') ?>
+          </div>
+      </fieldset>
+      <fieldset class="control-group">
           <label class="control-label" for="url">Original url</label>
           <div class="controls">
               <input type="text" name="long_url" id = "bitly-input-url" class = "span4" value = "<?php echo $item ? $item->long_url : '' ?>"/> 

@@ -52,4 +52,15 @@ class Api extends Page_Controller
     die;
   }
   
+  public function game_platforms()
+  {
+    $this->load->model('Gameplatforms', 'model');
+    
+    $platforms = $this->model->fetchAll();
+    
+    echo json_encode($platforms);
+    
+    die;
+  }
+  
 }
