@@ -70,7 +70,9 @@
                     <div class="pull-right">
                         <form action="" class="navbar-search pull-left" style="margin:15px 10px 0 0;">
                           <!-- <input type="text" placeholder="Search" class="search-query span3"> -->
-                          <?php echo form_dropdown('filter_games_select', $games_for_select, '', 'class="chosen span4"  data-placeholder="Select a game" id="filter-games-select"') ?>
+                          <?php if (isset($games_for_select)): ?>
+                            <?php echo form_dropdown('filter_games_select', $games_for_select, '', 'class="chosen span4"  data-placeholder="Select a game" id="filter-games-select"') ?>
+                          <?php endif ?>
                         </form>                        
                         <ul class="nav">
                             <li class="divider-vertical"></li>
@@ -161,6 +163,12 @@
                         <span>Platforms</span>
                       </a>
                     </li>
+          	        <li <?php echo $this->uri->segment(1) === 'category' ? 'class="active"' : '' ?>>
+                      <a href="<?php echo base_url() ?>category" rel="tooltip" title="Categories" data-placement="right">
+                        <i class="icon-big tag-icon"></i>
+                        <span>Categories</span>
+                      </a>
+                    </li>                    
           	        <li <?php echo $this->uri->segment(1) === 'settings' ? 'class="active"' : '' ?>>
                       <a href="<?php echo base_url() ?>settings" rel="tooltip" title="Settings" data-placement="right">
                         <i class="icon-big settings-icon"></i>

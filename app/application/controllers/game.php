@@ -55,6 +55,8 @@ class Game extends MY_Controller
 
         //$data['game_platforms'] = $item ? $this->game_platforms->fetchIdsForGame($item->id) : false;
         
+        $this->load->model('Categorys', 'category');
+        $data['categories_select'] = $this->category->toAssocArray('id', 'name', $this->category->fetchAll());
         
     		$this->form_validation->set_rules("name", "Name", "trim|required");
     		$this->form_validation->set_rules("released", "Released", "trim|required");
@@ -67,6 +69,8 @@ class Game extends MY_Controller
     		$response = false;
     		
     		$data['post'] = $this->session->userdata('post');
+    		
+    		$hash = '';
     		
     		if ($this->form_validation->run()) {
             
@@ -171,6 +175,7 @@ class Game extends MY_Controller
               $this->session->set_userdata('post', $_POST);
             }
         }
+
 
         if ($this->input->is_ajax_request() && $response) {
           

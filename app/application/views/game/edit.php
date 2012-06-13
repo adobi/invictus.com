@@ -36,6 +36,12 @@
             </div>
         </fieldset>  
         <fieldset class="control-group">
+            <label class="control-label" for="name">Category</label>
+            <div class="controls">
+                <?php echo form_dropdown('category_id', $categories_select, $post && isset($post['category_id']) ? $post['category_id'] : ($item ? $item->category_id : ''), 'class="chosen"') ?>
+            </div>
+        </fieldset>
+        <fieldset class="control-group">
             <label class="control-label" for="released">Released</label>
             <div class="controls">
               <div class="input-append">

@@ -11,6 +11,11 @@ class Api extends Page_Controller
     parent::__construct();
   }
   
+  public function index() 
+  {
+    $this->template->build('api/index', $this->data);
+  }
+  
   public function platforms()
   {
     $this->load->model('Platforms', 'platforms');

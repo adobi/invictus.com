@@ -127,7 +127,7 @@
           }
         )
       )
-      console.log(App.URL + 'game/' +hash)
+      //console.log(App.URL + 'game/' +hash)
       $('#load-into-right').trigger('click')
     }
   }  

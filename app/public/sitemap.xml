@@ -25,6 +25,10 @@
 		</url>
 
 		<url>
+			<loc>http://localhost/invictus.com/app/public/games/4x4-jam</loc>
+		</url>
+
+		<url>
 			<loc>http://localhost/invictus.com/app/public/games/froggy-jump</loc>
 		</url>
 
@@ -38,10 +42,6 @@
 
 		<url>
 			<loc>http://localhost/invictus.com/app/public/games/froggy-launcher</loc>
-		</url>
-
-		<url>
-			<loc>http://localhost/invictus.com/app/public/games/4x4-jam</loc>
 		</url>
 
 		<url>

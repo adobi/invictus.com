@@ -152,6 +152,7 @@
   {
     $(".chosen").chosen({
         no_results_text: "No results matched", 
+        //allow_single_deselect: true
     }); 
     
     $('.chosen-select-all').bind('click', function(e) {
@@ -297,10 +298,12 @@
       if ($('#list-of-all-games').length){
         // game oldalon vagyunk
         var cont = $('#list-of-all-games')
-        //cont.find('li').hide()
-        cont.children().hide()
         
-        cont.find('[data-id='+val+']').parents('li:first').show()
+        //cont.children().hide()
+        
+        //cont.find('[data-id='+val+']').parents('li:first').show()
+        cont.find('.selected').removeClass('selected')
+        cont.find('[data-id='+val+']').parents('li:first').find('.item').addClass('selected')
         
         window.location.hash = 'edit/'+val
         
