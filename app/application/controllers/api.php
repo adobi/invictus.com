@@ -39,7 +39,7 @@ class Api extends Page_Controller
   public function games()
   {
     $this->load->model('Games', 'games');
-    $games = $this->games->fetchActive();
+    $games = $this->games->fetchAll();
     
     if ($games) {
       

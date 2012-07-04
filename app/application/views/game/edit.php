@@ -121,7 +121,7 @@
         <fieldset class="control-group">
             <label class="control-label" for="crosspromo_description">Crosspromo description</label>
             <div class="controls">
-                <textarea rows="5" name="crosspromo_description" id = "crosspromo_description" class="span4"><?php echo $post && isset($post['crosspromo_description']) ? $post['crosspromo_description'] : ($item ? $item->crosspromo_description : '') ?></textarea>
+                <textarea rows="2" name="crosspromo_description" id = "crosspromo_description" class="span4"><?php echo $post && isset($post['crosspromo_description']) ? $post['crosspromo_description'] : ($item ? $item->crosspromo_description : '') ?></textarea>
             </div>
         </fieldset>         
         <!-- 

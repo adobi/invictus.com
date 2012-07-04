@@ -14,7 +14,7 @@
       <fieldset class="control-group">
           <label class="control-label" for="url">Platform</label>
           <div class="controls">
-              <?php echo form_dropdown('platform_id', $platforms, $item ? $item->platform_id : '', 'class="span4"') ?>
+              <?php echo form_dropdown('platform_id', $platforms, $item ? $item->platform_id : '', 'class="span4 chosen"') ?>
           </div>
       </fieldset>       
       <fieldset class="control-group">
@@ -33,7 +33,7 @@
           <label class="control-label" for="price">Price</label>
           <div class="controls">
               <input type="text" name="price" id = "price" class = "span2" value = "<?php echo $item ? $item->price : '' ?>"/> 
-              <?php echo form_dropdown('currency', array('$'=>'$', '€'=>'€'), $item->currency, 'class="span1"') ?>
+              <?php echo form_dropdown('currency', array('$'=>'$', '€'=>'€'), $item ? $item->currency : '', 'class="span1"') ?>
           </div>
       </fieldset>
       <fieldset class="control-group">
