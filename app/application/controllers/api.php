@@ -68,4 +68,16 @@ class Api extends Page_Controller
     die;
   }
   
+  public function categories()
+  {
+    $this->load->model('Categorys', 'model');
+    
+    $categories = $this->model->fetchAll();
+    
+    echo json_encode($categories);
+    
+    die;
+  }
+  
+  
 }

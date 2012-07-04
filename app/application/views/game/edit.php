@@ -117,7 +117,13 @@
             <div class="controls">
                 <textarea rows="5" name="long_description" id = "long_description" class="span4"><?php echo $post && isset($post['long_description']) ? $post['long_description'] : ($item ? $item->long_description : '') ?></textarea>
             </div>
-        </fieldset> 
+        </fieldset>
+        <fieldset class="control-group">
+            <label class="control-label" for="crosspromo_description">Crosspromo description</label>
+            <div class="controls">
+                <textarea rows="5" name="crosspromo_description" id = "crosspromo_description" class="span4"><?php echo $post && isset($post['crosspromo_description']) ? $post['crosspromo_description'] : ($item ? $item->crosspromo_description : '') ?></textarea>
+            </div>
+        </fieldset>         
         <!-- 
         <fieldset class="control-group">
             <label class="control-label" for="facebook_app_id">Facebook app id</label>
