@@ -22,7 +22,20 @@
           <div class="controls">
               <input type="text" name="min_os_version" id = "min_os_version" class = "span2" value = "<?php echo $item ? $item->min_os_version : '' ?>"/> 
           </div>
-      </fieldset>       
+      </fieldset> 
+      <fieldset class="control-group">
+          <label class="control-label" for="width">Minimal resolution</label>
+          <div class="controls">
+              <input type="text" name="width" id = "width" class = "span1" value = "<?php echo $item ? $item->width : '' ?>"/> x 
+              <input type="text" name="height" id = "height" class = "span1" value = "<?php echo $item ? $item->height : '' ?>"/>
+          </div>
+      </fieldset> 
+      <fieldset class="control-group">
+          <label class="control-label" for="opengl">Minimal OpenGL</label>
+          <div class="controls">
+              <input type="text" name="opengl" id = "opengl" class = "span1" value = "<?php echo $item ? $item->opengl : '' ?>"/>
+          </div>
+      </fieldset>                  
       <fieldset class="control-group">
           <label class="control-label" for="version">Game version</label>
           <div class="controls">
