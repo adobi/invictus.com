@@ -79,5 +79,8 @@ class Api extends Page_Controller
     die;
   }
   
-  
+  public function crosspromo_update()
+  {
+    return $this->updater->setUri(CROSSPROMO_API_UPDATE_URL)->setSecret(CROSSPROMO_API_SECRET)->update();
+  }
 }

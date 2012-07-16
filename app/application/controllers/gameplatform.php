@@ -60,6 +60,9 @@ class Gameplatform extends MY_Controller
              $this->model->setupAnalytics($id);
             
             $response = display_success('Saved');
+            
+            $this->updater->setUri(CROSSPROMO_API_UPDATE_URL)->setSecret(CROSSPROMO_API_SECRET)->update();
+            //$this->updater->cliUpdate();
         } else {
 
             $response = display_errors(validation_errors());
