@@ -76,7 +76,7 @@ if (@$_SERVER['HTTP_HOST'] === 'localhost') {
 
 } else {
     
-  define('CROSSPROMO_API_UPDATE_URL', 'http://crosspromo.invictus.com/api/load/');
+  define('CROSSPROMO_API_UPDATE_URL', 'http://crosspromo.invictus.com/load_data.php');
 }
 
 define('CROSSPROMO_API_SECRET', 'Cp97015jY4MiuI1m546De6rr!');

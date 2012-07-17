@@ -35,11 +35,12 @@ class Updater
     
     $hash = md5($this->_secret . $key);
     
-    $this->_uri .= $hash . '/' . $key;
+    $this->_uri .= "?hash=$hash&key=$key";
     
-    ini_set('max_execution_time', 300);
+    //ini_set('max_execution_time', 300);
     $res = false;
-    //$res = $this->_ci->curl->simple_get($this->_uri);
+    
+    $res = $this->_ci->curl->simple_get($this->_uri);
     
     //file_get_contents($this->_uri);
     
