@@ -4,6 +4,8 @@
 	
 		function event_tracking($item, $prefix="") {
 		    
+		    if (!$item) return false;
+		  
 		    $category = ($prefix ? $prefix . '_' : '').'ga_category';
 		    $action = ($prefix ? $prefix . '_' : '').'ga_action';
 		    $label = ($prefix ? $prefix . '_' : '').'ga_label';

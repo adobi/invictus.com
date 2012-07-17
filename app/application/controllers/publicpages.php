@@ -182,6 +182,23 @@ Invictus Games Support Team";
           
           $_POST['portfolio'] = $this->upload->file_name;
       }    
+
+      if ($this->upload->do_upload('att3')) {
+          
+          $_POST['att3'] = $this->upload->file_name;
+      }
+
+      if ($this->upload->do_upload('att4')) {
+          
+          $_POST['att4'] = $this->upload->file_name;
+      }
+      
+      if ($this->upload->do_upload('att5')) {
+          
+          $_POST['att5'] = $this->upload->file_name;
+      }     
+      
+       
       
       if (!$this->data['error']) {
         $this->load->model('Jobapplications', 'application');
@@ -234,13 +251,20 @@ Invictus Games Support Team";
           $phone = $_POST['phone'];
           $cv = '<a href = "'.base_url().'uploads/original/'.$_POST['cv'].'">download</a>';
           $portfolio = (isset($_POST['portfolio']) ? '<a href = "'.base_url().'uploads/original/'.$_POST['portfolio'].'">download</a>' : '-');
+          $att3 = (isset($_POST['att3']) ? '<a href = "'.base_url().'uploads/original/'.$_POST['att3'].'">download</a>' : '-');
+          $att4 = (isset($_POST['att4']) ? '<a href = "'.base_url().'uploads/original/'.$_POST['att4'].'">download</a>' : '-');
+          $att5 = (isset($_POST['att5']) ? '<a href = "'.base_url().'uploads/original/'.$_POST['att5'].'">download</a>' : '-');
           $message = "<h3>Position: $position</h3>
           <strong>Candidate:</strong>
           <p>Name: $firstname $lastname </p>
           <p>Phone: $phone </p>
           <p>Email: <a href='mailto:$email'>$email</a></p>
           <p>CV: $cv</p>
-          <p>Portfolio: $portfolio</p>";
+          <p>Portfolio: $portfolio</p>
+          <p>Attachment 3: $att3</p>
+          <p>Attachment 4: $att4</p>
+          <p>Attachment 5: $att5</p>";
+          
           $this->email->from('noreply@invictus.com');
           $this->email->to('invictus@invictus.com');
           $this->email->subject('Job application');

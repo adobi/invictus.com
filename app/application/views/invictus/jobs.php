@@ -36,9 +36,18 @@
                 </div>
               </div>
               <div class="control-group">
-                <label for="cv" class="control-label">CV</label>
+                <label for="cv" class="control-label">Attache files</label>
                 <div class="controls">
                   <input type="file" name="cv" id="cv" class="input-xlarge">
+                </div>                
+                <div class="controls">
+                  <input type="file" name="att3" id="att3" class="input-xlarge">
+                </div>
+                <div class="controls">
+                  <input type="file" name="att4" id="att4" class="input-xlarge">
+                </div>
+                <div class="controls">
+                  <input type="file" name="att5" id="att5" class="input-xlarge">
                 </div>
               </div>  
               <div class="control-group">
@@ -136,9 +145,18 @@
                 </div>
               </div>
               <div class="control-group">
-                <label for="cv" class="control-label">CV</label>
+                <label for="cv" class="control-label">Attache files</label>
                 <div class="controls">
                   <input type="file" name="cv" id="cv" class="input-xlarge">
+                </div>
+                <div class="controls">
+                  <input type="file" name="att3" id="att3" class="input-xlarge">
+                </div>
+                <div class="controls">
+                  <input type="file" name="att4" id="att4" class="input-xlarge">
+                </div>
+                <div class="controls">
+                  <input type="file" name="att5" id="att5" class="input-xlarge">
                 </div>
               </div>  
               <?php if ($job->is_graphic_designer) :?>
