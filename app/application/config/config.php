@@ -303,6 +303,7 @@ $config['csrf_protection'] = true;
 $config['csrf_token_name'] = 'invictus_com_csrf_token';
 $config['csrf_cookie_name'] = 'invictus_com_csrf_coockie';
 $config['csrf_expire'] = 7200;
+$config['csrf_exclude_uris'] = array('api/has', 'api/has/price'); 
 
 /*
 |--------------------------------------------------------------------------

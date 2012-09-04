@@ -83,4 +83,12 @@ class Api extends Page_Controller
   {
     return $this->updater->setUri(CROSSPROMO_API_UPDATE_URL)->setSecret(CROSSPROMO_API_SECRET)->update();
   }
+  
+  public function has() 
+  {
+    $this->load->model('Gameplatforms', 'model');
+    
+    echo $this->model->has($this->uri->segment(3), $_POST);
+    die;
+  }
 }

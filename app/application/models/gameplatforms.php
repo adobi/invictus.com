@@ -125,6 +125,54 @@ class Gameplatforms extends MY_Model
       
       return true;
     }
+    
+    public function has($column, $params) 
+    {
+      if (!$params) return false;
+      
+      $this->load->model('Games', 'games');
+      
+      $game = $this->games->fetchByUrl($params['game_name']);
+      
+      if (!$game) {
+        return false;
+      }
+      
+      $type = $params['type'];
+      
+      $platforms = array();
+      switch ($type) {
+        case 'ipad':
+          $params = array(5);
+          break;
+        case 'iphone':
+        case 'imac':
+          $params = array(1, 2);
+          break;
+        case 'android':
+          $params = array(7, 8);
+          break;
+        case 'amazon':
+          $params = array(14);
+          break;
+      }
+      
+      if (empty($params)) return false;
+      
+      $platformIds = implode(',', $params);
+      
+      $sql = "select $column from $this->_name where game_id=$game->id and platform_id in ($platformIds)";
+      
+      $result = $this->execute($sql);
+      
+      if (!$result) return 0;
+      
+      foreach ($result as $item) {
+        if ($item->price) return 1;
+      }
+      
+      return 0;
+    }
 }
 
   
