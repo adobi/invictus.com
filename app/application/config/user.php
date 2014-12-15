@@ -10,7 +10,7 @@
 |
 */
 
-$config['username'] = 'admin';
+$config['username'] = '';
 $config['password'] = '';
 
 /* End of file hooks.php */
