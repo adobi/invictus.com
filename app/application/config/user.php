@@ -11,7 +11,7 @@
 */
 
 $config['username'] = 'admin';
-$config['password'] = 'a';
+$config['password'] = '';
 
 /* End of file hooks.php */
 /* Location: ./application/config/user.php */
