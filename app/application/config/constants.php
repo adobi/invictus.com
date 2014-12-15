@@ -79,7 +79,7 @@ if (@$_SERVER['HTTP_HOST'] === 'localhost') {
   define('CROSSPROMO_API_UPDATE_URL', 'http://crosspromo.invictus.com/load_data.php');
 }
 
-define('CROSSPROMO_API_SECRET', 'Cp97015jY4MiuI1m546De6rr!');
+define('CROSSPROMO_API_SECRET', '');
 
 
 /* End of file constants.php */
